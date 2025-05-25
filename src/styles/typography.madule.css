@@ -10,7 +10,6 @@
     line-height: 1.33;
 }
 
-
 .h3{
     font-weight: 700;
     font-size: 1.5rem;
@@ -22,7 +21,6 @@
     font-size: 1.25rem;
     line-height: 1.5;
 }
-
 
 .h5{
     font-weight: 700;
@@ -48,7 +46,6 @@
     line-height: 1.57;
 }
 
-
 .body1{
     font-weight: 400;
     font-size: 1rem;
@@ -60,6 +57,26 @@
     font-size: 0.875rem;
     line-height: 1.57;
 }
+
+.caption{
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.overline{
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.button{
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.71;
+}
+
+
 /* responsive */
 
 @media (width >= 600px) {
