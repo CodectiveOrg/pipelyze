@@ -48,6 +48,18 @@
     line-height: 1.57;
 }
 
+
+.body1{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.body2{
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.57;
+}
 /* responsive */
 
 @media (width >= 600px) {
