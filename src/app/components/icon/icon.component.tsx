@@ -33,6 +33,10 @@ export default function IconComponent({
     fetchIcon();
   }, [name]);
 
+  if (error) {
+    return <div className={styles.icon}>⚠️ {error}</div>;
+  }
+
   return (
     <div
       className={styles.icon}
