@@ -36,6 +36,17 @@
     line-height: 1.56;
 }
 
+.subtitle1{
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.subtitle2{
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.57;
+}
 
 /* responsive */
 
