@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Typography from "@/components/Typography";
 
+import "../styles/typography.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.className}>
-      <body>
-        <Typography variant="h1">l;dsjasdlfj</Typography>
-        {children}</body>
+      <body>{children}</body>
     </html>
   );
 }

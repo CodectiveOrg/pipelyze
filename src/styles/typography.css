@@ -1,0 +1,133 @@
+.h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.h2 {
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.33;
+}
+
+.h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.h4 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.h5 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.h6 {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.56;
+}
+
+.subtitle1 {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.subtitle2 {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.57;
+}
+
+.body1 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.body2 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.57;
+}
+
+.caption {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.overline {
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.button {
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.71;
+}
+
+/* responsive */
+
+@media (width >= 600px) {
+  .h1 {
+    font-size: 3.25rem;
+  }
+
+  .h2 {
+    font-size: 2.5rem;
+  }
+
+  .h3 {
+    font-size: 1.625rem;
+  }
+
+  .h5 {
+    font-size: 1.1875rem;
+  }
+
+  .h6 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (width >= 900px) {
+  .h1 {
+    font-size: 3.625rem;
+  }
+
+  .h2 {
+    font-size: 2.75rem;
+  }
+
+  .h3 {
+    font-size: 1.875rem;
+  }
+
+  .h4 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (width >=1200px) {
+  .h1 {
+    font-size: 4rem;
+  }
+
+  .h2 {
+    font-size: 3rem;
+  }
+
+  .h3 {
+    font-size: 2rem;
+  }
+}
