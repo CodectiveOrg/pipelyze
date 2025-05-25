@@ -9,7 +9,8 @@ type PropsTypography = {
   };
 
 const Typography: React.FC<PropsTypography> = ({variant,children,className}) => {
-    return (zzz)
+    return <div className={`${variant} ${className}`}>{children}</div>
 };
 
 export default Typography;
+
