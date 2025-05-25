@@ -18,7 +18,6 @@ interface PropsTypography {
 }
 
 const Typography = ({ variant, children, className }: PropsTypography) => {
-
   const variantClass = variant;
 
   return <div className={`${variantClass} ${className || ""}`}>{children}</div>;
