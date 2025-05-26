@@ -1,9 +1,10 @@
 "use client";
 
+import clsx from "clsx";
+
 import React, { useEffect, useState } from "react";
 
 import styles from "./icon.module.css";
-import clsx from "clsx"
 
 export default function IconComponent({
   color,
