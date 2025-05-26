@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 import styles from "./icon.module.css";
+import clsx from "clsx"
 
 export default function IconComponent({
   color,
@@ -39,8 +40,7 @@ export default function IconComponent({
 
   return (
     <div
-      className={styles.icon}
-      style={{ color }}
+      className={clsx(styles.icon, styles[color])}
       dangerouslySetInnerHTML={{ __html: svgContent }}
     />
   );
