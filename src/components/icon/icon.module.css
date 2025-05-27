@@ -8,7 +8,7 @@
   }
 
   &.success {
-    color: var( --palette-success-main);
+    color: var(--palette-success-main);
   }
 
   &.danger {
