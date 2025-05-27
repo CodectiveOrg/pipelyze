@@ -26,12 +26,11 @@ export default function IconComponent({
   inline = true,
   ...otherProps
 }: Props) {
-
   const iconData = getIconData(icons, name);
 
   if (!iconData) {
-  return <svg></svg>
-}
+    return <svg></svg>;
+  }
 
   return (
     <Icon
