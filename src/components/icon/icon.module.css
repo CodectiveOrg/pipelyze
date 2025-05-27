@@ -1,0 +1,16 @@
+
+.inherit {
+  color: inherit;
+}
+
+.primary {
+  color: var(--palette-primary-main);
+}
+
+.danger {
+  color: var(--palette-primary-danger);
+}
+
+.success {
+  color: var(--palette-primary-scuccess);
+}

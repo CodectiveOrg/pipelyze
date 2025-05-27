@@ -33,7 +33,6 @@ export default function IconComponent({
       ssr
       icon={iconData}
       className={clsx(styles.icon, styles[color])}
-      color={color}
       inline={inline}
       {...otherProps}
     />
