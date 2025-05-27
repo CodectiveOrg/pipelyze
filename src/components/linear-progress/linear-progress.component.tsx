@@ -21,7 +21,10 @@ export default function LinearProgressComponent(prop: {
             className={styles["first-span"]}
             style={{ backgroundColor: prop.color }}
           ></span>
-          <span className={styles["second-span"]}></span>
+          <span
+            className={styles["second-span"]}
+            style={{ backgroundColor: prop.color }}
+          ></span>
         </span>
       )}
     </div>
