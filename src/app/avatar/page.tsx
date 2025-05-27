@@ -113,6 +113,7 @@ const AvatarPage: React.FC = () => {
                                     >
                                         {char}
                                     </Avatar>
+                                    
                                 ))}
                             </div>
                         </div>

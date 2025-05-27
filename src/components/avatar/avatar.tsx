@@ -22,30 +22,30 @@ colorIndex,
   size = 'lg',
   children,
 }) => {
-  // مپ کردن variant به مقادیر border-radius (مستقیم بدون متغیر CSS)
+
   const radiusMap: Record<string, string> = {
     full: '100%',
-    runded: '12px',
-    square: '0px',
+    runded: '0.75rem',
+    square: '0rem',
   };
 const colors = [
-    '#00a76f', // سبز تیره
-    '#00b8d9', // فیروزه‌ای
-    '#22c55e', // سبز روشن
-    '#ff5630', // نارنجی
-    '#1c252e', // خاکستری تیره
-    '#dfe3e8', // خاکستری روشن
+    'green-700', 
+    'teal-500', 
+    'green-400', 
+    'orange-500', 
+    'gray-800', 
+    'gray-100',
   ];
-  // مپ کردن size به مقادیر پیکسلی (مستقیم بدون متغیر CSS)
+  
   const sizeMap: Record<string, string> = {
-    xs: '24px',
-    sm: '32px',
-    md:'40px',
-    lg: '48px',
-    xl: '56px',
-    '2xl': '64px',
-    '3xl': '80px',
-    '4xl': '128px',
+  xs: '1.5rem',     
+  sm: '2rem',       
+  md: '2.5rem',     
+  lg: '3rem',       
+  xl: '3.5rem',     
+  '2xl': '4rem',    
+  '3xl': '5rem',    
+  '4xl': '8rem',    
   };
 const images = [
     'https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-2.webp',
@@ -55,7 +55,12 @@ const images = [
     'https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-6.webp',
     'https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-11.webp'
   ];
-  const selectedColor = colorIndex !== undefined ? colors[colorIndex % colors.length] : bgColor || 'transparent';
+  const selectedColor = colorIndex !== undefined ? 
+      colors[colorIndex % colors.length] 
+      : 
+      bgColor || 'green-400';
+
+
   const selectedImage = imageIndex !== undefined && images[imageIndex] ? images[imageIndex] : image || 'none';
   // استایل‌های اینلاین
   const avatarStyles: React.CSSProperties = {
@@ -68,8 +73,15 @@ const images = [
     backgroundPosition: 'center',
   };
 
-  // ترکیب کلاس‌ها
-  const classNameValue = `${styles.avatar}${image ? ` ${styles['avatar--image']}` : ''}${className ? ` ${className}` : ''}`;
+const classNames: string[] = [styles.avatar];
+
+
+if (selectedColor) {
+  classNames.push(styles[selectedColor]); 
+}
+
+
+const classNameValue = classNames.join(' ');
 
   return (
     <div className={classNameValue} style={avatarStyles}>

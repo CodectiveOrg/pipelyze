@@ -24,42 +24,48 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: #f3f4f6; /* معادل bg-gray-100 */
-   /* معادل min-h-screen */
-  width: 100%; /* معادل w-full */
+  background-color: #f3f4f6;
+
+  width: 100%; 
 }
 
-/* استایل برای card (معادل bg-white w-9/12 h-64 mx-auto rounded-xl mt-10) */
 .card {
-  background-color: #ffffff; /* معادل bg-white */
-  width: 75%; /* معادل w-9/12 */
-  height: 16rem; /* معادل h-64 (64 * 0.25rem = 16rem) */
+  background-color: #ffffff;
+  width: 75%; 
+  height: 16rem; 
   margin-left: auto;
-  margin-right: auto; /* معادل mx-auto */
-  border-radius: 0.75rem; /* معادل rounded-xl */
-  margin-top: 2.5rem; /* معادل mt-10 (10 * 0.25rem = 2.5rem) */
+  margin-right: auto; 
+  border-radius: 0.75rem;
+  margin-top: 2.5rem; 
 }
 
-/* استایل برای title (معادل text-gray-700 font-yekan text-xl p-5) */
+
 .title {
-  color: #4b5563; /* معادل text-gray-700 */
-  font-family: 'Yekan', sans-serif; /* فرض بر این است که فونت Yekan تعریف شده است */
-  font-size: 1.25rem; /* معادل text-xl */
-  padding: 1.25rem; /* معادل p-5 (5 * 0.25rem = 1.25rem) */
+  color: #4b5563; 
+  font-family: 'Yekan', sans-serif; 
+  font-size: 1.25rem; 
+  padding: 1.25rem; 
 }
 
-/* استایل برای inner-card (معادل bg-gray-100 h-40 w-9/12 rounded-xl mx-auto flex items-center justify-center) */
 .inner_card {
-  background-color: #f3f4f6; /* معادل bg-gray-100 */
-  height: 10rem; /* معادل h-40 (40 * 0.25rem = 10rem) */
-  width: 75%; /* معادل w-9/12 */
-  border-radius: 0.75rem; /* معادل rounded-xl */
+  background-color: #f3f4f6; 
+  height: 10rem; 
+  width: 75%; 
+  border-radius: 0.75rem; 
   margin-left: auto;
-  margin-right: auto; /* معادل mx-auto */
+  margin-right: auto; 
   display: flex;
   gap: 1rem;
-  align-items: center; /* معادل items-center */
-  justify-content: center; /* معادل justify-center */
+  align-items: center; 
+  justify-content: center; 
   flex-wrap: wrap;
 
 }
+
+
+.green-700 { background-color: var(--palette-success-dark); }
+.teal-500 { background-color: var(--palette-info-light); }
+.green-400 { background-color: var(--palette-success-light); }
+.orange-500 { background-color: var(--palette-error-main); }
+.grey-800 { background-color: var(--palette-grey-800); }
+.gray-100 { background-color: var(--palette-grey-100); }
