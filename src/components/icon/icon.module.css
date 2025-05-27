@@ -1,15 +1,25 @@
-.inherit {
-  color: inherit;
-}
+.icon {
+  &.primary {
+    color: var(--palette-primary-main);
+  }
 
-.primary {
-  color: var(--palette-primary-main);
-}
+  &.info {
+    color: var(--palette-info-main);
+  }
 
-.danger {
-  color: var(--palette-primary-danger);
-}
+  &.success {
+    color: var(--palette-primary-scuccess);
+  }
 
-.success {
-  color: var(--palette-primary-scuccess);
+  &.danger {
+    color: var(--palette-primary-danger);
+  }
+
+  &.warning {
+    color: var(--palette-warning-main);
+  }
+
+  &.error {
+    color: var(--palette-error-main);
+  }
 }

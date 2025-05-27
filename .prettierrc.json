@@ -4,7 +4,7 @@
     "^(vite|@vitejs)(/(.*))?$",
     "^next(/(.*))?$",
     "^clsx(/(.*))?$",
-    "^iconify$",
+    "^@iconify(/(.*))?$",
     "^@iconify-json(/(.*))?$",
     "<THIRD_PARTY_MODULES>",
     "^@/assets",

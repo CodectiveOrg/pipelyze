@@ -5,6 +5,7 @@ import { icons } from "@iconify-json/mingcute";
 import { Icon } from "@iconify/react";
 import { IconProps } from "@iconify/react";
 import { getIconData } from "@iconify/utils";
+import { ReactElement } from "react";
 
 import { ColorType } from "@/types/color.type";
 
@@ -20,12 +21,14 @@ export default function IconComponent({
   color = "inherit",
   inline = true,
   ...otherProps
-}: Props) {
+}: Props): ReactElement {
   const iconData = getIconData(icons, name);
 
   if (!iconData) {
+    console.error(`Icon "${name}" is missing.`);
+
     return (
-      <svg height="1em" width="em" aria-hidden="true" viewBox="0 0 16 16"></svg>
+      <svg height="1em" width="em" aria-hidden="true" viewBox="0 0 24 24"></svg>
     );
   }
 
