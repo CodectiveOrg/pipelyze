@@ -1,23 +1,16 @@
 import clsx from "clsx";
 
-import { icons } from "@iconify-json/codicon";
+import { icons } from "@iconify-json/mingcute";
 import { Icon } from "@iconify/react";
 import { IconProps } from "@iconify/react";
 import { getIconData } from "@iconify/utils";
 
+import { ColorType } from "@/types/color.type";
 import styles from "./icon.module.css";
 
-export type ColorType =
-  | "primary"
-  | "inherit"
-  | "info"
-  | "success"
-  | "warning"
-  | "error";
-
 type Props = Omit<IconProps, "icon" | "ssr" | "color"> & {
-  color?: ColorType;
   name: string;
+  color?: ColorType;
 };
 
 export default function IconComponent({
@@ -26,10 +19,13 @@ export default function IconComponent({
   inline = true,
   ...otherProps
 }: Props) {
-  const iconData = getIconData(icons, name);
 
+  const iconData = getIconData(icons, name);
+  
   if (!iconData) {
-    return <svg></svg>;
+    return (
+      <svg height="1em" width="em" aria-hidden="true" viewBox="0 0 16 16"></svg>
+    );
   }
 
   return (
