@@ -39,4 +39,10 @@
   --palette-grey-700: hsl(213, 14%, 31%);
   --palette-grey-800: hsl(210, 24%, 15%);
   --palette-grey-900: hsl(212, 25%, 10%);
+
+  --palette-text-disabled: hsl(210, 14%, 62%);
+  --palette-text-secondary: hsl(210, 13%, 44%);
+  --palette-text-primary: hsl(210, 24%, 15%);
+
+  --palette-secondary-main: hsl(266, 100%, 60%);
 }

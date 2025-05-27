@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "@/styles/colors.css";
+
 import "@/styles/typography.css";
+
 
 import "./globals.css";
 
