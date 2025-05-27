@@ -14,7 +14,7 @@ export interface AvatarProps {
 }
 const Avatar: React.FC<AvatarProps> = ({
   variant = "full",
-  
+
   bgColor,
   image,
   imageIndex,
