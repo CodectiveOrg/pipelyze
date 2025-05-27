@@ -8,11 +8,11 @@
   }
 
   &.success {
-    color: var(--palette-primary-scuccess);
+    color: var( --palette-success-main);
   }
 
   &.danger {
-    color: var(--palette-primary-danger);
+    color: var(---palette-primary-main);
   }
 
   &.warning {
