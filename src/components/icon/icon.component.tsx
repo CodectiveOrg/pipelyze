@@ -1,7 +1,6 @@
 import clsx from "clsx";
 
-import { Icon } from "@iconify/react";
-import { IconProps } from "@iconify/react";
+import { Icon, IconProps } from "@iconify/react";
 import { getIconData } from "@iconify/utils";
 
 import { icons } from "@iconify-json/mingcute";
