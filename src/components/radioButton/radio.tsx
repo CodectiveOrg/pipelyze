@@ -1,8 +1,9 @@
+'use client';
 
 import { Color, Size } from '@/types/radioButton.type';
 import styles from './radio.module.css'
+import { useState } from 'react';
 import clsx from 'clsx';
-import { ReactElement } from 'react';
 
 type props = {
     size: Size;
@@ -10,7 +11,12 @@ type props = {
 }
 
 export default function RadioComponent ({size,color}:props): ReactElement {
+
+    const [isActive,setIsActive] = useState(false)
+    
     return(
-        <input type="radio" className={clsx(size,color)}/>
+        <span>
+            <input type="radio" className={clsx(size,color,isActive && styles.Active,styles.radio)} />
+        </span>
     )
 }
