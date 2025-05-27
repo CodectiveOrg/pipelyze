@@ -1,48 +1,46 @@
-"use client";
-
 import clsx from "clsx";
 
-import React, { useEffect, useState } from "react";
+import { icons } from "@iconify-json/codicon";
+import { Icon } from "@iconify/react";
+import { IconProps } from "@iconify/react";
+import { getIconData } from "@iconify/utils";
 
 import styles from "./icon.module.css";
 
-export default function IconComponent({
-  color,
-  name,
-}: {
-  color: string;
+export type ColorType =
+  | "primary"
+  | "inherit"
+  | "info"
+  | "success"
+  | "warning"
+  | "error";
+
+type Props = Omit<IconProps, "icon" | "ssr" | "color"> & {
+  color?: ColorType;
   name: string;
-}) {
-  const [svgContent, setSvgContent] = useState("");
-  const [error, setError] = useState("");
+};
 
-  useEffect(() => {
-    const fetchIcon = async () => {
-      try {
-        const response = await fetch(
-          `https://api.iconify.design/mingcute:${name.toLocaleLowerCase()}-fill.svg`,
-        );
-        const svg = await response.text();
-        setSvgContent(svg);
-      } catch (error: unknown) {
-        if (error instanceof Error) {
-          setError(error.message);
-        } else {
-          setError("An unknown error occurred");
-        }
-      }
-    };
-    fetchIcon();
-  }, [name]);
+export default function IconComponent({
+  name,
+  color = "inherit",
+  inline = true,
+  ...otherProps
+}: Props) {
 
-  if (error) {
-    return <div className={styles.icon}>⚠️ {error}</div>;
-  }
+  const iconData = getIconData(icons, name);
+
+  if (!iconData) {
+  return <svg></svg>
+}
 
   return (
-    <div
+    <Icon
+      ssr
+      icon={iconData}
       className={clsx(styles.icon, styles[color])}
-      dangerouslySetInnerHTML={{ __html: svgContent }}
+      color={color}
+      inline={inline}
+      {...otherProps}
     />
   );
 }
