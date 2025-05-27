@@ -20,3 +20,12 @@ option,
 optgroup {
   font: inherit;
 }
+
+/* پاک میشود برای تست است */
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+/* /////////////////////// */

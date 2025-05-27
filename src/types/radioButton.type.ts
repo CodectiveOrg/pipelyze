@@ -1,6 +1,6 @@
-export type size = 'noremal' | 'small'
+export type Size = 'noremal' | 'small'
 
-export type color = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error' | 'Disabled'
+export type Color = 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error' | 'Disabled'
 
 
 
