@@ -2,10 +2,20 @@ import { ReactElement } from "react";
 
 import styles from "./progress.module.css";
 
-export default function ProgressComponent(): ReactElement {
+export default function ProgressComponent(prop: {
+  color: string;
+  size: number;
+}): ReactElement {
   return (
     <div className={styles.progress}>
-      <span role="progressbar">
+      <span
+        style={{
+          color: prop.color,
+          width: `${prop.size}rem`,
+          height: `${prop.size}rem`,
+        }}
+        role="progressbar"
+      >
         <svg viewBox="22 22 44 44">
           <circle
             cx="44"
