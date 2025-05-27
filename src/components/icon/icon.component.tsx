@@ -28,7 +28,12 @@ export default function IconComponent({
     console.error(`Icon "${name}" is missing.`);
 
     return (
-      <svg width="1em" height="1em" aria-hidden="true" viewBox="0 0 24 24"></svg>
+      <svg
+        width="1em"
+        height="1em"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+      ></svg>
     );
   }
 
