@@ -1,5 +1,6 @@
-import clsx from 'clsx'
-import { PropsWithChildren, ReactElement } from 'react';
+import clsx from "clsx";
+
+import { PropsWithChildren, ReactElement } from "react";
 
 type Variant =
   | "h1"
@@ -16,16 +17,15 @@ type Variant =
   | "overline"
   | "button";
 
-type Props =PropsWithChildren<{
+type Props = PropsWithChildren<{
   variant: Variant;
   className?: string;
-}>
+}>;
 
-
-
-export default function TypographyComponent ({ variant, children, className }: Props) : ReactElement{
-
+export default function TypographyComponent({
+  variant,
+  children,
+  className,
+}: Props): ReactElement {
   return <div className={clsx(className, variant)}>{children}</div>;
 }
-
-

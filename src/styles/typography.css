@@ -60,7 +60,6 @@
   @media (min-width: 900px) {
     font-size: 1.5rem;
   }
-
 }
 
 .h5 {
@@ -69,7 +68,8 @@
   line-height: 1.5;
 
   @media (min-width: 600px) {
-    font-size: 1.1875rem;  }
+    font-size: 1.1875rem;
+  }
 }
 
 .h6 {
@@ -77,9 +77,8 @@
   font-size: 1.0625rem;
   line-height: 1.56;
 
-  @media (min-width:600px) {
+  @media (min-width: 600px) {
     font-size: 1.125rem;
-    
   }
 }
 
