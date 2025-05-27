@@ -1,14 +1,11 @@
 .progress {
-  width: 100%;
-  border-radius: 12px;
+  inline-size: 100%;
+  border-radius: 0.75rem;
 }
 
 .progress span {
   display: inline-block;
   animation: 1.4s linear 0s infinite normal none running animation-61bdi0;
-
-  width: 2.5rem;
-  height: 2.5rem;
 }
 
 .progress span svg {

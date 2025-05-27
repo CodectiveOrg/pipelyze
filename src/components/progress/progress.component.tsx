@@ -11,8 +11,8 @@ export default function ProgressComponent(prop: {
       <span
         style={{
           color: prop.color,
-          width: `${prop.size}rem`,
-          height: `${prop.size}rem`,
+          inlineSize: `${prop.size}rem`,
+          blockSize: `${prop.size}rem`,
         }}
         role="progressbar"
       >
