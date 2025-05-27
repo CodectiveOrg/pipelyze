@@ -2,9 +2,9 @@ import clsx from "clsx";
 
 import { PropsWithChildren, ReactElement } from "react";
 
-import styles from './typography.module.css'
 import { TypographyType, Variant } from "@/types/typography.type";
 
+import styles from "./typography.module.css";
 
 type Props = PropsWithChildren<{
   variant: Variant;
@@ -16,7 +16,9 @@ export default function TypographyComponent({
   variant,
   children,
   className,
-  color
+  color,
 }: Props): ReactElement {
-  return <div className={clsx(className, variant, styles[color])}>{children}</div>;
+  return (
+    <div className={clsx(className, variant, styles[color])}>{children}</div>
+  );
 }
