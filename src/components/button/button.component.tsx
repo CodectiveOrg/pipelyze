@@ -14,8 +14,8 @@ type ButtonProps = {
   href?: string;
   color?: ColorType;
   size?: "small" | "medium" | "large";
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+  startIcon?: string;
+  endIcon?: string;
 };
 
 type Props = ComponentProps<"button"> & ButtonProps;
@@ -40,9 +40,13 @@ export default function ButtonComponent({
       )}
       {...rest}
     >
-      <IconComponent name={"startIcon"} />
+      <span className={styles["start-icon"]}>
+        {startIcon && <IconComponent name={startIcon} />}
+      </span>
       {children}
-      <IconComponent name={"endIcon"} />
+      <span className={styles["end-icon"]}>
+        {endIcon && <IconComponent name={endIcon} />}
+      </span>
     </button>
   );
 }

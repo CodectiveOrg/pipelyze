@@ -25,6 +25,7 @@
     color: #ffffff;
     border: none;
     box-shadow: none;
+    padding: 6px 12px;
 
     &.inherit {
       background-color: var(--palette-grey-800);
@@ -58,7 +59,7 @@
 
       &:hover {
         background-color: var(--palette-success-dark);
-        box-shadow: var(--shadows-warning);
+        box-shadow: var(--shadows-success);
       }
     }
 
@@ -269,8 +270,8 @@
 
 .end-icon {
   display: inherit;
-  margin-right: 0.5rem;
-  margin-left: -0.25rem;
+  margin-right: -4px;
+  margin-left: 8px;
   color: inherit;
 
   &.icon {
