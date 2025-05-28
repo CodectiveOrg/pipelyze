@@ -22,7 +22,7 @@ optgroup {
 }
 
 /* پاک میشود برای تست است */
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
