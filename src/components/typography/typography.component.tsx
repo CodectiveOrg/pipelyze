@@ -21,7 +21,7 @@ type VariantType =
   | "overline"
   | "button";
 
-export type TypographyColorType =
+type TypographyColorType =
   | ColorType
   | "text-primary"
   | "text-secondary"
