@@ -30,14 +30,14 @@ export type TypographyColorType =
 type Props = PropsWithChildren<{
   variant: VariantType;
   className?: string;
-  color: TypographyColorType;
+  color?: TypographyColorType;
 }>;
 
 export default function TypographyComponent({
   variant,
   children,
   className,
-  color,
+  color = "text-primary",
 }: Props): ReactElement {
   return (
     <div className={clsx(className, variant, styles[color])}>{children}</div>
