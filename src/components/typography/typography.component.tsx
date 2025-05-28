@@ -40,6 +40,8 @@ export default function TypographyComponent({
   color = "text-primary",
 }: Props): ReactElement {
   return (
-    <div className={clsx(className, variant, styles[color])}>{children}</div>
+    <div className={clsx(styles.typography, className, variant, styles[color])}>
+      {children}
+    </div>
   );
 }
