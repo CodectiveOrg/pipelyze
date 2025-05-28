@@ -5,6 +5,12 @@
   --palette-primary-dark: hsl(212, 97%, 34%);
   --palette-primary-darker: hsl(219, 98%, 23%);
 
+  --palette-secondary-lighter: hsl(277, 100%, 92%);
+  --palette-secondary-light: hsl(272, 100%, 76%);
+  --palette-secondary-main: hsl(267, 100%, 60%);
+  --palette-secondary-dark: hsl(261, 76%, 41%);
+  --palette-secondary-darker: hsl(256, 86%, 26%);
+
   --palette-info-lighter: hsl(171, 93%, 89%);
   --palette-info-light: hsl(180, 86%, 67%);
   --palette-info-main: hsl(189, 100%, 43%);
@@ -40,9 +46,7 @@
   --palette-grey-800: hsl(210, 24%, 15%);
   --palette-grey-900: hsl(212, 25%, 10%);
 
-  --palette-text-disabled: hsl(210, 14%, 62%);
-  --palette-text-secondary: hsl(210, 13%, 44%);
   --palette-text-primary: hsl(210, 24%, 15%);
-
-  --palette-secondary-main: hsl(266, 100%, 60%);
+  --palette-text-secondary: hsl(210, 13%, 44%);
+  --palette-text-disabled: hsl(210, 14%, 62%);
 }
