@@ -1,4 +1,4 @@
-.icon {
+.typography {
   &.primary {
     color: var(--palette-primary-main);
   }
@@ -11,19 +11,23 @@
     color: var(--palette-info-main);
   }
 
-  &.success {
-    color: var(--palette-success-main);
-  }
-
-  &.danger {
-    color: var(---palette-primary-main);
-  }
-
   &.warning {
     color: var(--palette-warning-main);
   }
 
   &.error {
     color: var(--palette-error-main);
+  }
+
+  &.text-primary {
+    color: var(--palette-text-primary);
+  }
+
+  &.text-secondary {
+    color: var(--palette-text-secondary);
+  }
+
+  &.text-disabled {
+    color: var(--palette-text-disabled);
   }
 }
