@@ -50,6 +50,8 @@
   --palette-text-secondary: hsl(210, 13%, 44%);
   --palette-text-disabled: hsl(210, 14%, 62%);
 
+  --white-color: hsl(0, 0%, 100%);
+
   --bg-inherit: hsla(208, 13%, 45%, 0.08);
   --bg-primary: hsla(205, 94%, 48%, 0.08);
   --bg-info: hsla(189, 100%, 43%, 0.08);
