@@ -1,19 +1,14 @@
 import clsx from "clsx";
 
-import { icons } from "@iconify-json/codicon";
 import { Icon } from "@iconify/react";
 import { IconProps } from "@iconify/react";
 import { getIconData } from "@iconify/utils";
 
-import styles from "./icon.module.css";
+import { icons } from "@iconify-json/codicon";
 
-export type ColorType =
-  | "primary"
-  | "inherit"
-  | "info"
-  | "success"
-  | "warning"
-  | "error";
+import { ColorType } from "@/types/color.type";
+
+import styles from "./icon.module.css";
 
 type Props = Omit<IconProps, "icon" | "ssr" | "color"> & {
   color?: ColorType;

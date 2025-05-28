@@ -11,7 +11,7 @@ import styles from "./icon-button.module.css";
 type IconProps = {
   children?: ReactElement<typeof IconComponent>;
   name: string;
-  color?: ColorType;
+  color?: ColorType | undefined;
 };
 
 type Props = ComponentProps<"button"> & IconProps;
@@ -28,7 +28,7 @@ export default function IconButtonComponent({
         disabled ? styles.disabled : styles[color],
       )}
     >
-      <IconComponent name={name} color={color} />
+      <IconComponent name={name} />
     </button>
   );
 }
