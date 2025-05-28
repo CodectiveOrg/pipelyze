@@ -1,19 +1,23 @@
 import clsx from "clsx";
 
-import { Icon, IconProps } from "@iconify/react";
+import { icons } from "@iconify-json/codicon";
+import { Icon } from "@iconify/react";
+import { IconProps } from "@iconify/react";
 import { getIconData } from "@iconify/utils";
-
-import { icons } from "@iconify-json/mingcute";
-
-import { ReactElement } from "react";
-
-import { ColorType } from "@/types/color.type";
 
 import styles from "./icon.module.css";
 
+export type ColorType =
+  | "primary"
+  | "inherit"
+  | "info"
+  | "success"
+  | "warning"
+  | "error";
+
 type Props = Omit<IconProps, "icon" | "ssr" | "color"> & {
-  name: string;
   color?: ColorType;
+  name: string;
 };
 
 export default function IconComponent({
@@ -21,20 +25,11 @@ export default function IconComponent({
   color = "inherit",
   inline = true,
   ...otherProps
-}: Props): ReactElement {
+}: Props) {
   const iconData = getIconData(icons, name);
 
   if (!iconData) {
-    console.error(`Icon "${name}" is missing.`);
-
-    return (
-      <svg
-        width="1em"
-        height="1em"
-        aria-hidden="true"
-        viewBox="0 0 24 24"
-      ></svg>
-    );
+    return <svg></svg>;
   }
 
   return (
@@ -42,6 +37,7 @@ export default function IconComponent({
       ssr
       icon={iconData}
       className={clsx(styles.icon, styles[color])}
+      color={color}
       inline={inline}
       {...otherProps}
     />
