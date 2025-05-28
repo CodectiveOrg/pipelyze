@@ -6,7 +6,7 @@
   position: relative;
   vertical-align: middle;
 
-  min-width: 4rem;
+  min-inline-size: 4rem;
   line-height: 1.71;
 
   font-weight: 700;

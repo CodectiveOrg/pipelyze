@@ -60,5 +60,5 @@
   --bg-error: hsla(11, 100%, 59%, 0.08);
   --bg-disabled: hsla(210, 13%, 62%, 0.24);
 
-  --button--border-radius: 8px;
+  --button--border-radius: 0.5rem;
 }
