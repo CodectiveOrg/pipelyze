@@ -1,3 +1,7 @@
+:root {
+  --progress-value: 0;
+}
+
 .linear-progress {
   inline-size: 100%;
   border-radius: 0.75rem;
@@ -8,6 +12,7 @@
   overflow: hidden;
   display: block;
   block-size: 0.25rem;
+  background: var(--palette-grey-400);
   z-index: 0;
   border-radius: 0.25rem;
   margin-bottom: calc(2 * 0.5rem);
@@ -46,6 +51,34 @@
   transform-origin: left center;
   transition: transform 0.4s linear;
   border-radius: inherit;
+
+  &.primary {
+    background-color: var(--palette-primary-main);
+  }
+
+  &.secondary {
+    background-color: var(--palette-secondary-main);
+  }
+
+  &.info {
+    background-color: var(--palette-info-main);
+  }
+
+  &.success {
+    background-color: var(--palette-success-main);
+  }
+
+  &.danger {
+    background-color: var(--palette-primary-main);
+  }
+
+  &.warning {
+    background-color: var(--palette-warning-main);
+  }
+
+  &.error {
+    background-color: var(--palette-error-main);
+  }
 }
 
 @keyframes animation-ozg7p2 {
