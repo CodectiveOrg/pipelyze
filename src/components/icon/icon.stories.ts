@@ -8,6 +8,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  tags: ["autodocs"],
   argTypes: {
     color: {
       control: "select",
@@ -19,6 +20,11 @@ const meta = {
         min: 16,
         max: 72,
         step: 8,
+      },
+    },
+    inline: {
+      table: {
+        disable: true,
       },
     },
   },
