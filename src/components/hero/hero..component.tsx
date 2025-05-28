@@ -49,7 +49,16 @@ export default function HeroComponent() {
       </div>
 
       <div>
-        <TypographyComponent variant="overline" color="text-disabled">AVAILABLE FOR</TypographyComponent>
+        <TypographyComponent variant="overline" color="text-disabled">
+          AVAILABLE FOR
+        </TypographyComponent>
+      </div>
+
+      <div>
+        <IconComponent name="home-1-line" />
+        <IconComponent name="home-1-line" />
+        <IconComponent name="home-1-line" />
+        <IconComponent name="home-1-line" />
       </div>
     </div>
   );
