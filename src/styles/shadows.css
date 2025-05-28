@@ -96,6 +96,7 @@
     0px 11px 15px -7px hsla(210, 13%, 62%, 0.2),
     0px 24px 38px 3px hsla(210, 13%, 62%, 0.14),
     0px 9px 46px 8px hsla(210, 13%, 62%, 0.12);
+
   --shadows-z1: 0 1px 2px 0 hsla(210, 13%, 62%, 0.16);
   --shadows-z4: 0 4px 8px 0 hsla(210, 13%, 62%, 0.16);
   --shadows-z8: 0 8px 16px 0 hsla(210, 13%, 62%, 0.16);
@@ -110,6 +111,7 @@
   --shadows-dropdown:
     0 0 2px 0 hsla(210, 13%, 62%, 0.24),
     -20px 20px 40px -4px hsla(210, 13%, 62%, 0.24);
+
   --shadows-primary: 0 8px 16px 0 hsla(205, 94%, 48%, 0.24);
   --shadows-secondary: 0 8px 16px 0 hsla(267, 100%, 60%, 0.24);
   --shadows-info: 0 8px 16px 0 hsla(189, 100%, 43%, 0.24);
