@@ -1,11 +1,11 @@
+import { ReactElement } from "react";
+
 import clsx from "clsx";
 
 import { Icon, IconProps } from "@iconify/react";
 import { getIconData } from "@iconify/utils";
 
 import { icons } from "@iconify-json/mingcute";
-
-import { ReactElement } from "react";
 
 import { ColorType } from "@/types/color.type";
 
