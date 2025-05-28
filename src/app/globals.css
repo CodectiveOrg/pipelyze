@@ -1,35 +1,3 @@
-:root {
-  --primary--color: #078dee;
-  --inherit--color: #1c252e;
-  --info--color: #00b8d9;
-  --success--color: #22c55e;
-  --warning--color: #ffab00;
-  --error--color: #ff5630;
-
-  --primary--background-color: #078dee;
-  --inherit--background-color: #1c252e;
-  --info--background-color: #00b8d9;
-  --success--background-color: #22c55e;
-  --warning--background-color: #ffab00;
-  --error--background-color: #ff5630;
-
-  --primary--background-color--hover: #0351ab;
-  --inherit--background-color--hover: #454f5b;
-  --info--background-color--hover: #006c9c;
-  --success--background-color--hover: #118d57;
-  --warning--background-color--hover: #b76e00;
-  --error--background-color--hover: #b71d18;
-
-  --primary--box-shadow: rgba(7 141 238 / 0.24);
-  --inherit--box-shadow: rgba(145 158 171 / 0.16);
-  --info--box-shadow: rgba(0 184 217 / 0.24);
-  --success--box-shadow: rgba(34 197 94 / 0.24);
-  --warning--box-shadow: rgba(255 171 0 / 0.24);
-  --error--box-shadow: rgba(255 86 48 / 0.24);
-
-  --button--border-radius: 8px;
-}
-
 *,
 *::before,
 *::after {
@@ -51,4 +19,9 @@ output,
 option,
 optgroup {
   font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
