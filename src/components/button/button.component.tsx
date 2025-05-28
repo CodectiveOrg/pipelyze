@@ -1,6 +1,6 @@
-import clsx from "clsx";
-
 import React, { ComponentProps, ReactElement } from "react";
+
+import clsx from "clsx";
 
 import IconComponent from "@/components/icon/icon.component";
 
