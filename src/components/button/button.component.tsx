@@ -1,8 +1,10 @@
 import clsx from "clsx";
 
-import { ComponentProps, ReactElement } from "react";
+import React, { ComponentProps, ReactElement } from "react";
 
 import IconComponent from "@/components/icon/icon.component";
+
+import { ColorType } from "@/types/color.type";
 
 import styles from "./button.module.css";
 
@@ -10,7 +12,7 @@ type ButtonProps = {
   variant?: "contained" | "outlined" | "text";
   disabled?: boolean;
   href?: string;
-  color?: "inherit" | "primary" | "info" | "success" | "warning" | "error";
+  color?: ColorType;
   size?: "small" | "medium" | "large";
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;

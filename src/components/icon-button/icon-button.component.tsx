@@ -3,7 +3,8 @@ import clsx from "clsx";
 import { ComponentProps, ReactElement } from "react";
 
 import IconComponent from "@/components/icon/icon.component";
-import type { ColorType } from "@/components/icon/icon.component";
+
+import { ColorType } from "@/types/color.type";
 
 import styles from "./icon-button.module.css";
 
