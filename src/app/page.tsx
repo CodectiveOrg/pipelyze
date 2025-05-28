@@ -1,4 +1,5 @@
 import ButtonComponent from "@/components/button/button.component";
+import IconButtonComponent from "@/components/icon-button/icon-button.component";
 
 import styles from "./page.module.css";
 
@@ -12,24 +13,70 @@ export default function Page() {
         style={{
           display: "flex",
           justifyContent: "space-between",
+          gap: 10,
         }}
       >
-        <ButtonComponent variant={"contained"} color={"inherit"} size={"large"}>
+        <IconButtonComponent
+          color={"primary"}
+          name={"mail"}
+        ></IconButtonComponent>
+        <IconButtonComponent
+          color={"inherit"}
+          name={"mail"}
+        ></IconButtonComponent>
+        <IconButtonComponent
+          color={"error"}
+          name={"mail"}
+        ></IconButtonComponent>
+        <IconButtonComponent
+          color={"warning"}
+          name={"mail"}
+        ></IconButtonComponent>
+        <IconButtonComponent
+          color={"success"}
+          name={"mail"}
+        ></IconButtonComponent>
+        <IconButtonComponent color={"info"} name={"mail"}></IconButtonComponent>
+        <IconButtonComponent
+          color={"info"}
+          name={"mail"}
+          disabled
+        ></IconButtonComponent>
+      </div>
+      <br />
+      <br />
+      <br />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: 10,
+        }}
+      >
+        <ButtonComponent variant={"contained"} color={"inherit"}>
           inherit
         </ButtonComponent>
-        <ButtonComponent variant={"contained"} color={"primary"} size={"large"}>
+        <ButtonComponent
+          variant={"contained"}
+          color={"primary"}
+          endIcon={"mail"}
+        >
           Primary
         </ButtonComponent>
-        <ButtonComponent variant={"contained"} color={"info"} size={"large"}>
+        <ButtonComponent variant={"contained"} color={"info"}>
           Info
         </ButtonComponent>
-        <ButtonComponent variant={"contained"} color={"success"} size={"large"}>
+        <ButtonComponent variant={"contained"} color={"success"}>
           Success
         </ButtonComponent>
-        <ButtonComponent variant={"contained"} color={"warning"} size={"large"}>
+        <ButtonComponent variant={"contained"} color={"warning"}>
           Warning
         </ButtonComponent>
-        <ButtonComponent variant={"contained"} color={"error"} size={"large"}>
+        <ButtonComponent
+          variant={"contained"}
+          color={"error"}
+          startIcon={"mail"}
+        >
           Error
         </ButtonComponent>
         <ButtonComponent variant={"contained"} disabled>
@@ -43,6 +90,7 @@ export default function Page() {
         style={{
           display: "flex",
           justifyContent: "space-between",
+          gap: 10,
         }}
       >
         <ButtonComponent variant={"outlined"} color={"inherit"} size={"medium"}>
@@ -80,6 +128,7 @@ export default function Page() {
         style={{
           display: "flex",
           justifyContent: "space-between",
+          gap: 10,
         }}
       >
         <ButtonComponent variant={"text"} color={"inherit"} size={"small"}>

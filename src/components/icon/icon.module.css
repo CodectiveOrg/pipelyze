@@ -15,10 +15,6 @@
     color: var(--palette-success-main);
   }
 
-  &.danger {
-    color: var(---palette-primary-main);
-  }
-
   &.warning {
     color: var(--palette-warning-main);
   }
