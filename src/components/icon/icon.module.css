@@ -3,6 +3,10 @@
     color: var(--palette-primary-main);
   }
 
+  &.secondary {
+    color: var(--palette-secondary-main);
+  }
+
   &.info {
     color: var(--palette-info-main);
   }
