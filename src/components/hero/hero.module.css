@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 5rem;
-  gap: 1.5rem;
+  gap: 1.8rem;
   text-align: center;
 
   .title {
@@ -17,5 +17,22 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .btnContainer {
+    display: flex;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .link {
+    justify-items: left;
   }
 }

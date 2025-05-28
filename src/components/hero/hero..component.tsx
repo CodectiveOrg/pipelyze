@@ -1,4 +1,8 @@
+import Link from "next/link";
+
 import TypographyComponent from "@/components/typography/typography.component";
+
+import IconComponent from "../icon/icon.component";
 
 import styles from "./hero.module.css";
 
@@ -19,6 +23,34 @@ export default function HeroComponent() {
         <br />
         customization helps you build apps faster and better.
       </TypographyComponent>
+
+      <div className={styles.btnContainer}>
+        <button className={styles.button}>
+          <IconComponent name="bling-line" />
+          <TypographyComponent variant="button">
+            Live Preview
+          </TypographyComponent>
+        </button>
+        <button className={styles.button}>
+          <IconComponent name="figma-line" />
+          <TypographyComponent variant="button">
+            Figma Preview
+          </TypographyComponent>
+        </button>
+      </div>
+
+      <div className={styles.link}>
+        <TypographyComponent variant="subtitle2">
+          <Link href="/">
+            <IconComponent name="external-link-line" />
+            Get free version
+          </Link>
+        </TypographyComponent>
+      </div>
+
+      <div>
+        <TypographyComponent variant="overline" color="text-disabled">AVAILABLE FOR</TypographyComponent>
+      </div>
     </div>
   );
 }
