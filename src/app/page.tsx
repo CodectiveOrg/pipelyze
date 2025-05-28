@@ -1,11 +1,11 @@
 import HeroComponent from "@/components/hero/hero..component";
+
 import styles from "./page.module.css";
 
 export default function Page() {
-  return(
-  
+  return (
     <div className={styles.page}>
-    <HeroComponent/>
-  </div>
- )
+      <HeroComponent />
+    </div>
+  );
 }
