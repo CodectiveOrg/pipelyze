@@ -1,4 +1,4 @@
-import React, { ComponentProps, ReactElement } from "react";
+import React from "react";
 
 import clsx from "clsx";
 
@@ -8,45 +8,77 @@ import { ColorType } from "@/types/color.type";
 
 import styles from "./button.module.css";
 
-type ButtonProps = {
+type CommonProps = {
   variant?: "contained" | "outlined" | "text";
   disabled?: boolean;
-  href?: string;
   color?: ColorType;
   size?: "small" | "medium" | "large";
   startIcon?: string;
   endIcon?: string;
 };
 
-type Props = ComponentProps<"button"> & ButtonProps;
+type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
+  CommonProps & {
+    href?: undefined;
+  };
 
-export default function ButtonComponent({
-  variant = "contained",
-  disabled,
-  color = "primary",
-  size = "medium",
-  startIcon,
-  endIcon,
-  children,
-  ...rest
-}: Props): ReactElement {
+type AnchorProps = React.ComponentPropsWithoutRef<"a"> &
+  CommonProps & {
+    href?: string;
+  };
+
+export default function ButtonComponent(props: ButtonProps | AnchorProps) {
+  const {
+    variant = "contained",
+    color = "primary",
+    size = "medium",
+    disabled = false,
+    startIcon,
+    endIcon,
+    children,
+    className,
+    ...otherProps
+  } = props;
+
+  const classNames = clsx(
+    styles.button,
+    styles[variant],
+    styles[size],
+    disabled ? styles.disabled : styles[color],
+    className,
+  );
+
+  const content = (
+    <>
+      {startIcon && (
+        <IconComponent name={startIcon} className={styles["start-icon"]} />
+      )}
+      {children}
+      {endIcon && (
+        <IconComponent name={endIcon} className={styles["end-icon"]} />
+      )}
+    </>
+  );
+
+  if ("href" in otherProps) {
+    return (
+      <a
+        className={classNames}
+        aria-disabled={disabled}
+        {...(otherProps as AnchorProps)}
+      >
+        {content}
+      </a>
+    );
+  }
+
   return (
     <button
-      className={clsx(
-        styles.button,
-        styles[variant],
-        styles[size],
-        disabled ? styles.disabled : styles[color],
-      )}
-      {...rest}
+      className={classNames}
+      disabled={disabled}
+      {...(otherProps as ButtonProps)}
     >
-      <span className={styles["start-icon"]}>
-        {startIcon && <IconComponent name={startIcon} />}
-      </span>
-      {children}
-      <span className={styles["end-icon"]}>
-        {endIcon && <IconComponent name={endIcon} />}
-      </span>
+      {content}
     </button>
   );
 }
