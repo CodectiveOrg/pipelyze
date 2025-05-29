@@ -1,5 +1,7 @@
+'use client'
+
 import clsx from "clsx";
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import styles from './radio.module.css'
 
 export type Size = "normal" | "small";
@@ -15,16 +17,26 @@ export type Color =
 
 
 type Props = {
-  color : Color;
-  size : Size;
-  checked : boolean;
-  disabled : boolean;
+  color ?: Color;
+  size ?: Size;
+  checked ?: boolean;
+  disabled ?: boolean;
   className ?: string;
 }
 
 export default function RadioComponent({ color, size='normal' , className, disabled, checked}: Props): ReactElement {
+
+  const [isActive,setIsActive] = useState(false)
+
+  const handleCick = () => {
+    setTimeout(() => {
+      setIsActive(true);
+    }, 100);
+    setIsActive(false);
+  }
+
   return (
-    <span className={clsx(styles.radioWrapper, disabled && styles.disabled)}>
+    <span className={clsx(styles.radioWrapper, disabled && styles.disabled, isActive && styles.Active)} onMouseDown={handleCick}>
       <input type="radio" 
       className={clsx(styles.radio, className, styles[color], styles[size])} 
       checked={checked}
