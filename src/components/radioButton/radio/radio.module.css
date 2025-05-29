@@ -1,87 +1,118 @@
-.radioWrapper{
-  padding: 8px; 
-}
-
-.radio {
-  position: relative;
-  appearance: none;
-  background: black;
-  margin: 0;
-  padding: 0;
-  border: 1px solid var(--palette-text-secondary);
-  width: 1.4em;
-  height: 1.4em;
-  border-radius: 50%;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.1s ease;
-  background: none;
-  outline: none;
-  z-index: 2;
-
-
-&:checked {
-  border: 7px solid var(--color-border, var(--palette-text-primary));
-  z-index: 222222;
-}
-
-&:not(:disabled):hover {
-  box-shadow: 0 0 0 8px var(--color-hover, var(--palette-grey-100));
-  z-index: 0;
-}
-
-&:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-&.normal {
-  width: 1.4em;
-  height: 1.4em;
-}
-
-&.small {
-  width: 1em;
-  height: 1em;
-}
-
-&.primary {
+.primary {
   --color-border: var(--palette-primary-main);
   --color-hover: var(--palette-primary-light);
   --color-active: var(--palette-primary-dark);
 }
 
-&.secondary {
+.secondary {
   --color-border: var(--palette-secondary-main);
   --color-hover: var(--palette-secondary-light);
   --color-active: var(--palette-secondary-dark);
 }
 
-&.info {
+.info {
   --color-border: var(--palette-info-main);
   --color-hover: var(--palette-info-light);
   --color-active: var(--palette-info-dark);
 }
 
-&.success {
+.success {
   --color-border: var(--palette-success-main);
   --color-hover: var(--palette-success-light);
   --color-active: var(--palette-success-dark);
 }
 
-&.warning {
+.warning {
   --color-border: var(--palette-warning-main);
   --color-hover: var(--palette-warning-light);
   --color-active: var(--palette-warning-dark);
 }
 
-&.error {
+.error {
   --color-border: var(--palette-error-main);
   --color-hover: var(--palette-error-light);
   --color-active: var(--palette-error-dark);
 }
 
+.small {
+  --radio-size: 1em;
+}
 
+.normal {
+  --radio-size: 1.4em;
+}
+
+.radioWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  position: relative;
+
+
+&:not(:disabled):hover {
+  background-color: var(--color-hover, var(--palette-grey-100));
+  border-radius: 50%;
+  z-index: 0;
+}
+
+&:active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background: var(--color-active, rgba(0, 0, 0, 0.274));
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  animation: wrapperAnnime 0.7s ease-out forwards;
+  pointer-events: none;
+  z-index: 0;
+}
+
+}
+
+@keyframes wrapperAnnime {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.0001;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.radio {
+  --radio-size: 1.4em;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--palette-text-secondary);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s ease;
+  background: transparent;
+  outline: none;
+  z-index: 222222;
+
+  &:checked {
+    border: 7px solid var(--color-border, var(--palette-text-primary));
+    z-index: 222222;
+  }
+  
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 }
 
 .Active::after {
