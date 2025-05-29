@@ -1,0 +1,125 @@
+.h1 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1.25;
+
+  @media (min-width: 600px) {
+    font-size: 3.25rem;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 3.625rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 4rem;
+  }
+}
+
+.h2 {
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.33;
+
+  @media (min-width: 600px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 2.75rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 3rem;
+  }
+}
+
+.h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  @media (min-width: 600px) {
+    font-size: 1.625rem;
+  }
+
+  @media (min-width: 900px) {
+    font-size: 1.875rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 2rem;
+  }
+}
+
+.h4 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.5;
+
+  @media (min-width: 900px) {
+    font-size: 1.5rem;
+  }
+}
+
+.h5 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5;
+
+  @media (min-width: 600px) {
+    font-size: 1.1875rem;
+  }
+}
+
+.h6 {
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.56;
+
+  @media (min-width: 600px) {
+    font-size: 1.125rem;
+  }
+}
+
+.subtitle1 {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.subtitle2 {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.57;
+}
+
+.body1 {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.body2 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.57;
+}
+
+.caption {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.overline {
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.button {
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.71;
+}
