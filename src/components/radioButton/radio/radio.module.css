@@ -1,41 +1,9 @@
 .radioWrapper{
   padding: 8px; 
-
 }
-
-.Active::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2.5em;
-  height: 2.5em;
-  border-radius: 50%;
-  background: var(--color-active, rgba(0, 0, 0, 0.2));
-  transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  animation: clickEffect 0.5s ease forwards;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes clickEffect {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.4;
-  }
-  70% {
-    transform: translate(-50%, -50%) scale(1.2);
-    opacity: 0.2;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.4);
-    opacity: 0;
-  }
-}
-
 
 .radio {
+  position: relative;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -52,12 +20,58 @@
   outline: none;
 }
 
+
+.radio::after {
+  content: "";
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--color-active, rgb(216, 32, 32));
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+.radio:active:after {
+  content: "";
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background: var(--color-active, rgb(0, 0, 0));
+  opacity: 0;
+  animation: clickEffect 0.7s ease forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes clickEffect {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+
 .radio:checked {
   border: 7px solid var(--color-border, var(--palette-text-primary));
 }
 
 .radio:not(:disabled):hover {
-  box-shadow: 0 0 0 8px var(--color-hover, var(--palette-grey-400));
+  box-shadow: 0 0 0 8px var(--color-hover, var(--palette-grey-100));
+  z-index: 0;
 }
 
 .radio:disabled {
@@ -109,4 +123,33 @@
   --color-border: var(--palette-error-main);
   --color-hover: var(--palette-error-light);
   --color-active: var(--palette-error-dark);
+}
+
+
+.Active::after {
+  content: "";
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background: var(--color-active, rgb(0, 0, 0));
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  animation: palseAnime 0.7s ease-out forwards;
+  pointer-events: none;
+  z-index: 111111;
+}
+
+@keyframes palseAnime {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
