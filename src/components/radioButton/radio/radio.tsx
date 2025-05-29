@@ -36,9 +36,9 @@ export default function RadioComponent({ color, size='normal' , className, disab
   }
 
   return (
-    <span className={clsx(styles.radioWrapper, disabled && styles.disabled, isActive && styles.Active)}>
+    <span className={clsx(styles.radioWrapper, disabled && styles.disabled)}>
       <input type="radio" 
-      className={clsx(styles.radio, className, styles[color], styles[size])} 
+      className={clsx(styles.radio, className, styles[color], styles[size],isActive && styles.Active)} 
       checked={checked}
       disabled={disabled}
       onMouseDown={handleCick}
