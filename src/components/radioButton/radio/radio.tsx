@@ -33,14 +33,16 @@ export default function RadioComponent({
   checked,
 }: Props): ReactElement {
   
-  const [isActive, setIsActive] = useState(false);
+  const [pulse, setPulse] = useState([]);
 
-  const handleCick = () => {
-    setTimeout(() => {
-      setIsActive(true);
-    }, 100);
-    setIsActive(false);
-  };
+  const handleClick = (e) => {
+    const locationItem = e.currentTarget.getBoundingClientRect()
+
+    const x = locationItem.width / 2;
+    const y = locationItem.height / 2;
+
+    const newPulse = {x,y}
+  }
 
   return (
     <span className={clsx(styles.radioWrapper, disabled && styles.disabled)}>
