@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 import styles from "./radio.module.css";
 
-export type placement = 'left' | 'right' | 'top' | 'bottom'
+export type Placement = 'start' | 'end' | 'top' | 'bottom'
 
 export type Size = "normal" | "small";
 
@@ -26,6 +26,7 @@ type Props = {
   disabled?: boolean;
   className?: string;
   label?: string;
+  placement?: Placement;
 };
 
 export default function RadioComponent({
@@ -34,7 +35,8 @@ export default function RadioComponent({
   className,
   disabled,
   checked,
-  label
+  label,
+  placement='start'
 }: Props): ReactElement {
 
   type pulse = {x:number,y:number,id:number}
@@ -58,8 +60,8 @@ export default function RadioComponent({
   }
 
   return (
-    <div className={clsx(styles.radioWrapper, disabled && styles.disabled)}>
-      <label htmlFor="radio">{label}</label>
+    <div className={clsx(styles.radioWrapper, disabled && styles.disabled,styles[placement])}>
+      <label>{label}</label>
 
       <div className={styles.radioContainer}>
         {pulse.map((pulse) => (
@@ -79,7 +81,7 @@ export default function RadioComponent({
           )}
           checked={checked}
           disabled={disabled}
-          onClick={handleClick}
+          onMouseDown={handleClick}
         />
       </div>
 
