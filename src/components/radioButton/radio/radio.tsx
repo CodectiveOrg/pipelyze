@@ -41,7 +41,13 @@ export default function RadioComponent({
     const x = locationItem.width / 2;
     const y = locationItem.height / 2;
 
-    const newPulse = {x,y}
+    const newPulse = {x,y,id:Date.now()}
+
+    setPulse((prev)=>[...prev,newPulse])
+
+    setTimeout(() => {
+      setPulse((prev)=>prev.filter((oldPulse)=>oldPulse.id !== newPulse.id))
+    }, 600);
   }
 
   return (
@@ -53,11 +59,10 @@ export default function RadioComponent({
           className,
           styles[color],
           styles[size],
-          isActive && styles.Active,
         )}
         checked={checked}
         disabled={disabled}
-        onMouseDown={handleCick}
+        onMouseDown={handleClick}
       />
     </span>
   );
