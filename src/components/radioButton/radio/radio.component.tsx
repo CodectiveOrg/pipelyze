@@ -1,13 +1,11 @@
 "use client";
 
 import { ReactElement, useContext, useState } from "react";
-
 import clsx from "clsx";
-
 import styles from "./radio.module.css";
 import { MyContext } from "../radioGroupe/radioGroup.component";
 
-export type Placement = 'start' | 'end' | 'top' | 'bottom'
+export type Placement = 'start' | 'end' | 'top' | 'bottom';
 
 export type Size = "normal" | "small";
 
@@ -23,12 +21,11 @@ export type Color =
 type Props = {
   color?: Color;
   size?: Size;
-  checked?: boolean;
   disabled?: boolean;
   className?: string;
   label?: string;
   placement?: Placement;
-  value: string
+  value: string;
 };
 
 export default function RadioComponent({
@@ -36,72 +33,63 @@ export default function RadioComponent({
   size = "normal",
   className,
   disabled,
-  checked,
   label,
-  placement='start',
-  value
+  placement = 'start',
+  value: radioValue
 }: Props): ReactElement {
+  const context = useContext(MyContext);
+  const [childValue, setChildValue] = useState<string>(null);
 
-  const {value, onChange ,children} = useContext(MyContext)
+  const isChecked = context? context.value === radioValue : childValue === radioValue;
 
-  const [childValue,setChildValue] = useState(null)
-  const handleOnChange = (e) => setValue(e.target.value)
+  const handleChange = () => {
+    if (context) {
+      context.onChange(radioValue);
+    } else {
+      setChildValue(radioValue);
+    }
+  };
 
-  const hasradioGroupe = MyContext ? MyContext.value : childValue;
-
-  // ------------------------------------------------------------------------------------------
-
-  type pulse = {x:number,y:number,id:number}
-  
-  const [pulse, setPulse] = useState<pulse[]>([]);
+  type Pulse = { x: number; y: number; id: number };
+  const [pulse, setPulse] = useState<Pulse[]>([]);
 
   const activePulse = (e: React.MouseEvent<HTMLInputElement>) => {
-    const locationItem = e.currentTarget.getBoundingClientRect()
-
+    const locationItem = e.currentTarget.getBoundingClientRect();
     const x = locationItem.width / 2;
     const y = locationItem.height / 2;
-
-    let id=Date.now()
-    const newPulse:pulse = {x,y,id}
-
-    setPulse((prev)=>[...prev, newPulse])
-
+    let id = Date.now();
+    const newPulse: Pulse = { x, y, id };
+    setPulse((prev) => [...prev, newPulse]);
     setTimeout(() => {
-      setPulse((prev)=>prev.filter((prevPulse)=>prevPulse.id !== id))
+      setPulse((prev) => prev.filter((prevPulse) => prevPulse.id !== id));
     }, 600);
-  }
-
-// ------------------------------------------------------------------------------------------------  
+  };
 
   return (
-    <div className={clsx(styles.radioWrapper, disabled && styles.disabled,styles[placement])}>
+    <div className={clsx(styles.radioWrapper, disabled && styles.disabled, styles[placement])}>
       <label>{label}</label>
 
       <div className={styles.radioContainer}>
         {pulse.map((pulse) => (
-          <span
-            key={pulse.id}
-            className={clsx(styles.pulse)}
-        ></span>
-         ))}
+          <span key={pulse.id} className={clsx(styles.pulse)}></span>
+        ))}
 
         <input
-
-         value={value}
-         onChange={handleOnChange}
           type="radio"
+          name='radioBtn'
+          value={label}
+          checked={isChecked}
+          onChange={handleChange}
           className={clsx(
-            styles.radio,
+            styles.radioBtn,
             className,
             styles[color],
             styles[size],
           )}
-          checked={checked}
           disabled={disabled}
           onMouseDown={activePulse}
         />
       </div>
-
     </div>
   );
 }

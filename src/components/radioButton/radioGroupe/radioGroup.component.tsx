@@ -1,6 +1,8 @@
 "use client";
 
-import React, { Children, createContext, PropsWithChildren, ReactElement } from "react";
+import clsx from "clsx";
+import React, { createContext, PropsWithChildren, ReactElement } from "react";
+import styles from './radioGroupe.module.css'
 
 type contextProps = {
   value: string;
@@ -9,20 +11,22 @@ type contextProps = {
 
 export const MyContext = createContext<contextProps>(null)
 
-type Direction = row | column ;
+type Direction = 'row' | 'column' ;
 
 type Props = PropsWithChildren<{
   value : string;
   onChange : (value : string) => void;
-  Direction: string
+  direction: Direction;
+  className:string;
 } >
 
 
-export default function RadioGroupComponent({children, value, onChange ,Direction}:Props): ReactElement {
+export default function RadioGroupComponent({className,children, value, onChange ,direction}:Props): ReactElement {
   return (
     <MyContext.Provider value={{value, onChange}}  >
-      {children}
+      <div className={clsx(styles[direction],styles.RadioGroup,className)}>
+        {children}
+      </div>
     </MyContext.Provider>
   )
-
 }

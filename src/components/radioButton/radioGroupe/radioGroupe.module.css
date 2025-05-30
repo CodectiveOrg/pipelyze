@@ -1,4 +1,13 @@
-.RadioGroupComponent{
+.RadioGroup{
+    display: flex;
+    flex-direction: var(--flex-direction );
 
+    &.row{
+        --flex-direction : row;
+    }
+
+    &.column{
+        --flex-direction : column;
+    }
 
 }
