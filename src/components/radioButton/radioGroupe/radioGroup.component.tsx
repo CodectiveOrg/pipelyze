@@ -1,9 +1,19 @@
-import React from "react";
-import RadioComponent from "../radio/radio.component";
+"use client";
 
+import React, { createContext, PropsWithChildren, ReactElement } from "react";
 
+export const MyContext = createContext(null);
 
-export default function RadioGroupComponent() {
-  return <RadioComponent placement="top" label="gilililili" color='secondary'/> ;
+type props = PropsWithChildren<{
+  value:string;
+  onChange:(value : string) => void
+}>;
+
+export default function RadioGroupComponent({value,onChange, children}: props): ReactElement {
+  return (
+    <MyContext.Provider value={{value,onChange}}>
+      {children}
+    </MyContext.Provider>
+  )
 
 }
