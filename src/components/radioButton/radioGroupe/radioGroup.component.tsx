@@ -1,17 +1,23 @@
 "use client";
 
-import React, { createContext, PropsWithChildren, ReactElement } from "react";
+import React, { Children, createContext, PropsWithChildren, ReactElement } from "react";
 
-export const MyContext = createContext(null);
+type contextProps = {
+  value: string;
+  onChange: (value : string) =>void
+}
 
-type props = PropsWithChildren<{
-  value:string;
-  onChange:(value : string) => void
-}>;
+export const MyContext = createContext<contextProps>(null)
 
-export default function RadioGroupComponent({value,onChange, children}: props): ReactElement {
+type Props = PropsWithChildren<{
+  value : string;
+  onChange : (value : string) => void
+} >
+
+
+export default function RadioGroupComponent({children, value, onChange}:Props): ReactElement {
   return (
-    <MyContext.Provider value={{value,onChange}}>
+    <MyContext.Provider value={{value, onChange}} >
       {children}
     </MyContext.Provider>
   )

@@ -1,10 +1,11 @@
 "use client";
 
-import { ReactElement, useState } from "react";
+import { ReactElement, useContext, useState } from "react";
 
 import clsx from "clsx";
 
 import styles from "./radio.module.css";
+import { MyContext } from "../radioGroupe/radioGroup.component";
 
 export type Placement = 'start' | 'end' | 'top' | 'bottom'
 
@@ -38,6 +39,8 @@ export default function RadioComponent({
   label,
   placement='start'
 }: Props): ReactElement {
+
+  const {value, onChange ,children} = useContext(MyContext)
 
   type pulse = {x:number,y:number,id:number}
   
