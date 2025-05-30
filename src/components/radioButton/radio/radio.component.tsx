@@ -43,7 +43,7 @@ export default function RadioComponent({
   
   const [pulse, setPulse] = useState<pulse[]>([]);
 
-  const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
     const locationItem = e.currentTarget.getBoundingClientRect()
 
     const x = locationItem.width / 2;
