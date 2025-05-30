@@ -23,6 +23,7 @@ type Props = {
   checked?: boolean;
   disabled?: boolean;
   className?: string;
+  label?: string;
 };
 
 export default function RadioComponent({
@@ -31,6 +32,7 @@ export default function RadioComponent({
   className,
   disabled,
   checked,
+  label
 }: Props): ReactElement {
 
   type pulse = {x:number,y:number,id:number}
@@ -55,27 +57,29 @@ export default function RadioComponent({
 
   return (
     <div className={clsx(styles.radioWrapper, disabled && styles.disabled)}>
-      {/* <label htmlFor="">sdfgfds</label> */}
+      <label htmlFor="radio">{label}</label>
 
-      {pulse.map((pulse) => (
-        <span
-          key={pulse.id}
-          className={clsx(styles.pulse)}
-      ></span>
-))}
+      <div className={styles.radioContainer}>
+        {pulse.map((pulse) => (
+          <span
+            key={pulse.id}
+            className={clsx(styles.pulse)}
+        ></span>
+         ))}
 
-      <input
-        type="radio"
-        className={clsx(
-          styles.radio,
-          className,
-          styles[color],
-          styles[size],
-        )}
-        checked={checked}
-        disabled={disabled}
-        onClick={handleClick}
-      />
+        <input
+          type="radio"
+          className={clsx(
+            styles.radio,
+            className,
+            styles[color],
+            styles[size],
+          )}
+          checked={checked}
+          disabled={disabled}
+          onClick={handleClick}
+        />
+      </div>
 
     </div>
   );

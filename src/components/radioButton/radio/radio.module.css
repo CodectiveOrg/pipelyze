@@ -52,34 +52,12 @@
   --border-size:7px
 }
 
-/* &:active::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  background: var(--color-active, rgba(0, 0, 0, 0.274));
-  transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  /* animation: wrapperAnnime 0.7s ease-out forwards; */
-  /* pointer-events: none; */
+.radioContainer{
+  border: 1px solid red;
+  position: relative;
+  display: flex;
 
 }
-/* 
-@keyframes wrapperAnnime {
-  from {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0.0001;
-  }
-
-  to {
-    transform: translate(-50%, -50%) scale(2);
-    opacity: 1;
-  }
-} */
-
 .radio {
   width: var(--radio-size);
   height: var(--radio-size);
@@ -101,7 +79,6 @@
     background-color: var(--color-hover, var(--palette-grey-100)) ;
     box-shadow: 0 0 0 8px var(--color-hover, var(--palette-grey-100));
     border-radius: 50%;
-
   }
 
   &:checked {
@@ -114,34 +91,7 @@
   }
 }
 
-/* .Active::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 2.5em;
-  height: 2.5em;
-  border-radius: 50%;
-  background: var(--color-active, --palette-text-primary);
-  transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  animation: palseAnime 0.7s ease-out forwards;
-  pointer-events: none;
-  z-index: 0;
 }
-
-@keyframes palseAnime {
-  0% {
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0.25;
-  }
-
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
-  }
-} */
-
 
 .pulse {
   border: 1px solid red;
@@ -168,3 +118,4 @@
     opacity: 0;
   }
 }
+
