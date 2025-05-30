@@ -1,4 +1,4 @@
-.radioWrapper {
+.radio {
   position: relative;
   display: flex;
   align-items: center;
@@ -45,6 +45,7 @@
       background: transparent;
       outline: none;
       z-index: 2;
+      
 
       &:not(:disabled):hover {
         background-color: var(--color-hover, var(--palette-grey-100));
