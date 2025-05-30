@@ -37,24 +37,33 @@ export default function RadioComponent({
   
   const [pulse, setPulse] = useState<pulse[]>([]);
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
     const locationItem = e.currentTarget.getBoundingClientRect()
 
     const x = locationItem.width / 2;
     const y = locationItem.height / 2;
 
     let id=Date.now()
-    const newPulse = {x,y,id}
+    const newPulse:pulse = {x,y,id}
 
     setPulse((prev)=>[...prev, newPulse])
 
     setTimeout(() => {
-      setPulse((prev)=>prev.filter((oldPulse)=>oldPulse.id !== id))
+      setPulse((prev)=>prev.filter((prevPulse)=>prevPulse.id !== id))
     }, 600);
   }
 
   return (
-    <span className={clsx(styles.radioWrapper, disabled && styles.disabled)}>
+    <div className={clsx(styles.radioWrapper, disabled && styles.disabled)}>
+      {/* <label htmlFor="">sdfgfds</label> */}
+
+      {pulse.map((pulse) => (
+        <span
+          key={pulse.id}
+          className={clsx(styles.pulse)}
+      ></span>
+))}
+
       <input
         type="radio"
         className={clsx(
@@ -67,6 +76,7 @@ export default function RadioComponent({
         disabled={disabled}
         onClick={handleClick}
       />
-    </span>
+
+    </div>
   );
 }
