@@ -28,6 +28,7 @@ type Props = {
   className?: string;
   label?: string;
   placement?: Placement;
+  value: string
 };
 
 export default function RadioComponent({
@@ -37,16 +38,24 @@ export default function RadioComponent({
   disabled,
   checked,
   label,
-  placement='start'
+  placement='start',
+  value
 }: Props): ReactElement {
 
   const {value, onChange ,children} = useContext(MyContext)
+
+  const [childValue,setChildValue] = useState(null)
+  const handleOnChange = (e) => setValue(e.target.value)
+
+  const hasradioGroupe = MyContext ? MyContext.value : childValue;
+
+  // ------------------------------------------------------------------------------------------
 
   type pulse = {x:number,y:number,id:number}
   
   const [pulse, setPulse] = useState<pulse[]>([]);
 
-  const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
+  const activePulse = (e: React.MouseEvent<HTMLInputElement>) => {
     const locationItem = e.currentTarget.getBoundingClientRect()
 
     const x = locationItem.width / 2;
@@ -62,6 +71,8 @@ export default function RadioComponent({
     }, 600);
   }
 
+// ------------------------------------------------------------------------------------------------  
+
   return (
     <div className={clsx(styles.radioWrapper, disabled && styles.disabled,styles[placement])}>
       <label>{label}</label>
@@ -75,6 +86,9 @@ export default function RadioComponent({
          ))}
 
         <input
+
+         value={value}
+         onChange={handleOnChange}
           type="radio"
           className={clsx(
             styles.radio,
@@ -84,7 +98,7 @@ export default function RadioComponent({
           )}
           checked={checked}
           disabled={disabled}
-          onMouseDown={handleClick}
+          onMouseDown={activePulse}
         />
       </div>
 

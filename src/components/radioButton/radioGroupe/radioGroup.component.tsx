@@ -9,15 +9,18 @@ type contextProps = {
 
 export const MyContext = createContext<contextProps>(null)
 
+type Direction = row | column ;
+
 type Props = PropsWithChildren<{
   value : string;
-  onChange : (value : string) => void
+  onChange : (value : string) => void;
+  Direction: string
 } >
 
 
-export default function RadioGroupComponent({children, value, onChange}:Props): ReactElement {
+export default function RadioGroupComponent({children, value, onChange ,Direction}:Props): ReactElement {
   return (
-    <MyContext.Provider value={{value, onChange}} >
+    <MyContext.Provider value={{value, onChange}}  >
       {children}
     </MyContext.Provider>
   )
