@@ -1,10 +1,13 @@
 .radioWrapper {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 10px;
   padding: 8px;
   z-index: 1;
+  border: 1px solid red;
+
 
 .primary {
   --color-border: var(--palette-primary-main);
@@ -52,12 +55,13 @@
   --border-size:7px
 }
 
+
+
 .radioContainer{
-  border: 1px solid red;
   position: relative;
   display: flex;
 
-}
+
 .radio {
   width: var(--radio-size);
   height: var(--radio-size);
@@ -89,6 +93,8 @@
     opacity: 0.4;
     cursor: not-allowed;
   }
+}
+
 }
 
 }

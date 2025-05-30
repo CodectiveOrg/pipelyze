@@ -6,6 +6,8 @@ import clsx from "clsx";
 
 import styles from "./radio.module.css";
 
+export type placement = 'left' | 'right' | 'top' | 'bottom'
+
 export type Size = "normal" | "small";
 
 export type Color =
