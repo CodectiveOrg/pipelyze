@@ -1,13 +1,12 @@
-.RadioGroup{
-    display: flex;
-    flex-direction: var(--flex-direction );
+.RadioGroup {
+  display: flex;
+  flex-direction: var(--flex-direction);
 
-    &.row{
-        --flex-direction : row;
-    }
+  &.row {
+    --flex-direction: row;
+  }
 
-    &.column{
-        --flex-direction : column;
-    }
-
+  &.column {
+    --flex-direction: column;
+  }
 }

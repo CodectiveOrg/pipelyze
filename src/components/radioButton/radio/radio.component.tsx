@@ -1,11 +1,14 @@
 "use client";
 
 import { ReactElement, useContext, useState } from "react";
+
 import clsx from "clsx";
-import styles from "./radio.module.css";
+
 import { MyContext } from "../radioGroupe/radioGroup.component";
 
-export type Placement = 'start' | 'end' | 'top' | 'bottom';
+import styles from "./radio.module.css";
+
+export type Placement = "start" | "end" | "top" | "bottom";
 
 export type Size = "normal" | "small";
 
@@ -34,13 +37,15 @@ export default function RadioComponent({
   className,
   disabled,
   label,
-  placement = 'start',
-  value: radioValue
+  placement = "start",
+  value: radioValue,
 }: Props): ReactElement {
   const context = useContext(MyContext);
   const [childValue, setChildValue] = useState<string>(null);
 
-  const isChecked = context? context.value === radioValue : childValue === radioValue;
+  const isChecked = context
+    ? context.value === radioValue
+    : childValue === radioValue;
 
   const handleChange = () => {
     if (context) {
@@ -54,7 +59,7 @@ export default function RadioComponent({
   const [pulse, setPulse] = useState<Pulse[]>([]);
 
   const activePulse = (e: React.MouseEvent<HTMLInputElement>) => {
-    const locationItem = e.currentTarget.getBoundingClientRect();
+    const locationItem = e.currentTarget;
     const x = locationItem.width / 2;
     const y = locationItem.height / 2;
     let id = Date.now();
@@ -66,8 +71,14 @@ export default function RadioComponent({
   };
 
   return (
-    <div className={clsx(styles.radioWrapper, disabled && styles.disabled, styles[placement])}>
-      <label>{label}</label>
+    <div
+      className={clsx(
+        styles.radio,
+        disabled && styles.disabled,
+        styles[placement],
+      )}
+    >
+      <label htmlFor="input">{label}</label>
 
       <div className={styles.radioContainer}>
         {pulse.map((pulse) => (
@@ -76,7 +87,7 @@ export default function RadioComponent({
 
         <input
           type="radio"
-          name='radioBtn'
+          name="radioBtn"
           value={label}
           checked={isChecked}
           onChange={handleChange}

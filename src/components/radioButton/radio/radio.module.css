@@ -1,4 +1,4 @@
-.radioWrapper {
+.radio {
   position: relative;
   display: flex;
   align-items: center;
@@ -53,7 +53,8 @@
       }
 
       &:checked {
-        border: var(--border-size, 7px) solid var(--color-border, var(--palette-text-primary));
+        border: var(--border-size, 7px) solid
+          var(--color-border, var(--palette-text-primary));
       }
 
       &:disabled {
@@ -73,43 +74,67 @@
 
       &.primary {
         --color-border: var(--palette-primary-main);
-        --color-hover: color-mix(in hsl, var(--palette-primary-light)40% , transparent);
+        --color-hover: color-mix(
+          in hsl,
+          var(--palette-primary-light) 40%,
+          transparent
+        );
         --color-active: var(--palette-primary-dark);
       }
 
       &.secondary {
         --color-border: var(--palette-secondary-main);
-        --color-hover: color-mix(in hsl, var(--palette-secondary-light)40% , transparent);
+        --color-hover: color-mix(
+          in hsl,
+          var(--palette-secondary-light) 40%,
+          transparent
+        );
         --color-active: var(--palette-secondary-dark);
       }
 
       &.info {
         --color-border: var(--palette-info-main);
-        --color-hover: color-mix(in hsl, var(--palette-info-light)40% , transparent);
+        --color-hover: color-mix(
+          in hsl,
+          var(--palette-info-light) 40%,
+          transparent
+        );
         --color-active: var(--palette-info-dark);
       }
 
       &.success {
         --color-border: var(--palette-success-main);
-        --color-hover: color-mix(in hsl, var(--palette-success-light)40% , transparent);
+        --color-hover: color-mix(
+          in hsl,
+          var(--palette-success-light) 40%,
+          transparent
+        );
         --color-active: var(--palette-success-dark);
       }
 
       &.warning {
         --color-border: var(--palette-warning-main);
-        --color-hover: color-mix(in hsl, var(--palette-warning-light) 40% , transparent);
+        --color-hover: color-mix(
+          in hsl,
+          var(--palette-warning-light) 40%,
+          transparent
+        );
         --color-active: var(--palette-warning-dark);
       }
 
       &.error {
         --color-border: var(--palette-error-main);
-        --color-hover: color-mix(in hsl, var(--palette-error-light) 40% , transparent);
+        --color-hover: color-mix(
+          in hsl,
+          var(--palette-error-light) 40%,
+          transparent
+        );
         --color-active: var(--palette-error-dark);
       }
     }
 
     .pulse {
-      border:1px solid var(--palette-grey-500);
+      border: 1px solid var(--palette-grey-500);
       position: absolute;
       top: 50%;
       left: 50%;
