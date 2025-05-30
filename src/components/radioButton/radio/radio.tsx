@@ -32,8 +32,10 @@ export default function RadioComponent({
   disabled,
   checked,
 }: Props): ReactElement {
+
+  type pulse = {x:number,y:number,id:number}
   
-  const [pulse, setPulse] = useState([]);
+  const [pulse, setPulse] = useState<pulse[]>([]);
 
   const handleClick = (e) => {
     const locationItem = e.currentTarget.getBoundingClientRect()
@@ -41,12 +43,13 @@ export default function RadioComponent({
     const x = locationItem.width / 2;
     const y = locationItem.height / 2;
 
-    const newPulse = {x,y,id:Date.now()}
+    let id=Date.now()
+    const newPulse = {x,y,id}
 
-    setPulse((prev)=>[...prev,newPulse])
+    setPulse((prev)=>[...prev, newPulse])
 
     setTimeout(() => {
-      setPulse((prev)=>prev.filter((oldPulse)=>oldPulse.id !== newPulse.id))
+      setPulse((prev)=>prev.filter((oldPulse)=>oldPulse.id !== id))
     }, 600);
   }
 
@@ -62,7 +65,7 @@ export default function RadioComponent({
         )}
         checked={checked}
         disabled={disabled}
-        onMouseDown={handleClick}
+        onClick={handleClick}
       />
     </span>
   );
