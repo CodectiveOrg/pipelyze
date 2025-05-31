@@ -43,6 +43,16 @@
     }
   }
 
+  &.secondary {
+    color: var(--palette-secondary-main);
+
+    &:hover {
+      background-color: hsl(
+        from var(--palette-secondary-main) h s l / var(--hover-opacity)
+      );
+    }
+  }
+
   &.info {
     color: var(--palette-info-main);
 

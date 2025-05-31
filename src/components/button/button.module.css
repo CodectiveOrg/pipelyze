@@ -48,6 +48,15 @@ a.button {
       }
     }
 
+    &.secondary {
+      background-color: var(--palette-secondary-main);
+
+      &:hover {
+        background-color: var(--palette-secondary-main);
+        box-shadow: var(--shadows-secondary);
+      }
+    }
+
     &.info {
       background-color: var(--palette-info-main);
 
@@ -121,6 +130,19 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-primary-main) h s l / var(--hover-opacity)
+        );
+        border-color: currentColor;
+        box-shadow: 0 0 0 1px currentcolor;
+      }
+    }
+
+    &.secondary {
+      color: var(--palette-secondary-main);
+      border: 1px solid var(--palette-secondary-main);
+
+      &:hover {
+        background-color: hsl(
+          from var(--palette-secondary-main) h s l / var(--hover-opacity)
         );
         border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
@@ -212,6 +234,16 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-primary-main) h s l / var(--hover-opacity)
+        );
+      }
+    }
+
+    &.secondary {
+      color: var(--palette-secondary-main);
+
+      &:hover {
+        background-color: hsl(
+          from var(--palette-secondary-main) h s l / var(--hover-opacity)
         );
       }
     }
