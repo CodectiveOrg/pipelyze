@@ -22,6 +22,10 @@ const meta = {
       control: "select",
       options: ["small", "medium", "large"],
     },
+    disabled: {
+      control: "boolean",
+      options: ["disabled"],
+    },
   },
   args: {
     variant: "contained",
@@ -37,6 +41,7 @@ export const Contained: Story = {
   args: {
     variant: "contained",
     children: "click me",
+    startIcon: "mail-line",
   },
 };
 
@@ -44,6 +49,7 @@ export const Outlined: Story = {
   args: {
     variant: "outlined",
     children: "click me",
+    endIcon: "mail-line",
   },
 };
 
@@ -51,5 +57,6 @@ export const Text: Story = {
   args: {
     variant: "text",
     children: "click me",
+    disabled: true,
   },
 };
