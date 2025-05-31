@@ -4,7 +4,7 @@
 }
 
 .progress {
-  inline-size: 100%;
+  /*inline-size: 100%;*/
   border-radius: 0.75rem;
 
   &.primary {
@@ -35,9 +35,6 @@
 .indeterminate-progress {
   display: inline-block;
   animation: 1.4s linear 0s infinite normal none running animation-61bdi0;
-  color: currentColor;
-  inline-size: var(--size);
-  block-size: var(--size);
 }
 
 .indeterminate-progress svg {
