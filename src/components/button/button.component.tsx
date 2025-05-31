@@ -10,9 +10,9 @@ import styles from "./button.module.css";
 
 type CommonProps = {
   variant?: "contained" | "outlined" | "text";
-  disabled?: boolean;
   color?: ColorType;
-  size?: "small" | "medium" | "large";
+  fontSize?: "small" | "medium" | "large";
+  disabled?: boolean;
   startIcon?: string;
   endIcon?: string;
 };
@@ -31,7 +31,7 @@ export default function ButtonComponent(props: ButtonProps | AnchorProps) {
   const {
     variant = "contained",
     color = "primary",
-    size = "medium",
+    fontSize = "medium",
     disabled = false,
     startIcon,
     endIcon,
@@ -43,7 +43,7 @@ export default function ButtonComponent(props: ButtonProps | AnchorProps) {
   const classNames = clsx(
     styles.button,
     styles[variant],
-    styles[size],
+    styles[fontSize],
     styles[color],
     className,
   );
