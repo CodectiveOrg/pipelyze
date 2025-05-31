@@ -1,5 +1,5 @@
 :root {
-  --progress-value: 0;
+  --progress-value: 0%;
 }
 
 .linear-progress {
@@ -49,6 +49,7 @@
   inset-block: 0;
   inset-inline-start: 0;
   transform-origin: left center;
+  transform: translateX(var(--progress-value));
   transition: transform 0.4s linear;
   border-radius: inherit;
 
@@ -91,7 +92,7 @@
   transition: transform 0.2s linear;
   transform-origin: left center;
   inline-size: auto;
-  animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.8s infinite normal none
+  animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s infinite normal none
     running animation-19gglwu;
   border-radius: inherit;
 }
