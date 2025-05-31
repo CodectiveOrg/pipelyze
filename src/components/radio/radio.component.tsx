@@ -1,60 +1,28 @@
 "use client";
 
-import { ReactElement, useContext, useState } from "react";
+import { ComponentProps, ReactElement, useState } from "react";
 
 import clsx from "clsx";
 
-import { MyContext } from "../radioGroupe/radioGroup.component";
+import { ColorType } from "@/types/color.type";
 
 import styles from "./radio.module.css";
 
-export type Placement = "start" | "end" | "top" | "bottom";
-
 export type Size = "normal" | "small";
 
-export type Color =
-  | "primary"
-  | "secondary"
-  | "info"
-  | "success"
-  | "warning"
-  | "error"
-  | "Disabled";
-
-type Props = {
-  color?: Color;
+type Props = Omit<ComponentProps<"input">, "size"> & {
+  color?: ColorType;
   size?: Size;
-  disabled?: boolean;
-  className?: string;
   label?: string;
-  placement?: Placement;
-  value: string;
 };
 
 export default function RadioComponent({
   color = "primary",
   size = "normal",
-  className,
-  disabled,
   label,
-  placement = "start",
-  value: radioValue,
+  className,
+  ...otherProps
 }: Props): ReactElement {
-  const context = useContext(MyContext);
-  const [childValue, setChildValue] = useState<string>('');
-
-  const isChecked = context
-    ? context.value === radioValue
-    : childValue === radioValue;
-
-  const handleChange = () => {
-    if (context) {
-      context.onChange(radioValue);
-    } else {
-      setChildValue(radioValue);
-    }
-  };
-
   type Pulse = { x: number; y: number; id: number };
   const [pulse, setPulse] = useState<Pulse[]>([]);
 
@@ -71,13 +39,7 @@ export default function RadioComponent({
   };
 
   return (
-    <div
-      className={clsx(
-        styles.radio,
-        disabled && styles.disabledLabel,
-        styles[placement],
-      )}
-    >
+    <div className={styles.radio}>
       <label htmlFor="input">{label}</label>
 
       <div className={styles.radioContainer}>
@@ -87,18 +49,14 @@ export default function RadioComponent({
 
         <input
           type="radio"
-          name="radioBtn"
-          value={label}
-          checked={isChecked}
-          onChange={handleChange}
           className={clsx(
             styles.radioBtn,
             className,
             styles[color],
             styles[size],
           )}
-          disabled={disabled}
           onMouseDown={activePulse}
+          {...otherProps}
         />
       </div>
     </div>
