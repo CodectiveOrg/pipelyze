@@ -1,4 +1,3 @@
-// import clsx from "clsx";
 import clsx from "clsx";
 
 import { ReactElement } from "react";
@@ -7,40 +6,30 @@ import { ColorType } from "@/types/color.type";
 
 import styles from "./linear-progress.module.css";
 
-type ProgressProps = {
+type LinearProgressProps = {
   color?: ColorType;
   determinate: boolean;
-  size: number;
-  value: number;
+  value?: number;
 };
 
 export default function LinearProgressComponent({
   color = "primary",
   determinate,
-  value,
-}: ProgressProps): ReactElement {
+  value = 0,
+}: LinearProgressProps): ReactElement {
   return (
-    <div className={styles["linear-progress"]}>
+    <div className={clsx(styles["linear-progress"], styles[color])}>
       {determinate ? (
-        <span className={styles["progress-line"]}>
+        <span className={styles["determinate-progress-line"]}>
           <span
-            className={clsx(styles["inner-span"], styles[color])}
+            className={styles["filled"]}
             style={{
-              transform: "translateX(" + (value - 100) + "%)",
+              transform: `translateX(${value - 100}%)`,
             }}
           ></span>
         </span>
       ) : (
-        <span className={styles["progress-line"]}>
-          <span
-            className={styles["first-span"]}
-            style={{ backgroundColor: color }}
-          ></span>
-          <span
-            className={styles["second-span"]}
-            style={{ backgroundColor: color }}
-          ></span>
-        </span>
+        <span className={styles["indeterminate-progress-line"]}></span>
       )}
     </div>
   );

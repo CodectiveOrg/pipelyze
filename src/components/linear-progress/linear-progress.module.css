@@ -5,9 +5,33 @@
 .linear-progress {
   inline-size: 100%;
   border-radius: 0.75rem;
+
+  &.primary {
+    color: var(--palette-primary-main);
+  }
+
+  &.secondary {
+    color: var(--palette-secondary-main);
+  }
+
+  &.info {
+    color: var(--palette-info-main);
+  }
+
+  &.success {
+    color: var(--palette-success-main);
+  }
+
+  &.warning {
+    color: var(--palette-warning-main);
+  }
+
+  &.error {
+    color: var(--palette-error-main);
+  }
 }
 
-.progress-line {
+.determinate-progress-line {
   position: relative;
   overflow: hidden;
   display: block;
@@ -19,31 +43,7 @@
   inline-size: 100%;
 }
 
-.first-span {
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: 0;
-  transition: transform 0.2s linear;
-  transform-origin: left center;
-  inline-size: auto;
-  animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite normal
-    none running animation-ozg7p2;
-  border-radius: inherit;
-}
-
-.second-span {
-  position: absolute;
-  inset-block: 0;
-  /*inset-inline-start: 0;*/
-  transition: transform 0.2s linear;
-  transform-origin: left center;
-  inline-size: auto;
-  animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.8s infinite normal none
-    running animation-19gglwu;
-  border-radius: inherit;
-}
-
-.inner-span {
+.filled {
   inline-size: 100%;
   position: absolute;
   inset-block: 0;
@@ -52,33 +52,48 @@
   transition: transform 0.4s linear;
   border-radius: inherit;
 
-  &.primary {
-    background-color: var(--palette-primary-main);
-  }
+  background-color: currentColor;
+}
 
-  &.secondary {
-    background-color: var(--palette-secondary-main);
-  }
+.indeterminate-progress-line {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  block-size: 0.25rem;
+  background: var(--palette-grey-400);
+  z-index: 0;
+  border-radius: 0.25rem;
+  margin-bottom: calc(2 * 0.5rem);
+  inline-size: 100%;
+  color: currentColor;
+}
 
-  &.info {
-    background-color: var(--palette-info-main);
-  }
+.indeterminate-progress-line:before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  background-color: currentColor;
+  transition: transform 0.2s linear;
+  transform-origin: left center;
+  inline-size: auto;
+  animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite normal
+    none running animation-ozg7p2;
+  border-radius: inherit;
+}
 
-  &.success {
-    background-color: var(--palette-success-main);
-  }
-
-  &.danger {
-    background-color: var(--palette-primary-main);
-  }
-
-  &.warning {
-    background-color: var(--palette-warning-main);
-  }
-
-  &.error {
-    background-color: var(--palette-error-main);
-  }
+.indeterminate-progress-line:after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  background-color: currentColor;
+  /*inset-inline-start: 0;*/
+  transition: transform 0.2s linear;
+  transform-origin: left center;
+  inline-size: auto;
+  animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.8s infinite normal none
+    running animation-19gglwu;
+  border-radius: inherit;
 }
 
 @keyframes animation-ozg7p2 {
