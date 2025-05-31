@@ -1,0 +1,90 @@
+.bgGreen700 {
+  background-color: var(--palette-success-dark);
+}
+.bgTeal500 {
+  background-color: var(--palette-info-light);
+}
+.bgGreen400 {
+  background-color: var(--palette-success-light);
+}
+.bgOrange500 {
+  background-color: var(--palette-error-main);
+}
+.bgGrey800 {
+  background-color: var(--palette-grey-800);
+}
+.bgGrey100 {
+  background-color: var(--palette-grey-300);
+}
+
+.sizeXs {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.sizeSm {
+  width: 2rem;
+  height: 2rem;
+}
+.sizeMd {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.sizeLg {
+  width: 3rem;
+  height: 3rem;
+}
+.sizeXl {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+.size2xl {
+  width: 4rem;
+  height: 4rem;
+}
+.size3xl {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+.size4xl {
+  width: 5rem;
+  height: 5rem;
+}
+.image0 {
+  background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-2.webp");
+  background-position: center;
+  background-size: cover;
+}
+.image1 {
+  background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-3.webp");
+  background-position: center;
+  background-size: cover;
+}
+.image2 {
+  background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-4.webp");
+  background-position: center;
+  background-size: cover;
+}
+.image3 {
+  background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-5.webp");
+  background-position: center;
+  background-size: cover;
+}
+.image4 {
+  background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-6.webp");
+  background-position: center;
+  background-size: cover;
+}
+.image5 {
+  background-image: url("https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/public/assets/images/mock/avatar/avatar-11.webp");
+  background-position: center;
+  background-size: cover;
+}
+.radiusfull {
+  border-radius: 50%;
+}
+.radiusmd {
+  border-radius: 0.75rem;
+}
+.radiussquare {
+  border-radius: 0;
+}
