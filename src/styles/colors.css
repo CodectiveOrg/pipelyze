@@ -52,13 +52,8 @@
 
   --white-color: hsl(0, 0%, 100%);
 
-  --bg-inherit: hsla(208, 13%, 45%, 0.08);
-  --bg-primary: hsla(205, 94%, 48%, 0.08);
-  --bg-info: hsla(189, 100%, 43%, 0.08);
-  --bg-success: hsla(142, 71%, 45%, 0.08);
-  --bg-warning: hsla(40, 100%, 50%, 0.08);
-  --bg-error: hsla(11, 100%, 59%, 0.08);
-  --bg-disabled: hsla(210, 13%, 62%, 0.24);
+  --hover-opacity: 0.08;
+  --hover-opacity-disabled: 0.24;
 
   --button--border-radius: 0.5rem;
 }

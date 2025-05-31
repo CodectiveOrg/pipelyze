@@ -1,3 +1,8 @@
+a.button {
+  color: inherit;
+  text-decoration: none;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -16,10 +21,8 @@
   border: none;
   border-radius: var(--button--border-radius);
 
-  transition:
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color, box-shadow, border-color;
 
   &.contained {
     color: var(--white-color);
@@ -32,7 +35,7 @@
 
       &:hover {
         background-color: var(--palette-grey-700);
-        box-shadow: var(--shadows-inherit);
+        box-shadow: var(--shadows-z8);
       }
     }
 
@@ -82,14 +85,16 @@
       }
     }
 
-    &.disabled {
+    &[disabled] {
       color: var(--palette-text-disabled);
       transition: none;
-      background-color: var(--bg-disabled);
+      background-color: hsl(
+        from var(--palette-grey-500) h s l / var(--hover-opacity-disabled)
+      );
       box-shadow: none;
-
       cursor: default;
       opacity: 0.6;
+      pointer-events: none;
     }
   }
 
@@ -101,7 +106,9 @@
       border: 1px solid var(--palette-grey-800);
 
       &:hover {
-        background-color: var(--bg-inherit);
+        background-color: hsl(
+          from var(--palette-grey-600) h s l / var(--hover-opacity)
+        );
         border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
       }
@@ -112,7 +119,9 @@
       border: 1px solid var(--palette-primary-main);
 
       &:hover {
-        background-color: var(--bg-primary);
+        background-color: hsl(
+          from var(--palette-primary-main) h s l / var(--hover-opacity)
+        );
         border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
       }
@@ -123,7 +132,9 @@
       border: 1px solid var(--palette-info-main);
 
       &:hover {
-        background-color: var(--bg-info);
+        background-color: hsl(
+          from var(--palette-info-main) h s l / var(--hover-opacity)
+        );
         border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
       }
@@ -134,7 +145,9 @@
       border: 1px solid var(--palette-success-main);
 
       &:hover {
-        background-color: var(--bg-success);
+        background-color: hsl(
+          from var(--palette-success-main) h s l / var(--hover-opacity)
+        );
         border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
       }
@@ -145,7 +158,9 @@
       border: 1px solid var(--palette-warning-main);
 
       &:hover {
-        background-color: var(--bg-warning);
+        background-color: hsl(
+          from var(--palette-warning-main) h s l / var(--hover-opacity)
+        );
         border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
       }
@@ -156,21 +171,25 @@
       border: 1px solid var(--palette-error-main);
 
       &:hover {
-        background-color: var(--bg-error);
+        background-color: hsl(
+          from var(--palette-error-main) h s l / var(--hover-opacity)
+        );
         border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
       }
     }
 
-    &.disabled {
+    &[disabled] {
       color: var(--palette-text-disabled);
-      border: 1px solid var(--bg-disabled);
+      border: 1px solid
+        hsl(from var(--palette-grey-500) h s l / var(--hover-opacity-disabled));
 
       transition: none;
       box-shadow: none;
 
       cursor: default;
       opacity: 0.6;
+      pointer-events: none;
     }
   }
 
@@ -181,7 +200,9 @@
       color: var(--palette-grey-800);
 
       &:hover {
-        background-color: var(--bg-inherit);
+        background-color: hsl(
+          from var(--palette-grey-600) h s l / var(--hover-opacity)
+        );
       }
     }
 
@@ -189,7 +210,9 @@
       color: var(--palette-primary-main);
 
       &:hover {
-        background-color: var(--bg-primary);
+        background-color: hsl(
+          from var(--palette-primary-main) h s l / var(--hover-opacity)
+        );
       }
     }
 
@@ -197,7 +220,9 @@
       color: var(--palette-info-main);
 
       &:hover {
-        background-color: var(--bg-info);
+        background-color: hsl(
+          from var(--palette-info-main) h s l / var(--hover-opacity)
+        );
       }
     }
 
@@ -205,7 +230,9 @@
       color: var(--palette-success-main);
 
       &:hover {
-        background-color: var(--bg-success);
+        background-color: hsl(
+          from var(--palette-success-main) h s l / var(--hover-opacity)
+        );
       }
     }
 
@@ -213,7 +240,9 @@
       color: var(--palette-warning-main);
 
       &:hover {
-        background-color: var(--bg-warning);
+        background-color: hsl(
+          from var(--palette-warning-main) h s l / var(--hover-opacity)
+        );
       }
     }
 
@@ -221,11 +250,13 @@
       color: var(--palette-error-main);
 
       &:hover {
-        background-color: var(--bg-error);
+        background-color: hsl(
+          from var(--palette-error-main) h s l / var(--hover-opacity)
+        );
       }
     }
 
-    &.disabled {
+    &[disabled] {
       color: var(--palette-text-disabled);
 
       transition: none;
@@ -233,6 +264,7 @@
 
       cursor: default;
       opacity: 0.6;
+      pointer-events: none;
     }
   }
 
@@ -254,31 +286,17 @@
 
 /* icon component */
 .start-icon {
+  font-size: 1.25rem;
   display: inherit;
   margin-right: 0.5rem;
   margin-left: -0.25rem;
   color: inherit;
-
-  &.icon {
-    font-size: 1.25rem;
-    inline-size: 1.25rem;
-    flex-shrink: 0;
-    block-size: 1.25rem;
-    display: inline-flex;
-  }
 }
 
 .end-icon {
+  font-size: 1.25rem;
   display: inherit;
   margin-right: -0.25rem;
   margin-left: 0.5rem;
   color: inherit;
-
-  &.icon {
-    font-size: 1.25rem;
-    inline-size: 1.25rem;
-    flex-shrink: 0;
-    block-size: 1.25rem;
-    display: inline-flex;
-  }
 }

@@ -112,7 +112,6 @@
     0 0 2px 0 hsla(210, 13%, 62%, 0.24),
     -20px 20px 40px -4px hsla(210, 13%, 62%, 0.24);
 
-  --shadows-inherit: 0 8px 16px 0 hsla(210, 13%, 62%, 0.24);
   --shadows-primary: 0 8px 16px 0 hsla(205, 94%, 48%, 0.24);
   --shadows-secondary: 0 8px 16px 0 hsla(267, 100%, 60%, 0.24);
   --shadows-info: 0 8px 16px 0 hsla(189, 100%, 43%, 0.24);
