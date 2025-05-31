@@ -32,7 +32,7 @@ type Props = {
 };
 
 export default function RadioComponent({
-  color,
+  color = "primary",
   size = "normal",
   className,
   disabled,
