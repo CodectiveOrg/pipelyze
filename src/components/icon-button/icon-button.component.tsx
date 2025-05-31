@@ -8,25 +8,22 @@ import { ColorType } from "@/types/color.type";
 
 import styles from "./icon-button.module.css";
 
-type IconProps = {
+type Props = ComponentProps<"button"> & {
   children?: ReactElement<typeof IconComponent>;
   name: string;
   color?: ColorType | undefined;
+  disabled?: boolean;
 };
-
-type Props = ComponentProps<"button"> & IconProps;
 
 export default function IconButtonComponent({
   color = "primary",
   name,
-  disabled,
+  disabled = false,
 }: Props): ReactElement {
   return (
     <button
-      className={clsx(
-        styles["icon-button"],
-        disabled ? styles.disabled : styles[color],
-      )}
+      disabled={disabled}
+      className={clsx(styles["icon-button"], styles[color])}
     >
       <IconComponent name={name} />
     </button>

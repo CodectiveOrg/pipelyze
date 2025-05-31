@@ -44,7 +44,7 @@ export default function ButtonComponent(props: ButtonProps | AnchorProps) {
     styles.button,
     styles[variant],
     styles[size],
-    disabled ? styles.disabled : styles[color],
+    styles[color],
     className,
   );
 
