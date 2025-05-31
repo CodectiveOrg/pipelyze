@@ -1,23 +1,75 @@
+:root {
+  --size: 2.5rem;
+  --filled-circle: 0px;
+}
+
 .progress {
   inline-size: 100%;
   border-radius: 0.75rem;
+
+  &.primary {
+    color: var(--palette-primary-main);
+  }
+
+  &.secondary {
+    color: var(--palette-secondary-main);
+  }
+
+  &.info {
+    color: var(--palette-info-main);
+  }
+
+  &.success {
+    color: var(--palette-success-main);
+  }
+
+  &.warning {
+    color: var(--palette-warning-main);
+  }
+
+  &.error {
+    color: var(--palette-error-main);
+  }
 }
 
-.progress span {
+.indeterminate-progress {
   display: inline-block;
   animation: 1.4s linear 0s infinite normal none running animation-61bdi0;
+  color: currentColor;
+  inline-size: var(--size);
+  block-size: var(--size);
 }
 
-.progress span svg {
+.indeterminate-progress svg {
   display: block;
-
   overflow-clip-margin: content-box;
   overflow: hidden;
 }
 
-.progress span svg circle {
+.indeterminate-progress svg circle {
   stroke: currentcolor;
   animation: 1.4s ease-in-out 0s infinite normal none running animation-1o38n3e;
+}
+
+.determinant-progress {
+  display: inline-block;
+  inline-size: var(--size);
+  block-size: var(--size);
+  color: currentColor;
+
+  transform: rotate(-90deg);
+}
+
+.determinate-progress svg {
+  display: block;
+  overflow-clip-margin: content-box;
+  overflow: hidden;
+}
+
+.determinant-progress svg circle {
+  stroke-dasharray: 100px;
+  stroke-dashoffset: var(--filled-circle);
+  stroke: currentColor;
 }
 
 @keyframes animation-61bdi0 {
@@ -40,6 +92,6 @@
   }
   100% {
     stroke-dasharray: 1px, 200px;
-    stroke-dashoffset: -126px;
+    stroke-dashoffset: -100px;
   }
 }
