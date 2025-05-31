@@ -7,8 +7,8 @@ import clsx from "clsx";
 import styles from "./radioGroupe.module.css";
 
 type contextProps = {
-  value: string;
-  onChange: (value: string) => void;
+  value?: string;
+  onChange?: (value: string) => void;
 };
 
 export const MyContext = createContext<contextProps>(null);
@@ -18,8 +18,8 @@ type Direction = "row" | "column";
 type Props = PropsWithChildren<{
   value: string;
   onChange: (value: string) => void;
-  direction: Direction;
-  className: string;
+  direction?: Direction;
+  className?: string;
 }>;
 
 export default function RadioGroupComponent({
@@ -27,7 +27,7 @@ export default function RadioGroupComponent({
   children,
   value,
   onChange,
-  direction,
+  direction='row',
 }: Props): ReactElement {
   return (
     <MyContext.Provider value={{ value, onChange }}>

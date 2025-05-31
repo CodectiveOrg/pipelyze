@@ -12,6 +12,7 @@ export default function Page() {
         color="primary"
         size="small"
         disabled
+        value="normal"
       />
       <RadioComponent label="small" color="warning" />
     </RadioGroupComponent>
