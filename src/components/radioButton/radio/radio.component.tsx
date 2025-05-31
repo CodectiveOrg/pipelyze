@@ -41,7 +41,7 @@ export default function RadioComponent({
   value: radioValue,
 }: Props): ReactElement {
   const context = useContext(MyContext);
-  const [childValue, setChildValue] = useState<string>(null);
+  const [childValue, setChildValue] = useState<string>('');
 
   const isChecked = context
     ? context.value === radioValue
@@ -62,7 +62,7 @@ export default function RadioComponent({
     const locationItem = e.currentTarget;
     const x = locationItem.width / 2;
     const y = locationItem.height / 2;
-    let id = Date.now();
+    const id = Date.now();
     const newPulse: Pulse = { x, y, id };
     setPulse((prev) => [...prev, newPulse]);
     setTimeout(() => {
@@ -74,7 +74,7 @@ export default function RadioComponent({
     <div
       className={clsx(
         styles.radio,
-        disabled && styles.disabled,
+        disabled && styles.disabledLabel,
         styles[placement],
       )}
     >
