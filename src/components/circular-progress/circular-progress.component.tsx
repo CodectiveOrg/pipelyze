@@ -3,12 +3,13 @@ import { CSSProperties, ReactElement } from "react";
 import clsx from "clsx";
 
 import { ColorType } from "@/types/color.type";
+import { VariantType } from "@/types/variant.type";
 
 import styles from "./circular-progress.module.css";
 
-type ProgressProps = {
+type Props = {
   color?: ColorType;
-  determinate: boolean;
+  variant: VariantType;
   size: number;
   value?: number;
 };
@@ -16,9 +17,9 @@ type ProgressProps = {
 export default function CircularProgressComponent({
   color = "primary",
   size,
-  determinate,
+  variant,
   value = 0,
-}: ProgressProps): ReactElement {
+}: Props): ReactElement {
   return (
     <div
       className={clsx(styles.progress, styles[color])}
@@ -29,31 +30,23 @@ export default function CircularProgressComponent({
         } as CSSProperties
       }
     >
-      {determinate ? (
-        <span className={styles["determinant-progress"]}>
-          <svg viewBox="22 22 44 44">
-            <circle
-              cx="44"
-              cy="44"
-              r={100 / 2 / Math.PI}
-              fill="none"
-              strokeWidth="3.6"
-            ></circle>
-          </svg>
-        </span>
-      ) : (
-        <span className={styles["indeterminate-progress"]}>
-          <svg viewBox="22 22 44 44">
-            <circle
-              cx="44"
-              cy="44"
-              r={100 / 2 / Math.PI}
-              fill="none"
-              strokeWidth="3.6"
-            ></circle>
-          </svg>
-        </span>
-      )}
+      <span
+        className={
+          variant === "determinate"
+            ? styles["determinant-progress"]
+            : styles["indeterminate-progress"]
+        }
+      >
+        <svg viewBox="22 22 44 44">
+          <circle
+            cx="44"
+            cy="44"
+            r={100 / 2 / Math.PI}
+            fill="none"
+            strokeWidth="3.6"
+          ></circle>
+        </svg>
+      </span>
     </div>
   );
 }
