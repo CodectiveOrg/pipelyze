@@ -1,6 +1,6 @@
-import clsx from "clsx";
-
 import { CSSProperties, ReactElement } from "react";
+
+import clsx from "clsx";
 
 import { ColorType } from "@/types/color.type";
 
