@@ -3,9 +3,10 @@ import { CSSProperties, ReactElement } from "react";
 import clsx from "clsx";
 
 import { ColorType } from "@/types/color.type";
-import { VariantType } from "@/types/variant.type";
 
 import styles from "./linear-progress.module.css";
+
+type VariantType = "determinate" | "indeterminate";
 
 type Props = {
   color?: ColorType;
