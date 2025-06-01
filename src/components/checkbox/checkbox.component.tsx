@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { ReactElement } from "react";
 
 import clsx from "clsx";
 
@@ -6,28 +6,22 @@ import { ColorType } from "@/types/color.type";
 
 import styles from "./checkbox.module.css";
 
-type CustomeProps = {
+type Props = {
   basic?: "checked" | "unchecked";
   size?: "normal" | "small";
   color?: ColorType;
 };
 
-type Props = CustomeProps & ComponentProps<"input">;
-
-export default function CheckboxComponent(props: Props) {
-  const {
-    basic = "unchecked",
-    size = "normal",
-    color = "primary",
-    ...otherProps
-  } = props;
-
-  const classNames = clsx(styles.input, styles[size], styles[color]);
-
+export default function CheckboxComponent({
+  basic = "unchecked",
+  size = "normal",
+  color = "primary",
+  ...otherProps
+}: Props): ReactElement {
   return (
     <input
       type="checkbox"
-      className={classNames}
+      className={clsx(styles.checkbox, styles[size], styles[color])}
       defaultChecked={basic === "checked"}
       {...otherProps}
     />
