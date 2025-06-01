@@ -1,6 +1,7 @@
 .progress {
   --size: 2.5rem;
   --filled-circle: 0px;
+
   inline-size: 100%;
   border-radius: 0.75rem;
 
