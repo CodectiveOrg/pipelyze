@@ -5,6 +5,7 @@ import TypographyComponent from "@/components/typography/typography.component";
 import IconComponent from "../icon/icon.component";
 
 import styles from "./hero.module.css";
+import ButtonComponent from "../button/button.component";
 
 export default function HeroComponent() {
   return (
@@ -25,18 +26,18 @@ export default function HeroComponent() {
       </TypographyComponent>
 
       <div className={styles.btnContainer}>
-        <button className={styles.button}>
+        <ButtonComponent color="secondary">
           <IconComponent name="bling-line" />
           <TypographyComponent variant="button">
             Live Preview
           </TypographyComponent>
-        </button>
-        <button className={styles.button}>
+        </ButtonComponent>
+        <ButtonComponent color="secondary">
           <IconComponent name="figma-line" />
           <TypographyComponent variant="button">
             Figma Preview
           </TypographyComponent>
-        </button>
+        </ButtonComponent>
       </div>
 
       <div className={styles.link}>
