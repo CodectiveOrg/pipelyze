@@ -1,12 +1,10 @@
-"use client";
-
 import clsx from "clsx";
 
-import { ReactElement, useEffect } from "react";
+import { CSSProperties, ReactElement } from "react";
 
 import { ColorType } from "@/types/color.type";
 
-import styles from "./progress.module.css";
+import styles from "./circular-progress.module.css";
 
 type ProgressProps = {
   color?: ColorType;
@@ -15,26 +13,22 @@ type ProgressProps = {
   value?: number;
 };
 
-export default function ProgressComponent({
+export default function CircularProgressComponent({
   color = "primary",
   size,
   determinate,
   value = 0,
 }: ProgressProps): ReactElement {
-  const initiatedValue: () => void = () => {
-    document.documentElement.style.setProperty(
-      "--filled-circle",
-      100 - value + "px",
-    );
-    document.documentElement.style.setProperty("--size", size + "rem");
-  };
-
-  useEffect(() => {
-    initiatedValue();
-  }, []);
-
   return (
-    <div className={clsx(styles.progress, styles[color])}>
+    <div
+      className={clsx(styles.progress, styles[color])}
+      style={
+        {
+          "--filled-circle": 100 - value + "px",
+          "--size": size + "rem",
+        } as CSSProperties
+      }
+    >
       {determinate ? (
         <span className={styles["determinant-progress"]}>
           <svg viewBox="22 22 44 44">
@@ -43,7 +37,7 @@ export default function ProgressComponent({
               cy="44"
               r={100 / 2 / Math.PI}
               fill="none"
-              stroke-width="3.6"
+              strokeWidth="3.6"
             ></circle>
           </svg>
         </span>
@@ -55,7 +49,7 @@ export default function ProgressComponent({
               cy="44"
               r={100 / 2 / Math.PI}
               fill="none"
-              stroke-width="3.6"
+              strokeWidth="3.6"
             ></circle>
           </svg>
         </span>

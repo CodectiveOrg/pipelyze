@@ -1,0 +1,94 @@
+.progress {
+  --size: 2.5rem;
+  --filled-circle: 0px;
+  inline-size: 100%;
+  border-radius: 0.75rem;
+
+  &.primary {
+    color: var(--palette-primary-main);
+  }
+
+  &.secondary {
+    color: var(--palette-secondary-main);
+  }
+
+  &.info {
+    color: var(--palette-info-main);
+  }
+
+  &.success {
+    color: var(--palette-success-main);
+  }
+
+  &.warning {
+    color: var(--palette-warning-main);
+  }
+
+  &.error {
+    color: var(--palette-error-main);
+  }
+
+  .indeterminate-progress {
+    display: inline-block;
+    inline-size: var(--size);
+    block-size: var(--size);
+    color: currentColor;
+    animation: 1.4s linear 0s infinite normal none running animation-rotation;
+    svg {
+      display: block;
+      overflow-clip-margin: content-box;
+      overflow: hidden;
+
+      circle {
+        stroke: currentcolor;
+        animation: 1.4s ease-in-out 0s infinite normal none running
+          animation-stroke;
+      }
+    }
+  }
+
+  .determinant-progress {
+    display: inline-block;
+    inline-size: var(--size);
+    block-size: var(--size);
+    color: currentColor;
+
+    transform: rotate(-90deg);
+
+    svg {
+      display: block;
+      overflow-clip-margin: content-box;
+      overflow: hidden;
+
+      circle {
+        stroke-dasharray: 100px;
+        stroke-dashoffset: var(--filled-circle);
+        stroke: currentColor;
+      }
+    }
+  }
+}
+
+@keyframes animation-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animation-stroke {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+  100% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: -100px;
+  }
+}

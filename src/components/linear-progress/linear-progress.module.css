@@ -1,8 +1,5 @@
-:root {
-  --progress-value: 0%;
-}
-
 .linear-progress {
+  --progress-value: 0%;
   inline-size: 100%;
   border-radius: 0.75rem;
 
@@ -29,75 +26,75 @@
   &.error {
     color: var(--palette-error-main);
   }
+
+  .determinate-progress-line {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    block-size: 0.25rem;
+    background: var(--palette-grey-400);
+    z-index: 0;
+    border-radius: 0.25rem;
+    margin-bottom: calc(2 * 0.5rem);
+    inline-size: 100%;
+
+    .filled {
+      inline-size: 100%;
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      transform-origin: left center;
+      transform: translateX(var(--progress-value));
+      transition: transform 0.4s linear;
+      border-radius: inherit;
+
+      background-color: currentColor;
+    }
+  }
+
+  .indeterminate-progress-line {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    block-size: 0.25rem;
+    background: var(--palette-grey-400);
+    z-index: 0;
+    border-radius: 0.25rem;
+    margin-bottom: calc(2 * 0.5rem);
+    inline-size: 100%;
+    color: currentColor;
+
+    &:before {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      background-color: currentColor;
+      transition: transform 0.2s linear;
+      transform-origin: left center;
+      inline-size: auto;
+      animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite normal
+        none running animation-before;
+      border-radius: inherit;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      background-color: currentColor;
+      inset-inline-start: 0;
+      transition: transform 0.2s linear;
+      transform-origin: left center;
+      inline-size: auto;
+      animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s infinite normal
+        none running animation-after;
+      border-radius: inherit;
+    }
+  }
 }
 
-.determinate-progress-line {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  block-size: 0.25rem;
-  background: var(--palette-grey-400);
-  z-index: 0;
-  border-radius: 0.25rem;
-  margin-bottom: calc(2 * 0.5rem);
-  inline-size: 100%;
-}
-
-.filled {
-  inline-size: 100%;
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: 0;
-  transform-origin: left center;
-  transform: translateX(var(--progress-value));
-  transition: transform 0.4s linear;
-  border-radius: inherit;
-
-  background-color: currentColor;
-}
-
-.indeterminate-progress-line {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  block-size: 0.25rem;
-  background: var(--palette-grey-400);
-  z-index: 0;
-  border-radius: 0.25rem;
-  margin-bottom: calc(2 * 0.5rem);
-  inline-size: 100%;
-  color: currentColor;
-}
-
-.indeterminate-progress-line:before {
-  content: "";
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: 0;
-  background-color: currentColor;
-  transition: transform 0.2s linear;
-  transform-origin: left center;
-  inline-size: auto;
-  animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite normal
-    none running animation-ozg7p2;
-  border-radius: inherit;
-}
-
-.indeterminate-progress-line:after {
-  content: "";
-  position: absolute;
-  inset-block: 0;
-  background-color: currentColor;
-  /*inset-inline-start: 0;*/
-  transition: transform 0.2s linear;
-  transform-origin: left center;
-  inline-size: auto;
-  animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s infinite normal none
-    running animation-19gglwu;
-  border-radius: inherit;
-}
-
-@keyframes animation-ozg7p2 {
+@keyframes animation-before {
   0% {
     inset-inline-start: -35%;
     inset-inline-end: 100%;
@@ -112,7 +109,7 @@
   }
 }
 
-@keyframes animation-19gglwu {
+@keyframes animation-after {
   0% {
     inset-inline-start: -200%;
     inset-inline-end: 100%;
