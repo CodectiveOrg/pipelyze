@@ -1,25 +1,11 @@
 .radio {
+  --color-hover: color-mix(in hsl, var(--color-light) 30%, transparent);
+
   position: relative;
   z-index: 1;
 
   display: flex;
   align-items: center;
-
-  &.start {
-    flex-direction: row;
-  }
-
-  &.end {
-    flex-direction: row-reverse;
-  }
-
-  &.top {
-    flex-direction: column;
-  }
-
-  &.bottom {
-    flex-direction: column-reverse;
-  }
 
   &.disabled-label {
     color: var(--palette-text-disabled);
@@ -28,31 +14,24 @@
     cursor: not-allowed;
   }
 
-  .radio-container {
+  .control {
     position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 40px;
-    height: 40px;
+    block-size: 2.5rem;
+    inline-size: 2.5rem;
 
-    .radio-btn {
-      /* transition: all 0.1s ease; */
+    input {
       background: transparent;
 
-      position: relative;
-      z-index: 2;
-
-      width: var(--radio-size, 1.4em);
-      height: var(--radio-size, 1.4em);
-
-      margin: 0;
-      padding: 0;
+      block-size: var(--radio-size, 1.4em);
+      inline-size: var(--radio-size, 1.4em);
 
       border: 1px solid var(--palette-text-secondary);
-      border-radius: 50%;
+      border-radius: 999rem;
 
       outline: none;
 
@@ -94,7 +73,7 @@
 
       &:checked {
         border: var(--border-size, 7px) solid
-          var(--color-border, var(--palette-text-primary));
+          var(--color-main, var(--palette-text-primary));
       }
 
       &:disabled {
@@ -112,70 +91,10 @@
         --radio-size: 1.4em;
         --border-size: 7px;
       }
-
-      &.primary {
-        --color-border: var(--palette-primary-main);
-        --color-hover: color-mix(
-          in hsl,
-          var(--palette-primary-light) 30%,
-          transparent
-        );
-        --color-active: var(--palette-primary-dark);
-      }
-
-      &.secondary {
-        --color-border: var(--palette-secondary-main);
-        --color-hover: color-mix(
-          in hsl,
-          var(--palette-secondary-light) 30%,
-          transparent
-        );
-        --color-active: var(--palette-secondary-dark);
-      }
-
-      &.info {
-        --color-border: var(--palette-info-main);
-        --color-hover: color-mix(
-          in hsl,
-          var(--palette-info-light) 30%,
-          transparent
-        );
-        --color-active: var(--palette-info-dark);
-      }
-
-      &.success {
-        --color-border: var(--palette-success-main);
-        --color-hover: color-mix(
-          in hsl,
-          var(--palette-success-light) 30%,
-          transparent
-        );
-        --color-active: var(--palette-success-dark);
-      }
-
-      &.warning {
-        --color-border: var(--palette-warning-main);
-        --color-hover: color-mix(
-          in hsl,
-          var(--palette-warning-light) 30%,
-          transparent
-        );
-        --color-active: var(--palette-warning-dark);
-      }
-
-      &.error {
-        --color-border: var(--palette-error-main);
-        --color-hover: color-mix(
-          in hsl,
-          var(--palette-error-light) 30%,
-          transparent
-        );
-        --color-active: var(--palette-error-dark);
-      }
     }
 
     .pulse {
-      background: var(--color-hover, --palette-grey-500);
+      background: var(--color-hover, var(--palette-grey-500));
 
       position: absolute;
       top: 50%;

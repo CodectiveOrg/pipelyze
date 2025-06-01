@@ -23,42 +23,27 @@ export default function RadioComponent({
   className,
   ...otherProps
 }: Props): ReactElement {
-  type Pulse = { x: number; y: number; id: number };
-  const [pulse, setPulse] = useState<Pulse[]>([]);
+  const [ripples, setRipples] = useState<number[]>([]);
 
-  const activePulse = (e: React.MouseEvent<HTMLInputElement>) => {
-    const locationItem = e.currentTarget;
-    const x = locationItem.width / 2;
-    const y = locationItem.height / 2;
+  const activePulse = () => {
     const id = Date.now();
-    const newPulse: Pulse = { x, y, id };
-    setPulse((prev) => [...prev, newPulse]);
+
+    setRipples((prev) => [...prev, id]);
+
     setTimeout(() => {
-      setPulse((prev) => prev.filter((prevPulse) => prevPulse.id !== id));
+      setRipples((prev) => prev.filter((prevPulse) => prevPulse !== id));
     }, 600);
   };
 
   return (
-    <div className={styles.radio}>
-      <label htmlFor="input">{label}</label>
-
-      <div className={styles["radio-container"]}>
-        {pulse.map((pulse) => (
-          <span key={pulse.id} className={clsx(styles.pulse)}></span>
+    <label className={clsx(styles.radio, styles[size], color, className)}>
+      <div className={styles.control}>
+        {ripples.map((pulse) => (
+          <span key={pulse} className={clsx(styles.pulse)}></span>
         ))}
-
-        <input
-          type="radio"
-          className={clsx(
-            styles["radio-btn"],
-            className,
-            styles[color],
-            styles[size],
-          )}
-          onMouseDown={activePulse}
-          {...otherProps}
-        />
+        <input type="radio" onClick={activePulse} {...otherProps} />
       </div>
-    </div>
+      <span>{label}</span>
+    </label>
   );
 }
