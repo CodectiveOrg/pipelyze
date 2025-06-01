@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import UploadSvg from "@/assets/Upload.svg";
+import UploadSvg from "@/assets/illustrations/Upload.svg";
 
 import styles from "./upload.module.css";
 

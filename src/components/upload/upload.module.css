@@ -32,7 +32,6 @@
     cursor: pointer;
 
     .img {
-
       --primary-main: var(--palette-primary-main);
       --primary-dark: var(--palette-primary-dark);
       --primary-darker: var(--palette-primary-darker);
