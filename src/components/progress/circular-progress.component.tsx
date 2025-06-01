@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { CSSProperties } from "react";
+import { CSSProperties, ReactElement } from "react";
 
 import { ColorType } from "@/types/color.type";
 
@@ -18,7 +18,7 @@ export default function CircularProgressComponent({
   size,
   determinate,
   value = 0,
-}: ProgressProps) {
+}: ProgressProps): ReactElement {
   return (
     <div
       className={clsx(styles.progress, styles[color])}
