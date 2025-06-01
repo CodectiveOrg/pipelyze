@@ -2,10 +2,10 @@ import Link from "next/link";
 
 import TypographyComponent from "@/components/typography/typography.component";
 
+import ButtonComponent from "../button/button.component";
 import IconComponent from "../icon/icon.component";
 
 import styles from "./hero.module.css";
-import ButtonComponent from "../button/button.component";
 
 export default function HeroComponent() {
   return (

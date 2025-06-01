@@ -21,7 +21,7 @@
 
   .btnContainer {
     display: flex;
-    gap:5;
+    gap: 5;
   }
 
   .button {
