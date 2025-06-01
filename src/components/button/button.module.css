@@ -1,34 +1,38 @@
 a.button {
   color: inherit;
+
   text-decoration: none;
 }
 
 .button {
+  position: relative;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  position: relative;
-  vertical-align: middle;
-
   min-inline-size: 4rem;
-  line-height: 1.71;
+
+  border: none;
+  border-radius: var(--shape-border-radius);
 
   font-weight: 700;
 
-  cursor: pointer;
-
-  border: none;
-  border-radius: var(--shape-borderRadius);
+  line-height: 1.71;
+  vertical-align: middle;
 
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: background-color, box-shadow, border-color;
 
+  cursor: pointer;
+
   &.contained {
     color: var(--palette-common-white);
-    border: none;
     box-shadow: none;
+
     padding: 0.375rem 0.75rem;
+
+    border: none;
 
     &.inherit {
       background-color: var(--palette-grey-800);
@@ -95,15 +99,17 @@ a.button {
     }
 
     &[disabled] {
-      color: var(--palette-text-disabled);
-      transition: none;
       background-color: hsl(
         from var(--palette-grey-500) h s l /
-          var(--palette-action-disabledOpacity)
+          var(--palette-action-disabled-opacity)
       );
+      color: var(--palette-text-disabled);
       box-shadow: none;
-      cursor: default;
       opacity: 0.6;
+
+      transition: none;
+
+      cursor: default;
       pointer-events: none;
     }
   }
@@ -113,115 +119,130 @@ a.button {
 
     &.inherit {
       color: var(--palette-grey-800);
+
       border: 1px solid var(--palette-grey-800);
 
       &:hover {
         background-color: hsl(
           from var(--palette-grey-600) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
-        border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
+
+        border-color: currentcolor;
       }
     }
 
     &.primary {
       color: var(--palette-primary-main);
+
       border: 1px solid var(--palette-primary-main);
 
       &:hover {
         background-color: hsl(
           from var(--palette-primary-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
-        border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
+
+        border-color: currentcolor;
       }
     }
 
     &.secondary {
       color: var(--palette-secondary-main);
+
       border: 1px solid var(--palette-secondary-main);
 
       &:hover {
         background-color: hsl(
           from var(--palette-secondary-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
-        border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
+
+        border-color: currentcolor;
       }
     }
 
     &.info {
       color: var(--palette-info-main);
+
       border: 1px solid var(--palette-info-main);
 
       &:hover {
         background-color: hsl(
           from var(--palette-info-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
-        border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
+
+        border-color: currentcolor;
       }
     }
 
     &.success {
       color: var(--palette-success-main);
+
       border: 1px solid var(--palette-success-main);
 
       &:hover {
         background-color: hsl(
           from var(--palette-success-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
-        border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
+
+        border-color: currentcolor;
       }
     }
 
     &.warning {
       color: var(--palette-warning-main);
+
       border: 1px solid var(--palette-warning-main);
 
       &:hover {
         background-color: hsl(
           from var(--palette-warning-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
-        border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
+
+        border-color: currentcolor;
       }
     }
 
     &.error {
       color: var(--palette-error-main);
+
       border: 1px solid var(--palette-error-main);
 
       &:hover {
         background-color: hsl(
           from var(--palette-error-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
-        border-color: currentColor;
         box-shadow: 0 0 0 1px currentcolor;
+
+        border-color: currentcolor;
       }
     }
 
     &[disabled] {
       color: var(--palette-text-disabled);
+      box-shadow: none;
+      opacity: 0.6;
+
       border: 1px solid
         hsl(
           from var(--palette-grey-500) h s l /
-            var(--palette-action-disabledOpacity)
+            var(--palette-action-disabled-opacity)
         );
 
       transition: none;
-      box-shadow: none;
 
       cursor: default;
-      opacity: 0.6;
       pointer-events: none;
     }
   }
@@ -235,7 +256,7 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-grey-600) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
       }
     }
@@ -246,7 +267,7 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-primary-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
       }
     }
@@ -257,7 +278,7 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-secondary-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
       }
     }
@@ -268,7 +289,7 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-info-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
       }
     }
@@ -279,7 +300,7 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-success-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
       }
     }
@@ -290,7 +311,7 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-warning-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
       }
     }
@@ -301,52 +322,65 @@ a.button {
       &:hover {
         background-color: hsl(
           from var(--palette-error-main) h s l /
-            var(--palette-action-hoverOpacity)
+            var(--palette-action-hover-opacity)
         );
       }
     }
 
     &[disabled] {
       color: var(--palette-text-disabled);
+      box-shadow: none;
+      opacity: 0.6;
 
       transition: none;
-      box-shadow: none;
 
       cursor: default;
-      opacity: 0.6;
       pointer-events: none;
     }
   }
 
   &.small {
-    font-size: 0.8125rem;
     block-size: 1.875rem;
+
     padding: 0.25rem 0.5rem;
+
+    font-size: 0.8125rem;
   }
+
   &.medium {
-    font-size: 0.875rem;
     padding: 0.375rem 0.75rem;
+
+    font-size: 0.875rem;
   }
+
   &.large {
-    font-size: 0.9375rem;
     block-size: 3rem;
+
     padding: 0.5rem 1rem;
+
+    font-size: 0.9375rem;
   }
 }
 
 /* icon component */
 .start-icon {
-  font-size: 1.25rem;
+  color: inherit;
+
   display: inherit;
+
   margin-right: 0.5rem;
   margin-left: -0.25rem;
-  color: inherit;
+
+  font-size: 1.25rem;
 }
 
 .end-icon {
-  font-size: 1.25rem;
+  color: inherit;
+
   display: inherit;
+
   margin-right: -0.25rem;
   margin-left: 0.5rem;
-  color: inherit;
+
+  font-size: 1.25rem;
 }
