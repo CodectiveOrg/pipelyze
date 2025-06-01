@@ -3,6 +3,7 @@
   --filled-circle: 0px;
 
   inline-size: 100%;
+
   border-radius: 0.75rem;
 
   &.primary {
@@ -30,19 +31,24 @@
   }
 
   .indeterminate-progress {
+    color: currentcolor;
+
     display: inline-block;
-    inline-size: var(--size);
+
     block-size: var(--size);
-    color: currentColor;
+    inline-size: var(--size);
+
     animation: 1.4s linear 0s infinite normal none running animation-rotation;
 
     svg {
+      overflow: hidden;
+
       display: block;
       overflow-clip-margin: content-box;
-      overflow: hidden;
 
       circle {
         stroke: currentcolor;
+
         animation: 1.4s ease-in-out 0s infinite normal none running
           animation-stroke;
       }
@@ -50,22 +56,25 @@
   }
 
   .determinant-progress {
+    color: currentcolor;
+
     display: inline-block;
-    inline-size: var(--size);
+
     block-size: var(--size);
-    color: currentColor;
+    inline-size: var(--size);
 
     transform: rotate(-90deg);
 
     svg {
+      overflow: hidden;
+
       display: block;
       overflow-clip-margin: content-box;
-      overflow: hidden;
 
       circle {
         stroke-dasharray: 100px;
         stroke-dashoffset: var(--filled-circle);
-        stroke: currentColor;
+        stroke: currentcolor;
       }
     }
   }
@@ -75,6 +84,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -85,10 +95,12 @@
     stroke-dasharray: 1px, 200px;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 100px, 200px;
     stroke-dashoffset: -15px;
   }
+
   100% {
     stroke-dasharray: 1px, 200px;
     stroke-dashoffset: -100px;

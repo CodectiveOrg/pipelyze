@@ -1,6 +1,7 @@
 .linear-progress {
   --progress-value: 0%;
   inline-size: 100%;
+
   border-radius: 0.75rem;
 
   &.primary {
@@ -28,68 +29,96 @@
   }
 
   .determinate-progress-line {
+    background: var(--palette-grey-400);
+
     position: relative;
     overflow: hidden;
-    display: block;
-    block-size: 0.25rem;
-    background: var(--palette-grey-400);
     z-index: 0;
-    border-radius: 0.25rem;
-    margin-bottom: calc(2 * 0.5rem);
+
+    display: block;
+
+    block-size: 0.25rem;
     inline-size: 100%;
 
+    margin-bottom: calc(2 * 0.5rem);
+
+    border-radius: 0.25rem;
+
     .filled {
-      inline-size: 100%;
+      background-color: currentcolor;
+
       position: absolute;
       inset-block: 0;
       inset-inline-start: 0;
-      transform-origin: left center;
-      transform: translateX(var(--progress-value));
-      transition: transform 0.4s linear;
+
+      inline-size: 100%;
+
       border-radius: inherit;
 
-      background-color: currentColor;
+      transform: translateX(var(--progress-value));
+      transform-origin: left center;
+
+      transition: transform 0.4s linear;
     }
   }
 
   .indeterminate-progress-line {
+    background: var(--palette-grey-400);
+    color: currentcolor;
+
     position: relative;
     overflow: hidden;
-    display: block;
-    block-size: 0.25rem;
-    background: var(--palette-grey-400);
     z-index: 0;
-    border-radius: 0.25rem;
-    margin-bottom: calc(2 * 0.5rem);
-    inline-size: 100%;
-    color: currentColor;
 
-    &:before {
+    display: block;
+
+    block-size: 0.25rem;
+    inline-size: 100%;
+
+    margin-bottom: calc(2 * 0.5rem);
+
+    border-radius: 0.25rem;
+
+    &::before {
       content: "";
+
+      background-color: currentcolor;
+
       position: absolute;
       inset-block: 0;
       inset-inline-start: 0;
-      background-color: currentColor;
-      transition: transform 0.2s linear;
-      transform-origin: left center;
+
       inline-size: auto;
+
+      border-radius: inherit;
+
+      transform-origin: left center;
+
+      transition: transform 0.2s linear;
+
       animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite normal
         none running animation-before;
-      border-radius: inherit;
     }
 
-    &:after {
+    &::after {
       content: "";
+
+      background-color: currentcolor;
+
       position: absolute;
       inset-block: 0;
-      background-color: currentColor;
       inset-inline-start: 0;
-      transition: transform 0.2s linear;
-      transform-origin: left center;
+
       inline-size: auto;
+
+      border-radius: inherit;
+
+      transform-origin: left center;
+
+      transition: transform 0.2s linear;
+
       animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s infinite normal
         none running animation-after;
-      border-radius: inherit;
     }
   }
 }
@@ -99,10 +128,12 @@
     inset-inline-start: -35%;
     inset-inline-end: 100%;
   }
+
   60% {
     inset-inline-start: 100%;
     inset-inline-end: -90%;
   }
+
   100% {
     inset-inline-start: 100%;
     inset-inline-end: -90%;
@@ -114,10 +145,12 @@
     inset-inline-start: -200%;
     inset-inline-end: 100%;
   }
+
   60% {
     inset-inline-start: 107%;
     inset-inline-end: -8%;
   }
+
   100% {
     inset-inline-start: 107%;
     inset-inline-end: -8%;
