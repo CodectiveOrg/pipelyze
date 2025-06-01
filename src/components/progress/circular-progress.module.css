@@ -34,6 +34,7 @@
     block-size: var(--size);
     color: currentColor;
     animation: 1.4s linear 0s infinite normal none running animation-rotation;
+
     svg {
       display: block;
       overflow-clip-margin: content-box;
