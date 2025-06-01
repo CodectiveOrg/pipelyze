@@ -46,7 +46,15 @@
   --palette-grey-800: hsl(210, 24%, 15%);
   --palette-grey-900: hsl(212, 25%, 10%);
 
+  --palette-common-black: hsl(0, 0%, 0%);
+  --palette-common-white: hsl(0, 0%, 100%);
+
   --palette-text-primary: hsl(210, 24%, 15%);
   --palette-text-secondary: hsl(210, 13%, 44%);
   --palette-text-disabled: hsl(210, 14%, 62%);
+
+  --palette-action-hoverOpacity: 0.08;
+  --palette-action-disabledOpacity: 0.24;
+
+  --shape-borderRadius: 0.5rem;
 }
