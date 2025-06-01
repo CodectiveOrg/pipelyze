@@ -1,6 +1,6 @@
 .input {
-  inline-size: 1rem;
   block-size: 1rem;
+  inline-size: 1rem;
 
   margin: 0;
 
@@ -36,12 +36,12 @@
   }
 
   &.normal {
-    inline-size: 1.25rem;
     block-size: 1.25rem;
+    inline-size: 1.25rem;
   }
 
   &.small {
-    inline-size: 0.925rem;
     block-size: 0.925rem;
+    inline-size: 0.925rem;
   }
 }
