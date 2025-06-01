@@ -13,11 +13,7 @@ type Props = {
 };
 
 export default function CheckboxComponent(props: Props) {
-    const {
-        basic = "unchecked",
-        size = "normal",
-        color = "primary"
-    } = props;
+  const { basic = "unchecked", size = "normal", color = "primary" } = props;
 
   const classNames = clsx(styles.input, styles[size], styles[color]);
 
