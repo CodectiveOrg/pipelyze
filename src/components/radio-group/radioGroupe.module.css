@@ -1,4 +1,4 @@
-.RadioGroup {
+.radio-group {
   display: flex;
   flex-direction: var(--flex-direction);
 

@@ -27,11 +27,13 @@ export default function RadioGroupComponent({
   children,
   value,
   onChange,
-  direction='row',
+  direction = "row",
 }: Props): ReactElement {
   return (
     <MyContext.Provider value={{ value, onChange }}>
-      <div className={clsx(styles[direction], styles.RadioGroup, className)}>
+      <div
+        className={clsx(styles[direction], styles["radio-group"], className)}
+      >
         {children}
       </div>
     </MyContext.Provider>

@@ -42,7 +42,7 @@ export default function RadioComponent({
     <div className={styles.radio}>
       <label htmlFor="input">{label}</label>
 
-      <div className={styles.radioContainer}>
+      <div className={styles["radio-container"]}>
         {pulse.map((pulse) => (
           <span key={pulse.id} className={clsx(styles.pulse)}></span>
         ))}
@@ -50,7 +50,7 @@ export default function RadioComponent({
         <input
           type="radio"
           className={clsx(
-            styles.radioBtn,
+            styles["radio-btn"],
             className,
             styles[color],
             styles[size],
