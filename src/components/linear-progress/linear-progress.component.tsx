@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { CSSProperties, ReactElement } from "react";
+import { CSSProperties } from "react";
 
 import { ColorType } from "@/types/color.type";
 
@@ -16,7 +16,7 @@ export default function LinearProgressComponent({
   color = "primary",
   determinate,
   value = 0,
-}: LinearProgressProps): ReactElement {
+}: LinearProgressProps) {
   return (
     <div
       className={clsx(styles["linear-progress"], styles[color])}
