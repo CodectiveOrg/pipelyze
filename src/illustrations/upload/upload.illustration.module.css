@@ -5,7 +5,7 @@
 
   display: block;
 
-  padding: calc(5 * var(--spacing));
+  padding: var(--spacing-5);
 
   border: 1px dashed
     hsl(from var(--palette-grey-500) h s l / var(--palette-border-opacity));
@@ -15,9 +15,8 @@
 
   text-align: center;
 
-  transition:
-    opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
-    padding 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity, padding;
 
   cursor: pointer;
 
