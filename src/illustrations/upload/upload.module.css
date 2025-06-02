@@ -7,8 +7,7 @@
 
   padding: var(--spacing-5);
 
-  border: 1px dashed
-    hsl(from var(--palette-grey-500) h s l / var(--palette-border-opacity));
+  border: 1px dashed hsl(from var(--palette-grey-500) h s l / 20%);
   border-radius: var(--shape-border-radius);
 
   outline: none;
@@ -30,5 +29,9 @@
     margin: 0 calc(0.5 * var(--spacing));
 
     text-decoration: underline;
+  }
+
+  &:hover {
+    opacity: 0.72;
   }
 }

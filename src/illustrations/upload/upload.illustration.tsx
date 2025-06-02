@@ -1,17 +1,16 @@
 import { ReactElement } from "react";
 
-import UploadSvg from "@/assets/illustrations/Upload.svg";
+import UploadSvg from "@/assets/illustrations/upload.illustration";
 
 import TypographyComponent from "@/components/typography/typography.component";
 
-import svgStyles from "./svg.illustration.module.css";
-import styles from "./upload.illustration.module.css";
+import styles from "./upload.module.css";
 
 export default function UploadIllustration(): ReactElement {
   return (
     <label className={styles.upload}>
       <input tabIndex={-1} type="file" />
-      <UploadSvg className={svgStyles.svg} />
+      <UploadSvg />
       <TypographyComponent variant="h6">
         Drop or select file
       </TypographyComponent>
