@@ -2,8 +2,11 @@
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
     "^(vite|@vitejs)(/(.*))?$",
+    "^(react|react-dom)(/(.*))?$",
     "^next(/(.*))?$",
     "^clsx(/(.*))?$",
+    "^@iconify(/(.*))?$",
+    "^@iconify-json(/(.*))?$",
     "<THIRD_PARTY_MODULES>",
     "^@/assets",
     "^@/components",

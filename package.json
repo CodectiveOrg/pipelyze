@@ -8,9 +8,16 @@
     "start": "next start",
     "lint": "next lint",
     "prettier:check": "prettier . --check",
-    "prettier:fix": "prettier . --write"
+    "prettier:fix": "prettier . --write",
+    "stylelint:check": "stylelint \"**/*.css\"",
+    "stylelint:fix": "stylelint \"**/*.css\" --fix",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint-staged": "lint-staged",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@iconify/utils": "^2.3.0",
     "clsx": "^2.1.1",
     "next": "15.1.8",
     "react": "^19.0.0",
@@ -18,13 +25,29 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@iconify-json/mingcute": "^1.2.3",
+    "@iconify/react": "^6.0.0",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-onboarding": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/nextjs": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/test": "^8.6.14",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.8",
+    "eslint-plugin-storybook": "^0.12.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
+    "storybook": "^8.6.14",
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-order": "^7.0.0",
     "typescript": "^5"
   }
 }
