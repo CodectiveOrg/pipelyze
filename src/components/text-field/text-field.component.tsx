@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import styles from './text-field.module.css';
 
-//'برای کترلد--------------------------------------------
+//'برای آن کترلد--------------------------------------------
 
 // type Props = {
 //   value : string;
@@ -16,31 +16,33 @@ import styles from './text-field.module.css';
 export default function TextFieldComponent(): ReactElement {
 
   const [value,setValue] = useState<string>('')
+  const [isActive,setIsActive] = useState<boolean>(false)
 
 
-
-  const handleValue = (e:React.ChangeEvent<HTMLInputElement>)=>{
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
     (setValue(e.target.value))
   }
+
+  const handleFocus = () => setIsActive(true)
+  const handleBlur = () => setIsActive(false)
 
 
   return (
     <div className={clsx(styles.wrapper)}>
 
-
       <div className={clsx(styles.outlinedInput)}>
         <label
           className={clsx(
-            styles.label)}
+            styles.label, (isActive && styles.labelActive))}
         >
           Label
         </label>
         <input
-          className={clsx(styles.input)}
-          // onFocus={}
-          // onBlur={handleDeactive}
+          className={clsx(styles.input,)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           value={value}
-          onChange={handleValue}
+          onChange={handleChange}
           // {...otherProps}
         />
 
