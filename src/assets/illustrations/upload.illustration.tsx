@@ -1,9 +1,11 @@
 import React, { SVGProps } from "react";
 
-export default function UploadSvg(props: SVGProps<SVGSVGElement>) {
+import styles from "./upload.module.css";
+
+export default function UploadIllustration(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1mrsz8q"
+      className={styles.svg}
       focusable="false"
       aria-hidden="true"
       viewBox="0 0 480 360"
