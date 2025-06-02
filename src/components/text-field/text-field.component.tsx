@@ -13,15 +13,18 @@ import styles from './text-field.module.css';
 // ---------------------------------------------------------
 
 
+
+
+
 export default function TextFieldComponent(): ReactElement {
 
-  const [value,setValue] = useState<string>('')
+  // const [value,setValue] = useState<string>('')
   const [isActive,setIsActive] = useState<boolean>(false)
 
 
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
-    (setValue(e.target.value))
-  }
+  // const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+  //   (setValue(e.target.value))
+  // }
 
   const handleFocus = () => setIsActive(true)
   const handleBlur = () => setIsActive(false)
@@ -33,7 +36,7 @@ export default function TextFieldComponent(): ReactElement {
       <div className={clsx(styles.outlinedInput)}>
         <label
           className={clsx(
-            styles.label, (isActive ? styles.labelActive : ''))}
+            styles.label, (isActive && styles.labelFocus))}
         >
           Labeldfzgh
         </label>
@@ -42,7 +45,7 @@ export default function TextFieldComponent(): ReactElement {
           onFocus={handleFocus}
           onBlur={handleBlur}
           value={value}
-          onChange={handleChange}
+          // onChange={handleChange}
           // {...otherProps}
         />
 

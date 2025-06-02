@@ -19,7 +19,7 @@
   z-index: 1;
 }
 
-.labelActive{
+.labelFocus{
   font-weight: 400;
   color: var(--palette-text-primary);
   transform: translateX(-3px) translateY(-26px) scale(0.8);
