@@ -63,7 +63,7 @@
     }
   }
 
-  &.determinant {
+  &.determinate {
     .rotor {
       transform: rotate(-90deg);
 

@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function LinearProgressComponent({
-  color = "primary",
+  color = "inherit",
   variant,
   value = 0,
 }: Props): ReactElement {
@@ -22,9 +22,7 @@ export default function LinearProgressComponent({
       className={clsx(
         styles["linear-progress"],
         styles[color],
-        variant === "determinate"
-          ? styles["determinant"]
-          : styles["indeterminate"],
+        variant === "determinate" ? styles.determinate : styles.indeterminate,
       )}
       style={{ "--progress-value": value - 100 + "%" } as CSSProperties}
     >

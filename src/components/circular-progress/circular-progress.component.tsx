@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function CircularProgressComponent({
-  color = "primary",
+  color = "inherit",
   size,
   variant,
   value = 0,
@@ -24,9 +24,7 @@ export default function CircularProgressComponent({
       className={clsx(
         styles.progress,
         styles[color],
-        variant === "determinate"
-          ? styles["determinant"]
-          : styles["indeterminate"],
+        variant === "determinate" ? styles.determinate : styles.indeterminate,
       )}
       style={
         {
