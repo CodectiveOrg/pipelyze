@@ -38,7 +38,7 @@ export default function TextFieldComponent(): ReactElement {
           Label
         </label>
         <input
-          className={clsx(styles.input,)}
+          className={clsx(styles.input)}
           onFocus={handleFocus}
           onBlur={handleBlur}
           value={value}
@@ -46,7 +46,7 @@ export default function TextFieldComponent(): ReactElement {
           // {...otherProps}
         />
 
-        <fieldset className={styles.fieldset}>
+        <fieldset className={clsx(styles.fieldset, (isActive && styles.fieldsetFocus))}>
           <legend className={styles.legend}>
             <span></span>
           </legend>

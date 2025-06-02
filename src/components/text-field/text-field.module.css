@@ -14,19 +14,21 @@
   background: #fff;
   padding: 0 4px;
   font-size: 1rem;
-  color: var(--palette-text-disabled);
+  color: var(--palette-text-secondary);
   pointer-events: none;
   transform-origin: center;
   transform-origin: top left;
   transition: all 0.2s ease;
   z-index: 1;
-
 }
 
 .labelActive{
   position: absolute;
   top: -8px;
-  left: 12px; 
+  left: 9px; 
+  color: var(--palette-text-primary);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
 }
 
 .outlinedInput {
@@ -64,10 +66,17 @@
   pointer-events: none;
   margin: 0;
   border-radius: 8px;
-  box-sizing: border-box;
-  border: 1px solid black;
+  /* box-sizing: border-box; */
+  border:none;
   padding: 0 8px;
   white-space: nowrap;
+  border: 1px solid var(--palette-text-secondary);
+  transition: border 0.05s ease;
+}
+
+.fieldsetFocus{
+  border: 2px solid var(--palette-text-primary);
+  border-radius: 8px;
 }
 
 
