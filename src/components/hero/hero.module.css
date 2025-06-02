@@ -10,16 +10,16 @@
   text-align: center;
 
   .title {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
     background: linear-gradient(
       var(--palette-primary-lighter),
       var(--palette-primary-light),
       var(--palette-secondary-main),
       var(--palette-secondary-dark)
     );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .avatar-container {
