@@ -1,10 +1,27 @@
 'use client'
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import clsx from 'clsx';
 
 import styles from './text-field.module.css';
 
+//'برای کترلد--------------------------------------------
+
+// type Props = {
+//   value : string;
+//   onChange : (e: React.ChangeEvent<HTMLInputElement>) => void;
+// }
+// ---------------------------------------------------------
+
+
 export default function TextFieldComponent(): ReactElement {
+
+  const [value,setValue] = useState<string>('')
+
+
+
+  const handleValue = (e:React.ChangeEvent<HTMLInputElement>)=>{
+    (setValue(e.target.value))
+  }
 
 
   return (
@@ -21,9 +38,9 @@ export default function TextFieldComponent(): ReactElement {
         <input
           className={clsx(styles.input)}
           // onFocus={}
-          // onBlur={}
-          // value={}
-          // onChange={}
+          // onBlur={handleDeactive}
+          value={value}
+          onChange={handleValue}
           // {...otherProps}
         />
 
