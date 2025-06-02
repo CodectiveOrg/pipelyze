@@ -26,9 +26,10 @@ export default function TextFieldComponent(): ReactElement {
           // onChange={}
           // {...otherProps}
         />
+
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>
-            <span>inactive </span>
+            <span></span>
           </legend>
         </fieldset>
       </div>
