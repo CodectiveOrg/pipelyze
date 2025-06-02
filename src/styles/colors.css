@@ -53,8 +53,5 @@
   --palette-text-secondary: hsl(210deg 13% 44%);
   --palette-text-disabled: hsl(210deg 14% 62%);
 
-  --palette-action-hover-opacity: 0.08;
-  --palette-action-disabled-opacity: 0.24;
-
   --shape-border-radius: 0.5rem;
 }
