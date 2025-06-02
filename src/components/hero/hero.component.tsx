@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import TypographyComponent from "@/components/typography/typography.component";
 
+import AvatarComponent from "../avatar/avatar.component";
 import ButtonComponent from "../button/button.component";
 import IconComponent from "../icon/icon.component";
 
@@ -24,6 +25,17 @@ export default function HeroComponent() {
         <br />
         customization helps you build apps faster and better.
       </TypographyComponent>
+
+      <div className={styles.avatarContainer}>
+        <div className={styles.avatar}>
+          <AvatarComponent name="Bijan" size={2} />
+          <AvatarComponent name="Yasaman" size={2} />
+          <AvatarComponent name="Negar" size={2} />
+        </div>
+        <TypographyComponent variant="subtitle2">
+          160+ Happy customers
+        </TypographyComponent>
+      </div>
 
       <div className={styles.btnContainer}>
         <ButtonComponent color="secondary">
