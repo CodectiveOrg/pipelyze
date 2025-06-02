@@ -1,5 +1,6 @@
-import UploadIllustration from "@/illustrations/upload/upload.illustration";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import UploadIllustration from "@/components/upload/upload.illustration";
 
 const meta = {
   title: "Atoms/Upload",
