@@ -1,41 +1,31 @@
 "use client";
 
-import React, { PropsWithChildren, ReactElement, createContext } from "react";
+import React, { ComponentProps, PropsWithChildren, ReactElement } from "react";
 
 import clsx from "clsx";
 
+import RadioComponent from "@/components/radio/radio.component";
+
 import styles from "./radioGroupe.module.css";
 
-type contextProps = {
-  value?: string;
-  onChange?: (value: string) => void;
-};
-
-export const MyContext = createContext<contextProps>(null);
-
-type Direction = "row" | "column";
-
 type Props = PropsWithChildren<{
-  value: string;
-  onChange: (value: string) => void;
-  direction?: Direction;
-  className?: string;
+  name: string;
+  items: ComponentProps<typeof RadioComponent>[];
+  row?: boolean;
 }>;
 
 export default function RadioGroupComponent({
-  className,
-  children,
-  value,
-  onChange,
-  direction = "row",
+  name,
+  items,
+  row = false,
 }: Props): ReactElement {
   return (
-    <MyContext.Provider value={{ value, onChange }}>
-      <div
-        className={clsx(styles[direction], styles["radio-group"], className)}
-      >
-        {children}
-      </div>
-    </MyContext.Provider>
+    <div
+      className={clsx(styles["radio-group"], row ? styles.row : styles.column)}
+    >
+      {items.map((item, index) => (
+        <RadioComponent key={index} name={name} {...item} />
+      ))}
+    </div>
   );
 }

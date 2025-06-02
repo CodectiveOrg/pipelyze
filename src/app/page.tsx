@@ -2,7 +2,7 @@
 
 import { FormEvent, useRef } from "react";
 
-import RadioComponent from "@/components/radio/radio.component";
+import RadioGroupComponent from "@/components/radio-group/radioGroup.component";
 
 export default function Page() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -20,33 +20,23 @@ export default function Page() {
 
   return (
     <form ref={formRef} onSubmit={formSubmitHandler}>
-      <RadioComponent name="fruit" value="apple" label="Apple" />
-      <RadioComponent name="fruit" value="orange" label="Orange" />
-      <RadioComponent name="fruit" value="banana" label="Banana" />
-      <RadioComponent name="fruit" value="disabled" label="Disabled" disabled />
-
-      <RadioComponent name="size" value="small" label="Small" size="small" />
-      <RadioComponent name="size" value="normal" label="Normal" />
+      <RadioGroupComponent
+        name="fruit"
+        items={[
+          { value: "apple", label: "Apple" },
+          { value: "orange", label: "Orange" },
+          { value: "banana", label: "Banana" },
+          { value: "disabled", label: "Disabled", disabled: true },
+        ]}
+      />
+      <RadioGroupComponent
+        name="size"
+        items={[
+          { value: "small", label: "Small", size: "small" },
+          { value: "normal", label: "Normal" },
+        ]}
+      />
       <button>Submit</button>
     </form>
-
-    //   <input
-    //     type="radio"
-    //     name="chiz"
-    //     value="normal"
-    //     checked={selectedOption === "normal"}
-    //     onChange={() => setSelectedOption("normal")}
-    //   />
-    //   <input
-    //     type="radio"
-    //     name="chiz"
-    //     value="small"
-    //     checked={selectedOption === "small"}
-    //     onChange={() => setSelectedOption("small")}
-    //   />
-
-    // <RadioGroupComponent direction="column">
-    //
-    // </RadioGroupComponent>
   );
 }
