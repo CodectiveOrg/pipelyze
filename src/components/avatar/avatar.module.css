@@ -5,6 +5,7 @@
   flex-shrink: 0;
 
   background-color: var(--color-main);
+  color: var(--color-contrast);
 
   display: flex;
   align-items: center;
@@ -13,7 +14,7 @@
   block-size: var(--size);
   inline-size: var(--size);
 
-  font-size: 1.125rem;
+  font-size: calc(var(--size) / 2);
   font-weight: 500;
 
   line-height: 1;

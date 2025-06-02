@@ -4,36 +4,42 @@
   --palette-primary-main: hsl(211deg 100% 50%);
   --palette-primary-dark: hsl(212deg 97% 34%);
   --palette-primary-darker: hsl(219deg 98% 23%);
+  --palette-primary-contrast: hsl(0deg 0% 100%);
 
   --palette-secondary-lighter: hsl(277deg 100% 92%);
   --palette-secondary-light: hsl(272deg 100% 76%);
   --palette-secondary-main: hsl(267deg 100% 60%);
   --palette-secondary-dark: hsl(261deg 76% 41%);
   --palette-secondary-darker: hsl(256deg 86% 26%);
+  --palette-secondary-contrast: hsl(0deg 0% 100%);
 
   --palette-info-lighter: hsl(171deg 93% 89%);
   --palette-info-light: hsl(180deg 86% 67%);
   --palette-info-main: hsl(189deg 100% 43%);
   --palette-info-dark: hsl(198deg 100% 31%);
   --palette-info-darker: hsl(208deg 100% 20%);
+  --palette-info-contrast: hsl(0deg 0% 100%);
 
   --palette-success-lighter: hsl(119deg 88% 91%);
   --palette-success-light: hsl(130deg 77% 70%);
   --palette-success-main: hsl(142deg 71% 45%);
   --palette-success-dark: hsl(154deg 78% 31%);
   --palette-success-darker: hsl(166deg 88% 20%);
+  --palette-success-contrast: hsl(0deg 0% 100%);
 
   --palette-warning-lighter: hsl(48deg 100% 90%);
   --palette-warning-light: hsl(44deg 100% 70%);
   --palette-warning-main: hsl(40deg 100% 50%);
   --palette-warning-dark: hsl(36deg 100% 36%);
   --palette-warning-darker: hsl(32deg 100% 24%);
+  --palette-warning-contrast: hsl(210deg 24% 15%);
 
   --palette-error-lighter: hsl(29deg 100% 92%);
   --palette-error-light: hsl(20deg 100% 75%);
   --palette-error-main: hsl(11deg 100% 59%);
   --palette-error-dark: hsl(2deg 77% 41%);
   --palette-error-darker: hsl(353deg 86% 26%);
+  --palette-error-contrast: hsl(0deg 0% 100%);
 
   --palette-grey-50: hsl(180deg 20% 99%);
   --palette-grey-100: hsl(210deg 20% 98%);
@@ -65,6 +71,7 @@
   --color-main: var(--palette-primary-main);
   --color-dark: var(--palette-primary-dark);
   --color-darker: var(--palette-primary-darker);
+  --color-contrast: var(--palette-primary-contrast);
 }
 
 .secondary {
@@ -73,6 +80,7 @@
   --color-main: var(--palette-secondary-main);
   --color-dark: var(--palette-secondary-dark);
   --color-darker: var(--palette-secondary-darker);
+  --color-contrast: var(--palette-secondary-contrast);
 }
 
 .info {
@@ -81,6 +89,7 @@
   --color-main: var(--palette-info-main);
   --color-dark: var(--palette-info-dark);
   --color-darker: var(--palette-info-darker);
+  --color-contrast: var(--palette-info-contrast);
 }
 
 .success {
@@ -89,6 +98,7 @@
   --color-main: var(--palette-success-main);
   --color-dark: var(--palette-success-dark);
   --color-darker: var(--palette-success-darker);
+  --color-contrast: var(--palette-success-contrast);
 }
 
 .warning {
@@ -97,6 +107,7 @@
   --color-main: var(--palette-warning-main);
   --color-dark: var(--palette-warning-dark);
   --color-darker: var(--palette-warning-darker);
+  --color-contrast: var(--palette-warning-contrast);
 }
 
 .error {
@@ -105,4 +116,5 @@
   --color-main: var(--palette-error-main);
   --color-dark: var(--palette-error-dark);
   --color-darker: var(--palette-error-darker);
+  --color-contrast: var(--palette-error-contrast);
 }
