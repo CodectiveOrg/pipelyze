@@ -24,27 +24,6 @@
     display: none;
   }
 
-  .img {
-    --primary-main: var(--palette-primary-main);
-    --primary-dark: var(--palette-primary-dark);
-    --primary-darker: var(--palette-primary-darker);
-    flex-shrink: 0;
-
-    fill: currentcolor;
-
-    display: inline-block;
-
-    block-size: auto;
-    inline-size: 12.5rem;
-    max-inline-size: 100%;
-
-    font-size: 1.5rem;
-
-    transition: fill 300ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    user-select: none;
-  }
-
   .link span {
     color: var(--palette-primary-main);
 
