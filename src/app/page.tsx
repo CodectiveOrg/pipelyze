@@ -7,10 +7,6 @@ import RadioGroupComponent from "@/components/radio-group/radio-group.component"
 export default function Page() {
   const formRef = useRef<HTMLFormElement>(null);
 
-  // const [selectedOption, setSelectedOption] = useState<"normal" | "small">(
-  //   "normal",
-  // );
-
   const formSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
