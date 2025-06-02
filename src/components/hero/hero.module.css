@@ -16,9 +16,9 @@
       var(--palette-secondary-main),
       var(--palette-secondary-dark)
     );
-
-    background-clip: text;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
