@@ -2,33 +2,11 @@
   --size: 2.5rem;
   --filled-circle: 0px;
 
+  color: var(--color-main);
+
   inline-size: 100%;
 
   border-radius: 0.75rem;
-
-  &.primary {
-    color: var(--palette-primary-main);
-  }
-
-  &.secondary {
-    color: var(--palette-secondary-main);
-  }
-
-  &.info {
-    color: var(--palette-info-main);
-  }
-
-  &.success {
-    color: var(--palette-success-main);
-  }
-
-  &.warning {
-    color: var(--palette-warning-main);
-  }
-
-  &.error {
-    color: var(--palette-error-main);
-  }
 
   span {
     color: currentcolor;

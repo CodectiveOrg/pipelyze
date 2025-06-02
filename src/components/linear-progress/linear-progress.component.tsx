@@ -21,7 +21,7 @@ export default function LinearProgressComponent({
     <div
       className={clsx(
         styles["linear-progress"],
-        styles[color],
+        color,
         variant === "determinate" ? styles.determinate : styles.indeterminate,
       )}
       style={{ "--progress-value": value - 100 + "%" } as CSSProperties}

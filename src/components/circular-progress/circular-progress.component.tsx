@@ -23,7 +23,7 @@ export default function CircularProgressComponent({
     <div
       className={clsx(
         styles.progress,
-        styles[color],
+        color,
         variant === "determinate" ? styles.determinate : styles.indeterminate,
       )}
       style={

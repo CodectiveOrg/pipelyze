@@ -1,33 +1,12 @@
 .linear-progress {
   --progress-value: 0%;
 
+  color: var(--color-main);
+
+  min-inline-size: 4rem;
   inline-size: 100%;
 
   border-radius: 0.75rem;
-
-  &.primary {
-    color: var(--palette-primary-main);
-  }
-
-  &.secondary {
-    color: var(--palette-secondary-main);
-  }
-
-  &.info {
-    color: var(--palette-info-main);
-  }
-
-  &.success {
-    color: var(--palette-success-main);
-  }
-
-  &.warning {
-    color: var(--palette-warning-main);
-  }
-
-  &.error {
-    color: var(--palette-error-main);
-  }
 
   .line {
     background: var(--palette-grey-400);
