@@ -33,9 +33,9 @@ export default function TextFieldComponent(): ReactElement {
       <div className={clsx(styles.outlinedInput)}>
         <label
           className={clsx(
-            styles.label, (isActive && styles.labelActive))}
+            styles.label, (isActive ? styles.labelActive : ''))}
         >
-          Label
+          Labeldfzgh
         </label>
         <input
           className={clsx(styles.input)}

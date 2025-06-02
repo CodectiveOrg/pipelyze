@@ -9,26 +9,21 @@
 
 .label {
    position: absolute;
-  /* top: -8px;
-  left: 12px;  */
-  background: #fff;
   padding: 0 4px;
   font-size: 1rem;
   color: var(--palette-text-secondary);
   pointer-events: none;
   transform-origin: center;
   transform-origin: top left;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
   z-index: 1;
 }
 
 .labelActive{
-  position: absolute;
-  top: -8px;
-  left: 9px; 
+  font-weight: 400;
   color: var(--palette-text-primary);
-  transform: scale(0.8);
-  transition: transform 0.3s ease;
+  transform: translateX(-3px) translateY(-26px) scale(0.8);
+  background: #fff;
 }
 
 .outlinedInput {
