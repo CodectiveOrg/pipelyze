@@ -1,5 +1,6 @@
 .linear-progress {
   --progress-value: 0%;
+
   inline-size: 100%;
 
   border-radius: 0.75rem;
@@ -28,8 +29,7 @@
     color: var(--palette-error-main);
   }
 
-  .determinate-progress-line,
-  .indeterminate-progress-line {
+  .line {
     background: var(--palette-grey-400);
 
     position: relative;
@@ -46,58 +46,62 @@
     border-radius: 0.25rem;
   }
 
-  .determinate-progress-line {
-    .filled {
-      background-color: currentcolor;
+  &.determinate {
+    .line {
+      .filled {
+        background-color: currentcolor;
 
-      position: absolute;
-      inset-block: 0;
-      inset-inline-start: 0;
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: 0;
 
-      inline-size: 100%;
+        inline-size: 100%;
 
-      border-radius: inherit;
+        border-radius: inherit;
 
-      transform: translateX(var(--progress-value));
-      transform-origin: left center;
+        transform: translateX(var(--progress-value));
+        transform-origin: left center;
 
-      transition: transform 0.4s linear;
+        transition: transform 0.4s linear;
+      }
     }
   }
 
-  .indeterminate-progress-line {
-    &::before,
-    &::after {
-      content: "";
+  &.indeterminate {
+    .line {
+      &::before,
+      &::after {
+        content: "";
 
-      background-color: currentcolor;
+        background-color: currentcolor;
 
-      position: absolute;
-      inset-block: 0;
-      inset-inline-start: 0;
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: 0;
 
-      inline-size: auto;
+        inline-size: auto;
 
-      border-radius: inherit;
+        border-radius: inherit;
 
-      transform-origin: left center;
+        transform-origin: left center;
 
-      transition: transform 0.2s linear;
-    }
+        transition: transform 0.2s linear;
+      }
 
-    &::before {
-      animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite normal
-        none running animation-before;
-    }
+      &::before {
+        animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite
+          normal none running first-half-animation;
+      }
 
-    &::after {
-      animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s infinite normal
-        none running animation-after;
+      &::after {
+        animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s infinite normal
+          none running second-half-animation;
+      }
     }
   }
 }
 
-@keyframes animation-before {
+@keyframes first-half-animation {
   0% {
     inset-inline-start: -35%;
     inset-inline-end: 100%;
@@ -114,7 +118,7 @@
   }
 }
 
-@keyframes animation-after {
+@keyframes second-half-animation {
   0% {
     inset-inline-start: -200%;
     inset-inline-end: 100%;
