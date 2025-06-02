@@ -23,7 +23,10 @@ export default function Page() {
       <RadioComponent name="fruit" value="apple" label="Apple" />
       <RadioComponent name="fruit" value="orange" label="Orange" />
       <RadioComponent name="fruit" value="banana" label="Banana" />
+      <RadioComponent name="fruit" value="disabled" label="Disabled" disabled />
 
+      <RadioComponent name="size" value="small" label="Small" size="small" />
+      <RadioComponent name="size" value="normal" label="Normal" />
       <button>Submit</button>
     </form>
 

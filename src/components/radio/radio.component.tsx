@@ -4,15 +4,16 @@ import { ComponentProps, ReactElement, useState } from "react";
 
 import clsx from "clsx";
 
+import RippleComponent from "@/components/radio/components/ripple/ripple.component";
+import TypographyComponent from "@/components/typography/typography.component";
+
 import { ColorType } from "@/types/color.type";
 
 import styles from "./radio.module.css";
 
-export type Size = "normal" | "small";
-
 type Props = Omit<ComponentProps<"input">, "size"> & {
   color?: ColorType;
-  size?: Size;
+  size?: "normal" | "small";
   label?: string;
 };
 
@@ -25,25 +26,28 @@ export default function RadioComponent({
 }: Props): ReactElement {
   const [ripples, setRipples] = useState<number[]>([]);
 
-  const activePulse = () => {
+  const activeRipple = () => {
     const id = Date.now();
 
     setRipples((prev) => [...prev, id]);
 
     setTimeout(() => {
-      setRipples((prev) => prev.filter((prevPulse) => prevPulse !== id));
-    }, 600);
+      setRipples((prev) => prev.filter((prevRipple) => prevRipple !== id));
+    }, 550);
   };
 
   return (
     <label className={clsx(styles.radio, styles[size], color, className)}>
       <div className={styles.control}>
-        {ripples.map((pulse) => (
-          <span key={pulse} className={clsx(styles.pulse)}></span>
+        {ripples.map((ripple) => (
+          <RippleComponent key={ripple} />
         ))}
-        <input type="radio" onClick={activePulse} {...otherProps} />
+        <input type="radio" onClick={activeRipple} {...otherProps} />
+        <RippleComponent className={styles["active-ripple"]} />
       </div>
-      <span>{label}</span>
+      <TypographyComponent variant="body2" color="inherit">
+        {label}
+      </TypographyComponent>
     </label>
   );
 }
