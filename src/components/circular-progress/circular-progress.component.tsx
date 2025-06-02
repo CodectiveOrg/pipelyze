@@ -6,11 +6,9 @@ import { ColorType } from "@/types/color.type";
 
 import styles from "./circular-progress.module.css";
 
-type VariantType = "determinate" | "indeterminate";
-
 type Props = {
   color?: ColorType;
-  variant: VariantType;
+  variant: "determinate" | "indeterminate";
   size: number;
   value?: number;
 };
@@ -23,7 +21,13 @@ export default function CircularProgressComponent({
 }: Props): ReactElement {
   return (
     <div
-      className={clsx(styles.progress, styles[color])}
+      className={clsx(
+        styles.progress,
+        styles[color],
+        variant === "determinate"
+          ? styles["determinant"]
+          : styles["indeterminate"],
+      )}
       style={
         {
           "--filled-circle": 100 - value + "px",
@@ -31,13 +35,7 @@ export default function CircularProgressComponent({
         } as CSSProperties
       }
     >
-      <span
-        className={
-          variant === "determinate"
-            ? styles["determinant-progress"]
-            : styles["indeterminate-progress"]
-        }
-      >
+      <span className={styles.rotor}>
         <svg viewBox="22 22 44 44">
           <circle
             cx="44"

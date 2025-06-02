@@ -50,30 +50,34 @@
     }
   }
 
-  .indeterminate-progress {
-    animation: 1.4s linear 0s infinite normal none running rotation-animation;
+  &.indeterminate {
+    .rotor {
+      animation: 1.4s linear 0s infinite normal none running rotor-animation;
 
-    svg {
-      circle {
-        animation: 1.4s ease-in-out 0s infinite normal none running
-          indeterminate-animation;
+      svg {
+        circle {
+          animation: 1.4s ease-in-out 0s infinite normal none running
+            indeterminate-animation;
+        }
       }
     }
   }
 
-  .determinant-progress {
-    transform: rotate(-90deg);
+  &.determinant {
+    .rotor {
+      transform: rotate(-90deg);
 
-    svg {
-      circle {
-        stroke-dasharray: 100px;
-        stroke-dashoffset: var(--filled-circle);
+      svg {
+        circle {
+          stroke-dasharray: 100px;
+          stroke-dashoffset: var(--filled-circle);
+        }
       }
     }
   }
 }
 
-@keyframes rotation-animation {
+@keyframes rotor-animation {
   0% {
     transform: rotate(0deg);
   }
