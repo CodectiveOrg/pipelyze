@@ -38,13 +38,11 @@ type Story = StoryObj<typeof meta>;
 export const Determinate: Story = {
   args: {
     variant: "determinate",
-    color: "primary",
   },
 };
 
 export const Indeterminate: Story = {
   args: {
     variant: "indeterminate",
-    color: "primary",
   },
 };
