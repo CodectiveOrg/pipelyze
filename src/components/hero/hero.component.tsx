@@ -26,7 +26,7 @@ export default function HeroComponent() {
         customization helps you build apps faster and better.
       </TypographyComponent>
 
-      <div className={styles.avatarContainer}>
+      <div className={styles["avatar-container"]}>
         <div className={styles.avatar}>
           <AvatarComponent name="Bijan" size={2} />
           <AvatarComponent name="Yasaman" size={2} />
@@ -37,7 +37,7 @@ export default function HeroComponent() {
         </TypographyComponent>
       </div>
 
-      <div className={styles.btnContainer}>
+      <div className={styles["btn-container"]}>
         <ButtonComponent color="secondary">
           <IconComponent name="bling-line" />
           <TypographyComponent variant="button">
