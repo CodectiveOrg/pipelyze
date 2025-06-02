@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 import RadioComponent from "@/components/radio/radio.component";
 
-import styles from "./radioGroupe.module.css";
+import styles from "./radio-group.module.css";
 
 type Props = PropsWithChildren<{
   name: string;

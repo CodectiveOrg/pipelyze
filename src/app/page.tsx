@@ -2,7 +2,7 @@
 
 import { FormEvent, useRef } from "react";
 
-import RadioGroupComponent from "@/components/radio-group/radioGroup.component";
+import RadioGroupComponent from "@/components/radio-group/radio-group.component";
 
 export default function Page() {
   const formRef = useRef<HTMLFormElement>(null);
