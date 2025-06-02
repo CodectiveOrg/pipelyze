@@ -2,9 +2,9 @@ import { ReactElement } from "react";
 
 import UploadSvg from "@/assets/illustrations/Upload.svg";
 
-import styles from "./upload.module.css";
+import styles from "./upload.illustration.module.css";
 
-export default function UploadComponent(): ReactElement {
+export default function UploadIllustration(): ReactElement {
   return (
     <div className={styles.upload}>
       <label>

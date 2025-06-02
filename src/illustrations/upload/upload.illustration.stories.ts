@@ -1,15 +1,14 @@
+import UploadIllustration from "@/illustrations/upload/upload.illustration";
 import type { Meta, StoryObj } from "@storybook/react";
-
-import UploadComponent from "@/components/upload/upload.component";
 
 const meta = {
   title: "Atoms/Upload",
-  component: UploadComponent,
+  component: UploadIllustration,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof UploadComponent>;
+} satisfies Meta<typeof UploadIllustration>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
