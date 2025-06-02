@@ -38,11 +38,7 @@ export default function AvatarComponent({
       className={clsx(styles.avatar, styles[variant], color)}
       style={{ "--size": `${size}rem` } as CSSProperties}
     >
-      {name !== undefined ? (
-        <div className={styles.initials}>{initials}</div>
-      ) : (
-        <Image src={src} alt={alt} />
-      )}
+      {name !== undefined ? initials : <Image src={src} alt={alt} fill />}
     </div>
   );
 }

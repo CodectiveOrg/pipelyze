@@ -7,6 +7,9 @@
   background-color: var(--color-main);
   color: var(--color-contrast);
 
+  position: relative;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
