@@ -36,7 +36,7 @@ const meta = {
   args: {
     color: "primary",
     size: "normal",
-    label: "Radio label",
+    label: "Select your option",
   },
 } satisfies Meta<typeof RadioComponent>;
 
@@ -44,7 +44,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Default: Story = {
   args: {
     size: "normal",
   },

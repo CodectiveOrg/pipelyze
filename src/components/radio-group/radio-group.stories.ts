@@ -50,7 +50,7 @@ export const Column: Story = {
     name: "colors",
     row: false,
     items: [
-      { label: "Default", color: "success", size: "normal" },
+      { label: "Default", color: "inherit", size: "normal" },
       { label: "Primary", color: "primary", size: "normal" },
       { label: "Secondary", color: "secondary", size: "normal" },
       { label: "Info", color: "info", size: "normal" },
