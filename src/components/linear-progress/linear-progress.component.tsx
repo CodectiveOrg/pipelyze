@@ -19,12 +19,8 @@ export default function LinearProgressComponent({
 }: Props): ReactElement {
   return (
     <div
-      className={clsx(
-        styles["linear-progress"],
-        color,
-        variant === "determinate" ? styles.determinate : styles.indeterminate,
-      )}
-      style={{ "--progress-value": value - 100 + "%" } as CSSProperties}
+      className={clsx(styles["linear-progress"], color, styles[variant])}
+      style={{ "--value": value - 100 + "%" } as CSSProperties}
     >
       {variant === "determinate" ? (
         <span className={styles.line}>

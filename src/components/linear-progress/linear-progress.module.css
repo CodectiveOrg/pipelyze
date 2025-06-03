@@ -1,5 +1,5 @@
 .linear-progress {
-  --progress-value: 0%;
+  --value: 0%;
 
   color: var(--color-main);
 
@@ -19,8 +19,6 @@
 
     block-size: 0.25rem;
     inline-size: 100%;
-
-    margin-bottom: calc(2 * 0.5rem);
 
     border-radius: 0.25rem;
   }

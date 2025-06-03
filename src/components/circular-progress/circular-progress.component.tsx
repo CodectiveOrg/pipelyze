@@ -21,14 +21,10 @@ export default function CircularProgressComponent({
 }: Props): ReactElement {
   return (
     <div
-      className={clsx(
-        styles.progress,
-        color,
-        variant === "determinate" ? styles.determinate : styles.indeterminate,
-      )}
+      className={clsx(styles.progress, color, styles[variant])}
       style={
         {
-          "--filled-circle": 100 - value + "px",
+          "--value": 100 - value + "px",
           "--size": size + "rem",
         } as CSSProperties
       }

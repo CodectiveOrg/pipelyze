@@ -1,6 +1,6 @@
 .progress {
   --size: 2.5rem;
-  --filled-circle: 0px;
+  --value: 0px;
 
   color: var(--color-main);
 
