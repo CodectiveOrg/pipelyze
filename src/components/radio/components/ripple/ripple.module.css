@@ -5,7 +5,6 @@
 
   position: absolute;
   inset: 0;
-  z-index: 2;
 
   border: 1px solid var(--color-light);
   border-radius: 999rem;

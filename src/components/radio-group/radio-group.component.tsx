@@ -1,6 +1,4 @@
-"use client";
-
-import React, { ComponentProps, PropsWithChildren, ReactElement } from "react";
+import { ComponentProps, PropsWithChildren, ReactElement } from "react";
 
 import clsx from "clsx";
 

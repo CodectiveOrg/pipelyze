@@ -12,7 +12,6 @@ const meta = {
   argTypes: {
     row: {
       control: { type: "boolean" },
-      row: false,
     },
     items: {
       table: {
@@ -28,41 +27,36 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    name: "radio",
+    name: "shipment",
     row: false,
     items: [
-      { color: "primary", size: "normal" },
-      { color: "primary", size: "small" },
-      { size: "small", disabled: true },
+      { label: "Standard (3-5 days)" },
+      { label: "Express (1-2 days)" },
+      { label: "Next Day (Disabled)", disabled: true },
     ],
   },
 };
 
-export const RowGroup: Story = {
-  name: "Row",
+export const Row: Story = {
   args: {
-    name: "radio",
+    name: "gender",
     row: true,
-    items: [
-      { label: "Normal", color: "primary", size: "normal" },
-      { label: "Small", color: "primary", size: "small" },
-    ],
+    items: [{ label: "Male" }, { label: "Female" }],
   },
 };
 
-export const ColumnGroup: Story = {
-  name: "Column",
+export const Column: Story = {
   args: {
-    name: "Color",
+    name: "colors",
     row: false,
     items: [
-      { label: "defult", color: "success", size: "normal" },
-      { label: "primary", color: "primary", size: "normal" },
-      { label: "secondary", color: "secondary", size: "normal" },
-      { label: "info", color: "info", size: "normal" },
-      { label: "success", color: "success", size: "normal" },
-      { label: "warning", color: "warning", size: "normal" },
-      { label: "error", color: "error", size: "normal" },
+      { label: "Default", color: "success", size: "normal" },
+      { label: "Primary", color: "primary", size: "normal" },
+      { label: "Secondary", color: "secondary", size: "normal" },
+      { label: "Info", color: "info", size: "normal" },
+      { label: "Success", color: "success", size: "normal" },
+      { label: "Warning", color: "warning", size: "normal" },
+      { label: "Error", color: "error", size: "normal" },
       { label: "Disabled", size: "normal", disabled: true },
     ],
   },

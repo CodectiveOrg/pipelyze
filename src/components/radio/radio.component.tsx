@@ -26,6 +26,8 @@ export default function RadioComponent({
 }: Props): ReactElement {
   const [ripples, setRipples] = useState<number[]>([]);
 
+  const isDisabled = otherProps.disabled;
+
   const activeRipple = () => {
     const id = Date.now();
 
@@ -35,8 +37,6 @@ export default function RadioComponent({
       setRipples((prev) => prev.filter((prevRipple) => prevRipple !== id));
     }, 550);
   };
-
-  const isDisabled = otherProps.disabled;
 
   return (
     <label className={clsx(styles.radio, styles[size], color, className)}>
