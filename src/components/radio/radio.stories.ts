@@ -5,6 +5,34 @@ import RadioComponent from "./radio.component";
 const meta = {
   title: "Atoms/radio",
   component: RadioComponent,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+  argTypes: {
+    color: {
+      control: { type: "select" },
+      options: [
+        "inherit",
+        "primary",
+        "secondary",
+        "info",
+        "success",
+        "warning",
+        "error",
+      ],
+    },
+    size: {
+      control: { type: "radio" },
+      options: ["normal", "small"],
+    },
+    label: {
+      control: { type: "text" },
+    },
+    disabled: {
+      control: { type: "boolean" },
+    },
+  },
   args: {
     color: "primary",
     size: "normal",
@@ -16,8 +44,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Active: Story = {
-  args: {},
+export const Basic: Story = {
+  args: {
+    size: "normal",
+  },
 };
 
 export const Disabled: Story = {

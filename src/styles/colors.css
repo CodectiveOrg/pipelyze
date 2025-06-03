@@ -65,6 +65,18 @@
   --shape-border-radius: 0.5rem;
 }
 
+/* اینجا-------------------------------------------------------------- */
+.inherit {
+  --color-lighter: var(--palette-secondary-lighter);
+  --color-light: var(--palette-secondary-light);
+  --color-main: var(--palette-secondary-main);
+  --color-dark: var(--palette-secondary-dark);
+  --color-darker: var(--palette-secondary-darker);
+  --color-contrast: var(--palette-secondary-contrast);
+}
+
+/* ------------------------------------------------------------------------ */
+
 .primary {
   --color-lighter: var(--palette-primary-lighter);
   --color-light: var(--palette-primary-light);
