@@ -48,7 +48,7 @@
       svg {
         circle {
           stroke-dasharray: 100px;
-          stroke-dashoffset: var(--filled-circle);
+          stroke-dashoffset: var(--value);
         }
       }
     }
