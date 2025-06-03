@@ -1,8 +1,11 @@
-export type ColorType =
-  | "inherit"
-  | "primary"
-  | "secondary"
-  | "info"
-  | "success"
-  | "warning"
-  | "error";
+export const COLORS = [
+  "inherit",
+  "primary",
+  "secondary",
+  "info",
+  "success",
+  "warning",
+  "error",
+] as const;
+
+export type ColorType = (typeof COLORS)[number];
