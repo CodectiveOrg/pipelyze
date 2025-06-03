@@ -36,13 +36,20 @@ export default function RadioComponent({
     }, 550);
   };
 
+  const isDisabled = otherProps.disabled;
+
   return (
     <label className={clsx(styles.radio, styles[size], color, className)}>
       <div className={styles.control}>
         {ripples.map((ripple) => (
           <RippleComponent key={ripple} />
         ))}
-        <input type="radio" onClick={activeRipple} {...otherProps} />
+        <input
+          type="radio"
+          onClick={activeRipple}
+          className={clsx(isDisabled && styles.disabled)}
+          {...otherProps}
+        />
         <RippleComponent className={styles["active-ripple"]} />
       </div>
       <TypographyComponent variant="body2" color="inherit">

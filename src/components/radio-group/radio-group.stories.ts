@@ -10,13 +10,9 @@ const meta = {
   },
   tags: ["autodocs"],
   argTypes: {
-    name: {
-      control: { type: "text" },
-      defaultValue: "group1",
-    },
     row: {
       control: { type: "boolean" },
-      defaultValue: false,
+      row: false,
     },
     items: {
       table: {
@@ -32,19 +28,32 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    name: "basic",
-    row: true,
+    name: "radio",
+    row: false,
     items: [
       { color: "primary", size: "normal" },
-      { color: "secondary", size: "small" },
-      { color: "error", size: "normal", disabled: true },
+      { color: "primary", size: "small" },
+      { color: "error", size: "small", disabled: true },
     ],
   },
 };
 
 export const RowGroup: Story = {
+  name: "Row",
   args: {
-    name: "row-group",
+    name: "radio",
+    row: true,
+    items: [
+      { label: "Normal", color: "primary", size: "normal" },
+      { label: "Small", color: "primary", size: "small" },
+    ],
+  },
+};
+
+export const ColumnGroup: Story = {
+  name: "Column",
+  args: {
+    name: "Color",
     row: false,
     items: [
       { label: "defult", color: "success", size: "normal" },
