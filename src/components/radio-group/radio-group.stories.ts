@@ -33,7 +33,7 @@ export const Default: Story = {
     items: [
       { color: "primary", size: "normal" },
       { color: "primary", size: "small" },
-      { color: "error", size: "small", disabled: true },
+      { size: "small", disabled: true },
     ],
   },
 };
