@@ -54,10 +54,13 @@
 
   --palette-common-black: hsl(0deg 0% 0%);
   --palette-common-white: hsl(0deg 0% 100%);
+  --palette-common-transparent: hsl(0, 0%, 0%);
 
   --palette-text-primary: hsl(210deg 24% 15%);
   --palette-text-secondary: hsl(210deg 13% 44%);
   --palette-text-disabled: hsl(210deg 14% 62%);
+
+  --palette-grey-250: hsl(0deg 1% 76%);
 
   --palette-action-hover-opacity: 0.08;
   --palette-action-disabled-opacity: 0.24;
