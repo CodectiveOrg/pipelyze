@@ -47,7 +47,7 @@ export const Row: Story = {
 
 export const Column: Story = {
   args: {
-    name: "colors",
+    name: "color",
     row: false,
     items: [
       { label: "Default", color: "inherit", size: "normal" },
