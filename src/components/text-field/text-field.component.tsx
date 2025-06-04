@@ -1,55 +1,49 @@
-'use client'
-import React, { ReactElement, useState } from 'react';
-import clsx from 'clsx';
+"use client";
 
-import styles from './text-field.module.css';
+import { ComponentProps, ReactElement, useState } from "react";
 
-//'برای آن کترلد--------------------------------------------
+import clsx from "clsx";
 
-// type Props = {
-//   value : string;
-//   onChange : (e: React.ChangeEvent<HTMLInputElement>) => void;
-// }
-// ---------------------------------------------------------
+import styles from "./text-field.module.css";
 
+type Props = Omit<ComponentProps<"input">, "size"> & {
+  label: string;
+  size?: "normal" | "small";
+};
 
+export default function TextFieldComponent({
+  label,
+  size = "normal",
+  ...otherProps
+}: Props): ReactElement {
+  const [isActive, setIsActive] = useState<boolean>(false);
 
-
-
-export default function TextFieldComponent(): ReactElement {
-
-  // const [value,setValue] = useState<string>('')
-  const [isActive,setIsActive] = useState<boolean>(false)
-
-
-  // const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
-  //   (setValue(e.target.value))
-  // }
-
-  const handleFocus = () => setIsActive(true)
-  const handleBlur = () => setIsActive(false)
-
+  const handleFocus = () => setIsActive(true);
+  const handleBlur = () => setIsActive(false);
 
   return (
     <div className={clsx(styles.wrapper)}>
-
-      <div className={clsx(styles.outlinedInput)}>
+      <div className={clsx(styles["outlined-input"])}>
         <label
-          className={clsx(
-            styles.label, (isActive && styles.labelFocus))}
+          className={clsx(styles.label, isActive && styles["label-focus"])}
         >
-          Labeldfzgh
+          {label}
         </label>
+
         <input
-          className={clsx(styles.input)}
+          className={clsx(styles.input, styles[size])}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          value={value}
-          // onChange={handleChange}
-          // {...otherProps}
+          // defaultValue=
+          {...otherProps}
         />
 
-        <fieldset className={clsx(styles.fieldset, (isActive && styles.fieldsetFocus))}>
+        <fieldset
+          className={clsx(
+            styles.fieldset,
+            isActive && styles["fieldset-focus"],
+          )}
+        >
           <legend className={styles.legend}>
             <span></span>
           </legend>
