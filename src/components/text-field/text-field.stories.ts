@@ -9,6 +9,9 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  args: {
+    defaultValue: "zzzz",
+  },
 } satisfies Meta<typeof TextFieldComponent>;
 
 export default meta;

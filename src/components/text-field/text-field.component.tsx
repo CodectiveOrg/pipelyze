@@ -16,7 +16,9 @@ export default function TextFieldComponent({
   size = "normal",
   ...otherProps
 }: Props): ReactElement {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(() => {
+    return otherProps.defaultValue !== "";
+  });
 
   const handleFocus = () => setIsActive(true);
   const handleBlur = () => setIsActive(false);
@@ -34,7 +36,6 @@ export default function TextFieldComponent({
           className={clsx(styles.input, styles[size])}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          // defaultValue=
           {...otherProps}
         />
 
