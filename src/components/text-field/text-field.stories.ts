@@ -10,7 +10,7 @@ const meta = {
   },
   tags: ["autodocs"],
   args: {
-    defaultValue: "zzzz",
+    defaultValue: "",
   },
 } satisfies Meta<typeof TextFieldComponent>;
 

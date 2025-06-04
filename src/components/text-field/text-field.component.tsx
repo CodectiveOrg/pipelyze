@@ -17,11 +17,13 @@ export default function TextFieldComponent({
   ...otherProps
 }: Props): ReactElement {
   const [isActive, setIsActive] = useState<boolean>(() => {
-    return otherProps.defaultValue !== "";
+    return !!otherProps.defaultValue;
   });
 
   const handleFocus = () => setIsActive(true);
-  const handleBlur = () => setIsActive(false);
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (e.target.value === "") setIsActive(false);
+  };
 
   return (
     <div className={clsx(styles.wrapper)}>
