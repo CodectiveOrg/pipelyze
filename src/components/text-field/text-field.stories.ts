@@ -9,9 +9,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  args: {
-    defaultValue: "",
-  },
+  args: {},
 } satisfies Meta<typeof TextFieldComponent>;
 
 export default meta;
@@ -21,6 +19,6 @@ type Story = StoryObj<typeof TextFieldComponent>;
 export const Default: Story = {
   args: {
     label: " user name",
-    placeholder: "",
+    placeholder: "zdfbfdg",
   },
 };

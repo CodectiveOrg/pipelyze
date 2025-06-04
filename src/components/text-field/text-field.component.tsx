@@ -1,12 +1,18 @@
 "use client";
 
-import { ComponentProps, ReactElement, useState } from "react";
+import {
+  ComponentProps,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import clsx from "clsx";
 
 import styles from "./text-field.module.css";
 
-type Props = Omit<ComponentProps<"input">, "size"> & {
+type Props = Omit<ComponentProps<"input">, "size" | "value" | "onChange"> & {
   label: string;
   size?: "normal" | "small";
 };
@@ -16,14 +22,24 @@ export default function TextFieldComponent({
   size = "normal",
   ...otherProps
 }: Props): ReactElement {
-  const [isActive, setIsActive] = useState<boolean>(() => {
-    return !!otherProps.defaultValue;
-  });
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [isActive, setIsActive] = useState(false);
+
+  const checkInput = () => {
+    const input = inputRef.current;
+    if (!input) return;
+
+    const hasValue = input.value.trim() !== "";
+    const hasPlaceholder = input.placeholder.trim() !== "";
+    setIsActive(hasValue || hasPlaceholder);
+  };
+
+  useEffect(() => {
+    checkInput();
+  }, []);
 
   const handleFocus = () => setIsActive(true);
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (e.target.value === "") setIsActive(false);
-  };
+  const handleBlur = () => checkInput();
 
   return (
     <div className={clsx(styles.wrapper)}>
@@ -35,6 +51,7 @@ export default function TextFieldComponent({
         </label>
 
         <input
+          ref={inputRef}
           className={clsx(styles.input, styles[size])}
           onFocus={handleFocus}
           onBlur={handleBlur}
