@@ -11,7 +11,7 @@
   display: inline-flex;
   flex-direction: column;
 
-  width: 100%;
+  width: 200px;
 
   /* line-height: 24px; */
   margin: 16px;
@@ -39,7 +39,7 @@
   background-color: var(--background-label);
   color: var(--palette-text-primary);
 
-  transform: translateX(-3px) translateY(-26px) scale(0.8);
+  transform: translateY(-26px) scale(0.75);
 
   font-weight: 400;
 }
@@ -81,8 +81,6 @@
 
   font-size: 1rem;
   appearance: none;
-  appearance: none;
-  appearance: none;
 
   &.small {
     padding: 8.5px 14px;
@@ -94,24 +92,25 @@
 }
 
 .fieldset {
+  box-sizing: border-box;
+
   position: absolute;
   inset: 0;
 
   margin: 0;
   padding: 0 8px;
 
-  /* box-sizing: border-box; */
   border: none;
   border: 1px solid var(--palette-shared-input-outlined);
-  border-radius: var(--shape-border-radius);
+  border-radius: inherit;
 
   white-space: nowrap;
 
-  transition: border 0.05s ease;
+  transition: border 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  /* &:hover{
-      border: 1px solid var(--palette-shared-inputOutlined);
-    } */
+.outlined-input:hover .fieldset {
+  border-color: var(--palette-text-primary);
 }
 
 .fieldset-focus {

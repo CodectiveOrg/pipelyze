@@ -3,8 +3,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import TextFieldComponent from "./text-field.component";
 
 const meta = {
-  title: "Atoms/Icon",
+  title: "Atoms/TextField",
   component: TextFieldComponent,
+  parameters: {
+    layout: "centered",
+  },
   tags: ["autodocs"],
 } satisfies Meta<typeof TextFieldComponent>;
 
@@ -14,7 +17,7 @@ type Story = StoryObj<typeof TextFieldComponent>;
 
 export const Default: Story = {
   args: {
-    label: "نام شما",
-    placeholder: "مثلاً علی",
+    label: " user name",
+    placeholder: "",
   },
 };
