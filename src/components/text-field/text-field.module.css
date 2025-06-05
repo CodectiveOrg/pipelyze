@@ -44,6 +44,10 @@
       border-color: var(--invalid-input);
     }
 
+    &:focus-within .label {
+      color: var(--palette-text-primary);
+    }
+
     /* با پلیس هولدر کار نمیکنه-------------------- */
 
     &:has(.input:not(:placeholder-shown)) .label,

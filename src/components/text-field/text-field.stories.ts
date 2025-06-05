@@ -27,7 +27,7 @@ export const InvalidEmail: Story = {
   args: {
     label: "email",
     type: "email",
-    value: "not-an-email",
+    // value: "not-an-email",
     required: true,
   },
 };
