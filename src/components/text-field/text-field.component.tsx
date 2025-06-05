@@ -26,7 +26,7 @@ export default function TextFieldComponent({
 }: Props): ReactElement {
   const hasPlaceholder = !!otherProps.placeholder;
 
-  // const isDisabled = otherProps.disabled
+  const isDisabled = otherProps.disabled;
 
   return (
     <div className={clsx(styles.wrapper)}>
@@ -48,7 +48,9 @@ export default function TextFieldComponent({
           {...otherProps}
         />
 
-        <fieldset className={clsx(styles.fieldset)}>
+        <fieldset
+          className={clsx(styles.fieldset, isDisabled && styles.disabled)}
+        >
           <legend className={styles.legend}>
             <span></span>
           </legend>

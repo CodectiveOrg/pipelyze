@@ -9,9 +9,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  args: {
-    placeholder: "placeholder",
-  },
+  args: {},
 } satisfies Meta<typeof TextFieldComponent>;
 
 export default meta;
@@ -22,8 +20,7 @@ export const Default: Story = {
   args: {
     type: "text",
     label: "username",
-    defaultValue: "abbas",
-    required: true,
+    placeholder: "Please enter username",
   },
 };
 
@@ -33,7 +30,6 @@ export const Invalid: Story = {
     type: "email",
     defaultValue: "yourEmail@email.com",
     required: true,
-    error: true,
   },
 };
 
@@ -48,14 +44,15 @@ export const HelperText: Story = {
 
 export const Search: Story = {
   args: {
-    label: "search",
     type: "search",
-    placeholder: "your question",
+    placeholder: "Search...",
   },
 };
 
 export const Disabled: Story = {
   args: {
+    label: "Disabled",
+    disabled: true,
     // disabled:true,
     type: "text",
     defaultValue: "Disable",
