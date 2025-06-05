@@ -5,7 +5,7 @@
     transparent
   );
   --background-label: hsl(0deg 0% 100%);
-  --invalid-input:hsl(0deg 100% 50%);
+  --invalid-input: hsl(0deg 100% 50%);
 
   position: relative;
 
@@ -35,6 +35,19 @@
       border-color: var(--palette-text-primary);
     }
 
+    &:focus-within .fieldset {
+      border: 2px solid var(--palette-text-primary);
+      border-radius: var(--shape-border-radius);
+    }
+
+    &:has(.input:invalid) .label {
+      color: var(--invalid-input);
+    }
+
+    &:has(.input:invalid) .fieldset {
+      border-color: var(--invalid-input);
+    }
+
     .label {
       color: var(--palette-text-secondary);
 
@@ -59,10 +72,6 @@
 
         font-weight: 400;
       }
-    }
-
-    &:has(.input:invalid) .label{
-      color: var(--invalid-input);
     }
 
     .input {
@@ -91,12 +100,6 @@
       &.normal {
         padding: 16.5px 14px;
       }
-
-      &:invalid ~ .fieldset {
-        border:1px solid var(--invalid-input);
-      }
-
-      
     }
 
     .fieldset {
@@ -114,11 +117,6 @@
       white-space: nowrap;
 
       transition: border 0.05s cubic-bezier(0.4, 0, 0.2, 1);
-
-      &.fieldset-focus {
-        border: 2px solid var(--palette-text-primary);
-        border-radius: var(--shape-border-radius);
-      }
     }
 
     .legend {
