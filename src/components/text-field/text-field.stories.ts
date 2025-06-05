@@ -27,9 +27,8 @@ export const InvalidEmail: Story = {
   args: {
     label: "email",
     type: "email",
-    value: "not-an-email@email.com",
-    // required: true,
+    placeholder: "yourEmail@email.com",
+    required: true,
     // error:'error text'
-    // helper: "lskdhfdslk",
   },
 };

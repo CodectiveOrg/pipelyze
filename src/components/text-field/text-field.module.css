@@ -46,10 +46,9 @@
       color: var(--palette-text-primary);
     }
 
-    /* با پلیس هولدر کار نمیکنه-------------------- */
-
     &:has(.input:not(:placeholder-shown)) .label,
-    &:has(.input:focus) .label {
+    &:has(.input:focus) .label,
+    &:has(.input[placeholder]:placeholder-shown) .label {
       background-color: var(--palette-common-white);
 
       transform: translateY(-26px) scale(0.75);
@@ -73,7 +72,9 @@
 
       font-size: 1rem;
 
-      transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+      transition:
+        transform 0.2s ease-in-out,
+        background-color 0.2s ease-in-out;
 
       pointer-events: none;
     }
@@ -118,8 +119,6 @@
       border: 1px solid var(--palette-shared-input-outlined);
       border-radius: inherit;
 
-
-
       transition: border 0.05s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -130,7 +129,7 @@
     }
   }
 
-  .span-error{
+  .span-error {
     color: var(--palette-error-main);
 
     margin: 8px 14px 0;
