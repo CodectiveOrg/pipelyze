@@ -8,78 +8,120 @@ import ButtonComponent from "../button/button.component";
 import IconComponent from "../icon/icon.component";
 
 import styles from "./hero.module.css";
+import clsx from "clsx";
 
 export default function HeroComponent() {
   return (
-    <div className={styles.page}>
-      <TypographyComponent variant="h1">
-        Boost your building
-      </TypographyComponent>
+    <>
+      <div className={clsx(styles.circle, styles.circle1)}></div>
+      <div className={clsx(styles.circle, styles.circle2)}></div>
+      <div className={clsx(styles.circle, styles.circle3)}></div>
+      <div className={clsx(styles.circle, styles.circle4)}></div>
 
-      <TypographyComponent variant="h1">
-        process with
-        <span className={styles.title}> Minimal</span>
-      </TypographyComponent>
+      <div className={styles.page}>
+        <TypographyComponent variant="h1" className={styles.title}>
+          Boost your building
+        </TypographyComponent>
 
-      <TypographyComponent variant="body1">
-        The starting point for your next project is based on MUI.
-        <br />
-        Easy customization helps you build apps faster and better.
-      </TypographyComponent>
+        <TypographyComponent variant="h1" className={styles.title}>
+          process with
+          <span className={styles.label}> Minimal</span>
+        </TypographyComponent>
 
-      <div className={styles["avatar-container"]}>
-        <div className={styles.avatar}>
-          <AvatarComponent src="/assets/avatars/avatar-1.webp" alt="Avatar1" />
-          <AvatarComponent src="/assets/avatars/avatar-2.webp" alt="Avatar2" />
-          <AvatarComponent src="/assets/avatars/avatar-3.webp" alt="Avatar3" />
+        <TypographyComponent variant="body1" className={styles.caption}>
+          The starting point for your next project is based on MUI.
+          <br />
+          Easy customization helps you build apps faster and better.
+        </TypographyComponent>
+
+        <div className={styles["avatar-container"]}>
+          <div className={styles.avatar}>
+            <AvatarComponent
+              src="/assets/avatars/avatar-2.webp"
+              alt="Avatar2"
+              size={2.1875}
+            />
+
+            <AvatarComponent
+              src="/assets/avatars/avatar-3.webp"
+              alt="Avatar3"
+              size={2.1875}
+            />
+            <AvatarComponent
+              src="/assets/avatars/avatar-1.webp"
+              alt="Avatar1"
+              size={2.1875}
+            />
+          </div>
+          <TypographyComponent
+            variant="subtitle2"
+            className={styles["avatar-text"]}
+          >
+            160+ Happy customers
+          </TypographyComponent>
         </div>
-        <TypographyComponent variant="subtitle2">
-          160+ Happy customers
-        </TypographyComponent>
-      </div>
 
-      <div className={styles["btn-container"]}>
-        <ButtonComponent color="inherit">
-          <IconComponent name="bling-line" className={styles.icon} />
-          <TypographyComponent variant="button" color="inherit">
-            Live Preview
-            <br />
+        <div className={styles["btn-container"]}>
+          <ButtonComponent color="inherit" className={styles.preview}>
+            <IconComponent name="flash-line" className={styles.icon} />
             <TypographyComponent
-              variant="subtitle2"
-              color="text-disabled"
-              className={styles.version}
+              variant="button"
+              color="inherit"
+              className={styles["btn-font"]}
             >
-              v7.2.0
+              Live preview
+              <br />
+              <TypographyComponent
+                variant="subtitle2"
+                color="text-disabled"
+                className={styles.version}
+              >
+                v7.2.0
+              </TypographyComponent>
             </TypographyComponent>
+          </ButtonComponent>
+          <ButtonComponent color="inherit" className={styles.figma}>
+            <IconComponent name="figma-line" className={styles.icon} />
+            <TypographyComponent
+              variant="button"
+              color="text-primary"
+              className={styles["btn-font"]}
+            >
+              Figma preview
+            </TypographyComponent>
+          </ButtonComponent>
+        </div>
+
+        <div className={styles.link}>
+          <Link href="/">
+            <IconComponent name="external-link-line" />
+            Get free version
+          </Link>
+        </div>
+
+        <div className={styles.available}>
+          <TypographyComponent variant="overline" color="text-disabled">
+            AVAILABLE FOR
           </TypographyComponent>
-        </ButtonComponent>
-        <ButtonComponent color="inherit" className={styles.figma}>
-          <IconComponent name="figma-line" className={styles.icon} />
-          <TypographyComponent variant="button" color="text-primary">
-            Figma Preview
-          </TypographyComponent>
-        </ButtonComponent>
-      </div>
+        </div>
 
-      <div className={styles.link}>
-        <Link href="/">
-          <IconComponent name="external-link-line" />
-          Get free version
-        </Link>
+        <div className={styles.logo}>
+          <Image src="/assets/logo/js.svg" alt="js" width={30} height={30} />
+          <Image src="/assets/logo/ts.svg" alt="ts" width={30} height={30} />
+          <Image
+            src="/assets/logo/next.svg"
+            alt="next"
+            width={27}
+            height={27}
+          />
+          <Image
+            src="/assets/logo/vite.svg"
+            alt="vite"
+            width={27}
+            height={27}
+          />
+        </div>
       </div>
-
-      <div className={styles.available}>
-        <TypographyComponent variant="overline" color="text-disabled">
-          AVAILABLE FOR
-        </TypographyComponent>
-      </div>
-
-      <div className={styles.logo}>
-        <Image src="/assets/logo/js.svg" alt="js" width={30} height={30} />
-        <Image src="/assets/logo/ts.svg" alt="ts" width={30} height={30} />
-        <Image src="/assets/logo/next.svg" alt="next" width={27} height={27} />
-        <Image src="/assets/logo/vite.svg" alt="vite" width={27} height={27} />
-      </div>
-    </div>
+    </>
   );
 }
