@@ -7,13 +7,15 @@ import styles from "./text-field.module.css";
 type Props = Omit<ComponentProps<"input">, "size"> & {
   label?: string;
   size?: "normal" | "small";
-  error?: string;
+  // error?: boolean;
+  // helper?: boolean
 };
 
 export default function TextFieldComponent({
   label,
   size = "normal",
-  error,
+  // error,
+  // helper,
   ...otherProps
 }: Props): ReactElement {
   return (
@@ -31,8 +33,8 @@ export default function TextFieldComponent({
             <span></span>
           </legend>
         </fieldset>
-        {error && <span>{error}</span>}
       </div>
+      {/* {(error && <span className={clsx(styles["span-error"])}>{error}</span>) || (helper && <span>{helper}</span>)}  */}
     </div>
   );
 }

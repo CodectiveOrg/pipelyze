@@ -4,8 +4,6 @@
     var(--palette-grey-500) 16%,
     transparent
   );
-  --background-label: hsl(0deg 0% 100%);
-  --invalid-input: hsl(0deg 100% 50%);
 
   position: relative;
 
@@ -41,7 +39,7 @@
     }
 
     &:has(.input:invalid) .fieldset {
-      border-color: var(--invalid-input);
+      border-color: var(--palette-error-main);
     }
 
     &:focus-within .label {
@@ -52,7 +50,7 @@
 
     &:has(.input:not(:placeholder-shown)) .label,
     &:has(.input:focus) .label {
-      background-color: var(--background-label);
+      background-color: var(--palette-common-white);
 
       transform: translateY(-26px) scale(0.75);
 
@@ -60,7 +58,7 @@
     }
 
     &:has(.input:invalid) .label {
-      color: var(--invalid-input);
+      color: var(--palette-error-main);
     }
 
     .label {
@@ -75,7 +73,7 @@
 
       font-size: 1rem;
 
-      transition: all 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
       pointer-events: none;
     }
@@ -120,7 +118,7 @@
       border: 1px solid var(--palette-shared-input-outlined);
       border-radius: inherit;
 
-      white-space: nowrap;
+
 
       transition: border 0.05s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -130,5 +128,11 @@
 
       white-space: nowrap;
     }
+  }
+
+  .span-error{
+    color: var(--palette-error-main);
+
+    margin: 8px 14px 0;
   }
 }
