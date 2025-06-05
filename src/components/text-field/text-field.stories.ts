@@ -21,6 +21,7 @@ export const Default: Story = {
     type: "text",
     label: "username",
     placeholder: "Please enter username",
+    required: true,
   },
 };
 

@@ -2,11 +2,14 @@ import { ComponentProps, ReactElement } from "react";
 
 import clsx from "clsx";
 
+import { ColorType } from "@/types/color.type";
+
 import TypographyComponent from "../typography/typography.component";
 
 import styles from "./text-field.module.css";
 
 type Props = Omit<ComponentProps<"input">, "size"> & {
+  color: ColorType;
   label?: string;
   size?: "normal" | "small";
   error?: boolean;
@@ -36,7 +39,6 @@ export default function TextFieldComponent({
           className={clsx(
             styles.label,
             hasPlaceholder && styles["label-active"],
-            error && styles["label-error"],
           )}
         >
           {label}
