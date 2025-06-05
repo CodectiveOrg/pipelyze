@@ -40,12 +40,27 @@
       border-radius: var(--shape-border-radius);
     }
 
+
+    /* این کار نمیکنه---------------------- */
     &:has(.input:invalid) .label {
       color: var(--invalid-input);
     }
 
     &:has(.input:invalid) .fieldset {
       border-color: var(--invalid-input);
+    }
+
+    /* با پلیس هولدر کار نمیکنه-------------------- */
+
+    &:has(.input:not(:placeholder-shown)) .label,
+    &:has(.input:focus) .label{
+      background-color: var(--background-label);
+
+      /* color: var(--palette-text-primary); */
+
+      transform: translateY(-26px) scale(0.75);
+
+      font-weight: 400;
     }
 
     .label {
@@ -63,15 +78,6 @@
       transition: all 0.2s ease-in-out;
 
       pointer-events: none;
-
-      &.label-focus {
-        background-color: var(--background-label);
-        color: var(--palette-text-primary);
-
-        transform: translateY(-26px) scale(0.75);
-
-        font-weight: 400;
-      }
     }
 
     .input {
