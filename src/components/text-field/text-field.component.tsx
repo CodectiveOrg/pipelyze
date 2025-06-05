@@ -2,31 +2,47 @@ import { ComponentProps, ReactElement } from "react";
 
 import clsx from "clsx";
 
+import TypographyComponent from "../typography/typography.component";
+
 import styles from "./text-field.module.css";
 
 type Props = Omit<ComponentProps<"input">, "size"> & {
   label?: string;
   size?: "normal" | "small";
-  // error?: boolean;
-  // helper?: boolean
+  error?: boolean;
+  errorText?: string;
+  helper?: string;
 };
 
 export default function TextFieldComponent({
   label,
   size = "normal",
-  // error,
-  // helper,
+  error,
+  errorText,
+  helper,
   ...otherProps
 }: Props): ReactElement {
+  const hasPlaceholder = !!otherProps.placeholder;
+
   return (
     <div className={clsx(styles.wrapper)}>
       <div className={clsx(styles["outlined-input"])}>
+        <TypographyComponent
+          variant="body1"
+          className={clsx(
+            styles.label,
+            hasPlaceholder && styles["label-active"],
+            error && styles["label-error"],
+          )}
+        >
+          {label}
+        </TypographyComponent>
+
         <input
           placeholder=" "
           className={clsx(styles.input, styles[size])}
           {...otherProps}
         />
-        <label className={clsx(styles.label)}>{label}</label>
 
         <fieldset className={clsx(styles.fieldset)}>
           <legend className={styles.legend}>
@@ -34,7 +50,24 @@ export default function TextFieldComponent({
           </legend>
         </fieldset>
       </div>
-      {/* {(error && <span className={clsx(styles["span-error"])}>{error}</span>) || (helper && <span>{helper}</span>)}  */}
+
+      {errorText ? (
+        <TypographyComponent
+          variant="caption"
+          color="error"
+          className={clsx(styles["span-error"])}
+        >
+          {errorText}
+        </TypographyComponent>
+      ) : helper ? (
+        <TypographyComponent
+          variant="caption"
+          color="inherit"
+          className={clsx(styles["span-error"])}
+        >
+          {helper}
+        </TypographyComponent>
+      ) : null}
     </div>
   );
 }

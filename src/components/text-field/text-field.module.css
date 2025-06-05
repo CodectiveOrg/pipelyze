@@ -47,8 +47,7 @@
     }
 
     &:has(.input:not(:placeholder-shown)) .label,
-    &:has(.input:focus) .label,
-    &:has(.input[placeholder]:placeholder-shown) .label {
+    &:has(.input:focus) .label {
       background-color: var(--palette-common-white);
 
       transform: translateY(-26px) scale(0.75);
@@ -77,6 +76,14 @@
         background-color 0.2s ease-in-out;
 
       pointer-events: none;
+
+      &.label-active {
+        background-color: var(--palette-common-white);
+
+        transform: translateY(-26px) scale(0.75);
+
+        font-weight: 400;
+      }
     }
 
     .input {
@@ -130,8 +137,6 @@
   }
 
   .span-error {
-    color: var(--palette-error-main);
-
     margin: 8px 14px 0;
   }
 }

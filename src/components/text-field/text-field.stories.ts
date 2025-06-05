@@ -19,7 +19,7 @@ type Story = StoryObj<typeof TextFieldComponent>;
 export const Default: Story = {
   args: {
     label: "username",
-    value: "zdfbfdg",
+    defaultValue: "zdfbfdg",
   },
 };
 
@@ -27,8 +27,8 @@ export const InvalidEmail: Story = {
   args: {
     label: "email",
     type: "email",
-    placeholder: "yourEmail@email.com",
+    defaultValue: "yourEmail@email.com",
     required: true,
-    // error:'error text'
+    error: true,
   },
 };
