@@ -11,7 +11,8 @@ type Props = Omit<ComponentProps<"input">, "size"> & {
   size?: "normal" | "small";
   error?: boolean;
   errorText?: string;
-  helper?: string;
+  helper?: boolean;
+  helperText?: string;
 };
 
 export default function TextFieldComponent({
@@ -20,9 +21,12 @@ export default function TextFieldComponent({
   error,
   errorText,
   helper,
+  helperText,
   ...otherProps
 }: Props): ReactElement {
   const hasPlaceholder = !!otherProps.placeholder;
+
+  // const isDisabled = otherProps.disabled
 
   return (
     <div className={clsx(styles.wrapper)}>
@@ -51,7 +55,7 @@ export default function TextFieldComponent({
         </fieldset>
       </div>
 
-      {errorText ? (
+      {error ? (
         <TypographyComponent
           variant="caption"
           color="error"
@@ -59,15 +63,17 @@ export default function TextFieldComponent({
         >
           {errorText}
         </TypographyComponent>
-      ) : helper ? (
-        <TypographyComponent
-          variant="caption"
-          color="inherit"
-          className={clsx(styles["span-error"])}
-        >
-          {helper}
-        </TypographyComponent>
-      ) : null}
+      ) : (
+        helper && (
+          <TypographyComponent
+            variant="caption"
+            color="inherit"
+            className={clsx(styles["span-error"])}
+          >
+            {helperText}
+          </TypographyComponent>
+        )
+      )}
     </div>
   );
 }

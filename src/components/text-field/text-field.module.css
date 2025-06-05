@@ -29,6 +29,10 @@
 
     border-radius: var(--shape-border-radius);
 
+    /* &.wrapper-disabled .outlined-input{
+      background: #000;
+    } */
+
     &:hover .fieldset {
       border-color: var(--palette-text-primary);
     }
