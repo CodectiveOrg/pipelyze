@@ -54,7 +54,7 @@
 
   --palette-common-black: hsl(0deg 0% 0%);
   --palette-common-white: hsl(0deg 0% 100%);
-  --palette-common-transparent: hsl(0, 0%, 0%);
+  --palette-common-transparent: hsl(0deg 0% 0%);
 
   --palette-text-primary: hsl(210deg 24% 15%);
   --palette-text-secondary: hsl(210deg 13% 44%);
