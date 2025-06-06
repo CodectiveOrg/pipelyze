@@ -1,47 +1,109 @@
 .checkbox {
-  block-size: 1rem;
-  inline-size: 1rem;
+  --color-hover: color-mix(in hsl, var(--color-light) 20%, transparent);
+  --color-active: color-mix(in hsl, var(--color-light) 50%, transparent);
 
-  margin: 0;
+  display: flex;
+  align-items: center;
 
-  cursor: pointer;
-  appearance: auto;
+  .control {
+    position: relative;
 
-  &.inherit {
-    accent-color: var(--palette-grey-800);
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  &.primary {
-    accent-color: var(--palette-primary-main);
-  }
+    padding: 0.5rem;
 
-  &.secondary {
-    accent-color: var(--palette-secondary-main);
-  }
+    input {
+      background: none;
 
-  &.info {
-    accent-color: var(--palette-info-main);
-  }
+      position: relative;
 
-  &.success {
-    accent-color: var(--palette-success-main);
-  }
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  &.warning {
-    accent-color: var(--palette-warning-main);
-  }
+      block-size: 1.3rem;
+      inline-size: 1.3rem;
 
-  &.error {
-    accent-color: var(--palette-error-main);
-  }
+      border: 2px solid var(--palette-text-secondary);
+      border-radius: 0.25rem;
 
-  &.normal {
-    block-size: 1.25rem;
-    inline-size: 1.25rem;
+      outline: none;
+      appearance: none;
+
+      transition: all 0.2s ease;
+
+      &.disabled {
+        border-color: var(--palette-text-disabled);
+      }
+
+      &:checked {
+        background-color: var(--color-active);
+
+        border-color: var(--color-main);
+      }
+
+      &:checked::after {
+        content: "";
+
+        position: absolute;
+        top: 1px;
+        left: 5px;
+
+        width: 6px;
+        height: 12px;
+
+        border: solid var(--color-main);
+        border-width: 0 2px 2px 0;
+
+        transform: rotate(45deg);
+      }
+
+      &:not(:disabled):hover {
+        background-color: var(--color-hover);
+        box-shadow: 0 0 0 2px var(--color-hover);
+      }
+    }
+
+    input:not(:active) + .active-ripple {
+      display: none;
+    }
+
+    input:active + .active-ripple {
+      background-color: var(--color-active);
+
+      border: none;
+
+      animation: active-animation 550ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
   }
 
   &.small {
-    block-size: 0.925rem;
-    inline-size: 0.925rem;
+    font-size: 1.25rem;
+  }
+
+  &.normal {
+    font-size: 1.5rem;
+  }
+
+  &:has(input:disabled) {
+    color: var(--palette-text-disabled);
+
+    cursor: not-allowed;
+  }
+}
+
+@keyframes active-animation {
+  from {
+    opacity: 0.1;
+
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
   }
 }
