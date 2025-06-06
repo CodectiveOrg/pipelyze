@@ -9,23 +9,19 @@
     var(--palette-text-disabled) 80%,
     transparent
   );
-  position: relative;
 
-  /* position: relative; */
 
-  display: inline-flex;
+
 
   margin: 16px;
 
-  vertical-align: top;
-
-  /* line-height:  1.4375em; */
 
   .outlined-input {
     box-sizing: border-box;
 
+    position: relative;
 
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     inline-size: 273.4px;
@@ -168,7 +164,26 @@
     }
   }
 
-  .span-error {
-    margin: 8px 14px 0;
+
+  .input-message{
+    margin: 5px 13px 0;
+
+    font-size: 0.75rem;
   }
+
+  .helper-text {
+    color: var(--palette-text-secondary);
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  
+  .helper-icon {
+    font-size: 0.9rem;
+
+    line-height: 1;
+  }
+  
 }

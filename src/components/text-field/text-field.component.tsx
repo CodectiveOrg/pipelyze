@@ -2,6 +2,8 @@ import { ComponentProps, ReactElement } from "react";
 
 import clsx from "clsx";
 
+import IconComponent from "@/components/icon/icon.component";
+
 import TypographyComponent from "../typography/typography.component";
 
 import styles from "./text-field.module.css";
@@ -13,6 +15,8 @@ type Props = Omit<ComponentProps<"input">, "size"> & {
   errorText?: string;
   helper?: boolean;
   helperText?: string;
+  startIcon?: ReactElement;
+  endIcon?: ReactElement;
 };
 
 export default function TextFieldComponent({
@@ -61,17 +65,23 @@ export default function TextFieldComponent({
         <TypographyComponent
           variant="caption"
           color="error"
-          className={clsx(styles["span-error"])}
+          className={clsx(styles["input-message"])}
         >
           {errorText}
         </TypographyComponent>
       ) : (
         helper && (
           <TypographyComponent
-            variant="caption"
+            variant="body1"
             color="inherit"
-            className={clsx(styles["span-error"])}
+            className={clsx(styles["input-message"], styles["helper-text"])}
           >
+            <IconComponent
+              name="information-line"
+              color="info"
+              className={styles["helper-icon"]}
+            />
+
             {helperText}
           </TypographyComponent>
         )
