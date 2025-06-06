@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import clsx from "clsx";
+
 import TypographyComponent from "@/components/typography/typography.component";
 
 import AvatarComponent from "../avatar/avatar.component";
@@ -8,7 +10,6 @@ import ButtonComponent from "../button/button.component";
 import IconComponent from "../icon/icon.component";
 
 import styles from "./hero.module.css";
-import clsx from "clsx";
 
 export default function HeroComponent() {
   return (
