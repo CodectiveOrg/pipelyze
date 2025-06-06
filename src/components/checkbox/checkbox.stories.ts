@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import CheckBoxComponent from "./checkbox.component";
 
 const meta = {
-  title: "Atoms/radio",
+  title: "Atoms/checkbox",
   component: CheckBoxComponent,
   parameters: {
     layout: "centered",
