@@ -1,0 +1,34 @@
+.avatar {
+  --palette-avatar-default-color: var(--palette-grey-300);
+  --size: 1;
+
+  flex-shrink: 0;
+
+  background-color: var(--color-main);
+  color: var(--color-contrast);
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  block-size: var(--size);
+  inline-size: var(--size);
+
+  font-size: calc(var(--size) / 2);
+  font-weight: 500;
+
+  line-height: 1;
+
+  user-select: none;
+
+  &.circular {
+    border-radius: 999rem;
+  }
+
+  &.rounded {
+    border-radius: var(--shape-border-radius);
+  }
+}
