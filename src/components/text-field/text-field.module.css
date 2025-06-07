@@ -123,8 +123,7 @@
       padding: 16.5px 14px;
     }
 
-    &:has(.input:invalid) .label,
-    &.has-user-icon:has(.input:invalid) {
+    &:has(.input:invalid) .label {
       color: var(--palette-error-main);
     }
 
