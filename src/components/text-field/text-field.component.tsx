@@ -29,18 +29,23 @@ export default function TextFieldComponent({
   userIcon,
   ...otherProps
 }: Props): ReactElement {
-  const hasPlaceholder = !!otherProps.placeholder;
+  // const hasPlaceholder = !!otherProps.placeholder;
 
   const isDisabled = otherProps.disabled;
 
   return (
     <div className={clsx(styles.wrapper)}>
-      <div className={clsx(styles["outlined-input"])}>
+      <div
+        className={clsx(
+          styles["outlined-input"],
+          userIcon && styles["has-user-icon"],
+        )}
+      >
         <TypographyComponent
           variant="body1"
           className={clsx(
             styles.label,
-            hasPlaceholder && styles["label-active"],
+            // hasPlaceholder && styles["label-active"],
             error && styles["label-error"],
           )}
         >
@@ -50,13 +55,7 @@ export default function TextFieldComponent({
         <fieldset
           className={clsx(styles.fieldset, isDisabled && styles.disabled)}
         >
-          {userIcon && (
-            <IconComponent
-              name="user-3-fill"
-              color="inherit"
-              className={"has-user-icon"}
-            />
-          )}
+          {userIcon && <IconComponent name="user-3-fill" color="inherit" />}
 
           <input
             placeholder=" "

@@ -123,12 +123,28 @@
       padding: 16.5px 14px;
     }
 
-    &:has(.label.label-error) .fieldset,
-    &:has(.label.label-error) .label {
-      color: var(--palette-error-main);
 
-      border-color: var(--palette-error-main);
+  &.has-user-icon .label {
+  background-color: var(--palette-common-white);
+
+  transform: translateY(-26px) scale(0.75);
+
+  font-weight: 400;
+}
+
+    &:has(.label.label-error) .label{
+      color: var(--palette-error-main);
     }
+
+    &:has(.label.label-error) .fieldset{
+      color: var(--palette-error-main);
+      box-shadow: 0 0 0 1px var(--palette-error-main);
+    }
+
+    &:has(.input:invalid) .fieldset {
+      box-shadow: 0 0 0 2px var(--palette-error-main);
+    }
+
 
     &:hover:has(.input:disabled) .fieldset {
       border-color: var(--palette-shared-input-outlined);
@@ -139,24 +155,24 @@
     }
 
     &:hover .fieldset {
-      border-color: var(--palette-text-primary);
+      box-shadow: 0 0 0 1px var(--palette-text-primary);
     }
 
     &:focus-within .fieldset {
-      box-shadow: 0 0 0 1px var(--palette-text-primary);
+      box-shadow: 0 0 0 2px var(--palette-text-primary);
 
       border-radius: var(--shape-border-radius);
     }
-
-    &:has(.input:invalid) .fieldset {
-      border-color: var(--palette-error-main);
+    
+    &:focus-within:has(.input:invalid) .fieldset{
+      box-shadow: 0 0 0 2px var(--palette-error-main);
     }
 
     &:focus-within .label {
       color: var(--palette-text-primary);
     }
 
-    &:not(.has-user-icon):has(.input:not(:placeholder-shown)) .label,
+    &:has(.input:not(:placeholder-shown)) .label,
     &:has(.input:focus) .label {
       background-color: var(--palette-common-white);
 
