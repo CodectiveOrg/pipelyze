@@ -127,20 +127,19 @@
       padding: 16.5px 14px;
     }
 
+    &.has-user-icon .label {
+      background-color: var(--palette-common-white);
 
-  &.has-user-icon .label {
-  background-color: var(--palette-common-white);
+      transform: translateY(-26px) scale(0.75);
 
-  transform: translateY(-26px) scale(0.75);
+      font-weight: 400;
+    }
 
-  font-weight: 400;
-}
-
-    &:has(.label.label-error) .label{
+    &:has(.label.label-error) .label {
       color: var(--palette-error-main);
     }
 
-    &:has(.label.label-error) .fieldset{
+    &:has(.label.label-error) .fieldset {
       color: var(--palette-error-main);
       box-shadow: 0 0 0 1px var(--palette-error-main);
     }
@@ -148,7 +147,6 @@
     &:has(.input:invalid) .fieldset {
       box-shadow: 0 0 0 2px var(--palette-error-main);
     }
-
 
     &:hover:has(.input:disabled) .fieldset {
       border-color: var(--palette-shared-input-outlined);
@@ -167,8 +165,8 @@
 
       border-radius: var(--shape-border-radius);
     }
-    
-    &:focus-within:has(.input:invalid) .fieldset{
+
+    &:focus-within:has(.input:invalid) .fieldset {
       box-shadow: 0 0 0 2px var(--palette-error-main);
     }
 
@@ -176,11 +174,20 @@
       color: var(--palette-text-primary);
     }
 
-    &:has(.input:not(:placeholder-shown)) .label,
-    &:has(.input:focus) .label {
+    &.normal:has(.input:not(:placeholder-shown)) .label,
+    &.normal:has(.input:focus) .label {
       background-color: var(--palette-common-white);
 
       transform: translateY(-26px) scale(0.75);
+
+      font-weight: 400;
+    }
+
+    &.small:has(.input:not(:placeholder-shown)) .label,
+    &.small:has(.input:focus) .label {
+      background-color: var(--palette-common-white);
+
+      transform: translateY(-20px) scale(0.75);
 
       font-weight: 400;
     }
