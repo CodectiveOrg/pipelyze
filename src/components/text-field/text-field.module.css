@@ -50,7 +50,6 @@
         background-color: var(--palette-common-white);
 
         transform: translateY(-1.625rem) scale(0.75);
-
       }
     }
 
@@ -125,7 +124,6 @@
       background-color: var(--palette-common-white);
 
       transform: translateY(-1.625rem) scale(0.75);
-
     }
 
     &:has(.label.label-error) .label {
@@ -181,7 +179,6 @@
       background-color: var(--palette-common-white);
 
       transform: translateY(-1.1875rem) scale(0.75);
-
     }
   }
 
