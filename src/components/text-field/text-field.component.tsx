@@ -9,11 +9,11 @@ import TypographyComponent from "../typography/typography.component";
 import styles from "./text-field.module.css";
 
 type Props = Omit<ComponentProps<"input">, "size"> & {
-  label?: string;
+  label: string;
   size?: "normal" | "small";
-  error?: boolean;
-  errorText?: string;
-  helper?: boolean;
+  error: boolean;
+  errorText: string;
+  helper: boolean;
   helperText?: string;
   userIcon: boolean;
   passwordIcon: boolean;
@@ -41,7 +41,7 @@ export default function TextFieldComponent({
       <div
         className={clsx(
           styles["outlined-input"],
-          userIcon && styles["has-user-icon"],
+          (userIcon || passwordIcon) && styles["has-user-icon"],
           styles[size],
         )}
       >

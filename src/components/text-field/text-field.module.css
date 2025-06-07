@@ -70,7 +70,7 @@
       border: 1px solid var(--palette-shared-input-outlined);
       border-radius: inherit;
 
-      transition: box-shadow 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 
       .input {
         flex: 1;
@@ -116,10 +116,6 @@
       padding: 1.0313rem 0.875rem;
     }
 
-    &:has(.input:invalid) .label {
-      color: var(--palette-error-main);
-    }
-
     &.has-user-icon .label {
       background-color: var(--palette-common-white);
 
@@ -135,19 +131,20 @@
       box-shadow: 0 0 0 1px var(--palette-error-main);
     }
 
-    &:has(.input:invalid) .fieldset {
+    &:focus-within:has(.label.label-error) .fieldset {
+      color: var(--palette-error-main);
       box-shadow: 0 0 0 2px var(--palette-error-main);
     }
 
-    &:hover:has(.input:disabled) .fieldset {
+    /* &:hover:has(.input:disabled) .fieldset {
       border-color: var(--palette-shared-input-outlined);
-    }
+    } */
 
     &:has(.input:disabled) .label {
-      color: var(--palete-action-disabled);
+      color: var(--palette-action-disabled);
     }
 
-    &:hover .fieldset {
+    &:hover:has(.input:not(:disabled)) .fieldset {
       box-shadow: 0 0 0 1px var(--palette-text-primary);
     }
 
@@ -157,9 +154,9 @@
       border-radius: var(--shape-border-radius);
     }
 
-    &:focus-within:has(.input:invalid) .fieldset {
+    /* &:focus-within:has(.input:invalid) .fieldset {
       box-shadow: 0 0 0 2px var(--palette-error-main);
-    }
+    } */
 
     &:focus-within .label {
       color: var(--palette-text-primary);
