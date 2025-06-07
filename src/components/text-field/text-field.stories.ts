@@ -22,6 +22,8 @@ export const Default: Story = {
     label: "username",
     placeholder: "",
     userIcon: true,
+    passwordIcon: true,
+    showPassword: true,
   },
 };
 

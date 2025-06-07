@@ -15,8 +15,9 @@ type Props = Omit<ComponentProps<"input">, "size"> & {
   errorText?: string;
   helper?: boolean;
   helperText?: string;
-  userIcon?: boolean;
-  // endIcon?: boolean;
+  userIcon: boolean;
+  passwordIcon: boolean;
+  showPassword: boolean;
 };
 
 export default function TextFieldComponent({
@@ -27,9 +28,11 @@ export default function TextFieldComponent({
   helper,
   helperText,
   userIcon,
+  passwordIcon,
+  showPassword,
   ...otherProps
 }: Props): ReactElement {
-  // const hasPlaceholder = !!otherProps.placeholder;
+  const hasPlaceholder = !!otherProps.placeholder;
 
   const isDisabled = otherProps.disabled;
 
@@ -46,7 +49,7 @@ export default function TextFieldComponent({
           variant="body1"
           className={clsx(
             styles.label,
-            // hasPlaceholder && styles["label-active"],
+            hasPlaceholder && styles["label-active"],
             error && styles["label-error"],
           )}
         >
@@ -63,6 +66,12 @@ export default function TextFieldComponent({
             className={clsx(styles.input)}
             {...otherProps}
           />
+
+          {passwordIcon && (
+            <IconComponent
+              name={showPassword ? "eye-line" : "eye-close-line"}
+            />
+          )}
 
           <legend className={styles.legend}>
             <span></span>
