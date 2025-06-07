@@ -27,10 +27,6 @@
 
     border-radius: var(--shape-border-radius);
 
-    &:has(.input:invalid) .label {
-      color: var(--palette-error-main);
-    }
-
     .label {
       color: var(--palette-text-secondary);
 
@@ -127,6 +123,11 @@
       padding: 16.5px 14px;
     }
 
+    &:has(.input:invalid) .label,
+    &.has-user-icon:has(.input:invalid) {
+      color: var(--palette-error-main);
+    }
+
     &.has-user-icon .label {
       background-color: var(--palette-common-white);
 
@@ -179,7 +180,7 @@
     &.has-user-icon.normal .label {
       background-color: var(--palette-common-white);
 
-      transform: translateY(-26px) scale(0.75);
+      transform: translateY(-27px) scale(0.75);
 
       font-weight: 400;
     }
