@@ -116,10 +116,14 @@
     }
 
     &.small {
+      min-height: 40px;
+
       padding: 8.5px 14px;
     }
 
     &.normal {
+      min-height: 56px;
+
       padding: 16.5px 14px;
     }
 

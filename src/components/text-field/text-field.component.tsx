@@ -39,6 +39,7 @@ export default function TextFieldComponent({
         className={clsx(
           styles["outlined-input"],
           userIcon && styles["has-user-icon"],
+          styles[size],
         )}
       >
         <TypographyComponent
@@ -59,7 +60,7 @@ export default function TextFieldComponent({
 
           <input
             placeholder=" "
-            className={clsx(styles.input, styles[size])}
+            className={clsx(styles.input)}
             {...otherProps}
           />
 
