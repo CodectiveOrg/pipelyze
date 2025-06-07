@@ -1,0 +1,113 @@
+.linear-progress {
+  --value: 0%;
+
+  color: var(--color-main);
+
+  min-inline-size: 4rem;
+  inline-size: 100%;
+
+  border-radius: 0.75rem;
+
+  .line {
+    background: var(--palette-grey-400);
+
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+
+    display: block;
+
+    block-size: 0.25rem;
+    inline-size: 100%;
+
+    border-radius: 0.25rem;
+  }
+
+  &.determinate {
+    .line {
+      .filled {
+        background-color: currentcolor;
+
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: 0;
+
+        inline-size: 100%;
+
+        border-radius: inherit;
+
+        transform: translateX(var(--value));
+        transform-origin: left center;
+
+        transition: transform 0.4s linear;
+      }
+    }
+  }
+
+  &.indeterminate {
+    .line {
+      &::before,
+      &::after {
+        content: "";
+
+        background-color: currentcolor;
+
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: 0;
+
+        inline-size: auto;
+
+        border-radius: inherit;
+
+        transform-origin: left center;
+
+        transition: transform 0.2s linear;
+      }
+
+      &::before {
+        animation: 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) 0s infinite
+          normal none running first-half-animation;
+      }
+
+      &::after {
+        animation: 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s infinite normal
+          none running second-half-animation;
+      }
+    }
+  }
+}
+
+@keyframes first-half-animation {
+  0% {
+    inset-inline-start: -35%;
+    inset-inline-end: 100%;
+  }
+
+  60% {
+    inset-inline-start: 100%;
+    inset-inline-end: -90%;
+  }
+
+  100% {
+    inset-inline-start: 100%;
+    inset-inline-end: -90%;
+  }
+}
+
+@keyframes second-half-animation {
+  0% {
+    inset-inline-start: -200%;
+    inset-inline-end: 100%;
+  }
+
+  60% {
+    inset-inline-start: 107%;
+    inset-inline-end: -8%;
+  }
+
+  100% {
+    inset-inline-start: 107%;
+    inset-inline-end: -8%;
+  }
+}
