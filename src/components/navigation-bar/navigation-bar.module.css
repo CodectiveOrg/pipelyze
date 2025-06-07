@@ -1,0 +1,71 @@
+.navigation-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  .nav,
+  .vertical-nav {
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      block-size: 100%;
+      min-inline-size: 50vw;
+
+      li {
+        list-style: none;
+
+        padding-block: 0.25rem;
+        padding-inline: 0.5rem;
+
+        border-radius: 0.5rem;
+
+        a {
+          color: var(--palette-grey-800);
+
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+
+          text-decoration: none;
+
+          span {
+            display: flex;
+            flex-direction: column;
+
+            font-family: Inter, serif;
+            font-size: 16px;
+            font-weight: 600;
+
+            span:nth-child(2) {
+              color: var(--palette-grey-400);
+
+              font-size: 14px;
+            }
+          }
+
+          svg {
+            block-size: 2rem;
+            inline-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .vertical-nav {
+    max-inline-size: 10rem;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      min-block-size: 15rem;
+      min-inline-size: 20vw;
+
+      padding-inline: 0.5rem;
+    }
+  }
+}
