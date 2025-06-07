@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 
-import IconButtonComponent from "@/components/icon-button/icon-button.component";
 import IconComponent from "@/components/icon/icon.component";
 
 import styles from "./navigation-bar.module.css";
@@ -18,11 +17,10 @@ type Props = {
 export default function NavigationBarComponent({ items }: Props): ReactElement {
   return (
     <div className={styles["navigation-bar"]}>
-      <IconButtonComponent
-        className={styles.hamburger}
-        name={"menu-line"}
-      ></IconButtonComponent>
       <nav className={styles.nav}>
+        <button className={styles.hamburger}>
+          <IconComponent name={"menu-line"} color={"primary"}></IconComponent>
+        </button>
         <ul>
           {items.map((item) => {
             return (

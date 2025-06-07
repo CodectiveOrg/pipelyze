@@ -1,10 +1,41 @@
 .navigation-bar {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 1rem;
+
+  .hamburger {
+    background: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    block-size: 2rem;
+    inline-size: 2rem;
+
+    padding: 0.25rem;
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
 
   .nav,
   .vertical-nav {
+    display: flex;
+    align-items: center;
+
     ul {
       display: flex;
       align-items: center;
