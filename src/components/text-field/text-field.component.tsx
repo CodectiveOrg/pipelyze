@@ -50,7 +50,13 @@ export default function TextFieldComponent({
         <fieldset
           className={clsx(styles.fieldset, isDisabled && styles.disabled)}
         >
-          {userIcon && <IconComponent name="user-3-fill" color="inherit" />}
+          {userIcon && (
+            <IconComponent
+              name="user-3-fill"
+              color="inherit"
+              className={"has-user-icon"}
+            />
+          )}
 
           <input
             placeholder=" "

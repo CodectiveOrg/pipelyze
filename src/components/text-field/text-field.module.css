@@ -156,7 +156,7 @@
       color: var(--palette-text-primary);
     }
 
-    &:has(.input:not(:placeholder-shown)) .label,
+    &:not(.has-user-icon):has(.input:not(:placeholder-shown)) .label,
     &:has(.input:focus) .label {
       background-color: var(--palette-common-white);
 
