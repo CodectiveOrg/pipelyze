@@ -175,7 +175,8 @@
     }
 
     &.normal:has(.input:not(:placeholder-shown)) .label,
-    &.normal:has(.input:focus) .label {
+    &.normal:has(.input:focus) .label,
+    &.has-user-icon.normal .label {
       background-color: var(--palette-common-white);
 
       transform: translateY(-26px) scale(0.75);
@@ -184,10 +185,11 @@
     }
 
     &.small:has(.input:not(:placeholder-shown)) .label,
-    &.small:has(.input:focus) .label {
+    &.small:has(.input:focus) .label,
+    &.has-user-icon.small .label {
       background-color: var(--palette-common-white);
 
-      transform: translateY(-20px) scale(0.75);
+      transform: translateY(-19px) scale(0.75);
 
       font-weight: 400;
     }
