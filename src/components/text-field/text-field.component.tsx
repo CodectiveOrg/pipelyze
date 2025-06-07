@@ -15,8 +15,8 @@ type Props = Omit<ComponentProps<"input">, "size"> & {
   errorText?: string;
   helper?: boolean;
   helperText?: string;
-  startIcon?: ReactElement;
-  endIcon?: ReactElement;
+  userIcon?: boolean;
+  // endIcon?: boolean;
 };
 
 export default function TextFieldComponent({
@@ -26,6 +26,7 @@ export default function TextFieldComponent({
   errorText,
   helper,
   helperText,
+  userIcon,
   ...otherProps
 }: Props): ReactElement {
   const hasPlaceholder = !!otherProps.placeholder;
@@ -46,15 +47,17 @@ export default function TextFieldComponent({
           {label}
         </TypographyComponent>
 
-        <input
-          placeholder=" "
-          className={clsx(styles.input, styles[size])}
-          {...otherProps}
-        />
-
         <fieldset
           className={clsx(styles.fieldset, isDisabled && styles.disabled)}
         >
+          {userIcon && <IconComponent name="user-3-fill" color="inherit" />}
+
+          <input
+            placeholder=" "
+            className={clsx(styles.input, styles[size])}
+            {...otherProps}
+          />
+
           <legend className={styles.legend}>
             <span></span>
           </legend>
@@ -78,7 +81,6 @@ export default function TextFieldComponent({
           >
             <IconComponent
               name="information-line"
-              color="info"
               className={styles["helper-icon"]}
             />
 

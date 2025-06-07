@@ -20,8 +20,8 @@ export const Default: Story = {
   args: {
     type: "text",
     label: "username",
-    placeholder: "Please enter username",
-    required: true,
+    placeholder: "",
+    userIcon: true,
   },
 };
 
