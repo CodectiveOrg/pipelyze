@@ -63,7 +63,6 @@ export const Disabled: Story = {
   args: {
     label: "Disabled",
     disabled: true,
-    // disabled:true,
     type: "text",
     defaultValue: "Disable",
   },

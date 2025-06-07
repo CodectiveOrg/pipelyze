@@ -70,7 +70,7 @@
       border: 1px solid var(--palette-shared-input-outlined);
       border-radius: inherit;
 
-      transition: border 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: box-shadow 0.05s cubic-bezier(0.4, 0, 0.2, 1);
 
       .input {
         flex: 1;
@@ -105,7 +105,7 @@
     }
 
     &.small {
-      min-height: 2.5rem;
+      min-block-size: 2.5rem;
 
       padding: 0.5313rem 0.875rem;
     }
@@ -132,11 +132,11 @@
 
     &:has(.label.label-error) .fieldset {
       color: var(--palette-error-main);
-      box-shadow: 0 0 0 0.0625rem var(--palette-error-main);
+      box-shadow: 0 0 0 1px var(--palette-error-main);
     }
 
     &:has(.input:invalid) .fieldset {
-      box-shadow: 0 0 0 0.125rem var(--palette-error-main);
+      box-shadow: 0 0 0 2px var(--palette-error-main);
     }
 
     &:hover:has(.input:disabled) .fieldset {
@@ -148,17 +148,17 @@
     }
 
     &:hover .fieldset {
-      box-shadow: 0 0 0 0.0625rem var(--palette-text-primary);
+      box-shadow: 0 0 0 1px var(--palette-text-primary);
     }
 
     &:focus-within .fieldset {
-      box-shadow: 0 0 0 0.125rem var(--palette-text-primary);
+      box-shadow: 0 0 0 2px var(--palette-text-primary);
 
       border-radius: var(--shape-border-radius);
     }
 
     &:focus-within:has(.input:invalid) .fieldset {
-      box-shadow: 0 0 0 0.125rem var(--palette-error-main);
+      box-shadow: 0 0 0 2px var(--palette-error-main);
     }
 
     &:focus-within .label {
