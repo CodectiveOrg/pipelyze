@@ -7,9 +7,17 @@ const meta: Meta<typeof TextFieldGroupeComponent> = {
   component: TextFieldGroupeComponent,
   parameters: {
     layout: "centered",
+    controls: { disabled: true },
   },
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    items: {
+      table: { disable: true },
+    },
+    row: {
+      table: { disable: true },
+    },
+  },
 };
 
 export default meta;
@@ -17,41 +25,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: "Username",
-
+    name: "textField column",
+    row: false,
     items: [
-      { label: "Default", color: "inherit", size: "normal" },
-      { label: "Primary", color: "primary", size: "normal" },
-      { label: "Secondary", color: "secondary", size: "normal" },
-      { label: "Info", color: "info", size: "normal" },
-      { label: "Success", color: "success", size: "normal" },
-      { label: "Warning", color: "warning", size: "normal" },
-      { label: "Error", color: "error", size: "normal" },
-      { label: "Disabled", size: "normal", disabled: true },
+      { label: "username", size: "normal" },
+      { label: "password", size: "normal" },
     ],
   },
 };
 
-export const Disabled: Story = {
+export const Row: Story = {
   args: {
-    ...Default.args,
-    disabled: true,
-  },
-};
-
-export const WithError: Story = {
-  args: {
-    name: "color",
-    row: false,
+    name: "textField row",
+    row: true,
     items: [
-      { label: "Default", color: "inherit", size: "normal" },
-      { label: "Primary", color: "primary", size: "normal" },
-      { label: "Secondary", color: "secondary", size: "normal" },
-      { label: "Info", color: "info", size: "normal" },
-      { label: "Success", color: "success", size: "normal" },
-      { label: "Warning", color: "warning", size: "normal" },
-      { label: "Error", color: "error", size: "normal" },
-      { label: "Disabled", size: "normal", disabled: true },
+      { label: "username", size: "normal" },
+      { label: "password", size: "normal" },
     ],
   },
 };
