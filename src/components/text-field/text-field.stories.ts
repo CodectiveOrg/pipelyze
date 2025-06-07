@@ -20,8 +20,16 @@ export const Default: Story = {
   args: {
     type: "text",
     label: "username",
-    placeholder: "",
+    placeholder: "enter username",
     userIcon: true,
+  },
+};
+
+export const Password: Story = {
+  args: {
+    type: "password",
+    label: "password",
+    defaultValue: "1234634257",
     passwordIcon: true,
     showPassword: true,
   },
@@ -31,7 +39,6 @@ export const Invalid: Story = {
   args: {
     label: "email",
     type: "email",
-    defaultValue: "yourEmail@email.com",
     required: true,
   },
 };
@@ -39,7 +46,7 @@ export const Invalid: Story = {
 export const HelperText: Story = {
   args: {
     label: "Helper Text",
-    defaultValue: "lksdhf",
+    defaultValue: "click me",
     helper: true,
     helperText: "Helper Text",
   },
