@@ -58,8 +58,6 @@
   --palette-text-primary: hsl(210deg 24% 15%);
   --palette-text-secondary: hsl(210deg 13% 44%);
   --palette-text-disabled: hsl(210deg 14% 62%);
-
-  --shape-border-radius: 0.5rem;
 }
 
 .inherit {
