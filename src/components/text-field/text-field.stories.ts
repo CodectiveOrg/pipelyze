@@ -28,7 +28,7 @@ export const StartAdornment: Story = {
     type: "text",
     label: "Username",
     placeholder: "please enter your name",
-    startAdornment: true,
+    startAdornment: "kg",
   },
 };
 
