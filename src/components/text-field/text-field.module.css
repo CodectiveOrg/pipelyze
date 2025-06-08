@@ -98,14 +98,6 @@
       }
     }
 
-    &:focus-within {
-      fieldset {
-        box-shadow: 0 0 0 2px var(--palette-text-primary);
-
-        border-color: transparent;
-      }
-    }
-
     &:has(.adornment.start) {
       fieldset {
         padding-inline-start: 0.9rem;
@@ -169,6 +161,14 @@
     }
   }
 
+  &:focus-within {
+    fieldset {
+      box-shadow: 0 0 0 2px var(--palette-text-primary);
+
+      border-color: transparent;
+    }
+  }
+
   &.error {
     .input-box {
       label {
@@ -183,6 +183,12 @@
 
     .helper-text {
       color: var(--palette-error-main);
+    }
+
+    &:focus-within {
+      fieldset {
+        box-shadow: 0 0 0 2px var(--palette-error-main);
+      }
     }
   }
 
