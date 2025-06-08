@@ -12,6 +12,8 @@
     border-radius: var(--shape-border-radius-2);
 
     label {
+      color: var(--palette-text-disabled);
+
       position: absolute;
       inset-block-start: 0;
       inset-inline-start: 0;
@@ -170,6 +172,10 @@
       box-shadow: 0 0 0 2px var(--palette-text-primary);
 
       border-color: transparent;
+    }
+
+    label {
+      color: var(--palette-text-secondaryl);
     }
   }
 

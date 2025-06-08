@@ -45,6 +45,7 @@ export const Error: Story = {
   args: {
     label: "Email",
     type: "email",
+    placeholder: "enter your email",
     required: true,
   },
 };
