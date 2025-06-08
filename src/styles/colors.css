@@ -62,7 +62,8 @@
   --palette-action-hover-opacity: 0.08;
   --palette-action-disabled-opacity: 0.24;
 
-  --shape-border-radius: 0.5rem;
+  --shape-border-radius-1: 0.5rem;
+  --shape-border-radius-2: 0.75rem;
 }
 
 .inherit {
