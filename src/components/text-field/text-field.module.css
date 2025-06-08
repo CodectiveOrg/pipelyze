@@ -79,7 +79,7 @@
 
         display: block;
 
-        /* padding: var(--padding-block) var(--padding-inline); */
+        padding: var(--padding-block) var(--padding-inline);
 
         border: none;
 
@@ -105,20 +105,20 @@
 
     &:has(.adornment.start) {
       fieldset {
-        padding-inline-start: 10px;
+        padding-inline-start: var(--padding-inline);
 
         input {
-          padding-block: 10px;
+          padding-block: var(--padding-block);
         }
       }
 
       &:has(.adornment.end) {
-        input {
-          padding-block: 10px;
-        }
+        fieldset {
+          padding-inline-end: var(--padding-inline);
 
-        
-          padding-inline-end: 10px;
+          input {
+            padding-block: var(--padding-block);
+          }
         }
       }
     }
