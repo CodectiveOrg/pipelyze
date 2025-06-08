@@ -1,35 +1,15 @@
-.wrapper {
-  --palette-shared-input-outlined: color-mix(
-    in srgb,
-    var(--palette-grey-500) 16%,
-    transparent
-  );
-  --palette-action-disabled: color-mix(
-    in srgb,
-    var(--palette-text-disabled) 80%,
-    transparent
-  );
-
-  margin: 1rem;
-
-  .outlined-input {
-    box-sizing: border-box;
-
+.text-field {
+  .input-box {
     position: relative;
 
     display: inline-flex;
     align-items: center;
 
-    inline-size: 17.0875rem;
-    min-height: 3.5rem;
+    inline-size: 100%;
 
-    padding: 1.0313rem 0.875rem;
-
-    border-radius: var(--shape-border-radius);
+    border-radius: var(--shape-border-radius-2);
 
     .label {
-      color: var(--palette-text-secondary);
-
       position: absolute;
       overflow: hidden;
       z-index: 1;
@@ -38,164 +18,111 @@
 
       transform-origin: top left;
 
-      font-size: 1rem;
-
-      transition:
-        transform 0.2s ease-in-out,
-        background-color 0.2s ease-in-out;
+      transition: 0.2s ease-in-out;
+      transition-property: transform, background-color;
 
       pointer-events: none;
-
-      &.label-active {
-        background-color: var(--palette-common-white);
-
-        transform: translateY(-1.625rem) scale(0.75);
-      }
     }
 
-    .fieldset {
-      box-sizing: border-box;
-
-      position: absolute;
-      inset: 0;
-
+    fieldset {
       display: flex;
       align-items: center;
 
-      min-inline-size: min-content;
-
-      margin: 0;
-      padding: 0 0.5rem;
+      padding-inline: 0.5rem;
 
       border: 1px solid var(--palette-shared-input-outlined);
       border-radius: inherit;
 
-      transition: box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 
-      .input {
+      input {
         flex: 1;
 
         background-color: transparent;
 
-        box-sizing: content-box;
-
         display: block;
-
-        block-size: 1.4375rem;
-
-        padding: 1.0313rem 0.875rem;
 
         border: none;
 
         outline: none;
 
         font-size: 1rem;
-        appearance: none;
 
-        &:disabled {
-          color: var(--palette-action-disabled);
-        }
+        appearance: none;
       }
     }
 
-    .legend {
-      max-inline-size: 0.0006rem;
-
-      white-space: nowrap;
+    &:hover:has(.input:not(:disabled)) {
+      fieldset {
+        box-shadow: 0 0 0 1px var(--palette-text-primary);
+      }
     }
-
-    &.small {
-      min-block-size: 2.5rem;
-
-      padding: 0.5313rem 0.875rem;
-    }
-
-    &.normal {
-      min-height: 3.5rem;
-
-      padding: 1.0313rem 0.875rem;
-    }
-
-    &.has-user-icon .label {
-      background-color: var(--palette-common-white);
-
-      transform: translateY(-1.625rem) scale(0.75);
-    }
-
-    &:has(.label.label-error) .label {
-      color: var(--palette-error-main);
-    }
-
-    &:has(.label.label-error) .fieldset {
-      color: var(--palette-error-main);
-      box-shadow: 0 0 0 1px var(--palette-error-main);
-    }
-
-    &:focus-within:has(.label.label-error) .fieldset {
-      color: var(--palette-error-main);
-      box-shadow: 0 0 0 2px var(--palette-error-main);
-    }
-
-    /* &:hover:has(.input:disabled) .fieldset {
-      border-color: var(--palette-shared-input-outlined);
-    } */
-
-    &:has(.input:disabled) .label {
-      color: var(--palette-action-disabled);
-    }
-
-    &:hover:has(.input:not(:disabled)) .fieldset {
-      box-shadow: 0 0 0 1px var(--palette-text-primary);
-    }
-
-    &:focus-within .fieldset {
-      box-shadow: 0 0 0 2px var(--palette-text-primary);
-
-      border-radius: var(--shape-border-radius);
-    }
-
-    /* &:focus-within:has(.input:invalid) .fieldset {
-      box-shadow: 0 0 0 2px var(--palette-error-main);
-    } */
-
-    &:focus-within .label {
-      color: var(--palette-text-primary);
-    }
-
-    &.normal:has(.input:not(:placeholder-shown)) .label,
-    &.normal:has(.input:focus) .label,
-    &.has-user-icon.normal .label {
-      background-color: var(--palette-common-white);
-
-      transform: translateY(-1.6875rem) scale(0.75);
-    }
-
-    &.small:has(.input:not(:placeholder-shown)) .label,
-    &.small:has(.input:focus) .label,
-    &.has-user-icon.small .label {
-      background-color: var(--palette-common-white);
-
-      transform: translateY(-1.1875rem) scale(0.75);
-    }
-  }
-
-  .input-message {
-    margin: 0.3125rem 0.8125rem 0;
-
-    font-size: 0.75rem;
   }
 
   .helper-text {
     color: var(--palette-text-secondary);
 
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+    margin: 0.5rem 1rem 0;
+
+    font-size: 0.75rem;
   }
 
-  .helper-icon {
-    font-size: 0.9rem;
+  &.small {
+    .input-box {
+      fieldset {
+        input {
+          padding: 1rem;
+        }
+      }
+    }
+  }
 
-    line-height: 1;
+  &.normal {
+    .input-box {
+      fieldset {
+        input {
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+
+  &:has(input:not(:placeholder-shown)),
+  &:has(.adornment) {
+    .input-box {
+      &.label {
+        background-color: var(--palette-common-white);
+        color: var(--palette-text-primary);
+
+        transform: translateY(-1.625rem) scale(0.75);
+      }
+    }
+  }
+
+  &.error {
+    .input-box {
+      .label {
+        color: var(--palette-error-main);
+      }
+
+      .fieldset {
+        color: var(--palette-error-main);
+        box-shadow: 0 0 0 1px var(--palette-error-main);
+      }
+    }
+  }
+
+  &:has(input[disabled]) {
+    .input-box {
+      .label {
+        color: var(--palette-action-disabled);
+      }
+
+      fieldset {
+        input {
+          color: var(--palette-action-disabled);
+        }
+      }
+    }
   }
 }
