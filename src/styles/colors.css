@@ -61,6 +61,7 @@
 
   --palette-shared-input-outlined: hsl(210deg 13% 62% / 20%);
 
+  --palette-action-active: hsl(210deg 13% 45%);
   --palette-action-disabled: hsl(210deg 13% 62% / 80%);
 
   --palette-action-hover-opacity: 0.08;
