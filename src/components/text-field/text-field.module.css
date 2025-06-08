@@ -180,6 +180,10 @@
         box-shadow: 0 0 0 1px var(--palette-error-main);
       }
     }
+
+    .helper-text {
+      color: var(--palette-error-main);
+    }
   }
 
   &:has(input[disabled]) {
