@@ -98,21 +98,6 @@
       }
     }
 
-    /* &:has(.adornment){
-      color: var(--palette-action-active);
-      .start{
-        fieldset {
-          padding-inline-start: 0.9rem;
-  
-          input {
-            padding-block: var(--padding-block);
-            padding-inline-start: 0;
-          }
-        }
-
-      }
-    } */
-
     &:has(.adornment.start) {
       color: var(--palette-action-active);
 
