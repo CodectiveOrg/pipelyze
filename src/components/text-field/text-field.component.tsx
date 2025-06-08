@@ -27,6 +27,8 @@ export default function TextFieldComponent({
   const fallbackId = useId();
   const id = otherProps.id || fallbackId;
 
+  // const hasPlaceholder = !!otherProps.placeholder
+
   return (
     <div
       className={clsx(
@@ -36,7 +38,12 @@ export default function TextFieldComponent({
       )}
     >
       <div className={styles["input-box"]}>
-        <label htmlFor={id}>{label}</label>
+        <label
+          htmlFor={id}
+          // className={clsx(hasPlaceholder && styles['has-placeholder'])}
+        >
+          {label}
+        </label>
         <fieldset>
           <legend>
             <span>{label}</span>

@@ -45,8 +45,8 @@
 
         display: block;
 
-        width: auto;
-        max-width: 0.01px;
+        inline-size: auto;
+        max-inline-size: 0.01px;
         height: 0;
 
         margin-inline-start: calc(
@@ -88,14 +88,23 @@
         font-size: 1rem;
 
         appearance: none;
+
       }
     }
 
-    &:hover:has(.input:not(:disabled)) {
+    &:hover:not(:focus-within):has(input:not(:disabled)){
       fieldset {
         box-shadow: 0 0 0 1px var(--palette-text-primary);
       }
     }
+    
+    &:focus-within{
+      fieldset {
+        box-shadow: 0 0 0 2px var(--palette-text-primary);
+      }
+    }
+
+
   }
 
   .helper-text {
@@ -106,18 +115,20 @@
     font-size: 0.75rem;
   }
 
-  &.small {
+  &.normal {
     --padding-block: 1rem;
     --padding-inline: 1rem;
   }
 
-  &.normal {
+  &.small{
     --padding-block: 0.5rem;
     --padding-inline: 1rem;
   }
 
   &:has(input:focus),
-  &:has(.adornment) {
+  &:has(.adornment),
+  &:has(input:not(:placeholder-shown)),
+  &:has(input[placeholder]){
     .input-box {
       label {
         background-color: var(--palette-common-white);
@@ -130,10 +141,11 @@
 
       fieldset {
         legend {
-          max-width: 100%;
+          max-inline-size: 100%;
         }
       }
     }
+
   }
 
   &.error {
@@ -142,7 +154,7 @@
         color: var(--palette-error-main);
       }
 
-      .fieldset {
+      fieldset {
         color: var(--palette-error-main);
         box-shadow: 0 0 0 1px var(--palette-error-main);
       }

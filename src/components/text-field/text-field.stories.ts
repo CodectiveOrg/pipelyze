@@ -62,6 +62,22 @@ export const Disabled: Story = {
     label: "name",
     disabled: true,
     type: "text",
-    defaultValue: "You can't edit it",
+    placeholder: "You can't edit it",
+  },
+};
+
+export const SmallSize: Story = {
+  args: {
+    type: "text",
+    size: "small",
+    placeholder: "for small size",
+  },
+};
+
+export const NormalSize: Story = {
+  args: {
+    type: "text",
+    size: "normal",
+    placeholder: "for normal size",
   },
 };
