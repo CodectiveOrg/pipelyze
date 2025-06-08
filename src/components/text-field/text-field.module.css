@@ -88,23 +88,20 @@
         font-size: 1rem;
 
         appearance: none;
-
       }
     }
 
-    &:hover:not(:focus-within):has(input:not(:disabled)){
+    &:hover:not(:focus-within):has(input:not(:disabled)) {
       fieldset {
         box-shadow: 0 0 0 1px var(--palette-text-primary);
       }
     }
-    
-    &:focus-within{
+
+    &:focus-within {
       fieldset {
         box-shadow: 0 0 0 2px var(--palette-text-primary);
       }
     }
-
-
   }
 
   .helper-text {
@@ -120,7 +117,7 @@
     --padding-inline: 1rem;
   }
 
-  &.small{
+  &.small {
     --padding-block: 0.5rem;
     --padding-inline: 1rem;
   }
@@ -128,7 +125,7 @@
   &:has(input:focus),
   &:has(.adornment),
   &:has(input:not(:placeholder-shown)),
-  &:has(input[placeholder]){
+  &:has(.has-placeholder) {
     .input-box {
       label {
         background-color: var(--palette-common-white);
@@ -145,7 +142,6 @@
         }
       }
     }
-
   }
 
   &.error {
