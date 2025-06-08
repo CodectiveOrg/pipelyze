@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement, ReactNode } from "react";
+import { ComponentProps, ReactElement, ReactNode, useId } from "react";
 
 import clsx from "clsx";
 
@@ -24,6 +24,8 @@ export default function TextFieldComponent({
   endAdornment,
   ...otherProps
 }: Props): ReactElement {
+  const id = useId() || otherProps.id;
+
   return (
     <div
       className={clsx(
@@ -33,15 +35,11 @@ export default function TextFieldComponent({
       )}
     >
       <div className={styles["input-box"]}>
-        <TypographyComponent
-          className={styles.label}
-          variant="subtitle1"
-          color="text-secondary"
-        >
-          {label}
-        </TypographyComponent>
+        <label htmlFor={id}>{label}</label>
         <fieldset>
-          <legend></legend>
+          <legend>
+            <span>{label}</span>
+          </legend>
 
           {startAdornment && (
             <div className={clsx(styles.adornment, styles.start)}>
@@ -49,7 +47,7 @@ export default function TextFieldComponent({
             </div>
           )}
 
-          <input {...otherProps} />
+          <input {...otherProps} id={id} />
 
           {endAdornment && (
             <div className={clsx(styles.adornment, styles.end)}>
