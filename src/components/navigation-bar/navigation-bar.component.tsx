@@ -29,7 +29,7 @@ export default function NavigationBarComponent({ items }: Props): ReactElement {
                   {item.icon}
                   <span>
                     <span>{item.title}</span>
-                    <span>{item?.subtitle}</span>
+                    {item?.subtitle && <span>{item?.subtitle}</span>}
                   </span>
                 </a>
               </li>
