@@ -18,26 +18,32 @@ type Story = StoryObj<typeof TextFieldComponent>;
 
 export const Default: Story = {
   args: {
-    type: "text",
-    label: "username",
-    placeholder: "enter username",
-    userIcon: true,
+    type: "search",
+    placeholder: "Search...",
   },
 };
 
-export const Password: Story = {
+export const StartAdornment: Story = {
   args: {
-    type: "password",
+    type: "text",
+    label: "Username",
+    placeholder: "please enter your name",
+    startAdornment: true,
+  },
+};
+
+export const EndAdornment: Story = {
+  args: {
+    type: "Password",
     label: "password",
     defaultValue: "1234634257",
-    passwordIcon: true,
-    showPassword: true,
+    endAdornment: true,
   },
 };
 
-export const Invalid: Story = {
+export const Error: Story = {
   args: {
-    label: "email",
+    label: "Email",
     type: "email",
     required: true,
   },
@@ -45,25 +51,17 @@ export const Invalid: Story = {
 
 export const HelperText: Story = {
   args: {
-    label: "Helper Text",
-    defaultValue: "click me",
-    helper: true,
-    helperText: "Helper Text",
-  },
-};
-
-export const Search: Story = {
-  args: {
-    type: "search",
-    placeholder: "Search...",
+    label: "Birthdate",
+    defaultValue: "enter your birthdate",
+    helperText: "Format: YYYY-MM-DD",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: "Disabled",
+    label: "name",
     disabled: true,
     type: "text",
-    defaultValue: "Disable",
+    defaultValue: "You can't edit it",
   },
 };
