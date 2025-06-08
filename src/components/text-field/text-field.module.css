@@ -35,7 +35,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 0.5rem;
 
       border: 1px solid var(--palette-shared-input-outlined);
       border-radius: inherit;
@@ -96,7 +96,7 @@
 
     &:hover:not(:focus-within):has(input:not(:disabled)) {
       fieldset {
-        border-color: 0 0 0 1px var(--palette-text-primary);
+        border-color: var(--palette-text-primary);
       }
     }
 
@@ -145,14 +145,34 @@
     --padding-inline: 1rem;
   }
 
-  &:has(input:focus),
+  &:focus-within {
+    .input-box {
+      fieldset {
+        box-shadow: 0 0 0 2px var(--palette-text-primary);
+
+        border-color: transparent;
+      }
+
+      &:not(input:focus) {
+        label {
+          background-color: var(--palette-common-white);
+          color: var(--palette-text-primary);
+
+          transform: translate(var(--padding-inline), -50%) scale(0.75);
+
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
   &:has(.adornment),
   &:has(input:not(:placeholder-shown)),
   &:has(.has-placeholder) {
     .input-box {
       label {
         background-color: var(--palette-common-white);
-        color: var(--palette-text-primary);
+        color: var(--palette-text-secondary);
 
         transform: translate(var(--padding-inline), -50%) scale(0.75);
 
@@ -164,18 +184,6 @@
           max-inline-size: 100%;
         }
       }
-    }
-  }
-
-  &:focus-within {
-    fieldset {
-      box-shadow: 0 0 0 2px var(--palette-text-primary);
-
-      border-color: transparent;
-    }
-
-    label {
-      color: var(--palette-text-secondaryl);
     }
   }
 
