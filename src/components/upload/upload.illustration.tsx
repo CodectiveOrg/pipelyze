@@ -2,8 +2,6 @@
 
 import { MouseEvent, ReactElement, useEffect, useState } from "react";
 
-import Image from "next/image";
-
 import UploadSvg from "@/illustrations/upload/upload.illustration";
 import { useDropzone } from "react-dropzone";
 
@@ -40,10 +38,7 @@ export default function UploadIllustration(): ReactElement {
     e.stopPropagation();
     e.preventDefault();
 
-    console.log("removeFile");
     if (file) {
-      console.log("removeFile", file);
-
       URL.revokeObjectURL(file.preview);
       setFile(null);
     }
@@ -65,7 +60,7 @@ export default function UploadIllustration(): ReactElement {
       <input tabIndex={-1} type="file" {...getInputProps()} />
       {file ? (
         <div className={styles.preview}>
-          <Image
+          <img
             key={file.name}
             src={file.preview}
             alt={file.name}
