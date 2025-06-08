@@ -24,7 +24,8 @@ export default function TextFieldComponent({
   endAdornment,
   ...otherProps
 }: Props): ReactElement {
-  const id = useId() || otherProps.id;
+  const fallbackId = useId();
+  const id = otherProps.id || fallbackId;
 
   return (
     <div
