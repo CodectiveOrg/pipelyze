@@ -37,7 +37,7 @@ export const EndAdornment: Story = {
     type: "Password",
     label: "password",
     defaultValue: "1234634257",
-    endAdornment: true,
+    endAdornment: "kg",
   },
 };
 

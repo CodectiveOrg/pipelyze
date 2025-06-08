@@ -110,16 +110,18 @@
 
         input {
           padding-block: var(--padding-block);
+          padding-inline-start: 0;
         }
       }
+    }
 
-      &:has(.adornment.end) {
-        fieldset {
-          padding-inline-end: var(--padding-inline);
+    &:has(.adornment.end) {
+      fieldset {
+        padding-inline-end: var(--padding-inline);
 
-          input {
-            padding-block: var(--padding-block);
-          }
+        input {
+          padding-block: var(--padding-block);
+          padding-inline-end: 0 !important;
         }
       }
     }
