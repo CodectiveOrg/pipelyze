@@ -2,6 +2,8 @@
 
 import { MouseEvent, ReactElement, useEffect, useState } from "react";
 
+import Image from "next/image";
+
 import UploadSvg from "@/illustrations/upload/upload.illustration";
 import { useDropzone } from "react-dropzone";
 
@@ -20,6 +22,7 @@ export default function UploadIllustration(): ReactElement {
   const { getInputProps, getRootProps } = useDropzone({
     accept: {
       "image/*": [".jpeg", ".jpg", ".png", ".gif", ".webp"],
+      "text/*": [".pdf", ".doc", ".docx", ".txt"],
     },
     onDrop: (acceptedFiles) => {
       if (acceptedFiles.length > 0) {
@@ -62,7 +65,7 @@ export default function UploadIllustration(): ReactElement {
       <input tabIndex={-1} type="file" {...getInputProps()} />
       {file ? (
         <div className={styles.preview}>
-          <img
+          <Image
             key={file.name}
             src={file.preview}
             className={styles.img}
