@@ -20,6 +20,7 @@ export default function UploadIllustration(): ReactElement {
   const { getInputProps, getRootProps } = useDropzone({
     accept: {
       "image/*": [".jpeg", ".jpg", ".png", ".gif", ".webp"],
+      "text/*": [".pdf", ".doc", ".docx", ".txt"],
     },
     onDrop: (acceptedFiles) => {
       if (acceptedFiles.length > 0) {
@@ -65,7 +66,6 @@ export default function UploadIllustration(): ReactElement {
           <img
             key={file.name}
             src={file.preview}
-            className={styles.img}
             alt={file.name}
             onLoad={() => {
               URL.revokeObjectURL(file.preview);
