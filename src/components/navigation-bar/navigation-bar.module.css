@@ -1,0 +1,112 @@
+.navigation-bar {
+  --color-active-foreground: var(--palette-primary-main);
+  --color-active-background: color-mix(
+    in hsl,
+    var(--palette-primary-main),
+    transparent 92%
+  );
+  --color-active-hover-background: color-mix(
+    in hsl,
+    var(--palette-primary-main),
+    transparent 84%
+  );
+
+  nav {
+    > ul {
+      display: flex;
+      gap: 1rem;
+
+      list-style: none;
+
+      > li {
+        a,
+        button {
+          background-color: transparent;
+          color: var(--palette-text-secondary);
+
+          display: grid;
+          grid-template-columns: auto 1fr;
+          align-items: center;
+          column-gap: 0.5rem;
+
+          min-block-size: 2rem;
+          inline-size: 100%;
+
+          padding-inline: 0.5rem;
+
+          border: none;
+          border-radius: 0.5rem;
+
+          text-align: start;
+          text-decoration: none;
+
+          cursor: pointer;
+
+          .icon {
+            grid-area: icon;
+
+            line-height: 1;
+          }
+
+          .title {
+            grid-area: title;
+          }
+
+          .subtitle {
+            grid-area: subtitle;
+
+            color: var(--palette-text-disabled);
+          }
+
+          svg {
+            block-size: 1.5rem;
+            inline-size: 1.5rem;
+          }
+
+          &:hover {
+            background-color: var(--palette-action-hover);
+          }
+
+          &:not(:has(.subtitle)) {
+            grid-template-areas: "icon title";
+          }
+
+          &:has(.subtitle) {
+            grid-template-areas: "icon title" "icon subtitle";
+          }
+        }
+
+        &.active {
+          a,
+          button {
+            background-color: var(--color-active-background);
+            color: var(--color-active-foreground);
+
+            &:hover {
+              background-color: var(--color-active-hover-background);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.vertical {
+    nav {
+      > ul {
+        display: grid;
+        align-content: start;
+        gap: 0.25rem;
+
+        > li {
+          a,
+          button {
+            column-gap: 0.75rem;
+
+            padding: 0.25rem 0.5rem 0.25rem 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
