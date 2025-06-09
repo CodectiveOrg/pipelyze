@@ -3,8 +3,7 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import IconButton from "@/components/icon-button/icon-button.component";
-
-import TextFieldComponent from "./text-field.component";
+import TextFieldComponent from "@/components/text-field/text-field.component";
 
 const meta = {
   title: "Atoms/TextField",
