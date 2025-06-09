@@ -27,23 +27,25 @@ export default function TextFieldComponent({
   const fallbackId = useId();
   const id = otherProps.id || fallbackId;
 
-  const hasPlaceholder = !!otherProps.placeholder;
+  const placeholder = otherProps.placeholder || " ";
+
+  const shouldFloat = !!(
+    otherProps.value ||
+    otherProps.defaultValue ||
+    otherProps.placeholder
+  );
 
   return (
     <div
       className={clsx(
         styles["text-field"],
         styles[size],
+        shouldFloat && styles.float,
         error && styles.error,
       )}
     >
       <div className={styles["input-box"]}>
-        <label
-          htmlFor={id}
-          className={clsx(hasPlaceholder && styles["has-placeholder"])}
-        >
-          {label}
-        </label>
+        <label htmlFor={id}>{label}</label>
         <fieldset>
           <legend>{label && <span>{label}</span>}</legend>
         </fieldset>
@@ -54,7 +56,7 @@ export default function TextFieldComponent({
             </div>
           )}
 
-          <input {...otherProps} id={id} />
+          <input {...otherProps} id={id} placeholder={placeholder} />
 
           {endAdornment && (
             <div className={clsx(styles.adornment, styles.end)}>
