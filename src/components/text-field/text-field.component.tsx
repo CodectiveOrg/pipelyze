@@ -28,12 +28,7 @@ export default function TextFieldComponent({
   const id = otherProps.id || fallbackId;
 
   const placeholder = otherProps.placeholder || " ";
-
-  const shouldFloat = !!(
-    otherProps.value ||
-    otherProps.defaultValue ||
-    otherProps.placeholder
-  );
+  const shouldFloat = !!otherProps.placeholder;
 
   return (
     <div

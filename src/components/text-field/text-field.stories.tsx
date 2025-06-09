@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 import type { Meta, StoryObj } from "@storybook/react";
+
+import IconButton from "@/components/icon-button/icon-button.component";
 
 import TextFieldComponent from "./text-field.component";
 
@@ -18,26 +22,37 @@ type Story = StoryObj<typeof TextFieldComponent>;
 
 export const Default: Story = {
   args: {
-    type: "search",
-    placeholder: "Search...",
+    label: "Username",
+    type: "text",
   },
 };
 
 export const StartAdornment: Story = {
   args: {
+    label: "Salary",
     type: "text",
-    label: "Username",
-    placeholder: "please enter your name",
-    startAdornment: "kg",
+    placeholder: "How much is your income?",
+    startAdornment: "$",
   },
 };
 
 export const EndAdornment: Story = {
-  args: {
-    type: "Password",
-    label: "password",
-    defaultValue: "1234634257",
-    endAdornment: "kg",
+  render: () => {
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    return (
+      <TextFieldComponent
+        label="Passowrd"
+        type={showPassword ? "text" : "password"}
+        defaultValue="12345678"
+        endAdornment={
+          <IconButton
+            name={showPassword ? "eye-line" : "eye-close-line"}
+            onClick={() => setShowPassword((old) => !old)}
+          />
+        }
+      />
+    );
   },
 };
 
@@ -45,40 +60,40 @@ export const Error: Story = {
   args: {
     label: "Email",
     type: "email",
-    placeholder: "enter your email",
-    required: true,
+    value: "hr",
+    endAdornment: "@pipelyze.com",
   },
 };
 
 export const HelperText: Story = {
   args: {
     label: "Birthdate",
-    defaultValue: "enter your birthdate",
-    helperText: "Format: YYYY-MM-DD",
+    type: "date",
+    helperText: "Format: yyyy-mm-dd",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: "name",
-    disabled: true,
+    label: "Disabled",
     type: "text",
-    placeholder: "You can't edit it",
+    disabled: true,
+    value: "You can't change this",
   },
 };
 
 export const SmallSize: Story = {
   args: {
+    label: "Small",
     type: "text",
     size: "small",
-    placeholder: "for small size",
   },
 };
 
 export const NormalSize: Story = {
   args: {
+    label: "Normal",
     type: "text",
     size: "normal",
-    placeholder: "for normal size",
   },
 };
