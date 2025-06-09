@@ -57,6 +57,7 @@ const meta = {
 } satisfies Meta<typeof AvatarComponent>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Initials: Story = {
