@@ -1,96 +1,85 @@
 "use client";
 
-import { MouseEvent, ReactElement, useEffect, useState } from "react";
+import { ReactElement } from "react";
 
 import UploadSvg from "@/illustrations/upload/upload.illustration";
 import { useDropzone } from "react-dropzone";
 
+import ButtonComponent from "@/components/button/button.component";
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
+import IconComponent from "@/components/icon/icon.component";
 import TypographyComponent from "@/components/typography/typography.component";
 
 import styles from "./upload.module.css";
 
-interface FileWithPreview extends File {
-  preview: string;
-}
-
 export default function UploadIllustration(): ReactElement {
-  const [file, setFile] = useState<FileWithPreview | null>(null);
-
-  const { getInputProps, getRootProps } = useDropzone({
-    accept: {
-      "image/*": [".jpeg", ".jpg", ".png", ".gif", ".webp"],
-      "text/*": [".pdf", ".doc", ".docx", ".txt"],
-    },
-    onDrop: (acceptedFiles) => {
-      if (acceptedFiles.length > 0) {
-        const acceptedFile = acceptedFiles[0];
-        setFile(
-          Object.assign(acceptedFile, {
-            preview: URL.createObjectURL(acceptedFile),
-          }),
-        );
-      }
-    },
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    maxFiles: 1,
   });
 
-  function removeFile(e: MouseEvent) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    if (file) {
-      URL.revokeObjectURL(file.preview);
-      setFile(null);
-    }
-  }
-
-  useEffect(() => {
-    return () => {
-      if (file) {
-        URL.revokeObjectURL(file.preview);
-      }
-    };
-  });
+  const files = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      <span>
+        <IconComponent
+          name="document-2-fill"
+          fontSize="2rem"
+          color={"primary"}
+        />
+      </span>
+      <div className={styles["file-details"]}>
+        <TypographyComponent variant="subtitle2">
+          {file.name}
+        </TypographyComponent>
+        <TypographyComponent variant="caption">
+          {file.size} kb
+        </TypographyComponent>
+      </div>
+      <IconButtonComponent
+        name="close-fill"
+        color="inherit"
+        className={styles.btn}
+      />
+    </li>
+  ));
 
   return (
-    <div
-      className={file ? styles["preview-container"] : styles.dropzone}
-      {...getRootProps()}
-    >
-      <input tabIndex={-1} type="file" {...getInputProps()} />
-      {file ? (
-        <div className={styles.preview}>
-          <img
-            key={file.name}
-            src={file.preview}
-            alt={file.name}
-            onLoad={() => {
-              URL.revokeObjectURL(file.preview);
-            }}
-          />
-          <IconButtonComponent
-            name="close-fill"
-            color="inherit"
-            onClick={removeFile}
-            className={styles.btn}
-          />
+    <>
+      <div className={styles.upload} {...getRootProps()}>
+        <input tabIndex={-1} type="file" {...getInputProps()} />
+        <UploadSvg />
+        <TypographyComponent variant="h6">
+          Drop or select file
+        </TypographyComponent>
+        <TypographyComponent
+          variant="body2"
+          color="text-secondary"
+          className={styles.link}
+        >
+          Drop files here or click to <span>browse</span> through your machine.
+        </TypographyComponent>
+      </div>
+      {files.length > 0 && (
+        <div className={styles["selected-file"]}>
+          <ul>{files}</ul>
+          <div className={styles.action}>
+            <ButtonComponent
+              fontSize={"small"}
+              color={"inherit"}
+              variant={"outlined"}
+            >
+              Remove all
+            </ButtonComponent>
+            <ButtonComponent
+              fontSize={"small"}
+              color={"inherit"}
+              variant={"contained"}
+              startIcon="upload-3-fill"
+            >
+              Upload
+            </ButtonComponent>
+          </div>
         </div>
-      ) : (
-        <>
-          <UploadSvg />
-          <TypographyComponent variant="h6">
-            Drop or select file
-          </TypographyComponent>
-          <TypographyComponent
-            variant="body2"
-            color="text-secondary"
-            className={styles.link}
-          >
-            Drop files here or click to <span>browse</span> through your
-            machine.
-          </TypographyComponent>
-        </>
       )}
-    </div>
+    </>
   );
 }
