@@ -17,13 +17,70 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Nav: Story = {
+export const Horizontal: Story = {
   args: {
     items: [
       {
-        title: "Title",
-        subtitle: "Subtitle",
-        icon: <IconComponent name="menu-line" />,
+        title: "Dashboard",
+        icon: <IconComponent name="dashboard-line" />,
+        active: true,
+      },
+      {
+        title: "Profile",
+        icon: <IconComponent name="bear-line" />,
+      },
+      {
+        title: "Blog",
+        icon: <IconComponent name="star-line" />,
+      },
+    ],
+  },
+};
+
+export const Vertical: Story = {
+  args: {
+    variant: "vertical",
+    items: [
+      {
+        title: "Dashboard",
+        subtitle: "Charts and Graphs",
+        icon: <IconComponent name="dashboard-line" />,
+        active: true,
+      },
+      {
+        title: "Profile",
+        subtitle: "User Info",
+        icon: <IconComponent name="bear-line" />,
+      },
+      {
+        title: "Blog",
+        icon: <IconComponent name="star-line" />,
+      },
+    ],
+  },
+};
+
+export const Link: Story = {
+  args: {
+    variant: "vertical",
+    items: [
+      {
+        title: "Dashboard",
+        subtitle: "Charts and Graphs",
+        icon: <IconComponent name="dashboard-line" />,
+        href: "/dashboard",
+        active: true,
+      },
+      {
+        title: "Profile",
+        subtitle: "User Info",
+        icon: <IconComponent name="bear-line" />,
+        href: "/user",
+      },
+      {
+        title: "Blog",
+        icon: <IconComponent name="star-line" />,
+        href: "/blog",
       },
     ],
   },

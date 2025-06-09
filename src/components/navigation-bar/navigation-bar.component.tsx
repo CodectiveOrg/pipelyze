@@ -1,59 +1,68 @@
 import { ReactElement } from "react";
 
+import Link from "next/link";
+
+import clsx from "clsx";
+
 import IconComponent from "@/components/icon/icon.component";
 
 import styles from "./navigation-bar.module.css";
 
 type NavItem = {
   title: string;
-  icon: ReactElement<typeof IconComponent>;
   subtitle?: string;
+  icon: ReactElement<typeof IconComponent>;
+  active?: boolean;
+  href?: string;
+  onClick?: VoidFunction;
 };
 
 type Props = {
+  variant?: "horizontal" | "vertical";
   items: NavItem[];
 };
 
-export default function NavigationBarComponent({ items }: Props): ReactElement {
+export default function NavigationBarComponent({
+  variant = "horizontal",
+  items,
+}: Props): ReactElement {
   return (
-    <div className={styles["navigation-bar"]}>
-      <nav className={styles.nav}>
-        <button className={styles.hamburger}>
-          <IconComponent name={"menu-line"} color={"primary"}></IconComponent>
-        </button>
+    <div className={clsx(styles["navigation-bar"], styles[variant])}>
+      <nav>
         <ul>
-          {items.map((item) => {
-            return (
-              <li key={item.title}>
-                <a href="https://google.com">
-                  {item.icon}
-                  <span>
-                    <span>{item.title}</span>
-                    {item?.subtitle && <span>{item?.subtitle}</span>}
-                  </span>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-      <nav className={styles["vertical-nav"]}>
-        <ul>
-          {items.map((item) => {
-            return (
-              <li key={item.title}>
-                <a href="https://google.com">
-                  {item.icon}
-                  <span>
-                    <span>{item.title}</span>
-                    <span>{item?.subtitle}</span>
-                  </span>
-                </a>
-              </li>
-            );
-          })}
+          {items.map((item) => (
+            <NavItemComponent key={item.title} item={item} />
+          ))}
         </ul>
       </nav>
     </div>
+  );
+}
+
+type NavItemContentProps = {
+  item: NavItem;
+};
+
+function NavItemComponent({ item }: NavItemContentProps): ReactElement {
+  const content = (
+    <>
+      <span className={styles.icon}>{item.icon}</span>
+      <span className={clsx("subtitle2", styles.title)}>{item.title}</span>
+      {item.subtitle && (
+        <span className={clsx("caption", styles.subtitle)}>
+          {item.subtitle}
+        </span>
+      )}
+    </>
+  );
+
+  return (
+    <li key={item.title} className={clsx(item.active && styles.active)}>
+      {item.href ? (
+        <Link href={item.href}>{content}</Link>
+      ) : (
+        <button onClick={() => item.onClick?.()}>{content}</button>
+      )}
+    </li>
   );
 }

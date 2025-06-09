@@ -1,102 +1,112 @@
 .navigation-bar {
-  .hamburger {
-    background: none;
+  --color-active-foreground: var(--palette-primary-main);
+  --color-active-background: color-mix(
+    in hsl,
+    var(--palette-primary-main),
+    transparent 92%
+  );
+  --color-active-hover-background: color-mix(
+    in hsl,
+    var(--palette-primary-main),
+    transparent 84%
+  );
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    block-size: 2.25rem;
-    inline-size: 2.25rem;
-
-    padding: 0.25rem;
-
-    border: none;
-
-    outline: none;
-
-    cursor: pointer;
-
-    svg {
-      block-size: 1.25rem;
-      inline-size: 1.25rem;
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
-  }
-
-  .nav,
-  .vertical-nav {
-    display: flex;
-    align-items: center;
-
-    ul {
+  nav {
+    > ul {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-around;
+      gap: 1rem;
 
-      block-size: 100%;
-      min-inline-size: 50vw;
+      list-style: none;
 
-      li {
-        list-style: none;
+      > li {
+        a,
+        button {
+          background-color: transparent;
+          color: var(--palette-text-secondary);
 
-        padding-block: 0.25rem;
-        padding-inline: 0.5rem;
-
-        border-radius: 0.5rem;
-
-        a {
-          color: var(--palette-grey-800);
-
-          display: flex;
+          display: grid;
+          grid-template-columns: auto 1fr;
           align-items: center;
-          gap: 0.25rem;
+          column-gap: 0.5rem;
 
+          min-block-size: 2rem;
+          inline-size: 100%;
+
+          padding-inline: 0.5rem;
+
+          border: none;
+          border-radius: 0.5rem;
+
+          text-align: start;
           text-decoration: none;
 
-          span {
-            display: flex;
-            flex-direction: column;
+          cursor: pointer;
 
-            font-family: Inter, serif;
-            font-size: 14px;
-            font-weight: 600;
+          .icon {
+            grid-area: icon;
 
-            span:nth-child(2) {
-              color: var(--palette-grey-400);
+            line-height: 1;
+          }
 
-              font-size: 12px;
-            }
+          .title {
+            grid-area: title;
+          }
+
+          .subtitle {
+            grid-area: subtitle;
+
+            color: var(--palette-text-disabled);
           }
 
           svg {
             block-size: 1.5rem;
             inline-size: 1.5rem;
           }
+
+          &:hover {
+            background-color: var(--palette-action-hover);
+          }
+
+          &:not(:has(.subtitle)) {
+            grid-template-areas: "icon title";
+          }
+
+          &:has(.subtitle) {
+            grid-template-areas: "icon title" "icon subtitle";
+          }
+        }
+
+        &.active {
+          a,
+          button {
+            background-color: var(--color-active-background);
+            color: var(--color-active-foreground);
+
+            &:hover {
+              background-color: var(--color-active-hover-background);
+            }
+          }
         }
       }
     }
   }
 
-  .vertical-nav {
-    max-inline-size: 10rem;
+  &.vertical {
+    nav {
+      > ul {
+        display: grid;
+        align-content: start;
+        gap: 0.25rem;
 
-    ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
+        > li {
+          a,
+          button {
+            column-gap: 0.75rem;
 
-      min-block-size: 15rem;
-      min-inline-size: 20vw;
-
-      padding-inline: 0.5rem;
+            padding: 0.25rem 0.5rem 0.25rem 0.75rem;
+          }
+        }
+      }
     }
   }
 }
