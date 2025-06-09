@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import IconComponent from "@/components/icon/icon.component";
 import NavigationBarComponent from "@/components/navigation-bar/navigation-bar.component";
 
 const meta = {
-  title: "Atoms/Navigation Bar",
+  title: "Atoms/NavigationBar",
   component: NavigationBarComponent,
   parameters: {
     layout: "centered",
@@ -13,10 +14,17 @@ const meta = {
 } satisfies Meta<typeof NavigationBarComponent>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Nav: Story = {
   args: {
-    items: [],
+    items: [
+      {
+        title: "Title",
+        subtitle: "Subtitle",
+        icon: <IconComponent name="menu-line" />,
+      },
+    ],
   },
 };
