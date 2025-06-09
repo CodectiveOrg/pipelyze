@@ -58,9 +58,10 @@ export const EndAdornment: Story = {
 
 export const Error: Story = {
   args: {
+    error: true,
     label: "Email",
     type: "email",
-    value: "hr",
+    startAdornment: "hr",
     endAdornment: "@pipelyze.com",
   },
 };
@@ -78,7 +79,7 @@ export const Disabled: Story = {
     label: "Disabled",
     type: "text",
     disabled: true,
-    value: "You can't change this",
+    placeholder: "You can't change this",
   },
 };
 
