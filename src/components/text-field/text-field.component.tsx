@@ -8,7 +8,7 @@ import styles from "./text-field.module.css";
 
 type Props = Omit<ComponentProps<"input">, "size"> & {
   label: string;
-  size?: "normal" | "small";
+  size?: "small" | "normal";
   error?: boolean;
   helperText?: string;
   startAdornment?: ReactNode;
