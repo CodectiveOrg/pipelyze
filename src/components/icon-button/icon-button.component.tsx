@@ -1,4 +1,4 @@
-import { ComponentProps, MouseEvent, ReactElement } from "react";
+import { ComponentProps, ReactElement } from "react";
 
 import clsx from "clsx";
 
@@ -13,21 +13,20 @@ type Props = ComponentProps<"button"> & {
   name: string;
   color?: ColorType | undefined;
   disabled?: boolean;
-  onClick?: (e: MouseEvent) => void;
 };
 
 export default function IconButtonComponent({
   color = "primary",
   name,
   disabled = false,
-  onClick,
   className,
+  ...otherProps
 }: Props): ReactElement {
   return (
     <button
       disabled={disabled}
       className={clsx(styles["icon-button"], styles[color], className)}
-      onClick={onClick}
+      {...otherProps}
     >
       <IconComponent name={name} />
     </button>
