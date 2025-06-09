@@ -45,10 +45,9 @@ export default function TextFieldComponent({
           {label}
         </label>
         <fieldset>
-          <legend>
-            <span>{label}</span>
-          </legend>
-
+          <legend>{label && <span>{label}</span>}</legend>
+        </fieldset>
+        <div className={styles.content}>
           {startAdornment && (
             <div className={clsx(styles.adornment, styles.start)}>
               {startAdornment}
@@ -62,7 +61,7 @@ export default function TextFieldComponent({
               {endAdornment}
             </div>
           )}
-        </fieldset>
+        </div>
       </div>
       {helperText && (
         <TypographyComponent

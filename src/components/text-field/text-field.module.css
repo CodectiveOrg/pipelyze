@@ -30,15 +30,15 @@
     }
 
     fieldset {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
+      position: absolute;
+      inset: 0;
 
       border: 1px solid var(--palette-shared-input-outlined);
       border-radius: inherit;
 
       transition: border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+
+      pointer-events: none;
 
       legend {
         visibility: hidden;
@@ -73,6 +73,15 @@
           padding-inline: var(--padding-legend);
         }
       }
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+
+      inline-size: 100%;
 
       input {
         flex: 1;
@@ -95,33 +104,29 @@
       .adornment {
         color: var(--palette-action-active);
       }
-    }
 
-    &:hover:has(input:not(:disabled)) {
-      fieldset {
-        border-color: var(--palette-text-primary);
-      }
-    }
-
-    &:has(.adornment) {
-      &:has(.start) {
-        fieldset {
+      &:has(.adornment) {
+        &:has(.start) {
           padding-inline-start: var(--padding-inline);
 
           input {
             padding-inline-start: 0;
           }
         }
-      }
 
-      &:has(.end) {
-        fieldset {
+        &:has(.end) {
           padding-inline-end: var(--padding-inline);
 
           input {
             padding-inline-end: 0;
           }
         }
+      }
+    }
+
+    &:where(:hover:has(input:not(:disabled))) {
+      fieldset {
+        border-color: var(--palette-text-primary);
       }
     }
   }
@@ -165,7 +170,7 @@
       }
     }
 
-    &:focus-within {
+    &:where(&:focus-within) {
       .input-box {
         label {
           color: var(--palette-text-primary);
@@ -186,18 +191,13 @@
 
       fieldset {
         color: var(--palette-error-main);
-        box-shadow: 0 0 0 1px var(--palette-error-main);
+
+        border-color: var(--palette-error-main);
       }
     }
 
     .helper-text {
       color: var(--palette-error-main);
-    }
-
-    &:focus-within {
-      fieldset {
-        box-shadow: 0 0 0 2px var(--palette-error-main);
-      }
     }
   }
 
