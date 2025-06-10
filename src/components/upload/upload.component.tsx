@@ -2,13 +2,14 @@
 
 import { ReactElement, useCallback, useState } from "react";
 
-import UploadSvg from "@/illustrations/upload/upload.illustration";
 import { useDropzone } from "react-dropzone";
 
 import ButtonComponent from "@/components/button/button.component";
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
 import IconComponent from "@/components/icon/icon.component";
 import TypographyComponent from "@/components/typography/typography.component";
+
+import UploadSvg from "@/illustrations/upload/upload.illustration";
 
 import styles from "./upload.module.css";
 
