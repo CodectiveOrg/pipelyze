@@ -21,7 +21,7 @@ type Props = {
   };
 };
 
-export default function UploadIllustration({
+export default function UploadComponent({
   maxSize,
   minSize,
   accept,
