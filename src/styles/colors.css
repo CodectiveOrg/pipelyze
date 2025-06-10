@@ -68,6 +68,9 @@
 
   --palette-action-hover-opacity: 0.08;
   --palette-action-disabled-opacity: 0.24;
+  --palette-action-selected-opacity: 0.08;
+  --palette-action-focus-opacity: 0.12;
+  --palette-action-activated-opacity: 0.12;
 
   --shape-border-radius-1: 0.5rem;
   --shape-border-radius-2: 0.75rem;
