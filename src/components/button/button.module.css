@@ -14,7 +14,7 @@ a.button {
   min-inline-size: 4rem;
 
   border: none;
-  border-radius: var(--shape-border-radius-1);
+  border-radius: var(--border-radius-1);
 
   font-weight: 700;
 

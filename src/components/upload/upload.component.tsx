@@ -29,8 +29,8 @@ export default function UploadComponent({ options }: Props): ReactElement {
   });
 
   return (
-    <>
-      <div className={styles.upload} {...getRootProps()}>
+    <div className={styles.upload}>
+      <div className={styles.dropzone} {...getRootProps()}>
         <input tabIndex={-1} type="file" {...getInputProps()} />
         <UploadSvg />
         <TypographyComponent variant="h6">
@@ -45,6 +45,6 @@ export default function UploadComponent({ options }: Props): ReactElement {
         </TypographyComponent>
       </div>
       <PreviewComponent file={file} setFile={setFile} />
-    </>
+    </div>
   );
 }

@@ -1,45 +1,28 @@
-.selected-file-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.preview {
+  display: grid;
+  grid-template-areas: "thumbnail name remove" "thumbnail size remove";
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 0.5rem;
 
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  padding: 0.5rem;
 
-  .selected-file {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  border: 1px solid hsl(from var(--palette-grey-500) h s l / 16%);
+  border-radius: var(--border-radius-1);
 
-    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
-
-    border: 1px solid hsl(from var(--palette-grey-500) h s l / 16%);
-    border-radius: var(--shape-border-radius);
-
-    > span {
-      flex-shrink: 0;
-      align-self: center;
-
-      position: relative;
-
-      display: inline-flex;
-      justify-content: center;
-
-      border-radius: 10px;
-    }
-
-    .file-details {
-      flex: 1 1 auto;
-
-      min-width: 0;
-
-      margin: 0;
-    }
+  .thumbnail {
+    grid-area: thumbnail;
   }
 
-  .action {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.75rem;
+  .name {
+    grid-area: name;
+  }
+
+  .size {
+    grid-area: size;
+  }
+
+  .remove {
+    grid-area: remove;
   }
 }

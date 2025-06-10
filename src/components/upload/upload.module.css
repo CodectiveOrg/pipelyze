@@ -1,38 +1,43 @@
 .upload {
-  background-color: hsl(
-    from var(--palette-grey-500) h s l / var(--palette-action-hover-opacity)
-  );
+  display: grid;
+  gap: 1.5rem;
 
-  position: relative;
-  overflow: hidden;
+  .dropzone {
+    background-color: hsl(
+      from var(--palette-grey-500) h s l / var(--palette-action-hover-opacity)
+    );
 
-  display: block;
+    position: relative;
+    overflow: hidden;
 
-  padding: 2.5rem;
+    display: block;
 
-  border: 1px dashed hsl(from var(--palette-grey-500) h s l / 20%);
-  border-radius: var(--shape-border-radius);
+    padding: 2.5rem;
 
-  outline: none;
+    border: 1px dashed hsl(from var(--palette-grey-500) h s l / 20%);
+    border-radius: var(--border-radius-1);
 
-  text-align: center;
+    outline: none;
 
-  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: opacity, padding;
+    text-align: center;
 
-  cursor: pointer;
+    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: opacity, padding;
 
-  input {
-    display: none;
-  }
+    cursor: pointer;
 
-  .link span {
-    color: var(--palette-primary-main);
+    input {
+      display: none;
+    }
 
-    text-decoration: underline;
-  }
+    .link span {
+      color: var(--palette-primary-main);
 
-  &:hover {
-    opacity: 0.72;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      opacity: 0.72;
+    }
   }
 }

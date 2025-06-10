@@ -23,25 +23,30 @@ export default function PreviewComponent({ file, setFile }: Props): ReactNode {
   }
 
   return (
-    <div className={styles["selected-file-container"]}>
-      <div className={styles["selected-file"]}>
-        <IconComponent name="document-2-fill" color="primary" fontSize="2rem" />
-        <div className={styles["file-details"]}>
-          <TypographyComponent variant="subtitle2">
-            {file.name}
-          </TypographyComponent>
-          <TypographyComponent variant="caption" color="text-secondary">
-            {byteToMegaByte(file.size)} MB
-          </TypographyComponent>
-        </div>
-        <IconButtonComponent
-          name="close-fill"
-          color="action"
-          size="small"
-          onClick={removeFile}
-          className={styles.btn}
-        />
-      </div>
+    <div className={styles.preview}>
+      <IconComponent
+        className={styles.thumbnail}
+        name="document-2-fill"
+        color="primary"
+        fontSize="2.25rem"
+      />
+      <TypographyComponent className={styles.name} variant="subtitle2">
+        {file.name}
+      </TypographyComponent>
+      <TypographyComponent
+        className={styles.size}
+        variant="caption"
+        color="text-secondary"
+      >
+        {byteToMegaByte(file.size)} MB
+      </TypographyComponent>
+      <IconButtonComponent
+        className={styles.remove}
+        name="close-line"
+        color="action"
+        size="small"
+        onClick={removeFile}
+      />
     </div>
   );
 }
