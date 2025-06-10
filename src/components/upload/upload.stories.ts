@@ -9,9 +9,17 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    options: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 } satisfies Meta<typeof UploadComponent>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {};
+export const Default: Story = {};
