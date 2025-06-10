@@ -5,7 +5,7 @@ import styles from "./upload.module.css";
 export default function UploadIllustration(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className={styles.svg}
+      className={styles.upload}
       focusable="false"
       aria-hidden="true"
       viewBox="0 0 480 360"

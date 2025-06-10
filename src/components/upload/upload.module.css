@@ -7,22 +7,14 @@
       from var(--palette-grey-500) h s l / var(--palette-action-hover-opacity)
     );
 
-    position: relative;
-    overflow: hidden;
-
-    display: block;
-
     padding: 2.5rem;
 
     border: 1px dashed hsl(from var(--palette-grey-500) h s l / 20%);
     border-radius: var(--border-radius-1);
 
-    outline: none;
-
     text-align: center;
 
-    transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition-property: opacity, padding;
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     cursor: pointer;
 
@@ -30,7 +22,7 @@
       display: none;
     }
 
-    .link span {
+    .highlight {
       color: var(--palette-primary-main);
 
       text-decoration: underline;

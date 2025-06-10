@@ -7,7 +7,7 @@ import { DropzoneOptions, useDropzone } from "react-dropzone";
 import TypographyComponent from "@/components/typography/typography.component";
 import PreviewComponent from "@/components/upload/components/preview/preview.component";
 
-import UploadSvg from "@/illustrations/upload/upload.illustration";
+import UploadIllustration from "@/illustrations/upload/upload.illustration";
 
 import styles from "./upload.module.css";
 
@@ -32,16 +32,16 @@ export default function UploadComponent({ options }: Props): ReactElement {
     <div className={styles.upload}>
       <div className={styles.dropzone} {...getRootProps()}>
         <input tabIndex={-1} type="file" {...getInputProps()} />
-        <UploadSvg />
+        <UploadIllustration />
         <TypographyComponent variant="h6">
           Drop or select file
         </TypographyComponent>
-        <TypographyComponent
-          variant="body2"
-          color="text-secondary"
-          className={styles.link}
-        >
-          Drop files here or click to <span>browse</span> through your machine.
+        <TypographyComponent variant="body2" color="text-secondary">
+          Drop files here or click to
+          {` `}
+          <span className={styles.highlight}>browse</span>
+          {` `}
+          through your machine.
         </TypographyComponent>
       </div>
       <PreviewComponent file={file} setFile={setFile} />
