@@ -11,13 +11,15 @@ import styles from "./icon-button.module.css";
 type Props = ComponentProps<"button"> & {
   children?: ReactElement<typeof IconComponent>;
   name: string;
-  color?: ColorType;
+  color?: ColorType | "action";
+  size?: "small" | "medium" | "large";
   disabled?: boolean;
 };
 
 export default function IconButtonComponent({
-  color = "inherit",
   name,
+  color = "inherit",
+  size = "medium",
   disabled = false,
   className,
   ...otherProps
@@ -25,7 +27,12 @@ export default function IconButtonComponent({
   return (
     <button
       disabled={disabled}
-      className={clsx(styles["icon-button"], styles[color], className)}
+      className={clsx(
+        styles["icon-button"],
+        styles[color],
+        styles[size],
+        className,
+      )}
       {...otherProps}
     >
       <IconComponent name={name} />
