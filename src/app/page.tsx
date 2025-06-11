@@ -1,9 +1,5 @@
 import styles from "./page.module.css";
 
 export default function Page() {
-  return (
-    <div className={styles.page}>
-      Hello, friend!
-    </div>
-  );
+  return <div className={styles.page}>Hello, friend!</div>;
 }
