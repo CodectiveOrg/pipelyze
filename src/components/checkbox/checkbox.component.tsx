@@ -33,7 +33,12 @@ export default function CheckboxComponent({
           className={clsx(styles.disabled)}
           {...otherProps}
         />
-        <IconComponent name="check-fill" color="primary" className={styles["check-icon"]} style={{color:"#ffff"}} />
+        <IconComponent
+          name="check-fill"
+          color="primary"
+          className={styles["check-icon"]}
+          style={{ color: "#ffff" }}
+        />
       </span>
       <TypographyComponent variant="body2">{label}</TypographyComponent>
     </label>

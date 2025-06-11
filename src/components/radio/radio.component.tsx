@@ -52,9 +52,7 @@ export default function RadioComponent({
         />
         <RippleComponent className={styles["active-ripple"]} />
       </div>
-      <TypographyComponent variant="body2">
-        {label}
-      </TypographyComponent>
+      <TypographyComponent variant="body2">{label}</TypographyComponent>
     </label>
   );
 }
