@@ -35,6 +35,7 @@ const meta = {
 } satisfies Meta<typeof IconComponent>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Line: Story = {

@@ -59,10 +59,18 @@
   --palette-text-secondary: hsl(210deg 13% 44%);
   --palette-text-disabled: hsl(210deg 14% 62%);
 
+  --palette-shared-input-outlined: hsl(210deg 13% 62% / 20%);
+
+  --palette-action-hover: hsl(210deg 13% 62% / 8%);
+  --palette-action-active: hsl(210deg 13% 45%);
+  --palette-action-selected: hsl(210deg 13% 62% / 16%);
+  --palette-action-disabled: hsl(210deg 13% 62% / 80%);
+
   --palette-action-hover-opacity: 0.08;
   --palette-action-disabled-opacity: 0.24;
-
-  --shape-border-radius: 0.5rem;
+  --palette-action-selected-opacity: 0.08;
+  --palette-action-focus-opacity: 0.12;
+  --palette-action-activated-opacity: 0.12;
 }
 
 .inherit {
@@ -71,6 +79,15 @@
   --color-main: var(--palette-grey-800);
   --color-dark: var(--palette-grey-900);
   --color-darker: var(--palette-common-black);
+  --color-contrast: var(--palette-common-white);
+}
+
+.action {
+  --color-lighter: var(--palette-action-active);
+  --color-light: var(--palette-action-active);
+  --color-main: var(--palette-action-active);
+  --color-dark: var(--palette-action-active);
+  --color-darker: var(--palette-action-active);
   --color-contrast: var(--palette-common-white);
 }
 

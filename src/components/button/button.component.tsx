@@ -11,7 +11,7 @@ import styles from "./button.module.css";
 type CommonProps = {
   variant?: "contained" | "outlined" | "text";
   color?: ColorType;
-  fontSize?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   disabled?: boolean;
   startIcon?: string;
   endIcon?: string;
@@ -31,7 +31,7 @@ export default function ButtonComponent(props: ButtonProps | AnchorProps) {
   const {
     variant = "contained",
     color = "primary",
-    fontSize = "medium",
+    size = "medium",
     disabled = false,
     startIcon,
     endIcon,
@@ -43,7 +43,7 @@ export default function ButtonComponent(props: ButtonProps | AnchorProps) {
   const classNames = clsx(
     styles.button,
     styles[variant],
-    styles[fontSize],
+    styles[size],
     styles[color],
     className,
   );

@@ -33,6 +33,7 @@ const meta = {
 } satisfies Meta<typeof LinearProgressComponent>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Determinate: Story = {

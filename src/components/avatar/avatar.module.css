@@ -29,6 +29,6 @@
   }
 
   &.rounded {
-    border-radius: var(--shape-border-radius);
+    border-radius: var(--border-radius-1);
   }
 }

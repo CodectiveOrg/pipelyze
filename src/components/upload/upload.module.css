@@ -1,0 +1,35 @@
+.upload {
+  display: grid;
+  gap: 1.5rem;
+
+  .dropzone {
+    background-color: hsl(
+      from var(--palette-grey-500) h s l / var(--palette-action-hover-opacity)
+    );
+
+    padding: 2.5rem;
+
+    border: 1px dashed hsl(from var(--palette-grey-500) h s l / 20%);
+    border-radius: var(--border-radius-1);
+
+    text-align: center;
+
+    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    cursor: pointer;
+
+    input {
+      display: none;
+    }
+
+    .highlight {
+      color: var(--palette-primary-main);
+
+      text-decoration: underline;
+    }
+
+    &:hover {
+      opacity: 0.72;
+    }
+  }
+}
