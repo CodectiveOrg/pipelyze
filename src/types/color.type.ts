@@ -1,5 +1,6 @@
 export const COLORS = [
   "inherit",
+  "action",
   "primary",
   "secondary",
   "info",
