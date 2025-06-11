@@ -1,0 +1,92 @@
+.checkbox {
+  --color-hover: color-mix(in hsl, var(--color-light) 20%, transparent);
+  --color-active: color-mix(in hsl, var(--color-light) 50%, transparent);
+
+  display: flex;
+  align-items: center;
+
+  .control {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5rem;
+
+    input {
+      appearance: none;
+
+      background: none;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      block-size: 1.125rem;
+      inline-size: 1.125rem;
+
+      border: 2px solid var(--palette-text-secondary);
+      border-radius: 0.25rem;
+
+      outline: none;
+
+      transition: background-color 0.2s ease;
+
+      cursor: pointer;
+
+      &:checked {
+        background-color: var(--color-main);
+
+        border: none;
+      }
+
+      &:hover:not(:disabled) {
+        box-shadow: 0 0 0 6px var(--color-hover);
+      }
+
+      &:disabled {
+        border-color: var(--palette-text-disabled);
+
+        cursor: not-allowed;
+      }
+    }
+
+    .check-icon {
+      position: absolute;
+
+      display: none;
+
+      block-size: 0.75rem;
+      inline-size: 0.75rem;
+
+      pointer-events: none;
+    }
+
+    input:checked + .check-icon {
+      display: block;
+    }
+
+    input:disabled + .check-icon {
+      fill: var(--palette-text-disabled);
+    }
+  }
+
+  &.small {
+    input {
+      block-size: 1rem;
+      inline-size: 1rem;
+    }
+
+    .check-icon {
+      block-size: 0.65rem;
+      inline-size: 0.65rem;
+    }
+  }
+
+  &.normal {
+    font-size: 1.5rem;
+  }
+}
