@@ -15,6 +15,8 @@
     padding: 0.5rem;
 
     input {
+      appearance: none;
+
       background: none;
 
       position: relative;
@@ -23,87 +25,68 @@
       align-items: center;
       justify-content: center;
 
-      block-size: 1.3rem;
-      inline-size: 1.3rem;
+      block-size: 1rem;
+      inline-size: 1rem;
 
       border: 2px solid var(--palette-text-secondary);
       border-radius: 0.25rem;
 
       outline: none;
-      appearance: none;
 
-      transition: all 0.2s ease;
+      transition: background-color 0.2s ease;
 
-      &.disabled {
-        border-color: var(--palette-text-disabled);
-      }
+      cursor: pointer;
 
       &:checked {
-        background-color: var(--color-active);
+        background-color: var(--color-main);
 
-        border-color: var(--color-main);
+        border: none;
       }
 
-      &:checked::after {
-        content: "";
-
-        position: absolute;
-        top: 1px;
-        left: 5px;
-
-        width: 6px;
-        height: 12px;
-
-        border: solid var(--color-main);
-        border-width: 0 2px 2px 0;
-
-        transform: rotate(45deg);
+      &:hover:not(:disabled) {
+        box-shadow: 0 0 0 6px var(--color-hover);
       }
 
-      &:not(:disabled):hover {
-        background-color: var(--color-hover);
-        box-shadow: 0 0 0 2px var(--color-hover);
+      &:disabled {
+        border-color: var(--palette-text-disabled);
+
+        cursor: not-allowed;
       }
     }
 
-    input:not(:active) + .active-ripple {
+    .check-icon {
+      position: absolute;
+
       display: none;
+
+      block-size: 1rem;
+      inline-size: 0.75rem;
+
+      pointer-events: none;
     }
 
-    input:active + .active-ripple {
-      background-color: var(--color-active);
+    input:checked + .check-icon {
+      display: block;
+    }
 
-      border: none;
-
-      animation: active-animation 550ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    input:disabled + .check-icon {
+      fill: var(--palette-text-disabled);
     }
   }
 
   &.small {
-    font-size: 1.25rem;
+    input {
+      block-size: 0.85rem;
+      inline-size: 0.85rem;
+    }
+
+    .check-icon {
+      block-size: 0.65rem;
+      inline-size: 0.65rem;
+    }
   }
 
   &.normal {
     font-size: 1.5rem;
-  }
-
-  &:has(input:disabled) {
-    color: var(--palette-text-disabled);
-
-    cursor: not-allowed;
-  }
-}
-
-@keyframes active-animation {
-  from {
-    opacity: 0.1;
-
-    transform: scale(0);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: scale(1);
   }
 }

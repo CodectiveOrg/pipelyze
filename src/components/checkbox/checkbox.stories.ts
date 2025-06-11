@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import CheckBoxComponent from "./checkbox.component";
+import { COLORS } from "@/types/color.type";
+
+import CheckboxComponent from "./checkbox.component";
 
 const meta = {
-  title: "Atoms/checkbox",
-  component: CheckBoxComponent,
+  title: "Atoms/Checkbox",
+  component: CheckboxComponent,
   parameters: {
     layout: "centered",
   },
@@ -12,19 +14,11 @@ const meta = {
   argTypes: {
     color: {
       control: { type: "select" },
-      options: [
-        "inherit",
-        "primary",
-        "secondary",
-        "info",
-        "success",
-        "warning",
-        "error",
-      ],
+      options: COLORS,
     },
     size: {
       control: { type: "radio" },
-      options: ["normal", "small"],
+      options: ["small", "normal"],
     },
     label: {
       control: { type: "text" },
@@ -38,7 +32,7 @@ const meta = {
     size: "normal",
     label: "Select your option",
   },
-} satisfies Meta<typeof CheckBoxComponent>;
+} satisfies Meta<typeof CheckboxComponent>;
 
 export default meta;
 

@@ -8,35 +8,34 @@ import TypographyComponent from "@/components/typography/typography.component";
 
 import { ColorType } from "@/types/color.type";
 
+import IconComponent from "../icon/icon.component";
+
 import styles from "./checkbox.module.css";
 
 type Props = Omit<ComponentProps<"input">, "size"> & {
   color?: ColorType;
-  size?: "normal" | "small";
+  size?: "small" | "normal";
   label?: string;
 };
 
-export default function CheckBoxComponent({
+export default function CheckboxComponent({
   color = "primary",
   size = "normal",
   label,
   className,
   ...otherProps
 }: Props): ReactElement {
-  const isDisabled = otherProps.disabled;
-
   return (
     <label className={clsx(styles.checkbox, styles[size], color, className)}>
-      <div className={styles.control}>
+      <span className={styles.control}>
         <input
           type="checkbox"
-          className={clsx(isDisabled && styles.disabled)}
+          className={clsx(styles.disabled)}
           {...otherProps}
         />
-      </div>
-      <TypographyComponent variant="body2" color="inherit">
-        {label}
-      </TypographyComponent>
+        <IconComponent name="check-line" color="primary" className={styles["check-icon"]} style={{color:"#ffff"}} />
+      </span>
+      <TypographyComponent variant="body2">{label}</TypographyComponent>
     </label>
   );
 }
