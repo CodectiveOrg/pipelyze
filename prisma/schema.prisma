@@ -13,3 +13,9 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Dataset {
+  id       Int     @id @default(autoincrement())
+  filename String  @unique
+  title    String?
+}
