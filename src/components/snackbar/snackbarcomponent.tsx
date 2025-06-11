@@ -1,13 +1,22 @@
+import clsx from "clsx";
+
+import { ColorType } from "@/types/color.type";
+
 import IconButtonComponent from "../icon-button/icon-button.component";
 import IconComponent from "../icon/icon.component";
 import TypographyComponent from "../typography/typography.component";
 
 import styles from "./snackbar.module.css";
 
-export const Snackbar = ({}) => {
+type props = {
+  color: ColorType;
+  varient: "Success" | "Info" | "Default" | "Warning" | "Error";
+};
+
+export const Snackbar = ({ color, varient }: props) => {
   return (
     <section>
-      <div className={styles.snackbar}>
+      <div className={clsx(styles.snackbar, color, styles[varient])}>
         <div className={styles["snackbar-icon"]}>
           <IconComponent
             name="information-fill"
