@@ -13,16 +13,20 @@ type props = {
   varient: "Success" | "Info" | "Default" | "Warning" | "Error";
 };
 
-export const Snackbar = ({ color, varient }: props) => {
+const ICONS = {
+  Success: "check-line",
+  Info: "info-line",
+  Default: "info-line",
+  Warning: "warning-line",
+  Error: "close-line",
+}
+
+export const Snackbar = ({ varient, color = "inherit" }: props) => {
   return (
     <section>
       <div className={clsx(styles.snackbar, color, styles[varient])}>
         <div className={styles["snackbar-icon"]}>
-          <IconComponent
-            name="information-fill"
-            color="info"
-            fontSize={"1.5rem"}
-          />
+          <IconComponent name={ICONS[varient]} color={color} fontSize={"1.5rem"} />
         </div>
         <div className={styles["snackbar-content"]}>
           <TypographyComponent variant="body2">

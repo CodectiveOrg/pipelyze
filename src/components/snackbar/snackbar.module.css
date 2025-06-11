@@ -1,6 +1,6 @@
 .snackbar {
   background-color: var(--palette-common-white);
-  color: var(--palette-text-primary);
+  color: var(--color-main);
   box-shadow: var(--shadows-z8);
 
   position: relative;
