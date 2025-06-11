@@ -1,0 +1,28 @@
+.preview {
+  display: grid;
+  grid-template-areas: "thumbnail name remove" "thumbnail size remove";
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 0.5rem;
+
+  padding: 0.5rem;
+
+  border: 1px solid hsl(from var(--palette-grey-500) h s l / 16%);
+  border-radius: var(--border-radius-1);
+
+  .thumbnail {
+    grid-area: thumbnail;
+  }
+
+  .name {
+    grid-area: name;
+  }
+
+  .size {
+    grid-area: size;
+  }
+
+  .remove {
+    grid-area: remove;
+  }
+}

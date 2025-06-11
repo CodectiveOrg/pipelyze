@@ -1,11 +1,11 @@
 import { ReactElement } from "react";
 
-import clsx from "clsx";
-
 import { Icon, IconProps } from "@iconify/react";
 import { getIconData } from "@iconify/utils";
 
 import { icons } from "@iconify-json/mingcute";
+
+import clsx from "clsx";
 
 import { ColorType } from "@/types/color.type";
 
@@ -20,6 +20,7 @@ export default function IconComponent({
   name,
   color = "inherit",
   inline = true,
+  className,
   ...otherProps
 }: Props): ReactElement {
   const iconData = getIconData(icons, name);
@@ -41,7 +42,7 @@ export default function IconComponent({
     <Icon
       ssr
       icon={iconData}
-      className={clsx(styles.icon, styles[color])}
+      className={clsx(styles.icon, color, className)}
       inline={inline}
       {...otherProps}
     />

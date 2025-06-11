@@ -1,25 +1,3 @@
 .icon {
-  &.primary {
-    color: var(--palette-primary-main);
-  }
-
-  &.secondary {
-    color: var(--palette-secondary-main);
-  }
-
-  &.info {
-    color: var(--palette-info-main);
-  }
-
-  &.success {
-    color: var(--palette-success-main);
-  }
-
-  &.warning {
-    color: var(--palette-warning-main);
-  }
-
-  &.error {
-    color: var(--palette-error-main);
-  }
+  color: var(--color-main);
 }

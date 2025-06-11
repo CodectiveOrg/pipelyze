@@ -18,7 +18,7 @@ const meta = {
       control: "select",
       options: ["inherit", "primary", "info", "success", "warning", "error"],
     },
-    fontSize: {
+    size: {
       control: "select",
       options: ["small", "medium", "large"],
     },
@@ -30,7 +30,7 @@ const meta = {
   args: {
     variant: "contained",
     color: "primary",
-    fontSize: "medium",
+    size: "medium",
   },
 } satisfies Meta<typeof ButtonComponent>;
 
