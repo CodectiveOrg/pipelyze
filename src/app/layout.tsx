@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow, Inter } from "next/font/google";
-
-import clsx from "clsx";
+import { Inter } from "next/font/google";
 
 import "@/styles/colors.css";
 import "@/styles/shadows.css";
@@ -14,12 +12,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const barlow = Barlow({
-  variable: "--font-barlow",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-});
-
 export const metadata: Metadata = {
   title: "Pipelyze",
 };
@@ -30,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={clsx(inter.className, barlow.variable)}>
+    <html lang="en" className={inter.className}>
       <body>{children}</body>
     </html>
   );

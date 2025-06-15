@@ -1,3 +1,4 @@
+import { Barlow } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,6 +12,12 @@ import IconComponent from "../icon/icon.component";
 
 import styles from "./hero.module.css";
 
+const barlow = Barlow({
+  variable: "--font-barlow",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
 export default function HeroComponent() {
   return (
     <>
@@ -19,7 +26,7 @@ export default function HeroComponent() {
       <div className={clsx(styles.circle, styles.circle3)}></div>
       <div className={clsx(styles.circle, styles.circle4)}></div>
 
-      <div className={styles.page}>
+      <div className={clsx(styles.page, barlow.variable)}>
         <TypographyComponent variant="h1" className={styles.title}>
           Boost your building
         </TypographyComponent>
