@@ -35,9 +35,8 @@ export default function CheckboxComponent({
         />
         <IconComponent
           name="check-fill"
-          color="primary"
-          className={styles["check-icon"]}
-          style={{ color: "#ffff" }}
+          color="inherit"
+          className={styles.icon}
         />
       </span>
       <TypographyComponent variant="body2">{label}</TypographyComponent>
