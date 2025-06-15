@@ -70,15 +70,19 @@ export default function HeroComponent() {
         </div>
 
         <div className={styles["btn-container"]}>
-          <ButtonComponent color="inherit" className={styles.preview}>
-            <IconComponent name="flash-line" className={styles.icon} />
-            <TypographyComponent
-              variant="button"
-              color="inherit"
-              className={styles["btn-font"]}
-            >
-              Live preview
-              <br />
+          <ButtonComponent
+            color="inherit"
+            className={styles.preview}
+            startIcon="flash-line"
+          >
+            <div>
+              <TypographyComponent
+                variant="button"
+                color="inherit"
+                className={styles["btn-font"]}
+              >
+                Live preview
+              </TypographyComponent>
               <TypographyComponent
                 variant="subtitle2"
                 color="text-disabled"
@@ -86,10 +90,13 @@ export default function HeroComponent() {
               >
                 v7.2.0
               </TypographyComponent>
-            </TypographyComponent>
+            </div>
           </ButtonComponent>
-          <ButtonComponent color="inherit" className={styles.figma}>
-            <IconComponent name="figma-line" className={styles.icon} />
+          <ButtonComponent
+            color="inherit"
+            className={styles.figma}
+            startIcon="figma-line"
+          >
             <TypographyComponent
               variant="button"
               color="text-primary"
@@ -101,7 +108,7 @@ export default function HeroComponent() {
         </div>
 
         <div className={styles.link}>
-          <Link href="/">
+          <Link href="/" className="body2">
             <IconComponent name="external-link-line" />
             Get free version
           </Link>

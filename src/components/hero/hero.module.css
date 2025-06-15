@@ -194,8 +194,6 @@
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-
-      font-size: 1rem;
     }
   }
 
@@ -207,7 +205,7 @@
     display: flex;
     gap: 1.5rem;
 
-    margin-block-start: 2rem;
+    margin-block-start: 1.5rem;
   }
 }
 
