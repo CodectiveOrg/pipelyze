@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow, Inter } from "next/font/google";
 
+import clsx from "clsx";
+
 import "@/styles/colors.css";
 import "@/styles/shadows.css";
 import "@/styles/typography.css";
@@ -28,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className} ${barlow.className}`}>
+    <html lang="en" className={clsx(inter.className, barlow.variable)}>
       <body>{children}</body>
     </html>
   );
