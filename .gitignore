@@ -44,3 +44,5 @@ next-env.d.ts
 .vscode/
 
 *storybook.log
+
+/src/app/generated/prisma
