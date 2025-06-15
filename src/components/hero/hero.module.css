@@ -65,21 +65,18 @@
   }
 
   .label {
-    background: linear-gradient(
+    background-clip: text;
+    background-image: linear-gradient(
       to right,
       hsl(123deg 39% 49%),
       hsl(33deg 100% 61%)
     );
-
-    /* stylelint-disable-next-line property-no-vendor-prefix */
-    -webkit-background-clip: text;
-    background-clip: text;
     background-position: 10% 0%;
     background-size: 200% 200%;
 
-    -webkit-text-fill-color: transparent;
-
     animation: gradient-animation 3s ease-in-out infinite;
+
+    -webkit-text-fill-color: transparent;
   }
 
   .avatar-container {
