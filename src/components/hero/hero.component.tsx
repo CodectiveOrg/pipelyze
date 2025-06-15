@@ -107,8 +107,18 @@ export default function HeroComponent() {
         </div>
 
         <div className={styles.logo}>
-          <Image src="/assets/logo/js.svg" alt="js" width={30} height={30} />
-          <Image src="/assets/logo/ts.svg" alt="ts" width={30} height={30} />
+          <Image
+            src="/assets/logo/javascript.svg"
+            alt="js"
+            width={30}
+            height={30}
+          />
+          <Image
+            src="/assets/logo/typescript.svg"
+            alt="ts"
+            width={30}
+            height={30}
+          />
           <Image
             src="/assets/logo/next.svg"
             alt="next"
