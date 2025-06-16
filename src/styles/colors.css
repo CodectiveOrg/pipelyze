@@ -54,12 +54,11 @@
 
   --palette-common-black: hsl(0deg 0% 0%);
   --palette-common-white: hsl(0deg 0% 100%);
+  --palette-common-transparent: hsl(0deg 0% 0%);
 
   --palette-text-primary: hsl(210deg 24% 15%);
   --palette-text-secondary: hsl(210deg 13% 44%);
   --palette-text-disabled: hsl(210deg 14% 62%);
-
-  --palette-shared-input-outlined: hsl(210deg 13% 62% / 20%);
 
   --palette-action-hover: hsl(210deg 13% 62% / 8%);
   --palette-action-active: hsl(210deg 13% 45%);
