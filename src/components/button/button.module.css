@@ -14,7 +14,7 @@ a.button {
   min-inline-size: 4rem;
 
   border: none;
-  border-radius: var(--shape-border-radius);
+  border-radius: var(--border-radius-1);
 
   font-weight: 700;
 
@@ -99,10 +99,7 @@ a.button {
     }
 
     &[disabled] {
-      background-color: hsl(
-        from var(--palette-grey-500) h s l /
-          var(--palette-action-disabled-opacity)
-      );
+      background-color: hsl(from var(--palette-grey-500) h s l / 24%);
       color: var(--palette-text-disabled);
       box-shadow: none;
       opacity: 0.6;
@@ -234,11 +231,7 @@ a.button {
       box-shadow: none;
       opacity: 0.6;
 
-      border: 1px solid
-        hsl(
-          from var(--palette-grey-500) h s l /
-            var(--palette-action-disabled-opacity)
-        );
+      border: 1px solid hsl(from var(--palette-grey-500) h s l / 24%);
 
       transition: none;
 
