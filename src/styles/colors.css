@@ -60,16 +60,10 @@
   --palette-text-secondary: hsl(210deg 13% 44%);
   --palette-text-disabled: hsl(210deg 14% 62%);
 
-<<<<<<< HEAD
-  --palette-grey-250: hsl(0deg 1% 76%);
-=======
-  --palette-shared-input-outlined: hsl(210deg 13% 62% / 20%);
-
   --palette-action-hover: hsl(210deg 13% 62% / 8%);
   --palette-action-active: hsl(210deg 13% 45%);
   --palette-action-selected: hsl(210deg 13% 62% / 16%);
   --palette-action-disabled: hsl(210deg 13% 62% / 80%);
->>>>>>> d64bd35d79ea745ef55832221544d81fcc291c66
 
   --palette-action-hover-opacity: 0.08;
   --palette-action-disabled-opacity: 0.24;
