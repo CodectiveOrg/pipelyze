@@ -1,7 +1,7 @@
 import HeroComponent from "@/components/hero/hero.component";
 import TransferListComponent from "@/components/transfer-lis/transfer-list-component";
 
-import { ListItem } from "@/types/list-item..type";
+import { ListItem } from "@/types/list-item.type";
 
 import styles from "./page.module.css";
 
