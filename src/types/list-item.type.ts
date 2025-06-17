@@ -1,1 +1,4 @@
-export type ListItem = { id: string; name: string } || [];
+export type ListItem = {
+  id: string;
+  name: string;
+};
