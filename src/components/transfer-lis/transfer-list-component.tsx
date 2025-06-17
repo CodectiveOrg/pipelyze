@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 
 import { ColorType } from "@/types/color.type";
-import { ListItem } from "@/types/list-item..type";
+import { ListItem } from "@/types/list-item.type";
 
 import CheckboxComponent from "../checkbox/checkbox.component";
 import IconButtonComponent from "../icon-button/icon-button.component";
