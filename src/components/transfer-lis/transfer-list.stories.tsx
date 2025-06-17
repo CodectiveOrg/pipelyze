@@ -5,7 +5,6 @@ import { ListItem } from "@/types/list-item.type";
 
 import TransferListComponent from "./transfer-list-component";
 
-// Mock data
 const sampleItems1: ListItem[] = [
   { id: " 1", name: "Item A" },
   { id: "2", name: "Item B" },
