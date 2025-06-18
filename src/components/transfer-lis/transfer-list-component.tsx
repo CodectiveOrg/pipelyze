@@ -110,11 +110,13 @@ export default function TransferListComponent({
           className={styles.icon}
           name="right-line"
           onClick={() => transferEachItem("right")}
+          disabled={selectedLeft.length === 0}
         />
         <IconButtonComponent
           className={styles.icon}
           name="left-line"
           onClick={() => transferEachItem("left")}
+          disabled={selectedRight.length === 0}
         />
         <IconButtonComponent
           className={styles.icon}
