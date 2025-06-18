@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 
+import { ListItem } from "@/components/transfer-lis/types/transfer-list-item.type";
+
 import { ColorType } from "@/types/color.type";
-import { ListItem } from "@/types/list-item.type";
 
 import TransferListComponent from "./transfer-list-component";
 

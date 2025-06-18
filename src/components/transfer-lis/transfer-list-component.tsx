@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 import clsx from "clsx";
 
+import { ListItem } from "@/components/transfer-lis/types/transfer-list-item.type";
+
 import { ColorType } from "@/types/color.type";
-import { ListItem } from "@/types/list-item.type";
 
 import CheckboxComponent from "../checkbox/checkbox.component";
 import IconButtonComponent from "../icon-button/icon-button.component";
@@ -59,12 +60,14 @@ export default function TransferListComponent({
         ...prev,
         ...selectedLeft.filter((item) => !prev.some((i) => i.id === item.id)),
       ]);
+      setList1((prev) => prev.filter((item) => !selectedLeft.includes(item)));
       setSelectedLeft([]);
     } else {
       setList1((prev) => [
         ...prev,
         ...selectedRight.filter((item) => !prev.some((i) => i.id === item.id)),
       ]);
+      setList2((prev) => prev.filter((item) => !selectedRight.includes(item)));
       setSelectedRight([]);
     }
   };
