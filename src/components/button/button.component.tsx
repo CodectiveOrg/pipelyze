@@ -1,5 +1,3 @@
-import React from "react";
-
 import clsx from "clsx";
 
 import IconComponent from "@/components/icon/icon.component";
