@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import clsx from "clsx";
 
-import { ListItem } from "@/components/transfer-lis/types/transfer-list-item.type";
+import { TransferListItemType } from "@/components/transfer-lis/types/transfer-list-item.type";
 
 import { ColorType } from "@/types/color.type";
 
@@ -14,8 +14,8 @@ import IconButtonComponent from "../icon-button/icon-button.component";
 import styles from "./transfer-list.module.css";
 
 interface TransferListProps {
-  items1: ListItem[];
-  items2: ListItem[];
+  items1: TransferListItemType[];
+  items2: TransferListItemType[];
   color?: ColorType;
 }
 
@@ -24,11 +24,13 @@ export default function TransferListComponent({
   items2,
   color,
 }: TransferListProps) {
-  const [list1, setList1] = useState<ListItem[]>(items1);
-  const [list2, setList2] = useState<ListItem[]>(items2);
+  const [list1, setList1] = useState<TransferListItemType[]>(items1);
+  const [list2, setList2] = useState<TransferListItemType[]>(items2);
 
-  const [selectedLeft, setSelectedLeft] = useState<ListItem[]>([]);
-  const [selectedRight, setSelectedRight] = useState<ListItem[]>([]);
+  const [selectedLeft, setSelectedLeft] = useState<TransferListItemType[]>([]);
+  const [selectedRight, setSelectedRight] = useState<TransferListItemType[]>(
+    [],
+  );
 
   const transferItems = (arrow: string) => {
     if (arrow === "right") {
@@ -46,7 +48,7 @@ export default function TransferListComponent({
     }
   };
 
-  const selectedID = (item: ListItem, arrow: string) => {
+  const selectedID = (item: TransferListItemType, arrow: string) => {
     if (arrow == "left") {
       setSelectedLeft((prev) => [...prev, item]);
     } else {
@@ -86,7 +88,7 @@ export default function TransferListComponent({
         <EmptyItem />
       ) : (
         <div className={styles["left-item"]}>
-          {list1.map((item: ListItem) => (
+          {list1.map((item: TransferListItemType) => (
             <CheckboxComponent
               className={styles.row}
               key={`left-${item.id}`}
@@ -125,7 +127,7 @@ export default function TransferListComponent({
         <EmptyItem />
       ) : (
         <div className={styles["right-item"]}>
-          {list2.map((item: ListItem) => (
+          {list2.map((item: TransferListItemType) => (
             <CheckboxComponent
               className={styles.row}
               key={`right-${item.id}`}
