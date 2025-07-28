@@ -1,0 +1,13 @@
+.favorite {
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  path {
+    fill: var(--palette-warning-main);
+  }
+
+  &:hover {
+    border-radius: 999rem;
+  }
+}

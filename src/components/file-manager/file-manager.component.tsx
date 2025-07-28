@@ -1,12 +1,12 @@
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 
 import TableComponent from "../table/table.component";
-import { FavoriteIcon } from "./components/favorite/favorite.icon";
+import FavoriteIcon from "./components/icons/favorite/favorite.icon";
 import data from "./data.json";
 
 import styles from "./file-manager.module.css";
 
-export default function FileManagerComponent(): ReactNode {
+export default function FileManagerComponent(): ReactElement {
   return (
     <div className={styles["file-manager"]}>
       <TableComponent>
@@ -44,7 +44,7 @@ function RowFile({
 }: {
   rowData: RowFileProps;
   index: number;
-}): ReactNode {
+}): ReactElement {
   const { id, name, size, type, modified } = rowData;
   return (
     <TableComponent.Row>
