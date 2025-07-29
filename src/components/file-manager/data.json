@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Docs",
-    "size": "2.24 GB",
+    "size": 1246,
     "type": "Folder",
     "modified": "Sun Aug 29 2025 13:00:00 GMT+0330",
     "shared": [
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "name": "Projects",
-    "size": "381.47 MB",
+    "size": 381.47,
     "type": "Folder",
     "modified": "Tue Feb 29 2020 05:00:42 GMT+0330",
     "shared": [{ "username": "rezamazaheri", "id": 3003, "picture": "" }]
@@ -21,7 +21,7 @@
   {
     "id": 3,
     "name": "Work",
-    "size": "45 B",
+    "size": 45,
     "type": "jpg",
     "modified": "Tue Jul 05 2025 15:00:42 GMT+0330",
     "shared": []
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "name": "Cover",
-    "size": "1 Kb",
+    "size": 1,
     "type": "jpg",
     "modified": "Wed Jan 12 2025 15:00:42 GMT+0330",
     "shared": [
