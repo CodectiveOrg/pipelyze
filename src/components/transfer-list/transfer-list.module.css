@@ -1,0 +1,57 @@
+.transfer-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin: 2rem;
+
+  .left,
+  .right {
+    box-shadow:
+      0 0 2px 0 var(--palette-primary-box-shadow),
+      0 12px 24px -4px var(--palette-secondary-box-shadow);
+
+    overflow: auto;
+
+    block-size: 12.5rem;
+    inline-size: 14rem;
+
+    border-radius: 1rem;
+
+    ul {
+      padding-block: 0.5rem;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        list-style: none;
+
+        padding-block: 0.25rem;
+        padding-inline: 0.5rem;
+
+        &:hover {
+          background-color: var(--palette-item-hover);
+
+          cursor: pointer;
+        }
+      }
+    }
+
+    &.empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .middle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    block-size: auto;
+    inline-size: 4rem;
+  }
+}
