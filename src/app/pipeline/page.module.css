@@ -9,6 +9,10 @@
   block-size: 100vh;
   inline-size: 100vw;
 
+  &.closed-sidebar {
+    grid-template-columns: 1rem 1fr;
+  }
+
   nav {
     grid-area: navbar;
 
@@ -31,14 +35,6 @@
 
     padding: 1rem;
 
-    /* inline-size: 20rem; */
-
-    transition: transform 0.3s ease-in-out;
-
-    &.closed {
-      transform: translateX(-100%);
-    }
-
     button {
       background-color: hsl(120deg 100% 25%);
       color: hsl(0deg 0% 100%);
@@ -58,6 +54,18 @@
 
     background-color: hsl(192deg 15% 94%);
 
-    padding: 1rem;
+    .pipeline-section,
+    .preview {
+      display: grid;
+      place-items: center;
+
+      block-size: 100%;
+    }
+
+    .line-in-between {
+      background-color: hsl(219deg 79% 66%);
+
+      block-size: 0.25rem;
+    }
   }
 }
