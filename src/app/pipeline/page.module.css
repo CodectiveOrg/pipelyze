@@ -9,6 +9,8 @@
   block-size: 100vh;
   inline-size: 100vw;
 
+  transition: grid-template-columns 0.3s ease-in-out;
+
   &.closed-sidebar {
     grid-template-columns: 1rem 1fr;
   }
@@ -16,24 +18,20 @@
   nav {
     grid-area: navbar;
 
-    background-color: hsl(328deg 100% 54%);
-    color: hsl(0deg 0% 100%);
-
-    display: flex;
-    align-items: center;
+    display: grid;
+    place-items: center;
 
     padding: 0 1rem;
+
+    border: 1px solid hsl(328deg 100% 54%);
   }
 
   .sidebar {
     grid-area: sidebar;
 
-    background-color: hsl(120deg 100% 25%);
-    color: hsl(0deg 0% 100%);
-
     position: relative;
 
-    padding: 1rem;
+    border: 1px solid hsl(120deg 100% 25%);
 
     button {
       background-color: hsl(120deg 100% 25%);
