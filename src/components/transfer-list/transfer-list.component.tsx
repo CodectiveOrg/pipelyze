@@ -4,12 +4,11 @@ import { ReactNode, useState } from "react";
 
 import clsx from "clsx";
 
+import ButtonGroupComponent from "@/components/transfer-list/components/button-group/button-group.component";
+import ListComponent from "@/components/transfer-list/components/list/list.component";
+
 import { getDifference } from "@/utils/difference.utils";
 import { getIntersection } from "@/utils/intersection.utils";
-
-import ButtonComponent from "../button/button.component";
-import IconComponent from "../icon/icon.component";
-import ListComponent from "./components/list/list.component";
 
 import styles from "./transfer-list.module.css";
 
@@ -70,38 +69,15 @@ export default function TransferListComponent({ items }: Props): ReactNode {
         />
       </div>
       <div className={styles.middle}>
-        {[
-          {
-            iconName: "arrows-right-line",
-            clickHandler: handleAllRight,
-            disabled: left.length === 0,
-          },
-          {
-            iconName: "right-line",
-            clickHandler: handleCheckedRight,
-            disabled: leftChecked.length === 0,
-          },
-          {
-            iconName: "left-line",
-            clickHandler: handleCheckedLeft,
-            disabled: rightChecked.length === 0,
-          },
-          {
-            iconName: "arrows-left-line",
-            clickHandler: handleAllLeft,
-            disabled: right.length === 0,
-          },
-        ].map((item, index) => (
-          <ButtonComponent
-            key={index}
-            color="inherit"
-            variant="outlined"
-            onClick={item.clickHandler}
-            disabled={item.disabled}
-          >
-            <IconComponent name={item.iconName} />
-          </ButtonComponent>
-        ))}
+        <ButtonGroupComponent
+          items={{ left, right, leftChecked, rightChecked }}
+          actions={{
+            handleAllLeft,
+            handleAllRight,
+            handleCheckedLeft,
+            handleCheckedRight,
+          }}
+        />
       </div>
       <div className={clsx(styles.right, !right.length && styles.empty)}>
         <ListComponent
