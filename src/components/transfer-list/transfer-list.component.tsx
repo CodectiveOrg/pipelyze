@@ -93,9 +93,9 @@ export default function TransferListComponent({ items }: Props): ReactNode {
           },
         ].map((item, index) => (
           <ButtonComponent
+            key={index}
             color="inherit"
             variant="outlined"
-            key={index}
             onClick={item.clickHandler}
             disabled={item.disabled}
           >
