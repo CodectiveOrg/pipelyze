@@ -1,0 +1,7 @@
+.folder {
+  cursor: pointer;
+
+  path {
+    color: hsl(36deg 93% 65%);
+  }
+}
