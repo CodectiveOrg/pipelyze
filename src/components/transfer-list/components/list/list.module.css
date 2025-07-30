@@ -1,0 +1,33 @@
+.list {
+  padding-block: 0.5rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    list-style: none;
+
+    padding-block: 0.25rem;
+    padding-inline: 0.5rem;
+
+    &:hover {
+      background-color: var(--palette-item-hover);
+
+      cursor: pointer;
+    }
+
+    .item-content {
+      overflow: hidden;
+
+      max-inline-size: 15ch;
+
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
+    }
+  }
+}
+
+.message {
+  color: var(--palette-text-secondary);
+}

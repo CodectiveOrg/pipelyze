@@ -8,24 +8,26 @@ import { getDifference } from "@/utils/difference.utils";
 import { getIntersection } from "@/utils/intersection.utils";
 
 import ButtonComponent from "../button/button.component";
-import CheckboxComponent from "../checkbox/checkbox.component";
 import IconComponent from "../icon/icon.component";
+import ListComponent from "./components/list/list.component";
 
 import styles from "./transfer-list.module.css";
 
-const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"];
+type Props = {
+  items: string[];
+};
 
-export default function TransferListComponent(): ReactNode {
-  const [checked, setChecked] = useState<readonly string[]>([]);
-  const [left, setLeft] = useState<readonly string[]>(items);
+export default function TransferListComponent({ items }: Props): ReactNode {
+  const [checkedItems, setCheckedItems] = useState<readonly string[]>([]);
+  const [left, setLeft] = useState<readonly string[]>(items || []);
   const [right, setRight] = useState<readonly string[]>([]);
 
-  const leftChecked = getIntersection<string>(checked, left);
-  const rightChecked = getIntersection<string>(checked, right);
+  const leftChecked = getIntersection<string>(checkedItems, left);
+  const rightChecked = getIntersection<string>(checkedItems, right);
 
-  const handleToggle = (value: string) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  const handleToggle = (value: string): void => {
+    const currentIndex = checkedItems.indexOf(value);
+    const newChecked = [...checkedItems];
 
     if (currentIndex === -1) {
       newChecked.push(value);
@@ -33,27 +35,27 @@ export default function TransferListComponent(): ReactNode {
       newChecked.splice(currentIndex, 1);
     }
 
-    setChecked(newChecked);
+    setCheckedItems(newChecked);
   };
 
-  const handleAllRight = () => {
+  const handleAllRight = (): void => {
     setRight(right.concat(left));
     setLeft([]);
   };
 
-  const handleCheckedRight = () => {
+  const handleCheckedRight = (): void => {
     setRight(right.concat(leftChecked));
     setLeft(getDifference<string>(left, leftChecked));
-    setChecked(getDifference<string>(checked, leftChecked));
+    setCheckedItems(getDifference<string>(checkedItems, leftChecked));
   };
 
-  const handleCheckedLeft = () => {
+  const handleCheckedLeft = (): void => {
     setLeft(left.concat(rightChecked));
     setRight(getDifference<string>(right, rightChecked));
-    setChecked(getDifference<string>(checked, rightChecked));
+    setCheckedItems(getDifference<string>(checkedItems, rightChecked));
   };
 
-  const handleAllLeft = () => {
+  const handleAllLeft = (): void => {
     setLeft(left.concat(right));
     setRight([]);
   };
@@ -61,21 +63,11 @@ export default function TransferListComponent(): ReactNode {
   return (
     <div className={styles["transfer-list"]}>
       <div className={clsx(styles.left, !left.length && styles.empty)}>
-        {left.length ? (
-          <ul>
-            {left.map((item, index) => (
-              <li key={index} onClick={handleToggle(item)}>
-                <CheckboxComponent
-                  checked={checked.includes(item)}
-                  onChange={handleToggle(item)}
-                />
-                <div>{item}</div>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div>No items</div>
-        )}
+        <ListComponent
+          items={left}
+          checkedItems={checkedItems}
+          onToggle={handleToggle}
+        />
       </div>
       <div className={styles.middle}>
         {[
@@ -112,21 +104,11 @@ export default function TransferListComponent(): ReactNode {
         ))}
       </div>
       <div className={clsx(styles.right, !right.length && styles.empty)}>
-        {right.length ? (
-          <ul>
-            {right.map((item, index) => (
-              <li key={index} onClick={handleToggle(item)}>
-                <CheckboxComponent
-                  checked={checked.includes(item)}
-                  onChange={handleToggle(item)}
-                />
-                <div>{item}</div>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div>No items</div>
-        )}
+        <ListComponent
+          items={right}
+          checkedItems={checkedItems}
+          onToggle={handleToggle}
+        />
       </div>
     </div>
   );
