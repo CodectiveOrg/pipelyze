@@ -26,30 +26,27 @@
 
 .container-body {
   color: var(--palette-grey-800);
-}
 
-.container-head,
-.container-body {
   display: block;
 
   min-width: 600px;
 }
 
 .container-row {
+  z-index: 1;
+
   margin: 16px 0;
   padding: 12px 18px;
 
   border: 1px solid var(--palette-grey-200);
-}
-
-.container-row:hover {
-  box-shadow: 0 18px 3px var(--palette-grey-200);
-
-  z-index: 1;
 
   transition: box-shadow 0.2s ease;
 
   cursor: pointer;
+}
+
+.container-row:hover {
+  box-shadow: 0 18px 3px var(--palette-grey-200);
 }
 
 .container-cell,
@@ -61,6 +58,12 @@
   font-size: 0.85rem;
 
   text-align: center;
+}
+
+.name-cell {
+  display: flex;
+  align-items: center;
+  row-gap: 0.2rem;
 }
 
 .modified-cell {

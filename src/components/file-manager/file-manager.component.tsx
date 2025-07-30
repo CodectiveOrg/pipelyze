@@ -71,13 +71,18 @@ export default function FileManagerComponent(): JSX.Element {
               <div
                 key={idx}
                 className={`${styles["container-cell"]} ${
-                  col.key === "modified" ? styles["modified-cell"] : ""
-                } ${col.key === "checkbox" ? styles["container-cell-checkbox"] : ""}`}
+                  col.key === "modified" ? styles["modified-cell"] : null
+                } ${col.key === "checkbox" ? styles["container-cell-checkbox"] : null}
+                 ${col.key === "name" ? styles["name-cell"] : null} 
+                `}
               >
                 {col.key === "checkbox" ? (
                   <input type="checkbox" className={styles["checkbox-input"]} />
-                ) : col.key === "name" && row.type === "Folder" ? (
-                  <FolderIcon type={row.type} />
+                ) : col.key === "name" ? (
+                  <>
+                    <FolderIcon type={row.type} />
+                    {row.name}
+                  </>
                 ) : col.key === "shared" ? (
                   Array.isArray(row.shared) ? (
                     row.shared.length
