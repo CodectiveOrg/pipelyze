@@ -1,0 +1,56 @@
+.pipeline-page {
+  background-color: hsl(260deg 60% 65%);
+
+  block-size: 100vh;
+  inline-size: 100vw;
+
+  nav {
+    background-color: hsl(328deg 100% 54%);
+
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+
+    block-size: 4rem;
+  }
+
+  .sidebar {
+    background-color: hsl(120deg 100% 25%);
+
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: 0;
+    z-index: 2;
+
+    inline-size: 20rem;
+
+    transition: transform 0.3s ease-in-out;
+
+    &.closed {
+      transform: translateX(-100%);
+    }
+
+    button {
+      background-color: hsl(120deg 100% 25%);
+      color: hsl(0deg 0% 100%);
+
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: 0;
+
+      border: none;
+
+      transform: translate(100%, -50%);
+    }
+  }
+
+  footer {
+    background-color: hsl(219deg 79% 66%);
+
+    position: fixed;
+    inset-block-end: 0;
+    inset-inline: 0;
+
+    block-size: 20rem;
+  }
+}
