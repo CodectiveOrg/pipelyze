@@ -1,28 +1,37 @@
 .pipeline-page {
-  background-color: hsl(260deg 60% 65%);
+  display: grid;
+  grid-template-areas:
+    "navbar navbar"
+    "sidebar main";
+  grid-template-columns: 12.5rem 1fr;
+  grid-template-rows: 4rem 1fr;
 
   block-size: 100vh;
   inline-size: 100vw;
 
   nav {
+    grid-area: navbar;
+
     background-color: hsl(328deg 100% 54%);
+    color: hsl(0deg 0% 100%);
 
-    position: fixed;
-    inset-block-start: 0;
-    inset-inline: 0;
+    display: flex;
+    align-items: center;
 
-    block-size: 4rem;
+    padding: 0 1rem;
   }
 
   .sidebar {
+    grid-area: sidebar;
+
     background-color: hsl(120deg 100% 25%);
+    color: hsl(0deg 0% 100%);
 
-    position: fixed;
-    inset-block: 0;
-    inset-inline-start: 0;
-    z-index: 2;
+    position: relative;
 
-    inline-size: 20rem;
+    padding: 1rem;
+
+    /* inline-size: 20rem; */
 
     transition: transform 0.3s ease-in-out;
 
@@ -44,13 +53,11 @@
     }
   }
 
-  footer {
-    background-color: hsl(219deg 79% 66%);
+  main {
+    grid-area: main;
 
-    position: fixed;
-    inset-block-end: 0;
-    inset-inline: 0;
+    background-color: hsl(192deg 15% 94%);
 
-    block-size: 20rem;
+    padding: 1rem;
   }
 }

@@ -15,13 +15,14 @@ export default function Page(): ReactNode {
 
   return (
     <div className={styles["pipeline-page"]}>
-      <nav>This is nav</nav>
+      <nav>Navbar</nav>
       <div className={clsx(styles.sidebar, !showSidebar && styles.closed)}>
+        Sidebar
         <button onClick={() => toggleSidebar()}>
           {showSidebar ? "<" : ">"}
         </button>
       </div>
-      <footer>This is footer</footer>
+      <main>Main Content</main>
     </div>
   );
 }
