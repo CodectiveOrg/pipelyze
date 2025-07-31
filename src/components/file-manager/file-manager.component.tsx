@@ -1,7 +1,11 @@
 import React, { JSX } from "react";
 
+import CheckboxComponent from "../checkbox/checkbox.component";
+import IconButtonComponent from "../icon-button/icon-button.component";
 import data from "./data.json";
 import FolderIcon from "./folder.icon";
+import { formatDateToYMD } from "./utils/formatDateToYMD";
+import { formatTimeToHMA } from "./utils/formatTimeToHMA";
 
 import styles from "./file-manager.module.css";
 
@@ -25,21 +29,69 @@ const columns: { label: string; key: ColumnKey }[] = [
   { label: "Shared", key: "shared" },
 ];
 
-function formatDateToYMD(dateString: string) {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
+function renderHeaderContent(col: { label: string; key: ColumnKey }) {
+  switch (col.key) {
+    case "checkbox":
+      return (
+        <div className={styles["checkbox-cell"]}>
+          <CheckboxComponent color="action" size="small" />
+        </div>
+      );
+    case "name":
+      return (
+        <div className={styles["name-cell"]}>
+          <label>
+            {col.label}
+            <IconButtonComponent
+              name="arrow-up-line"
+              size="small"
+              color="action"
+            />
+          </label>
+        </div>
+      );
+    case "size":
+      return <div className={styles["size-cell"]}>{col.label}</div>;
+    case "type":
+      return <div className={styles["type-cell"]}>{col.label}</div>;
+    default:
+      return col.label;
+  }
 }
-function formatTimeToHMA(dateString: string) {
-  const date = new Date(dateString);
-  let hours = date.getHours();
-  const minutes = String(date.getMinutes()).padStart(2, "0");
-  const ampm = hours >= 12 ? "pm" : "am";
-  hours = hours % 12;
-  hours = hours ? hours : 12;
-  return `${hours}:${minutes} ${ampm}`;
+function renderCellContent(row: RowType, colKey: ColumnKey) {
+  switch (colKey) {
+    case "checkbox":
+      return (
+        <div className={styles["checkbox-cell"]}>
+          <CheckboxComponent color="action" size="small" />
+        </div>
+      );
+    case "name":
+      return (
+        <div className={styles["name-cell"]}>
+          <FolderIcon type={row.type} />
+          <span>{row.name}</span>
+        </div>
+      );
+    case "size":
+      return <div className={styles["size-cell"]}>{row.size}</div>;
+    case "type":
+      return <div className={styles["type-cell"]}>{row.type}</div>;
+    case "modified":
+      return (
+        <div className={styles["modified-cell"]}>
+          <div>{formatDateToYMD(row.modified)}</div>
+          <div className={styles["modified-time-cell"]}>
+            {formatTimeToHMA(row.modified)}
+          </div>
+        </div>
+      );
+    case "shared":
+      return null;
+
+    default:
+      return (row as RowType)[colKey];
+  }
 }
 
 export default function FileManagerComponent(): JSX.Element {
@@ -48,19 +100,11 @@ export default function FileManagerComponent(): JSX.Element {
       {/* Header */}
       <div className={styles["container-head"]}>
         {columns.map((col, idx) => (
-          <div
-            key={idx}
-            className={`${styles["container-cell"]} ${styles["container-head-cell"]} ${
-              col.key === "checkbox" ? styles["container-cell-checkbox"] : ""
-            }`}
-          >
-            {col.key === "checkbox" ? (
-              <input type="checkbox" className={styles["checkbox-input"]} />
-            ) : (
-              col.label
-            )}
+          <div key={idx} className={`${styles["container-cell"]} `}>
+            {renderHeaderContent(col)}
           </div>
         ))}
+        <div className={styles["container-icons"]} />
       </div>
 
       {/* Body */}
@@ -68,39 +112,22 @@ export default function FileManagerComponent(): JSX.Element {
         {data.map((row: RowType) => (
           <div key={row.id} className={styles["container-row"]}>
             {columns.map((col, idx) => (
-              <div
-                key={idx}
-                className={`${styles["container-cell"]} ${
-                  col.key === "modified" ? styles["modified-cell"] : null
-                } ${col.key === "checkbox" ? styles["container-cell-checkbox"] : null}
-                 ${col.key === "name" ? styles["name-cell"] : null} 
-                `}
-              >
-                {col.key === "checkbox" ? (
-                  <input type="checkbox" className={styles["checkbox-input"]} />
-                ) : col.key === "name" ? (
-                  <>
-                    <FolderIcon type={row.type} />
-                    {row.name}
-                  </>
-                ) : col.key === "shared" ? (
-                  Array.isArray(row.shared) ? (
-                    row.shared.length
-                  ) : (
-                    0
-                  )
-                ) : col.key === "modified" ? (
-                  <>
-                    <div>{formatDateToYMD(row.modified)}</div>
-                    <div>{formatTimeToHMA(row.modified)}</div>
-                  </>
-                ) : col.key === "type" ? (
-                  row.type
-                ) : (
-                  (row as RowType)[col.key]
-                )}
+              <div key={idx} className={`${styles["container-cell"]}`}>
+                {renderCellContent(row, col.key)}
               </div>
             ))}
+            <div className={styles["container-icons"]}>
+              <IconButtonComponent
+                name="star-line"
+                size="small"
+                color="action"
+              />
+              <IconButtonComponent
+                name="more-2-line"
+                size="small"
+                color="action"
+              />
+            </div>
           </div>
         ))}
       </div>
