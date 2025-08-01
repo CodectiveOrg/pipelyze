@@ -8,7 +8,8 @@
     "shared": [
       { "username": "bijanprogrammer", "id": 1001, "picture": "" },
       { "username": "zahrazare", "id": 2002, "picture": "" }
-    ]
+    ],
+    "liked": true
   },
   {
     "id": 2,
@@ -16,7 +17,8 @@
     "size": 381.47,
     "type": "Folder",
     "modified": "Tue Feb 29 2020 05:00:42 GMT+0330",
-    "shared": [{ "username": "rezamazaheri", "id": 3003, "picture": "" }]
+    "shared": [{ "username": "rezamazaheri", "id": 3003, "picture": "" }],
+    "liked": false
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "size": 45,
     "type": "jpg",
     "modified": "Tue Jul 05 2025 15:00:42 GMT+0330",
-    "shared": []
+    "shared": [],
+    "liked": true
   },
   {
     "id": 4,
@@ -36,6 +39,7 @@
       { "username": "bijanprogrammer", "id": 1001, "picture": "" },
       { "username": "zahrazare", "id": 2002, "picture": "" },
       { "username": "rezamazaheri", "id": 3003, "picture": "" }
-    ]
+    ],
+    "liked": false
   }
 ]
