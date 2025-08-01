@@ -2,9 +2,9 @@ import CheckboxComponent from "@/components/checkbox/checkbox.component";
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
 
 import FolderIcon from "../_components/folder.icon";
+import { formatDateToYMD } from "../_utils/formatDateToYMD";
+import { formatTimeToHMA } from "../_utils/formatTimeToHMA";
 import { ColumnKey, RowType } from "../file-manager.component";
-import { formatDateToYMD } from "../utils/formatDateToYMD";
-import { formatTimeToHMA } from "../utils/formatTimeToHMA";
 
 import styles from "../file-manager.module.css";
 
