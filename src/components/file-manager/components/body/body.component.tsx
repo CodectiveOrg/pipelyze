@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
 
 import CheckboxComponent from "@/components/checkbox/checkbox.component";
+import FolderIcon from "@/components/file-manager/components/icons/folder.icon";
+import data from "@/components/file-manager/data.json";
+import formatDateToYMD from "@/components/file-manager/utils/date-to-YMD.util";
+import formatFileSize from "@/components/file-manager/utils/file-size.util";
+import formatTimeToHMA from "@/components/file-manager/utils/time-to-HMA.util";
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
-
-import FolderIcon from "../_components/folder.icon";
-import { formatDateToYMD } from "../_utils/formatDateToYMD";
-import { formatTimeToHMA } from "../_utils/formatTimeToHMA";
-import data from "../data.json";
 
 import styles from "./body.module.css";
 
@@ -23,7 +23,7 @@ export default function BodyComponent(): ReactNode {
               {type === "Folder" ? <FolderIcon /> : null}
               {name}
             </div>
-            <div>{size}</div>
+            <div>{formatFileSize(size)}</div>
             <div>{type}</div>
             <div>
               <div>{formatDateToYMD(modified)}</div>
@@ -34,7 +34,7 @@ export default function BodyComponent(): ReactNode {
               <IconButtonComponent
                 name="star-line"
                 size="small"
-                color="primary"
+                color="action"
               />
               <IconButtonComponent
                 name="more-2-line"
