@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Docs",
-    "size": 1246,
+    "size": 12460000,
     "type": "Folder",
     "modified": "Sun Aug 29 2025 13:00:00 GMT+0330",
     "shared": [
@@ -23,7 +23,7 @@
   {
     "id": 3,
     "name": "Work",
-    "size": 45,
+    "size": 45805,
     "type": "jpg",
     "modified": "Tue Jul 05 2025 15:00:42 GMT+0330",
     "shared": [],
@@ -32,7 +32,7 @@
   {
     "id": 4,
     "name": "Cover",
-    "size": 1,
+    "size": 100000,
     "type": "jpg",
     "modified": "Wed Jan 12 2025 15:00:42 GMT+0330",
     "shared": [
