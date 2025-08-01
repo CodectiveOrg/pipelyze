@@ -3,6 +3,7 @@ import IconButtonComponent from "@/components/icon-button/icon-button.component"
 
 import FolderIcon from "../_components/folder.icon";
 import { formatDateToYMD } from "../_utils/formatDateToYMD";
+import formatFileSize from "../_utils/formatFileSize";
 import { formatTimeToHMA } from "../_utils/formatTimeToHMA";
 import { ColumnKey, RowType } from "../file-manager.component";
 
@@ -30,7 +31,7 @@ export default function renderCellContent(
     case "size":
       return (
         <div key={index} className={styles["size-cell"]}>
-          {row.size}
+          {formatFileSize(row.size)}
         </div>
       );
     case "type":
