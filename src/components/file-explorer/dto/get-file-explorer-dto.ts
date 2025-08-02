@@ -1,4 +1,4 @@
-export type DataDto = {
+export type GetFileExplorerDto = {
   id: number;
   name: string;
   size: number;
