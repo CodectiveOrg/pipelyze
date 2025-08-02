@@ -1,4 +1,4 @@
-export default function formatTimeToHMA(dateString: string) {
+export default function formatTimeToHMA(dateString: string): string {
   const date = new Date(dateString);
 
   let hours = date.getHours();

@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
 import CheckboxComponent from "@/components/checkbox/checkbox.component";
-import FolderIcon from "@/components/file-explorer/components/icons/folder.icon";
 import { GetFileExplorerDto } from "@/components/file-explorer/dto/get-file-explorer-dto";
+import FolderIcon from "@/components/file-explorer/icons/folder.icon";
 import formatDateToYMD from "@/components/file-explorer/utils/date-to-YMD.util";
 import formatFileSize from "@/components/file-explorer/utils/file-size.util";
 import formatTimeToHMA from "@/components/file-explorer/utils/time-to-HMA.util";
@@ -20,7 +20,7 @@ export default function RowComponent({
   return (
     <div key={id} className={styles.row}>
       <div className={styles["first-cell"]}>
-        <CheckboxComponent></CheckboxComponent>
+        <CheckboxComponent />
         {type === "Folder" ? <FolderIcon /> : null}
         {name}
       </div>

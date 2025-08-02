@@ -1,4 +1,4 @@
-export default function formatDateToYMD(dateString: string) {
+export default function formatDateToYMD(dateString: string): string {
   const date = new Date(dateString);
 
   const year = date.getFullYear();
