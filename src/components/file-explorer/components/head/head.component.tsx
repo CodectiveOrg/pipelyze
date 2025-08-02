@@ -15,6 +15,7 @@ export default function HeadComponent(): ReactNode {
       <div>Type</div>
       <div>Modified</div>
       <div>Shared</div>
+      <div></div>
     </div>
   );
 }

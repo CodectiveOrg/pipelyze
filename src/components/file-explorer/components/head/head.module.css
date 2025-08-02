@@ -3,7 +3,7 @@
   color: var(--palette-grey-600);
 
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr 2fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr 2fr 1fr 1fr;
   align-items: center;
 
   padding-block: 0.75rem;

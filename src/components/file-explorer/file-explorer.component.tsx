@@ -11,7 +11,7 @@ export default function FileExplorerComponent(): ReactNode {
   return (
     <div className={styles["file-explorer"]}>
       <HeadComponent />
-      <div className={styles.body}>
+      <div>
         {data.map((item, index) => (
           <RowComponent key={index} data={item} />
         ))}

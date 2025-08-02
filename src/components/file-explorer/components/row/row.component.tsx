@@ -30,8 +30,8 @@ export default function RowComponent({
         <div>{formatDateToYMD(modified)}</div>
         <div className={styles.time}>{formatTimeToHMA(modified)}</div>
       </div>
+      <div>Shared</div>
       <div className={styles["last-cell"]}>
-        Shared
         <IconButtonComponent name="star-line" size="small" color="action" />
         <IconButtonComponent name="more-2-line" size="small" color="action" />
       </div>
