@@ -11,11 +11,10 @@ export default function FileExplorerComponent(): ReactNode {
   return (
     <div className={styles["file-explorer"]}>
       <HeaderComponent />
-      <div>
-        {data.map((item) => (
-          <RowComponent key={item.id} item={item} />
-        ))}
-      </div>
+
+      {data.map((item) => (
+        <RowComponent key={item.id} item={item} />
+      ))}
     </div>
   );
 }
