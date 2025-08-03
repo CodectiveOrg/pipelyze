@@ -1,6 +1,6 @@
 const units = ["B", "KB", "MB", "GB", "TB", "PB", "EB"];
 
-export default function formatFileSize(bytes: number): string {
+export function formatFileSize(bytes: number): string {
   if (bytes < 0) return "Invalid size";
 
   let size = bytes;

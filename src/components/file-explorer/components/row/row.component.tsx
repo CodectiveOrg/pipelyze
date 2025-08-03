@@ -4,10 +4,11 @@ import CheckboxComponent from "@/components/checkbox/checkbox.component";
 import { GetFileExplorerDto } from "@/components/file-explorer/dto/get-file-explorer-dto";
 import FileIcon from "@/components/file-explorer/icons/file/file.icon";
 import FolderIcon from "@/components/file-explorer/icons/folder/folder.icon";
-import formatDateToYMD from "@/components/file-explorer/utils/date-to-YMD.util";
-import formatFileSize from "@/components/file-explorer/utils/file-size.util";
-import formatTimeToHMA from "@/components/file-explorer/utils/time-to-HMA.util";
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
+
+import { formatFileSize } from "@/utils/format-size.util";
+import { formatDateToYMD } from "@/utils/time.util";
+import { formatTimeToHMA } from "@/utils/time.util";
 
 import styles from "./row.module.css";
 
