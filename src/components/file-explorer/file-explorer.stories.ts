@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import FileExplorerComponent from "./file-explorer.component";
+import FileExplorerComponent from "@/components/file-explorer/file-explorer.component";
 
 const meta = {
-  title: "Components/FileExplorer",
+  title: "Organisms/FileExplorer",
   component: FileExplorerComponent,
   parameters: {
-    layout: "fullscreen",
+    layout: "centered",
   },
   tags: ["autodocs"],
   args: {},
