@@ -7,7 +7,7 @@
 
   padding-block: 0.5rem;
 
-  border-radius: 1rem;
+  border-radius: var(--border-radius-3);
 
   ul {
     list-style: none;
