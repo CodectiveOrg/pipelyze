@@ -1,10 +1,9 @@
 import { ReactNode } from "react";
 
-import ButtonComponent from "@/components/button/button.component";
-import IconComponent from "@/components/icon/icon.component";
+import TransferButtonComponent from "@/components/transfer-list/components/transfer-button/transfer-button.component";
 import { Item } from "@/components/transfer-list/transfer-list.component";
 
-import styles from "./button-group.module.css";
+import styles from "./transfer-button-group.module.css";
 
 type Props = {
   items: readonly Item[];
@@ -12,62 +11,37 @@ type Props = {
   onMoveCheckedItems: (position: "left" | "right") => void;
 };
 
-export default function ButtonGroupComponent({
+export default function TransferButtonGroupComponent({
   items,
   onMoveAllItems,
   onMoveCheckedItems,
 }: Props): ReactNode {
   return (
-    <div className={styles["button-group"]}>
-      <ListButton
+    <div className={styles["transfer-button-group"]}>
+      <TransferButtonComponent
         items={items}
         icon="arrows-right-line"
         enabled={(item) => item.position === "left"}
         onClick={() => onMoveAllItems("right")}
       />
-      <ListButton
+      <TransferButtonComponent
         items={items}
         icon="right-line"
         enabled={(item) => item.position === "left" && item.isChecked}
         onClick={() => onMoveCheckedItems("right")}
       />
-      <ListButton
+      <TransferButtonComponent
         items={items}
         icon="left-line"
         enabled={(item) => item.position === "right" && item.isChecked}
         onClick={() => onMoveCheckedItems("left")}
       />
-      <ListButton
+      <TransferButtonComponent
         items={items}
         icon="arrows-left-line"
         enabled={(item) => item.position === "right"}
         onClick={() => onMoveAllItems("left")}
       />
     </div>
-  );
-}
-
-type ListButtonProps = {
-  items: readonly Item[];
-  icon: string;
-  enabled: (item: Item) => boolean;
-  onClick: () => void;
-};
-
-function ListButton({
-  items,
-  icon,
-  enabled,
-  onClick,
-}: ListButtonProps): ReactNode {
-  return (
-    <ButtonComponent
-      variant="outlined"
-      color="inherit"
-      disabled={!items.some(enabled)}
-      onClick={onClick}
-    >
-      <IconComponent name={icon} />
-    </ButtonComponent>
   );
 }

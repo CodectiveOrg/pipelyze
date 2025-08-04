@@ -2,8 +2,8 @@
 
 import { ReactNode, useEffect, useState } from "react";
 
-import ButtonGroupComponent from "@/components/transfer-list/components/button-group/button-group.component";
 import ListComponent from "@/components/transfer-list/components/list/list.component";
+import TransferButtonGroupComponent from "@/components/transfer-list/components/transfer-button-group/transfer-button-group.component";
 
 import styles from "./transfer-list.module.css";
 
@@ -65,7 +65,7 @@ export default function TransferListComponent({
   return (
     <div className={styles["transfer-list"]}>
       <ListComponent position="left" items={items} onToggle={handleToggle} />
-      <ButtonGroupComponent
+      <TransferButtonGroupComponent
         items={items}
         onMoveAllItems={handleMoveAllItems}
         onMoveCheckedItems={handleMoveCheckedItems}
