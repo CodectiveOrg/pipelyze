@@ -3,7 +3,7 @@ export type FileExplorerItemType = {
   name: string;
   size: number;
   type: "Folder" | "jpg" | string;
-  modified: string;
+  modified: Date;
   shared: object[];
   liked: boolean;
 };

@@ -1,5 +1,18 @@
 const DATA_STORAGE_UNITS = ["B", "KB", "MB", "GB", "TB"];
 
+export const hourMinuteFormatter = new Intl.DateTimeFormat("en-US", {
+  hour: "2-digit",
+  hour12: false,
+  hourCycle: "h23",
+  minute: "2-digit",
+});
+
+export const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
 export function formatFileSize(bytes: number): string {
   if (bytes < 0) {
     return "Invalid size";
