@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import FileExplorerComponent from "./file-explorer.component";
 
 const meta = {
-  title: "Components/FileExplorerComponent",
+  title: "Components/FileExplorer",
   component: FileExplorerComponent,
   parameters: {
     layout: "fullscreen",
