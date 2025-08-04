@@ -1,1 +1,1 @@
-export type TransferListItemPosition = TransferListItemPosition;
+export type TransferListItemPosition = "left" | "right";
