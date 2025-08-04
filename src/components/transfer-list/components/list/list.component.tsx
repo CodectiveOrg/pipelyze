@@ -15,21 +15,23 @@ export default function ListComponent({
   checkedItems,
   onToggle,
 }: Props): ReactNode {
-  if (!items.length) {
-    return <div className={styles.message}>No items</div>;
-  }
-
   return (
-    <ul className={styles.list}>
-      {items.map((item, index) => (
-        <li key={index} onClick={() => onToggle(item)}>
-          <CheckboxComponent
-            checked={checkedItems.includes(item)}
-            onChange={() => onToggle(item)}
-          />
-          <div className={styles.title}>{item}</div>
-        </li>
-      ))}
-    </ul>
+    <div className={styles.list}>
+      {!items.length ? (
+        <div className={styles["empty-message"]}>No items</div>
+      ) : (
+        <ul>
+          {items.map((item, index) => (
+            <li key={index} onClick={() => onToggle(item)}>
+              <CheckboxComponent
+                checked={checkedItems.includes(item)}
+                onChange={() => onToggle(item)}
+              />
+              <div className={styles.title}>{item}</div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

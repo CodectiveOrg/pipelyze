@@ -2,8 +2,6 @@
 
 import { ReactNode, useState } from "react";
 
-import clsx from "clsx";
-
 import ButtonGroupComponent from "@/components/transfer-list/components/button-group/button-group.component";
 import ListComponent from "@/components/transfer-list/components/list/list.component";
 
@@ -37,31 +35,31 @@ export default function TransferListComponent({ items }: Props): ReactNode {
     setCheckedItems(newChecked);
   };
 
-  const handleAllRight = (): void => {
+  const handleMoveAllItemsToTheRight = (): void => {
     setRight(right.concat(left));
     setLeft([]);
   };
 
-  const handleCheckedRight = (): void => {
+  const handleMoveCheckedItemsToTheRight = (): void => {
     setRight(right.concat(leftChecked));
     setLeft(getDifference<string>(left, leftChecked));
     setCheckedItems(getDifference<string>(checkedItems, leftChecked));
   };
 
-  const handleCheckedLeft = (): void => {
+  const handleMoveCheckedItemsToTheLeft = (): void => {
     setLeft(left.concat(rightChecked));
     setRight(getDifference<string>(right, rightChecked));
     setCheckedItems(getDifference<string>(checkedItems, rightChecked));
   };
 
-  const handleAllLeft = (): void => {
+  const handleMoveAllItemsToTheLeft = (): void => {
     setLeft(left.concat(right));
     setRight([]);
   };
 
   return (
     <div className={styles["transfer-list"]}>
-      <div className={clsx(styles.left, !left.length && styles.empty)}>
+      <div className={styles.left}>
         <ListComponent
           items={left}
           checkedItems={checkedItems}
@@ -72,14 +70,14 @@ export default function TransferListComponent({ items }: Props): ReactNode {
         <ButtonGroupComponent
           items={{ left, right, leftChecked, rightChecked }}
           actions={{
-            handleAllLeft,
-            handleAllRight,
-            handleCheckedLeft,
-            handleCheckedRight,
+            handleAllLeft: handleMoveAllItemsToTheLeft,
+            handleAllRight: handleMoveAllItemsToTheRight,
+            handleCheckedLeft: handleMoveCheckedItemsToTheLeft,
+            handleCheckedRight: handleMoveCheckedItemsToTheRight,
           }}
         />
       </div>
-      <div className={clsx(styles.right, !right.length && styles.empty)}>
+      <div className={styles.right}>
         <ListComponent
           items={right}
           checkedItems={checkedItems}

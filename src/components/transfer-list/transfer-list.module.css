@@ -5,22 +5,8 @@
 
   .left,
   .right {
-    box-shadow:
-      0 0 2px 0 var(--palette-primary-box-shadow),
-      0 12px 24px -4px var(--palette-secondary-box-shadow);
-
-    overflow: auto;
-
     block-size: 12.5rem;
     inline-size: 14rem;
-
-    border-radius: 1rem;
-
-    &.empty {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
   }
 
   .middle {
