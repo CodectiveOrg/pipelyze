@@ -8,18 +8,9 @@
 
   padding: 0.375rem 1rem;
 
-  border-radius: 0.75rem;
+  border-radius: var(--border-radius-2);
 
-  font-size: 0.857rem;
-  font-weight: 600;
-
-  div {
-    &:first-child {
-      color: var(--palette-common-black);
-
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
+  .cell {
+    line-height: 1.5rem;
   }
 }

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import CheckboxComponent from "@/components/checkbox/checkbox.component";
 import { FileExplorerItemType } from "@/components/file-explorer/type/file-explorer-item.type";
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
 import IconComponent from "@/components/icon/icon.component";
@@ -18,7 +17,6 @@ type Props = {
 export default function FileExplorerRowComponent({ item }: Props): ReactNode {
   return (
     <div className={styles["file-explorer-row"]}>
-      <CheckboxComponent />
       <div>
         <IconComponent
           name={item.type === "Folder" ? "folder-fill" : "file-fill"}

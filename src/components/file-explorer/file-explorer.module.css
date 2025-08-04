@@ -1,12 +1,12 @@
 .file-explorer {
   overflow-x: auto;
 
-  inline-size: 72rem;
+  max-inline-size: 72rem;
 
   margin-inline: auto;
 
   > div {
     display: grid;
-    grid-template-columns: 1fr 6fr 2fr 2fr 4fr 2fr 2fr;
+    grid-template-columns: 6fr 2fr 2fr 4fr 2fr 2fr;
   }
 }
