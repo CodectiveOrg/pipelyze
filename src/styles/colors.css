@@ -70,9 +70,6 @@
   --palette-action-selected-opacity: 0.08;
   --palette-action-focus-opacity: 0.12;
   --palette-action-activated-opacity: 0.12;
-
-  --palette-primary-box-shadow: hsl(210deg 13% 62% / 20%);
-  --palette-secondary-box-shadow: hsl(210deg 13% 62% / 12%);
 }
 
 .inherit {
