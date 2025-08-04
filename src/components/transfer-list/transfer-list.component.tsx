@@ -4,9 +4,9 @@ import { ReactNode, useState } from "react";
 
 import ButtonGroupComponent from "@/components/transfer-list/components/button-group/button-group.component";
 import ListComponent from "@/components/transfer-list/components/list/list.component";
+import { useCheckedItems } from "@/components/transfer-list/use-checked-items.hook";
 
 import { getDifference } from "@/utils/difference.utils";
-import { getIntersection } from "@/utils/intersection.utils";
 
 import styles from "./transfer-list.module.css";
 
@@ -15,25 +15,11 @@ type Props = {
 };
 
 export default function TransferListComponent({ items }: Props): ReactNode {
-  const [checkedItems, setCheckedItems] = useState<readonly string[]>([]);
   const [left, setLeft] = useState<readonly string[]>(items || []);
   const [right, setRight] = useState<readonly string[]>([]);
 
-  const leftChecked = getIntersection<string>(checkedItems, left);
-  const rightChecked = getIntersection<string>(checkedItems, right);
-
-  const handleToggle = (value: string): void => {
-    const currentIndex = checkedItems.indexOf(value);
-    const newChecked = [...checkedItems];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setCheckedItems(newChecked);
-  };
+  const [leftChecked, setLeftChecked, handleLeftToggle] = useCheckedItems();
+  const [rightChecked, setRightChecked, handleRightToggle] = useCheckedItems();
 
   const handleMoveAllItemsToTheRight = (): void => {
     setRight(right.concat(left));
@@ -43,13 +29,13 @@ export default function TransferListComponent({ items }: Props): ReactNode {
   const handleMoveCheckedItemsToTheRight = (): void => {
     setRight(right.concat(leftChecked));
     setLeft(getDifference<string>(left, leftChecked));
-    setCheckedItems(getDifference<string>(checkedItems, leftChecked));
+    setLeftChecked([]);
   };
 
   const handleMoveCheckedItemsToTheLeft = (): void => {
     setLeft(left.concat(rightChecked));
     setRight(getDifference<string>(right, rightChecked));
-    setCheckedItems(getDifference<string>(checkedItems, rightChecked));
+    setRightChecked([]);
   };
 
   const handleMoveAllItemsToTheLeft = (): void => {
@@ -61,8 +47,8 @@ export default function TransferListComponent({ items }: Props): ReactNode {
     <div className={styles["transfer-list"]}>
       <ListComponent
         items={left}
-        checkedItems={checkedItems}
-        onToggle={handleToggle}
+        checkedItems={leftChecked}
+        onToggle={handleLeftToggle}
       />
       <ButtonGroupComponent
         left={left}
@@ -76,8 +62,8 @@ export default function TransferListComponent({ items }: Props): ReactNode {
       />
       <ListComponent
         items={right}
-        checkedItems={checkedItems}
-        onToggle={handleToggle}
+        checkedItems={rightChecked}
+        onToggle={handleRightToggle}
       />
     </div>
   );

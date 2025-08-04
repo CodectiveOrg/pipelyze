@@ -10,8 +10,8 @@ type Action = () => void;
 type Props = {
   left: readonly string[];
   right: readonly string[];
-  leftChecked: string[];
-  rightChecked: string[];
+  leftChecked: readonly string[];
+  rightChecked: readonly string[];
   onMoveAllItemsToTheRight: Action;
   onMoveCheckedItemsToTheRight: Action;
   onMoveCheckedItemsToTheLeft: Action;
