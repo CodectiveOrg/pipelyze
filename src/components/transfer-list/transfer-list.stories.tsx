@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import TransferListComponent from "./transfer-list.component";
+import TransferListComponent from "@/components/transfer-list/transfer-list.component";
 
 const meta = {
   title: "Atoms/TransferList",
@@ -14,7 +14,7 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof TransferListComponent>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
