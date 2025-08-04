@@ -5,9 +5,4 @@
   gap: 1rem;
 
   block-size: 12.5rem;
-
-  .middle {
-    display: grid;
-    gap: 0.5rem;
-  }
 }

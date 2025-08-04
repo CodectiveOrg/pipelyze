@@ -64,17 +64,16 @@ export default function TransferListComponent({ items }: Props): ReactNode {
         checkedItems={checkedItems}
         onToggle={handleToggle}
       />
-      <div className={styles.middle}>
-        <ButtonGroupComponent
-          items={{ left, right, leftChecked, rightChecked }}
-          actions={{
-            handleAllLeft: handleMoveAllItemsToTheLeft,
-            handleAllRight: handleMoveAllItemsToTheRight,
-            handleCheckedLeft: handleMoveCheckedItemsToTheLeft,
-            handleCheckedRight: handleMoveCheckedItemsToTheRight,
-          }}
-        />
-      </div>
+      <ButtonGroupComponent
+        left={left}
+        right={right}
+        leftChecked={leftChecked}
+        rightChecked={rightChecked}
+        onMoveAllItemsToTheRight={handleMoveAllItemsToTheRight}
+        onMoveCheckedItemsToTheRight={handleMoveCheckedItemsToTheRight}
+        onMoveCheckedItemsToTheLeft={handleMoveCheckedItemsToTheLeft}
+        onMoveAllItemsToTheLeft={handleMoveAllItemsToTheLeft}
+      />
       <ListComponent
         items={right}
         checkedItems={checkedItems}
