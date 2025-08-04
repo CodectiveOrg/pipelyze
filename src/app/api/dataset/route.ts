@@ -4,6 +4,8 @@ import path from "node:path";
 
 import { NextRequest, NextResponse } from "next/server";
 
+import prisma from "@/lib/prisma";
+
 import { dateToFilenamePrefix } from "@/utils/date.utils";
 
 type Res = Promise<NextResponse<{ message: string } | { error: string }>>;
@@ -43,15 +45,17 @@ export const POST = async (req: NextRequest): Res => {
 
   const filename = dateToFilenamePrefix(new Date()) + "-" + crypto.randomUUID();
   const fileExtension = file.name.split(".").pop();
+  const filenameWithExtension = filename + "." + fileExtension;
 
-  const filePath = path.join(
-    process.env.DATASETS_PATH!,
-    filename + "." + fileExtension,
-  );
+  const filePath = path.join(process.env.DATASETS_PATH!, filenameWithExtension);
 
   try {
     const buffer = Buffer.from(await file.arrayBuffer());
     await fs.writeFile(filePath, buffer);
+
+    await prisma.dataset.create({
+      data: { filename: filenameWithExtension, title },
+    });
 
     return NextResponse.json({
       message: "File successfully imported.",
