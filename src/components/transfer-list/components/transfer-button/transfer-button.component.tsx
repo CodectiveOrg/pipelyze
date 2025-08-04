@@ -2,12 +2,12 @@ import type { ReactNode } from "react";
 
 import ButtonComponent from "@/components/button/button.component";
 import IconComponent from "@/components/icon/icon.component";
-import { Item } from "@/components/transfer-list/transfer-list.component";
+import { TransferListItem } from "@/components/transfer-list/types/transfer-list-item.type";
 
 type Props = {
-  items: readonly Item[];
+  items: readonly TransferListItem[];
   icon: string;
-  enabled: (item: Item) => boolean;
+  enabled: (item: TransferListItem) => boolean;
   onClick: () => void;
 };
 

@@ -4,14 +4,10 @@ import { ReactNode, useEffect, useState } from "react";
 
 import ListComponent from "@/components/transfer-list/components/list/list.component";
 import TransferButtonGroupComponent from "@/components/transfer-list/components/transfer-button-group/transfer-button-group.component";
+import { TransferListItemPosition } from "@/components/transfer-list/types/transfer-list-item-position.type";
+import { TransferListItem } from "@/components/transfer-list/types/transfer-list-item.type";
 
 import styles from "./transfer-list.module.css";
-
-export type Item = {
-  title: string;
-  position: "left" | "right";
-  isChecked: boolean;
-};
 
 type Props = {
   leftTitles: string[];
@@ -22,16 +18,16 @@ export default function TransferListComponent({
   leftTitles,
   rightTitles,
 }: Props): ReactNode {
-  const [items, setItems] = useState<readonly Item[]>([]);
+  const [items, setItems] = useState<readonly TransferListItem[]>([]);
 
   useEffect(() => {
-    const leftItems: Item[] = leftTitles.map((title) => ({
+    const leftItems: TransferListItem[] = leftTitles.map((title) => ({
       title,
       position: "left",
       isChecked: false,
     }));
 
-    const rightItems: Item[] = rightTitles.map((title) => ({
+    const rightItems: TransferListItem[] = rightTitles.map((title) => ({
       title,
       position: "right",
       isChecked: false,
@@ -46,11 +42,11 @@ export default function TransferListComponent({
     );
   };
 
-  const handleMoveAllItems = (position: "left" | "right"): void => {
+  const handleMoveAllItems = (position: TransferListItemPosition): void => {
     setItems((old) => old.map((item) => ({ ...item, position: position })));
   };
 
-  const handleMoveCheckedItems = (position: "left" | "right"): void => {
+  const handleMoveCheckedItems = (position: TransferListItemPosition): void => {
     setItems((old) =>
       old.map((item) => {
         if (item.position === position || !item.isChecked) {

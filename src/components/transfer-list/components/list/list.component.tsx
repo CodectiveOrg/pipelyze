@@ -3,14 +3,15 @@ import { ReactNode } from "react";
 import clsx from "clsx";
 
 import CheckboxComponent from "@/components/checkbox/checkbox.component";
-import { Item } from "@/components/transfer-list/transfer-list.component";
+import { TransferListItemPosition } from "@/components/transfer-list/types/transfer-list-item-position.type";
+import { TransferListItem } from "@/components/transfer-list/types/transfer-list-item.type";
 
 import styles from "./list.module.css";
 
 type Props = {
   className?: string;
-  position: "left" | "right";
-  items: readonly Item[];
+  position: TransferListItemPosition;
+  items: readonly TransferListItem[];
   onToggle: (index: number) => void;
 };
 

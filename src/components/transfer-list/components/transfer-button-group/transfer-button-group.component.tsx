@@ -1,14 +1,15 @@
 import { ReactNode } from "react";
 
 import TransferButtonComponent from "@/components/transfer-list/components/transfer-button/transfer-button.component";
-import { Item } from "@/components/transfer-list/transfer-list.component";
+import { TransferListItemPosition } from "@/components/transfer-list/types/transfer-list-item-position.type";
+import { TransferListItem } from "@/components/transfer-list/types/transfer-list-item.type";
 
 import styles from "./transfer-button-group.module.css";
 
 type Props = {
-  items: readonly Item[];
-  onMoveAllItems: (position: "left" | "right") => void;
-  onMoveCheckedItems: (position: "left" | "right") => void;
+  items: readonly TransferListItem[];
+  onMoveAllItems: (position: TransferListItemPosition) => void;
+  onMoveCheckedItems: (position: TransferListItemPosition) => void;
 };
 
 export default function TransferButtonGroupComponent({
