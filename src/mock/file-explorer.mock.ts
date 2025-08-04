@@ -1,0 +1,47 @@
+import { GetFileExplorerDto } from "@/components/file-explorer/dto/get-file-explorer-dto";
+
+export const FILE_EXPLORE_MOCK_ITEMS: GetFileExplorerDto[] = [
+  {
+    id: 1,
+    name: "Docs",
+    size: 12460000,
+    type: "Folder",
+    modified: "Sun Aug 29 2025 13:00:00 GMT+0330",
+    shared: [
+      { username: "bijanprogrammer", id: 1001, picture: "" },
+      { username: "zahrazare", id: 2002, picture: "" },
+    ],
+    liked: true,
+  },
+  {
+    id: 2,
+    name: "Projects",
+    size: 381.47,
+    type: "Folder",
+    modified: "Tue Feb 29 2020 05:00:42 GMT+0330",
+    shared: [{ username: "rezamazaheri", id: 3003, picture: "" }],
+    liked: false,
+  },
+  {
+    id: 3,
+    name: "Work",
+    size: 45805,
+    type: "jpg",
+    modified: "Tue Jul 05 2025 15:00:42 GMT+0330",
+    shared: [],
+    liked: true,
+  },
+  {
+    id: 4,
+    name: "Cover",
+    size: 100000,
+    type: "jpg",
+    modified: "Wed Jan 12 2025 15:00:42 GMT+0330",
+    shared: [
+      { username: "bijanprogrammer", id: 1001, picture: "" },
+      { username: "zahrazare", id: 2002, picture: "" },
+      { username: "rezamazaheri", id: 3003, picture: "" },
+    ],
+    liked: false,
+  },
+] as const;
