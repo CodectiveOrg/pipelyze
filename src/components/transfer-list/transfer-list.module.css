@@ -1,20 +1,13 @@
 .transfer-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: 14rem 4rem 14rem;
   align-items: center;
   gap: 1rem;
 
-  .left,
-  .right {
-    block-size: 12.5rem;
-    inline-size: 14rem;
-  }
+  block-size: 12.5rem;
 
   .middle {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 0.5rem;
-
-    block-size: auto;
-    inline-size: 4rem;
   }
 }

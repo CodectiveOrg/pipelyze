@@ -59,13 +59,11 @@ export default function TransferListComponent({ items }: Props): ReactNode {
 
   return (
     <div className={styles["transfer-list"]}>
-      <div className={styles.left}>
-        <ListComponent
-          items={left}
-          checkedItems={checkedItems}
-          onToggle={handleToggle}
-        />
-      </div>
+      <ListComponent
+        items={left}
+        checkedItems={checkedItems}
+        onToggle={handleToggle}
+      />
       <div className={styles.middle}>
         <ButtonGroupComponent
           items={{ left, right, leftChecked, rightChecked }}
@@ -77,13 +75,11 @@ export default function TransferListComponent({ items }: Props): ReactNode {
           }}
         />
       </div>
-      <div className={styles.right}>
-        <ListComponent
-          items={right}
-          checkedItems={checkedItems}
-          onToggle={handleToggle}
-        />
-      </div>
+      <ListComponent
+        items={right}
+        checkedItems={checkedItems}
+        onToggle={handleToggle}
+      />
     </div>
   );
 }
