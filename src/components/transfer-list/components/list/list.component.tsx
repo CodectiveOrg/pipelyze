@@ -30,12 +30,13 @@ export default function ListComponent({
           {items.map(
             (item, index) =>
               item.position === position && (
-                <li key={index} onClick={() => onToggle(index)}>
+                <li key={index}>
                   <CheckboxComponent
+                    className={styles.checkbox}
+                    label={item.title}
                     checked={item.isChecked}
                     onChange={() => onToggle(index)}
                   />
-                  <div className={styles.title}>{item.title}</div>
                 </li>
               ),
           )}

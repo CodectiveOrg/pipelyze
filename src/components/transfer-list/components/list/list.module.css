@@ -12,29 +12,15 @@
   border-radius: 1rem;
 
   ul {
+    list-style: none;
+
     li {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
+      .checkbox {
+        padding: 0.25rem 0.5rem;
 
-      list-style: none;
-
-      padding-block: 0.25rem;
-      padding-inline: 0.5rem;
-
-      .title {
-        overflow: hidden;
-
-        max-inline-size: 15ch;
-
-        text-overflow: ellipsis;
-        text-wrap: nowrap;
-      }
-
-      &:hover {
-        background-color: var(--palette-item-hover);
-
-        cursor: pointer;
+        &:hover {
+          background-color: var(--palette-item-hover);
+        }
       }
     }
   }
