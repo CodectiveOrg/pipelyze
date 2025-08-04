@@ -4,9 +4,8 @@ import { FileExplorerItemType } from "@/components/file-explorer/type/file-explo
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
 import IconComponent from "@/components/icon/icon.component";
 
-import { formatFileSize } from "@/utils/format-size.util";
-import { formatDateToYMD } from "@/utils/time.util";
-import { formatTimeToHMA } from "@/utils/time.util";
+import { formatFileSize } from "@/utils/number.utils";
+import { formatDateToYMD, formatTimeToHMA } from "@/utils/time.util";
 
 import styles from "./file-explorer-row.module.css";
 
