@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 
 import CheckboxComponent from "@/components/checkbox/checkbox.component";
 
-import styles from "./header.module.css";
+import styles from "./file-explorer-header.module.css";
 
-export default function HeaderComponent(): ReactNode {
+export default function FileExplorerHeaderComponent(): ReactNode {
   return (
-    <div className={styles.header}>
+    <div className={styles["file-explorer-header"]}>
       <CheckboxComponent />
       <div className={styles.name}>Name</div>
       <div>Size</div>

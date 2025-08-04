@@ -1,6 +1,6 @@
-import { GetFileExplorerDto } from "@/components/file-explorer/dto/get-file-explorer-dto";
+import { FileExplorerItemType } from "@/components/file-explorer/type/file-explorer-item.type";
 
-export const FILE_EXPLORE_MOCK_ITEMS: GetFileExplorerDto[] = [
+export const FILE_EXPLORE_MOCK_ITEMS: FileExplorerItemType[] = [
   {
     id: 1,
     name: "Docs",

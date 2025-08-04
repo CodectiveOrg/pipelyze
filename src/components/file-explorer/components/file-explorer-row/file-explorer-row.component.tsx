@@ -1,27 +1,28 @@
 import type { ReactNode } from "react";
 
 import CheckboxComponent from "@/components/checkbox/checkbox.component";
-import { GetFileExplorerDto } from "@/components/file-explorer/dto/get-file-explorer-dto";
-import FileIcon from "@/components/file-explorer/icons/file/file.icon";
-import FolderIcon from "@/components/file-explorer/icons/folder/folder.icon";
+import { FileExplorerItemType } from "@/components/file-explorer/type/file-explorer-item.type";
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
+import IconComponent from "@/components/icon/icon.component";
 
 import { formatFileSize } from "@/utils/format-size.util";
 import { formatDateToYMD } from "@/utils/time.util";
 import { formatTimeToHMA } from "@/utils/time.util";
 
-import styles from "./row.module.css";
+import styles from "./file-explorer-row.module.css";
 
 type Props = {
-  item: GetFileExplorerDto;
+  item: FileExplorerItemType;
 };
 
-export default function RowComponent({ item }: Props): ReactNode {
+export default function FileExplorerRowComponent({ item }: Props): ReactNode {
   return (
-    <div className={styles.row}>
+    <div className={styles["file-explorer-row"]}>
       <CheckboxComponent />
       <div>
-        {item.type === "Folder" ? <FolderIcon /> : <FileIcon />}
+        <IconComponent
+          name={item.type === "Folder" ? "folder-fill" : "file-fill"}
+        />
         {item.name}
       </div>
       <div>{formatFileSize(item.size)}</div>

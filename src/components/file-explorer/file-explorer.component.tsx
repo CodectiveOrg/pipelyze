@@ -1,23 +1,21 @@
 import type { ReactNode } from "react";
 
-import { GetFileExplorerDto } from "@/components/file-explorer/dto/get-file-explorer-dto";
-
-import HeaderComponent from "./components/header/header.component";
-import RowComponent from "./components/row/row.component";
+import FileExplorerHeaderComponent from "@/components/file-explorer/components/file-explorer-header/file-explorer-header.component";
+import FileExplorerRowComponent from "@/components/file-explorer/components/file-explorer-row/file-explorer-row.component";
+import { FileExplorerItemType } from "@/components/file-explorer/type/file-explorer-item.type";
 
 import styles from "./file-explorer.module.css";
 
 type Props = {
-  items: GetFileExplorerDto[];
+  items: FileExplorerItemType[];
 };
 
 export default function FileExplorerComponent({ items }: Props): ReactNode {
   return (
     <div className={styles["file-explorer"]}>
-      <HeaderComponent />
-
+      <FileExplorerHeaderComponent />
       {items.map((item) => (
-        <RowComponent key={item.id} item={item} />
+        <FileExplorerRowComponent key={item.id} item={item} />
       ))}
     </div>
   );
