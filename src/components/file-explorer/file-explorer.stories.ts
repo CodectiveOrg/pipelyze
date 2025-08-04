@@ -8,7 +8,7 @@ const meta = {
   title: "Organisms/FileExplorer",
   component: FileExplorerComponent,
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   tags: ["autodocs"],
   args: {},

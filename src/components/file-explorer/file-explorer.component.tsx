@@ -13,10 +13,12 @@ type Props = {
 export default function FileExplorerComponent({ items }: Props): ReactNode {
   return (
     <div className={styles["file-explorer"]}>
-      <FileExplorerHeaderComponent />
-      {items.map((item) => (
-        <FileExplorerRowComponent key={item.id} item={item} />
-      ))}
+      <div className={styles.table}>
+        <FileExplorerHeaderComponent />
+        {items.map((item) => (
+          <FileExplorerRowComponent key={item.id} item={item} />
+        ))}
+      </div>
     </div>
   );
 }
