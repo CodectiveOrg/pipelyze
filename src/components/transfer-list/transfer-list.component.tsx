@@ -9,6 +9,7 @@ import styles from "./transfer-list.module.css";
 
 export type Item = {
   title: string;
+  position: "left" | "right";
   isChecked: boolean;
 };
 
@@ -21,85 +22,55 @@ export default function TransferListComponent({
   leftTitles,
   rightTitles,
 }: Props): ReactNode {
-  const [leftItems, setLeftItems] = useState<readonly Item[]>([]);
-  const [rightItems, setRightItems] = useState<readonly Item[]>([]);
+  const [items, setItems] = useState<readonly Item[]>([]);
 
   useEffect(() => {
-    setLeftItems(leftTitles.map((title) => ({ title, isChecked: false })));
-  }, [leftTitles]);
+    const leftItems: Item[] = leftTitles.map((title) => ({
+      title,
+      position: "left",
+      isChecked: false,
+    }));
 
-  useEffect(() => {
-    setRightItems(rightTitles.map((title) => ({ title, isChecked: false })));
-  }, [rightTitles]);
+    const rightItems: Item[] = rightTitles.map((title) => ({
+      title,
+      position: "right",
+      isChecked: false,
+    }));
 
-  const handleLeftToggle = (index: number): void => {
-    setLeftItems((old) =>
+    setItems([...leftItems, ...rightItems]);
+  }, [leftTitles, rightTitles]);
+
+  const handleToggle = (index: number): void => {
+    setItems((old) =>
       old.with(index, { ...old[index], isChecked: !old[index].isChecked }),
     );
   };
 
-  const handleRightToggle = (index: number): void => {
-    setRightItems((old) =>
-      old.with(index, { ...old[index], isChecked: !old[index].isChecked }),
-    );
+  const handleMoveAllItems = (position: "left" | "right"): void => {
+    setItems((old) => old.map((item) => ({ ...item, position: position })));
   };
 
-  const handleMoveAllItemsToTheRight = (): void => {
-    setRightItems(
-      rightItems.concat(
-        leftItems.map((item) => ({ ...item, isChecked: false })),
-      ),
+  const handleMoveCheckedItems = (position: "left" | "right"): void => {
+    setItems((old) =>
+      old.map((item) => {
+        if (item.position === position || !item.isChecked) {
+          return item;
+        }
+
+        return { ...item, position: position, isChecked: false };
+      }),
     );
-
-    setLeftItems([]);
-  };
-
-  const handleMoveCheckedItemsToTheRight = (): void => {
-    setRightItems(
-      rightItems.concat(
-        leftItems
-          .filter((item) => item.isChecked)
-          .map((item) => ({ ...item, isChecked: false })),
-      ),
-    );
-
-    setLeftItems(leftItems.filter((item) => !item.isChecked));
-  };
-
-  const handleMoveCheckedItemsToTheLeft = (): void => {
-    setLeftItems(
-      leftItems.concat(
-        rightItems
-          .filter((item) => item.isChecked)
-          .map((item) => ({ ...item, isChecked: false })),
-      ),
-    );
-
-    setRightItems(rightItems.filter((item) => !item.isChecked));
-  };
-
-  const handleMoveAllItemsToTheLeft = (): void => {
-    setLeftItems(
-      leftItems.concat(
-        rightItems.map((item) => ({ ...item, isChecked: false })),
-      ),
-    );
-
-    setRightItems([]);
   };
 
   return (
     <div className={styles["transfer-list"]}>
-      <ListComponent items={leftItems} onToggle={handleLeftToggle} />
+      <ListComponent position="left" items={items} onToggle={handleToggle} />
       <ButtonGroupComponent
-        left={leftItems}
-        right={rightItems}
-        onMoveAllItemsToTheRight={handleMoveAllItemsToTheRight}
-        onMoveCheckedItemsToTheRight={handleMoveCheckedItemsToTheRight}
-        onMoveCheckedItemsToTheLeft={handleMoveCheckedItemsToTheLeft}
-        onMoveAllItemsToTheLeft={handleMoveAllItemsToTheLeft}
+        items={items}
+        onMoveAllItems={handleMoveAllItems}
+        onMoveCheckedItems={handleMoveCheckedItems}
       />
-      <ListComponent items={rightItems} onToggle={handleRightToggle} />
+      <ListComponent position="right" items={items} onToggle={handleToggle} />
     </div>
   );
 }

@@ -6,49 +6,52 @@ import { Item } from "@/components/transfer-list/transfer-list.component";
 
 import styles from "./button-group.module.css";
 
-type Action = () => void;
-
 type Props = {
-  left: readonly Item[];
-  right: readonly Item[];
-  onMoveAllItemsToTheRight: Action;
-  onMoveCheckedItemsToTheRight: Action;
-  onMoveCheckedItemsToTheLeft: Action;
-  onMoveAllItemsToTheLeft: Action;
+  items: readonly Item[];
+  onMoveAllItems: (position: "left" | "right") => void;
+  onMoveCheckedItems: (position: "left" | "right") => void;
 };
 
-export default function ButtonGroupComponent(props: Props): ReactNode {
+export default function ButtonGroupComponent({
+  items,
+  onMoveAllItems,
+  onMoveCheckedItems,
+}: Props): ReactNode {
   return (
     <div className={styles["button-group"]}>
       <ButtonComponent
         variant="outlined"
         color="inherit"
-        disabled={props.left.length === 0}
-        onClick={props.onMoveAllItemsToTheRight}
+        disabled={!items.some((item) => item.position === "left")}
+        onClick={() => onMoveAllItems("right")}
       >
         <IconComponent name="arrows-right-line" />
       </ButtonComponent>
       <ButtonComponent
         variant="outlined"
         color="inherit"
-        disabled={props.left.some((item) => item.isChecked)}
-        onClick={props.onMoveCheckedItemsToTheRight}
+        disabled={
+          !items.some((item) => item.position === "left" && item.isChecked)
+        }
+        onClick={() => onMoveCheckedItems("right")}
       >
         <IconComponent name="right-line" />
       </ButtonComponent>
       <ButtonComponent
         variant="outlined"
         color="inherit"
-        disabled={props.right.some((item) => item.isChecked)}
-        onClick={props.onMoveCheckedItemsToTheLeft}
+        disabled={
+          !items.some((item) => item.position === "right" && item.isChecked)
+        }
+        onClick={() => onMoveCheckedItems("left")}
       >
         <IconComponent name="left-line" />
       </ButtonComponent>
       <ButtonComponent
         variant="outlined"
         color="inherit"
-        disabled={props.right.length === 0}
-        onClick={props.onMoveAllItemsToTheLeft}
+        disabled={!items.some((item) => item.position === "right")}
+        onClick={() => onMoveAllItems("left")}
       >
         <IconComponent name="arrows-left-line" />
       </ButtonComponent>
