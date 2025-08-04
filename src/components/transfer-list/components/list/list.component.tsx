@@ -3,20 +3,19 @@ import { ReactNode } from "react";
 import clsx from "clsx";
 
 import CheckboxComponent from "@/components/checkbox/checkbox.component";
+import { Item } from "@/components/transfer-list/transfer-list.component";
 
 import styles from "./list.module.css";
 
 type Props = {
   className?: string;
-  items: readonly string[];
-  checkedItems: readonly string[];
-  onToggle: (value: string) => void;
+  items: readonly Item[];
+  onToggle: (index: number) => void;
 };
 
 export default function ListComponent({
   className,
   items,
-  checkedItems,
   onToggle,
 }: Props): ReactNode {
   return (
@@ -26,12 +25,12 @@ export default function ListComponent({
       ) : (
         <ul>
           {items.map((item, index) => (
-            <li key={index} onClick={() => onToggle(item)}>
+            <li key={index} onClick={() => onToggle(index)}>
               <CheckboxComponent
-                checked={checkedItems.includes(item)}
-                onChange={() => onToggle(item)}
+                checked={item.isChecked}
+                onChange={() => onToggle(index)}
               />
-              <div className={styles.title}>{item}</div>
+              <div className={styles.title}>{item.title}</div>
             </li>
           ))}
         </ul>

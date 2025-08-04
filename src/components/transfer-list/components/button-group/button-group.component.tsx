@@ -2,16 +2,15 @@ import { ReactNode } from "react";
 
 import ButtonComponent from "@/components/button/button.component";
 import IconComponent from "@/components/icon/icon.component";
+import { Item } from "@/components/transfer-list/transfer-list.component";
 
 import styles from "./button-group.module.css";
 
 type Action = () => void;
 
 type Props = {
-  left: readonly string[];
-  right: readonly string[];
-  leftChecked: readonly string[];
-  rightChecked: readonly string[];
+  left: readonly Item[];
+  right: readonly Item[];
   onMoveAllItemsToTheRight: Action;
   onMoveCheckedItemsToTheRight: Action;
   onMoveCheckedItemsToTheLeft: Action;
@@ -32,7 +31,7 @@ export default function ButtonGroupComponent(props: Props): ReactNode {
       <ButtonComponent
         variant="outlined"
         color="inherit"
-        disabled={props.leftChecked.length === 0}
+        disabled={props.left.some((item) => item.isChecked)}
         onClick={props.onMoveCheckedItemsToTheRight}
       >
         <IconComponent name="right-line" />
@@ -40,7 +39,7 @@ export default function ButtonGroupComponent(props: Props): ReactNode {
       <ButtonComponent
         variant="outlined"
         color="inherit"
-        disabled={props.rightChecked.length === 0}
+        disabled={props.right.some((item) => item.isChecked)}
         onClick={props.onMoveCheckedItemsToTheLeft}
       >
         <IconComponent name="left-line" />

@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    items: [
+    leftTitles: [
       "Item 1",
       "Item 2",
       "Item 3 (Intentionally Long Title)",
@@ -28,5 +28,6 @@ export const Default: Story = {
       "Item 7",
       "Item 8",
     ],
+    rightTitles: [],
   },
 };
