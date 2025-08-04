@@ -11,19 +11,19 @@
     padding-block: 0.25rem;
     padding-inline: 0.5rem;
 
-    &:hover {
-      background-color: var(--palette-item-hover);
-
-      cursor: pointer;
-    }
-
-    .item-content {
+    .title {
       overflow: hidden;
 
       max-inline-size: 15ch;
 
       text-overflow: ellipsis;
       text-wrap: nowrap;
+    }
+
+    &:hover {
+      background-color: var(--palette-item-hover);
+
+      cursor: pointer;
     }
   }
 }

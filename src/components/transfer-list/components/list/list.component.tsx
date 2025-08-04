@@ -15,7 +15,9 @@ export default function ListComponent({
   checkedItems,
   onToggle,
 }: Props): ReactNode {
-  if (!items.length) return <div className={styles.message}>No items</div>;
+  if (!items.length) {
+    return <div className={styles.message}>No items</div>;
+  }
 
   return (
     <ul className={styles.list}>
@@ -25,7 +27,7 @@ export default function ListComponent({
             checked={checkedItems.includes(item)}
             onChange={() => onToggle(item)}
           />
-          <div className={styles["item-content"]}>{item}</div>
+          <div className={styles.title}>{item}</div>
         </li>
       ))}
     </ul>
