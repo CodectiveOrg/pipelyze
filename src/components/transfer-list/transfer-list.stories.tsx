@@ -19,9 +19,9 @@ type Story = StoryObj<typeof TransferListComponent>;
 export const Default: Story = {
   args: {
     items: [
-      "The most recent item received",
+      "Item 1",
       "Item 2",
-      "Item 3",
+      "Item 3 (Intentionally Long Title)",
       "Item 4",
       "Item 5",
       "Item 6",
