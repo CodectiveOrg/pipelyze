@@ -4,7 +4,7 @@ import IconButtonComponent from "@/components/icon-button/icon-button.component"
 import IconComponent from "@/components/icon/icon.component";
 import TypographyComponent from "@/components/typography/typography.component";
 
-import { byteToMegaByte } from "@/utils/number.utils";
+import { formatFileSize } from "@/utils/format.utils";
 
 import styles from "./preview.module.css";
 
@@ -38,7 +38,7 @@ export default function PreviewComponent({ file, setFile }: Props): ReactNode {
         variant="caption"
         color="text-secondary"
       >
-        {byteToMegaByte(file.size)} MB
+        {formatFileSize(file.size)}
       </TypographyComponent>
       <IconButtonComponent
         className={styles.remove}
