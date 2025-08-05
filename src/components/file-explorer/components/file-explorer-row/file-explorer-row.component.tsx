@@ -21,16 +21,16 @@ export default function FileExplorerRowComponent({ item }: Props): ReactNode {
     <div className={styles["file-explorer-row"]}>
       <div>
         <IconComponent
-          name={item.type === "Folder" ? "folder-fill" : "file-fill"}
+          name={item.type === "folder" ? "folder-fill" : "file-fill"}
         />
-        {item.name}
+        {item.title}
       </div>
       <div>{formatFileSize(item.size)}</div>
       <div>{item.type}</div>
       <div>
-        <div>{dateFormatter.format(item.modified)}</div>
+        <div>{dateFormatter.format(item.modifiedAt)}</div>
         <div className={styles.time}>
-          {hourMinuteFormatter.format(item.modified)}
+          {hourMinuteFormatter.format(item.modifiedAt)}
         </div>
       </div>
       <div>Shared</div>

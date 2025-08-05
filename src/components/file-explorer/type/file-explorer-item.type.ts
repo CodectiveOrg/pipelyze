@@ -1,9 +1,8 @@
 export type FileExplorerItemType = {
   id: number;
-  name: string;
+  title: string;
   size: number;
-  type: "Folder" | "jpg" | string;
-  modified: Date;
-  shared: object[];
-  liked: boolean;
+  type: "folder" | "file";
+  modifiedAt: Date;
+  isFavorite: boolean;
 };
