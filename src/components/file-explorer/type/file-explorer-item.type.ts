@@ -1,8 +1,10 @@
+import { FileExplorerFileExtension } from "@/components/file-explorer/type/file-explorer-file-extension.type";
+
 export type FileExplorerItemType = {
   id: number;
   title: string;
   size: number;
-  type: "folder" | "file";
+  extension: FileExplorerFileExtension;
   modifiedAt: Date;
   isFavorite: boolean;
 };
