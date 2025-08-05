@@ -33,7 +33,6 @@ export default function FileExplorerRowComponent({ item }: Props): ReactNode {
           {hourMinuteFormatter.format(item.modifiedAt)}
         </div>
       </div>
-      <div>Shared</div>
       <div>
         <IconButtonComponent name="star-line" size="small" color="action" />
         <IconButtonComponent name="more-2-line" size="small" color="action" />

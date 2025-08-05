@@ -1,9 +1,10 @@
 .file-explorer-row {
+  grid-column: 1 / -1;
+
   display: grid;
   grid-template-columns: subgrid;
   align-items: center;
 
-  margin-block: 1rem;
   padding: 0.375rem 1rem;
 
   border: 1px solid var(--palette-grey-300);

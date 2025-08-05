@@ -4,11 +4,11 @@
   inline-size: 100%;
 
   .table {
-    min-inline-size: max-content;
+    display: grid;
+    grid-template-columns: 1fr repeat(4, minmax(5rem, auto));
+    column-gap: 2rem;
+    row-gap: 1rem;
 
-    > div {
-      display: grid;
-      grid-template-columns: 6fr 2fr 2fr 4fr 2fr 2fr;
-    }
+    min-inline-size: max-content;
   }
 }
