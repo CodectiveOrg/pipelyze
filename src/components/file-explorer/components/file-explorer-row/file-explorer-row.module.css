@@ -8,11 +8,7 @@
   padding: 0.375rem 1rem;
 
   border: 1px solid var(--palette-grey-300);
-  border-radius: 1rem;
-
-  transition: box-shadow 0.2s ease;
-
-  cursor: pointer;
+  border-radius: var(--border-radius-3);
 
   .cell {
     &.title {
@@ -25,14 +21,14 @@
       display: grid;
       gap: 0.25rem;
     }
-
-    &.actions {
-      display: flex;
-      justify-content: end;
-    }
   }
 
   &:hover {
-    box-shadow: 0 18px 10px var(--palette-grey-200);
+    background-color: var(--palette-common-white);
+    box-shadow: var(--shadows-z20);
+
+    transition:
+      background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
