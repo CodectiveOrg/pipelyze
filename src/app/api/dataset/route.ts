@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import prisma from "@/lib/prisma";
 
-import { dateToFilenamePrefix } from "@/utils/date.utils";
+import { formatFilenamePrefix } from "@/utils/format.utils";
 
 type Res = Promise<NextResponse<{ message: string } | { error: string }>>;
 
@@ -43,7 +43,7 @@ export const POST = async (req: NextRequest): Res => {
     return NextResponse.json({ error: "Title is required." }, { status: 400 });
   }
 
-  const filename = dateToFilenamePrefix(new Date()) + "-" + crypto.randomUUID();
+  const filename = formatFilenamePrefix(new Date()) + "-" + crypto.randomUUID();
   const fileExtension = file.name.split(".").pop();
   const filenameWithExtension = filename + "." + fileExtension;
 

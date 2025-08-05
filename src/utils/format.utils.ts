@@ -13,6 +13,19 @@ export const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 });
 
+export function formatFilenamePrefix(date: Date): string {
+  const parts = [
+    date.getUTCFullYear(),
+    date.getUTCMonth() + 1,
+    date.getUTCDate(),
+    date.getUTCHours(),
+    date.getUTCMinutes(),
+    date.getUTCSeconds(),
+  ];
+
+  return parts.map((x) => x.toString().padStart(2, "0")).join("");
+}
+
 export function formatFileSize(bytes: number): string {
   if (bytes < 0) {
     return "Invalid size";
