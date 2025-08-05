@@ -1,29 +1,31 @@
 import { ReactElement } from "react";
 
 import { Icon, IconProps } from "@iconify/react";
-import { getIconData } from "@iconify/utils";
-
-import { icons } from "@iconify-json/mingcute";
 
 import clsx from "clsx";
+
+import { useIconHook } from "@/components/icon/hooks/use-icon.hook";
+import { IconCollection } from "@/components/icon/types/icon-collection.type";
 
 import { ColorType } from "@/types/color.type";
 
 import styles from "./icon.module.css";
 
 type Props = Omit<IconProps, "icon" | "ssr" | "color"> & {
+  collection?: IconCollection;
   name: string;
   color?: ColorType;
 };
 
 export default function IconComponent({
+  collection = "mingcute",
   name,
   color = "inherit",
   inline = true,
   className,
   ...otherProps
 }: Props): ReactElement {
-  const iconData = getIconData(icons, name);
+  const iconData = useIconHook(collection, name);
 
   if (!iconData) {
     console.error(`Icon "${name}" is missing.`);
