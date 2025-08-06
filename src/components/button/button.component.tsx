@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -31,9 +31,7 @@ type AnchorProps = React.ComponentPropsWithoutRef<"a"> &
 
 export default function ButtonComponent(
   props: ButtonProps | AnchorProps,
-): 
-  
-  {
+): ReactNode {
   const {
     variant = "contained",
     color = "primary",
