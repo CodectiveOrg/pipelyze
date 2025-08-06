@@ -1,8 +1,5 @@
 .file-explorer-top-bar {
-  grid-column: 1 / -1;
-
-  display: grid;
-  grid-template-columns: minmax(5rem, auto) 1fr;
+  display: flex;
   align-items: center;
-  justify-items: end;
+  justify-content: space-between;
 }
