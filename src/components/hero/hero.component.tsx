@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import { Barlow } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +20,7 @@ const barlow = Barlow({
   weight: ["400", "600", "700"],
 });
 
-export default function HeroComponent() {
+export default function HeroComponent(): ReactNode {
   return (
     <>
       <div className={clsx(styles.circle, styles.circle1)}></div>

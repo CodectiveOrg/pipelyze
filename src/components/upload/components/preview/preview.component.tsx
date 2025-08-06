@@ -14,9 +14,9 @@ type Props = {
 };
 
 export default function PreviewComponent({ file, setFile }: Props): ReactNode {
-  function removeFile() {
+  const removeFile = (): void => {
     setFile(null);
-  }
+  };
 
   if (!file) {
     return null;

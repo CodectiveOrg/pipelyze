@@ -11,8 +11,6 @@ a.button {
   align-items: center;
   justify-content: center;
 
-  min-inline-size: 4rem;
-
   border: none;
   border-radius: var(--border-radius-1);
 

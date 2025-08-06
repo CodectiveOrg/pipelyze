@@ -29,7 +29,11 @@ type AnchorProps = React.ComponentPropsWithoutRef<"a"> &
     href?: string;
   };
 
-export default function ButtonComponent(props: ButtonProps | AnchorProps) {
+export default function ButtonComponent(
+  props: ButtonProps | AnchorProps,
+): 
+  
+  {
   const {
     variant = "contained",
     color = "primary",

@@ -16,7 +16,13 @@ const eslintConfig = [
     "plugin:storybook/recommended",
   ),
   {
-    ignores: ["src/app/generated/prisma/"],
+    ignores: ["**/generated/"],
+  },
+  {
+    rules: {
+      "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/explicit-member-accessibility": "error",
+    },
   },
 ];
 
