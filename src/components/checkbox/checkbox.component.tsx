@@ -39,7 +39,9 @@ export default function CheckboxComponent({
           className={styles.icon}
         />
       </span>
-      <TypographyComponent variant="body2">{label}</TypographyComponent>
+      <TypographyComponent ellipsis variant="body2">
+        {label}
+      </TypographyComponent>
     </label>
   );
 }

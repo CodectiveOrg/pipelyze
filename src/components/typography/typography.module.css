@@ -1,4 +1,11 @@
 .typography {
+  &.ellipsis {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   &.primary {
     color: var(--palette-primary-main);
   }

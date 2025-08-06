@@ -28,19 +28,29 @@ type TypographyColorType =
   | "text-disabled";
 
 type Props = PropsWithChildren<{
+  ellipsis?: boolean;
   variant: VariantType;
   color?: TypographyColorType;
   className?: string;
 }>;
 
 export default function TypographyComponent({
+  ellipsis = false,
   variant,
   color = "text-primary",
   className,
   children,
 }: Props): ReactElement {
   return (
-    <div className={clsx(styles.typography, variant, styles[color], className)}>
+    <div
+      className={clsx(
+        styles.typography,
+        ellipsis && styles.ellipsis,
+        variant,
+        styles[color],
+        className,
+      )}
+    >
       {children}
     </div>
   );
