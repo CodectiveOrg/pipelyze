@@ -1,0 +1,14 @@
+.file-explorer {
+  overflow: auto;
+
+  inline-size: 100%;
+
+  .table {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, minmax(5rem, auto));
+    column-gap: 2rem;
+    row-gap: 1rem;
+
+    min-inline-size: max-content;
+  }
+}

@@ -5,6 +5,7 @@ import type { Preview } from "@storybook/react";
 import "../src/app/globals.css";
 import "../src/styles/colors.css";
 import "../src/styles/shadows.css";
+import "../src/styles/shape.css";
 import "../src/styles/typography.css";
 import "./preview.css";
 

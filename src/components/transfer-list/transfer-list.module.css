@@ -1,0 +1,8 @@
+.transfer-list {
+  display: grid;
+  grid-template-columns: 14rem 4rem 14rem;
+  align-items: center;
+  gap: 1rem;
+
+  block-size: 12.5rem;
+}

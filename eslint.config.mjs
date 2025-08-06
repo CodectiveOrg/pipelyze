@@ -15,6 +15,9 @@ const eslintConfig = [
     "next/typescript",
     "plugin:storybook/recommended",
   ),
+  {
+    ignores: ["src/app/generated/prisma/"],
+  },
 ];
 
 export default eslintConfig;
