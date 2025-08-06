@@ -13,10 +13,8 @@ export default function FileExplorerFiltersSidebarComponent({
   onClose,
 }: Props): ReactNode {
   return (
-    <>
-      <FiltersSidebarComponent open={open} onReset={() => {}} onClose={onClose}>
-        <TextFieldComponent label="Start Date" />
-      </FiltersSidebarComponent>
-    </>
+    <FiltersSidebarComponent open={open} onReset={() => {}} onClose={onClose}>
+      <TextFieldComponent label="Start Date" />
+    </FiltersSidebarComponent>
   );
 }
