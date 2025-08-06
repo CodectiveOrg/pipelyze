@@ -1,0 +1,46 @@
+.page {
+  display: grid;
+  grid-template-columns: 20rem auto 1fr;
+  grid-template-rows: auto 1fr;
+
+  block-size: 100dvh;
+
+  .toolbar,
+  .sidebar,
+  .pipeline,
+  .preview {
+    align-content: center;
+
+    padding: 1rem;
+
+    border: 1px solid currentcolor;
+
+    font-size: 1.5rem;
+    font-weight: 900;
+
+    text-align: center;
+  }
+
+  .sidebar,
+  .toggle,
+  .pipeline,
+  .preview {
+    block-size: 100%;
+  }
+
+  .toolbar {
+    grid-column: 1 / -1;
+  }
+
+  .toggle {
+    border-radius: 0;
+  }
+
+  &.collapsed {
+    grid-template-columns: auto 1fr;
+
+    .sidebar {
+      display: none;
+    }
+  }
+}

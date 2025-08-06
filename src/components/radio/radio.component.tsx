@@ -28,7 +28,7 @@ export default function RadioComponent({
 
   const isDisabled = otherProps.disabled;
 
-  const activeRipple = () => {
+  const activeRipple = (): void => {
     const id = Date.now();
 
     setRipples((prev) => [...prev, id]);
