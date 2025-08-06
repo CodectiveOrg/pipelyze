@@ -1,3 +1,5 @@
+import { PropsWithChildren, ReactNode } from "react";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -17,11 +19,9 @@ export const metadata: Metadata = {
   title: "Pipelyze",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+type Props = PropsWithChildren;
+
+export default function RootLayout({ children }: Props): ReactNode {
   return (
     <html lang="en" className={inter.className}>
       <body>{children}</body>
