@@ -1,69 +1,46 @@
-.pipeline-page {
+.page {
   display: grid;
-  grid-template-areas:
-    "navbar navbar"
-    "sidebar main";
-  grid-template-columns: 12.5rem 1fr;
-  grid-template-rows: 4rem 1fr;
+  grid-template-columns: 20rem auto 1fr;
+  grid-template-rows: auto 1fr;
 
-  block-size: 100vh;
-  inline-size: 100vw;
+  block-size: 100dvh;
 
-  transition: grid-template-columns 0.3s ease-in-out;
+  .toolbar,
+  .sidebar,
+  .pipeline,
+  .preview {
+    align-content: center;
 
-  &.closed-sidebar {
-    grid-template-columns: 1rem 1fr;
+    padding: 1rem;
+
+    border: 1px solid currentcolor;
+
+    font-size: 1.5rem;
+    font-weight: 900;
+
+    text-align: center;
   }
 
-  nav {
-    grid-area: navbar;
-
-    display: grid;
-    place-items: center;
-
-    padding: 0 1rem;
-
-    border: 1px solid hsl(328deg 100% 54%);
+  .sidebar,
+  .toggle,
+  .pipeline,
+  .preview {
+    block-size: 100%;
   }
 
-  .sidebar {
-    grid-area: sidebar;
-
-    position: relative;
-
-    border: 1px solid hsl(120deg 100% 25%);
-
-    button {
-      background-color: hsl(120deg 100% 25%);
-      color: hsl(0deg 0% 100%);
-
-      position: absolute;
-      inset-block-start: 50%;
-      inset-inline-end: 0;
-
-      border: none;
-
-      transform: translate(100%, -50%);
-    }
+  .toolbar {
+    grid-column: 1 / -1;
   }
 
-  main {
-    grid-area: main;
+  .toggle {
+    border-radius: 0;
+  }
 
-    background-color: hsl(192deg 15% 94%);
+  &.collapsed {
+    grid-template-columns: auto 1fr;
 
-    .pipeline-section,
-    .preview {
-      display: grid;
-      place-items: center;
-
-      block-size: 100%;
-    }
-
-    .line-in-between {
-      background-color: hsl(219deg 79% 66%);
-
-      block-size: 0.25rem;
+    .sidebar {
+      display: none;
     }
   }
 }
