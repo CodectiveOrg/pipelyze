@@ -22,10 +22,17 @@
     display: grid;
     grid-template-columns: 1fr repeat(2, auto);
     align-items: center;
+    border-block-end: 1px dashed var(--palette-action-selected);
 
     padding-block: 1rem;
     padding-inline: 1.25rem 0.5rem;
+  }
 
-    border-block-end: 1px dashed var(--palette-action-selected);
+  > div {
+    display: grid;
+    gap: 1.5rem;
+
+    padding-block: 1rem;
+    padding-inline: 1.25rem 0.5rem;
   }
 }
