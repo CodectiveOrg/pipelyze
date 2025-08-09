@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -39,7 +39,6 @@ export default function FileExplorerHeaderComponent({
       </div>
       <div className={styles.cell}>Size</div>
       <div className={styles.cell}>Type</div>
-
       <div className={styles.cell} onClick={sortDateHandler}>
         {sortState.column === "modifiedAt" && sortState.direction ? (
           <>
