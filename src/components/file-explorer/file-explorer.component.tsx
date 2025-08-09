@@ -24,7 +24,7 @@ export default function FileExplorerComponent({ items }: Props): ReactNode {
   const [sortedItems, setSortedItems] = useState<FileExplorerItemType[]>(items);
   const [sortState, setSortState] = useState<SortStateType>({ column: null });
 
-  const toggleDirection = (dir: SortDirection) => {
+  const toggleDirection = (dir: SortDirection): SortDirection => {
     return dir === "ascending" ? "descending" : "ascending";
   };
 
