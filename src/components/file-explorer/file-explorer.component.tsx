@@ -28,7 +28,7 @@ export default function FileExplorerComponent({ items }: Props): ReactNode {
     return dir === "ascending" ? "descending" : "ascending";
   };
 
-  function sortTitleHandler() {
+  function sortTitleHandler(): void {
     setSortState((prev) => {
       let newDirection: SortDirection;
 
@@ -49,7 +49,7 @@ export default function FileExplorerComponent({ items }: Props): ReactNode {
     });
   }
 
-  function sortDateHandler() {
+  function sortDateHandler(): void {
     setSortState((prev) => {
       let newDirection: SortDirection;
 
