@@ -9,7 +9,7 @@ import styles from "./dialog.module.css";
 type Props = {
   ref: Ref<HTMLDialogElement>;
   title: string;
-  open: boolean;
+  open?: boolean;
   close: () => void;
   children: ReactNode;
 };
