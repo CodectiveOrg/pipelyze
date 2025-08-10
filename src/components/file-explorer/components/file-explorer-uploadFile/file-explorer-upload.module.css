@@ -1,0 +1,29 @@
+.file-explorer-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem;
+
+  button.upload-button {
+    background-color: var(--palette-common-black);
+  }
+
+  .upload-modal-status {
+    background-color: var(--palette-common-white);
+
+    position: fixed;
+    top: 8rem;
+
+    display: flex;
+    align-items: center;
+
+    padding: 2rem;
+
+    border-radius: var(--border-radius-1);
+
+    .upload {
+      position: absolute;
+    }
+  }
+}

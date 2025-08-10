@@ -4,6 +4,8 @@ import FileExplorerHeaderComponent from "@/components/file-explorer/components/f
 import FileExplorerRowComponent from "@/components/file-explorer/components/file-explorer-row/file-explorer-row.component";
 import { FileExplorerItemType } from "@/components/file-explorer/type/file-explorer-item.type";
 
+import FileExplorerUploadComponent from "./components/file-explorer-uploadFile/file-explorer-upload.copmonent";
+
 import styles from "./file-explorer.module.css";
 
 type Props = {
@@ -13,6 +15,7 @@ type Props = {
 export default function FileExplorerComponent({ items }: Props): ReactNode {
   return (
     <div className={styles["file-explorer"]}>
+      <FileExplorerUploadComponent />
       <div className={styles.table}>
         <FileExplorerHeaderComponent />
         {items.map((item) => (
