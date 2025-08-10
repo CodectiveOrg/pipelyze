@@ -20,6 +20,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    items: DATA_GRID_MOCK_ROWS,
+    columns: [],
+    rows: DATA_GRID_MOCK_ROWS,
   },
 };
