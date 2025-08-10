@@ -4,13 +4,13 @@ import { DataGridColumnType } from "@/components/data-grid/types/data-grid-colum
 
 import styles from "./data-grid-header.module.css";
 
-type Props = {
-  columns: DataGridColumnType[];
+type Props<TRow> = {
+  columns: DataGridColumnType<TRow>[];
 };
 
-export default function DataGridHeaderComponent({
+export default function DataGridHeaderComponent<TRow>({
   columns,
-}: Props): ReactElement {
+}: Props<TRow>): ReactElement {
   console.log(columns);
 
   return <div className={styles["data-grid-header"]}></div>;

@@ -1,7 +1,13 @@
 import { DataGridColumnType } from "@/components/data-grid/types/data-grid-column.type";
-import { DataGridRowType } from "@/components/data-grid/types/data-grid-row.type";
 
-export const DATA_GRID_MOCK_COLUMNS: DataGridColumnType[] = [
+type Row = {
+  id: number;
+  lastName: string;
+  firstName: string;
+  age: number | null;
+};
+
+export const DATA_GRID_MOCK_COLUMNS: DataGridColumnType<Row>[] = [
   { field: "id", title: "ID", width: 90 },
   {
     field: "firstName",
@@ -23,13 +29,14 @@ export const DATA_GRID_MOCK_COLUMNS: DataGridColumnType[] = [
     field: "fullName",
     title: "Full name",
     width: 160,
-    valueGetter: (value, row) =>
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      `${(row as any).firstName || ""} ${(row as any).lastName || ""}`,
+    valueGetter: (value, row): string => {
+      console.log(value);
+      return `${row.firstName || ""} ${row.lastName || ""}`;
+    },
   },
 ];
 
-export const DATA_GRID_MOCK_ROWS: DataGridRowType[] = [
+export const DATA_GRID_MOCK_ROWS: Row[] = [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 14 },
   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 31 },
   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 31 },
