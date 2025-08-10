@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export type DataGridColumnType = {
   field: string;
-  type: "string" | "number";
+  type?: "string" | "number";
   title?: string;
   width?: number;
   valueGetter?: DataGridColumnValueGetterType;
