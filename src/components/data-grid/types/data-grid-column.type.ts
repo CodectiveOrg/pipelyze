@@ -6,15 +6,13 @@ type CommonColumnProps = {
   width?: number;
 };
 
-// Mapped-union so the `field` determines the type of `value` in valueGetter
-export type DataGridColumnType<TRow> =
-  | {
-      [K in keyof TRow]: {
-        field: K;
-        valueGetter?: (value: TRow[K], row: TRow, index: number) => ReactNode;
-      } & CommonColumnProps;
-    }[keyof TRow]
-  | ({
-      field: Exclude<string, keyof TRow>; // arbitrary, not a key of TRow
+// Generic column type that infers field and value types
+export type DataGridColumnType<TRow, TField extends string> = TField extends keyof TRow
+  ? {
+      field: TField;
+      valueGetter?: (value: TRow[TField], row: TRow, index: number) => ReactNode;
+    } & CommonColumnProps
+  : {
+      field: TField;
       valueGetter?: (value: undefined, row: TRow, index: number) => ReactNode;
-    } & CommonColumnProps);
+    } & CommonColumnProps;
