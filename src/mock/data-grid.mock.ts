@@ -7,12 +7,12 @@ type Row = {
   age: number | null;
 };
 
-const row = {
-  field: "firstName" as const,
+const row: DataGridColumnType<Row> = {
+  field: "firstName",
   title: "Full name",
   width: 160,
   valueGetter: (value, row): string => {
     console.log(value);
     return `${row.firstName || ""} ${row.lastName || ""}`;
   },
-} satisfies DataGridColumnType<Row, "firstName">;
+};
