@@ -1,6 +1,6 @@
-import { DataGridEssentialsRowType } from "@/components/data-grid-essentials/types/data-grid-essentials-row.type";
+import { DataGridRowType } from "@/components/data-grid/types/data-grid-row.type";
 
-export const DATA_GRID_ESSENTIALS_MOCK_ROWS: DataGridEssentialsRowType[] = [
+export const DATA_GRID_MOCK_ROWS: DataGridRowType[] = [
   { id: 1, lastName: "Snow", firstName: "Jon", age: 14 },
   { id: 2, lastName: "Lannister", firstName: "Cersei", age: 31 },
   { id: 3, lastName: "Lannister", firstName: "Jaime", age: 31 },
