@@ -17,14 +17,16 @@ type Props = {
 export default function DialogComponent({
   ref,
   title,
-  open,
+  open = false,
   close,
   children,
 }: Props): ReactNode {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    if (open) dialogRef.current?.showModal();
+    if (open) {
+      dialogRef.current?.showModal();
+    }
     return (): void => dialogRef.current?.close();
   }, [open]);
 

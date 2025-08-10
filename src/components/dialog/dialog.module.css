@@ -4,8 +4,8 @@
   box-shadow: var(--shadows-dialog);
 
   position: absolute;
-  top: 50%;
-  left: 50%;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
   overflow: auto;
 
   display: grid;
