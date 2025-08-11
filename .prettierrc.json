@@ -8,6 +8,7 @@
     "^react-dropzone(/(.*))?$",
     "^@iconify(/(.*))?$",
     "^@iconify-json(/(.*))?$",
+    "^react-resizable-panels(/(.*))?$",
     "^clsx(/(.*))?$",
     "<THIRD_PARTY_MODULES>",
     "^@/assets",
