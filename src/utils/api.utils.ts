@@ -17,7 +17,7 @@ export async function tryCatch<TResult = void>(
     if (err instanceof z.ZodError) {
       return NextResponse.json(
         {
-          message: err.message,
+          message: err.issues.map((issue) => issue.message).join("\n"),
           error: "Bad Request",
         },
         { status: 400 },
