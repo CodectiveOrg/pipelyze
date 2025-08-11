@@ -4,52 +4,52 @@ import path from "node:path";
 
 import { NextRequest, NextResponse } from "next/server";
 
+import { ResponseDto } from "@/dto/response/response.dto";
+
+import { ApiError } from "@/errors/api.error";
+
 import prisma from "@/lib/prisma";
 
+import { tryCatch } from "@/utils/api.utils";
 import { formatFilenamePrefix } from "@/utils/format.utils";
 
-type Res = Promise<NextResponse<{ message: string } | { error: string }>>;
+export async function POST(
+  req: NextRequest,
+): Promise<NextResponse<ResponseDto>> {
+  return tryCatch(201, async () => {
+    const formData = await req.formData();
 
-export const POST = async (req: NextRequest): Res => {
-  const formData = await req.formData();
+    const file = formData.get("dataset");
 
-  const file = formData.get("dataset");
+    if (!file) {
+      throw new ApiError("Dataset is required.", 400);
+    }
 
-  if (!file) {
-    return NextResponse.json(
-      { error: "Dataset is required." },
-      { status: 400 },
+    if (typeof file === "string") {
+      throw new ApiError("Dataset has to be a file.", 400);
+    }
+
+    let title = formData.get("title");
+
+    if (typeof title !== "string") {
+      throw new ApiError("Title has to be a string.", 400);
+    }
+
+    title = title.trim();
+    if (!title) {
+      throw new ApiError("Title is required.", 400);
+    }
+
+    const filename =
+      formatFilenamePrefix(new Date()) + "-" + crypto.randomUUID();
+    const fileExtension = file.name.split(".").pop();
+    const filenameWithExtension = filename + "." + fileExtension;
+
+    const filePath = path.join(
+      process.env.DATASETS_PATH!,
+      filenameWithExtension,
     );
-  }
 
-  if (typeof file === "string") {
-    return NextResponse.json(
-      { error: "Dataset has to be a file." },
-      { status: 400 },
-    );
-  }
-
-  let title = formData.get("title");
-
-  if (typeof title !== "string") {
-    return NextResponse.json(
-      { error: "Title has to be a string." },
-      { status: 400 },
-    );
-  }
-
-  title = title.trim();
-  if (!title) {
-    return NextResponse.json({ error: "Title is required." }, { status: 400 });
-  }
-
-  const filename = formatFilenamePrefix(new Date()) + "-" + crypto.randomUUID();
-  const fileExtension = file.name.split(".").pop();
-  const filenameWithExtension = filename + "." + fileExtension;
-
-  const filePath = path.join(process.env.DATASETS_PATH!, filenameWithExtension);
-
-  try {
     const buffer = Buffer.from(await file.arrayBuffer());
     await fs.writeFile(filePath, buffer);
 
@@ -57,14 +57,6 @@ export const POST = async (req: NextRequest): Res => {
       data: { filename: filenameWithExtension, title },
     });
 
-    return NextResponse.json({
-      message: "File successfully imported.",
-      status: 201,
-    });
-  } catch (error) {
-    console.error("An error has been occurred.");
-    console.error(error);
-
-    return NextResponse.json({ error: "Something went wrong.", status: 500 });
-  }
-};
+    return { message: "File successfully imported." };
+  });
+}
