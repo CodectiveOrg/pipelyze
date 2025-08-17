@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 import { z } from "zod";
 
@@ -14,6 +14,11 @@ export function withTryCatch<TResult = void>(
   ): Promise<NextResponse<ResponseDto<TResult>>> => {
     return tryCatch(200, () => handler(...args));
   };
+}
+
+export function getSearchParams(req: NextRequest): Record<string, string> {
+  const searchParams = req.nextUrl.searchParams;
+  return Object.fromEntries(searchParams.entries());
 }
 
 async function tryCatch<TResult = void>(
