@@ -20,12 +20,15 @@ import { formatFilenamePrefix } from "@/utils/format.utils";
 
 export const GET = withTryCatch(
   async (req: NextRequest): Promise<GetDatasetsResponseDto> => {
-    const { page, pageSize } = GetDatasetsSchema.parse(getSearchParams(req));
+    const { sortField, sortMode, page, pageSize } = GetDatasetsSchema.parse(
+      getSearchParams(req),
+    );
 
     const whereClause = generateGetDatasetsWhereClause(req);
 
     const datasets = await prisma.dataset.findMany({
       where: whereClause,
+      orderBy: sortField && sortMode ? { [sortField]: sortMode } : undefined,
       take: pageSize,
       skip: (page - 1) * pageSize,
     });

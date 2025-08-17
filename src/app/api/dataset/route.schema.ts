@@ -9,6 +9,8 @@ export const GetDatasetsSchema = z.object({
   maxCreatedAt: z.coerce.date().optional(),
   minUpdatedAt: z.coerce.date().optional(),
   maxUpdatedAt: z.coerce.date().optional(),
+  sortField: z.string().optional(),
+  sortMode: z.union([z.literal("asc"), z.literal("desc")]).default("asc"),
   page: z.coerce.number().int().positive().default(1),
   pageSize: z.coerce.number().int().positive().default(10),
 });
