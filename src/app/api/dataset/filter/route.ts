@@ -1,41 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { z } from "zod";
+
+import { GetDatasetsResponseDto } from "@/dto/response/get-datasets.response.dto";
+
 import prisma from "@/lib/prisma";
 
-type Dataset = { id: number; filename: string; title: string | null };
-type Body = { page: number; size: number };
-type Res = Promise<
-  NextResponse<
-    | { result: { datasets: Dataset[]; pagesCount: number; page: number } }
-    | { error: string }
-  >
->;
+import { tryCatch } from "@/utils/api.utils";
 
-export const POST = async (req: NextRequest): Res => {
-  const { page, size }: Body = await req.json();
+export const POST = async (
+  req: NextRequest,
+): Promise<NextResponse<GetDatasetsResponseDto>> => {
+  return await tryCatch(200, async () => {
+    const { page, pageSize } = PostSchema.parse(await req.json());
 
-  if (page < 1) {
-    return NextResponse.json({ error: "Invalid page number" }, { status: 400 });
-  }
-
-  try {
     const datasets = await prisma.dataset.findMany({
-      take: size,
-      skip: (page - 1) * size,
+      take: pageSize,
+      skip: (page - 1) * pageSize,
     });
 
     const datasetsCount = await prisma.dataset.count();
-    const pagesCount = Math.ceil(datasetsCount / size);
+    const totalPages = Math.ceil(datasetsCount / pageSize);
 
-    const result = {
-      datasets,
-      pagesCount: pagesCount,
-      page,
+    return {
+      message: "Datasets fetched successfully.",
+      result: { datasets, totalPages },
     };
-
-    return NextResponse.json({ result }, { status: 200 });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Something went wrong.", status: 500 });
-  }
+  });
 };
+
+const PostSchema = z.object({
+  page: z.number().positive(),
+  pageSize: z.number().positive(),
+});
