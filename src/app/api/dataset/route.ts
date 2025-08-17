@@ -37,7 +37,7 @@ export async function POST(
       data: { filename: filenameWithExtension, title },
     });
 
-    return { message: "File successfully imported." };
+    return { message: "Dataset imported successfully." };
   });
 }
 
