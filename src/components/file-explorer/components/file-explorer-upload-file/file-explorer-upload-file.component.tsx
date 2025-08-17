@@ -6,9 +6,9 @@ import ButtonComponent from "@/components/button/button.component";
 import TypographyComponent from "@/components/typography/typography.component";
 import UploadComponent from "@/components/upload/upload.component";
 
-import styles from "./file-explorer-upload.module.css";
+import styles from "./file-explorer-upload-file.module.css";
 
-export default function FileExplorerUploadComponent(): ReactNode {
+export default function FileExplorerUploadFileComponent(): ReactNode {
   const [open, setOpen] = useState(false);
   return (
     <div className={styles["file-explorer-upload"]}>

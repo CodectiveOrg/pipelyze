@@ -4,7 +4,7 @@ import FileExplorerHeaderComponent from "@/components/file-explorer/components/f
 import FileExplorerRowComponent from "@/components/file-explorer/components/file-explorer-row/file-explorer-row.component";
 import { FileExplorerItemType } from "@/components/file-explorer/type/file-explorer-item.type";
 
-import FileExplorerUploadComponent from "./components/file-explorer-uploadFile/file-explorer-upload.component";
+import FileExplorerUploadComponent from "./components/file-explorer-upload-file/file-explorer-upload-file.component";
 
 import styles from "./file-explorer.module.css";
 
