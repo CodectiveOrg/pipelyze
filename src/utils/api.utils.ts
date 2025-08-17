@@ -6,7 +6,17 @@ import { ResponseDto } from "@/dto/response/response.dto";
 
 import { ApiError } from "@/errors/api.error";
 
-export async function tryCatch<TResult = void>(
+export function withTryCatch<TResult = void>(
+  handler: (...args: never[]) => Promise<ResponseDto<TResult>>,
+) {
+  return async (
+    ...args: never[]
+  ): Promise<NextResponse<ResponseDto<TResult>>> => {
+    return tryCatch(200, () => handler(...args));
+  };
+}
+
+async function tryCatch<TResult = void>(
   successStatus: number,
   callback: () => Promise<ResponseDto<TResult>>,
 ): Promise<NextResponse<ResponseDto<TResult>>> {

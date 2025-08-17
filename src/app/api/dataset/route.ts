@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 import { z } from "zod";
 import { zfd } from "zod-form-data";
@@ -11,13 +11,11 @@ import { ResponseDto } from "@/dto/response/response.dto";
 
 import prisma from "@/lib/prisma";
 
-import { tryCatch } from "@/utils/api.utils";
+import { withTryCatch } from "@/utils/api.utils";
 import { formatFilenamePrefix } from "@/utils/format.utils";
 
-export async function POST(
-  req: NextRequest,
-): Promise<NextResponse<ResponseDto>> {
-  return tryCatch(201, async () => {
+export const POST = withTryCatch(
+  async (req: NextRequest): Promise<ResponseDto> => {
     const { file, title } = PostSchema.parse(await req.formData());
 
     const filename =
@@ -38,8 +36,8 @@ export async function POST(
     });
 
     return { message: "Dataset imported successfully." };
-  });
-}
+  },
+);
 
 const PostSchema = zfd.formData({
   file: zfd.file(),
