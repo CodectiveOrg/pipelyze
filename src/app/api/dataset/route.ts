@@ -4,8 +4,11 @@ import path from "node:path";
 
 import { NextRequest } from "next/server";
 
-import { z } from "zod";
-import { zfd } from "zod-form-data";
+import {
+  CreateDatasetSchema,
+  GetDatasetsSchema,
+} from "@/app/api/dataset/route.schema";
+import { generateGetDatasetsWhereClause } from "@/app/api/dataset/route.utils";
 
 import { GetDatasetsResponseDto } from "@/dto/response/get-datasets.response.dto";
 import { ResponseDto } from "@/dto/response/response.dto";
@@ -17,14 +20,20 @@ import { formatFilenamePrefix } from "@/utils/format.utils";
 
 export const GET = withTryCatch(
   async (req: NextRequest): Promise<GetDatasetsResponseDto> => {
-    const { page, pageSize } = GetSchema.parse(getSearchParams(req));
+    const { page, pageSize } = GetDatasetsSchema.parse(getSearchParams(req));
+
+    const whereClause = generateGetDatasetsWhereClause(req);
 
     const datasets = await prisma.dataset.findMany({
+      where: whereClause,
       take: pageSize,
       skip: (page - 1) * pageSize,
     });
 
-    const datasetsCount = await prisma.dataset.count();
+    const datasetsCount = await prisma.dataset.count({
+      where: whereClause,
+    });
+
     const totalPages = Math.ceil(datasetsCount / pageSize);
 
     return {
@@ -36,7 +45,7 @@ export const GET = withTryCatch(
 
 export const POST = withTryCatch(
   async (req: NextRequest): Promise<ResponseDto> => {
-    const { file, title } = PostSchema.parse(await req.formData());
+    const { file, title } = CreateDatasetSchema.parse(await req.formData());
 
     const filename =
       formatFilenamePrefix(new Date()) + "-" + crypto.randomUUID();
@@ -52,19 +61,9 @@ export const POST = withTryCatch(
     await fs.writeFile(filePath, buffer);
 
     await prisma.dataset.create({
-      data: { filename: filenameWithExtension, title },
+      data: { filename: filenameWithExtension, title, size: file.size },
     });
 
     return { message: "Dataset imported successfully." };
   },
 );
-
-const GetSchema = z.object({
-  page: z.coerce.number().positive().default(1),
-  pageSize: z.coerce.number().positive().default(10),
-});
-
-const PostSchema = zfd.formData({
-  file: zfd.file(),
-  title: zfd.text(z.string().trim()),
-});
