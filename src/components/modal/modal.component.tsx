@@ -1,34 +1,23 @@
-"use client";
+import { PropsWithChildren, type ReactNode, Ref, useRef } from "react";
 
-import { type ReactNode, Ref, useEffect, useRef } from "react";
-
+import IconButtonComponent from "@/components/icon-button/icon-button.component";
 import TypographyComponent from "@/components/typography/typography.component";
 
 import styles from "./modal.module.css";
 
-type Props = {
+type Props = PropsWithChildren<{
   ref: Ref<HTMLDialogElement>;
   title: string;
-  open?: boolean;
-  close: () => void;
-  children: ReactNode;
-};
+  onClose: () => void;
+}>;
 
 export default function ModalComponent({
   ref,
   title,
-  open = false,
-  close,
+  onClose,
   children,
 }: Props): ReactNode {
   const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    if (open) {
-      dialogRef.current?.showModal();
-    }
-    return (): void => dialogRef.current?.close();
-  }, [open]);
 
   return (
     <dialog
@@ -37,16 +26,19 @@ export default function ModalComponent({
         if (typeof ref === "function") {
           ref(element);
         } else {
-          if (ref?.current) ref.current = element;
+          ref.current = element;
         }
       }}
       className={styles.dialog}
-      onClose={close}
+      onClose={onClose}
     >
-      <header>
-        <TypographyComponent variant="h6">{title}</TypographyComponent>
-      </header>
-      {children}
+      <div className={styles.modal}>
+        <header>
+          <TypographyComponent variant="h6">{title}</TypographyComponent>
+          <IconButtonComponent name="close-line" />
+        </header>
+        <div className={styles.content}>{children}</div>
+      </div>
     </dialog>
   );
 }
