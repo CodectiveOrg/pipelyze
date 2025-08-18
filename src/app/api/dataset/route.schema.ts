@@ -19,3 +19,7 @@ export const CreateDatasetSchema = zfd.formData({
   file: zfd.file(),
   title: zfd.text(z.string().trim()),
 });
+
+export const GetFileSchema = z.object({
+  id: z.string(),
+});
