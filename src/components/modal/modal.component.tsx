@@ -2,8 +2,7 @@ import {
   MouseEvent,
   PropsWithChildren,
   type ReactNode,
-  Ref,
-  useRef,
+  RefObject,
 } from "react";
 
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
@@ -12,7 +11,7 @@ import TypographyComponent from "@/components/typography/typography.component";
 import styles from "./modal.module.css";
 
 type Props = PropsWithChildren<{
-  ref: Ref<HTMLDialogElement>;
+  ref: RefObject<HTMLDialogElement | null>;
   title: string;
   onClose: () => void;
 }>;
@@ -23,8 +22,6 @@ export default function ModalComponent({
   onClose,
   children,
 }: Props): ReactNode {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
   const handleClick = (e: MouseEvent<HTMLDialogElement>): void => {
     if (e.currentTarget === e.target) {
       handleClose();
@@ -32,20 +29,12 @@ export default function ModalComponent({
   };
 
   const handleClose = (): void => {
-    dialogRef.current?.close();
-    onClose();
+    ref?.current?.close();
   };
 
   return (
     <dialog
-      ref={(element) => {
-        dialogRef.current = element;
-        if (typeof ref === "function") {
-          ref(element);
-        } else {
-          ref.current = element;
-        }
-      }}
+      ref={ref}
       className={styles.dialog}
       onClick={handleClick}
       onClose={onClose}
