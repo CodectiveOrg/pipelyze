@@ -7,18 +7,23 @@ import { type FileExplorerItemType } from "@/components/file-explorer/type/file-
 
 import styles from "./page.module.css";
 
+type FetchDatasetResponse = {
+  dataset: FileExplorerItemType[];
+  totalPages: number;
+};
+
 export default function Page(): ReactNode {
   const handleFetch = async (
     page: number,
     pageSize: number,
-  ): Promise<FileExplorerItemType[]> => {
+  ): Promise<FetchDatasetResponse> => {
     const res = await fetch(
       `http://localhost:3000/api/dataset?page=${page}&pageSize=${pageSize}`,
     );
     const data = await res.json();
-    const dataset: FileExplorerItemType[] = await data.result.datasets;
+    const result: FetchDatasetResponse = await data.result;
 
-    return dataset;
+    return result;
   };
 
   return (
