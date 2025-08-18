@@ -4,7 +4,7 @@ import { type ReactNode, Ref, useEffect, useRef } from "react";
 
 import TypographyComponent from "@/components/typography/typography.component";
 
-import styles from "./dialog.module.css";
+import styles from "./modal.module.css";
 
 type Props = {
   ref: Ref<HTMLDialogElement>;
@@ -14,7 +14,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function DialogComponent({
+export default function ModalComponent({
   ref,
   title,
   open = false,
