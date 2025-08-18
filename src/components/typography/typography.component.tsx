@@ -47,6 +47,7 @@ export default function TypographyComponent({
         styles.typography,
         ellipsis && styles.ellipsis,
         variant,
+        color,
         styles[color],
         className,
       )}
