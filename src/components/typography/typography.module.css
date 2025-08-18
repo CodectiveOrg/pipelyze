@@ -1,29 +1,11 @@
 .typography {
+  color: var(--color-main);
+
   &.ellipsis {
     overflow: hidden;
 
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  &.primary {
-    color: var(--palette-primary-main);
-  }
-
-  &.secondary {
-    color: var(--palette-secondary-main);
-  }
-
-  &.info {
-    color: var(--palette-info-main);
-  }
-
-  &.warning {
-    color: var(--palette-warning-main);
-  }
-
-  &.error {
-    color: var(--palette-error-main);
   }
 
   &.text-primary {
