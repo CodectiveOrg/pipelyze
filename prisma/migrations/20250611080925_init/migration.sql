@@ -3,9 +3,6 @@ CREATE TABLE "Dataset" (
     "id" SERIAL NOT NULL,
     "filename" TEXT NOT NULL,
     "title" TEXT,
-    "size" INTEGER NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Dataset_pkey" PRIMARY KEY ("id")
 );
