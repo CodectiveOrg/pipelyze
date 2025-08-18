@@ -3,7 +3,6 @@
   color: var(--palette-grey-800);
   box-shadow: var(--shadows-dialog);
 
-  max-block-size: calc(100% - 8rem);
   inline-size: min(37.5rem, 100%);
 
   margin: auto;
