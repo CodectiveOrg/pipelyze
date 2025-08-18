@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactElement, useCallback, useState } from "react";
+import { Dispatch, ReactElement, SetStateAction, useCallback } from "react";
 
 import { DropzoneOptions, useDropzone } from "react-dropzone";
 
@@ -12,15 +12,29 @@ import UploadIllustration from "@/illustrations/upload/upload.illustration";
 import styles from "./upload.module.css";
 
 type Props = {
+  name: string;
+  file: File | null;
+  controlFileError?: () => void;
+  setFile: Dispatch<SetStateAction<File | null>>;
   options?: Omit<DropzoneOptions, "maxFiles" | "onDrop">;
 };
 
-export default function UploadComponent({ options }: Props): ReactElement {
-  const [file, setFile] = useState<File | null>(null);
-
-  const onDrop = useCallback((files: File[]) => {
-    setFile(files[0]);
-  }, []);
+export default function UploadComponent({
+  name,
+  file,
+  controlFileError,
+  setFile,
+  options,
+}: Props): ReactElement {
+  const onDrop = useCallback(
+    (files: File[]) => {
+      setFile(files[0]);
+      if (controlFileError) {
+        controlFileError();
+      }
+    },
+    [setFile, controlFileError],
+  );
 
   const { getRootProps, getInputProps } = useDropzone({
     ...options,
@@ -31,7 +45,7 @@ export default function UploadComponent({ options }: Props): ReactElement {
   return (
     <div className={styles.upload}>
       <div className={styles.dropzone} {...getRootProps()}>
-        <input tabIndex={-1} type="file" {...getInputProps()} />
+        <input tabIndex={-1} type="file" {...getInputProps()} name={name} />
         <UploadIllustration />
         <TypographyComponent variant="h6">
           Drop or select file
