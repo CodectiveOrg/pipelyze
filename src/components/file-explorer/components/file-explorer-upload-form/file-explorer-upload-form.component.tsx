@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import React, { type ReactNode, useState } from "react";
 
 import ButtonComponent from "@/components/button/button.component";
 import TextFieldComponent from "@/components/text-field/text-field.component";
@@ -28,15 +28,19 @@ export default function FileExplorerUploadFormComponent(): ReactNode {
 
   const validateForm = (): boolean => {
     let valid = true;
+
     setTitleError(null);
+
     setFileError(null);
 
     if (!title.trim()) {
       setTitleError("Title is required.");
+
       valid = false;
     }
     if (!file) {
       setFileError("File is required.");
+
       valid = false;
     }
 
@@ -45,7 +49,9 @@ export default function FileExplorerUploadFormComponent(): ReactNode {
 
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
+
     setError(null);
+
     setSuccess(null);
 
     if (!validateForm()) {
@@ -84,6 +90,21 @@ export default function FileExplorerUploadFormComponent(): ReactNode {
       setLoading(false);
     }
   };
+
+  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    setTitle(e.target.value);
+
+    if (titleError) {
+      setTitleError(null);
+    }
+  };
+
+  const handleControlFileError = (): void => {
+    if (fileError) {
+      setFileError(null);
+    }
+  };
+
   return (
     <div className={styles["upload-form"]}>
       <TypographyComponent variant="subtitle1">Add Files</TypographyComponent>
@@ -94,12 +115,7 @@ export default function FileExplorerUploadFormComponent(): ReactNode {
           size="small"
           name="title"
           value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-            if (titleError) {
-              setTitleError(null);
-            }
-          }}
+          onChange={(e) => handleTitle(e)}
           error={Boolean(titleError)}
         />
         {titleError && (
@@ -110,11 +126,7 @@ export default function FileExplorerUploadFormComponent(): ReactNode {
         <UploadComponent
           file={file}
           setFile={setFile}
-          controlFileError={() => {
-            if (fileError) {
-              setFileError(null);
-            }
-          }}
+          controlFileError={handleControlFileError}
           name="dataset"
         />
         {fileError && (
