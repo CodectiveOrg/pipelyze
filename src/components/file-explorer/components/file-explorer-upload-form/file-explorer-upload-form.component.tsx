@@ -63,7 +63,7 @@ export default function FileExplorerUploadFormComponent(): ReactNode {
     try {
       const formData = new FormData();
       formData.append("title", title.trim());
-      formData.append("dataset", file as File);
+      formData.append("file", file as File);
 
       const res = await fetch("/api/dataset", {
         method: "POST",
@@ -127,7 +127,7 @@ export default function FileExplorerUploadFormComponent(): ReactNode {
           file={file}
           setFile={setFile}
           controlFileError={handleControlFileError}
-          name="dataset"
+          name="file"
         />
         {fileError && (
           <TypographyComponent variant="caption" color="error">
