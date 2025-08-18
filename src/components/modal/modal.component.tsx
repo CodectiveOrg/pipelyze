@@ -1,9 +1,12 @@
 import {
+  CSSProperties,
   MouseEvent,
   PropsWithChildren,
   type ReactNode,
   RefObject,
 } from "react";
+
+import clsx from "clsx";
 
 import IconButtonComponent from "@/components/icon-button/icon-button.component";
 import TypographyComponent from "@/components/typography/typography.component";
@@ -12,13 +15,21 @@ import styles from "./modal.module.css";
 
 type Props = PropsWithChildren<{
   ref: RefObject<HTMLDialogElement | null>;
+  className?: string;
+  contentClassName?: string;
+  bodyClassName?: string;
   title: string;
+  maxInlineSize?: CSSProperties["inlineSize"];
   onClose: () => void;
 }>;
 
 export default function ModalComponent({
   ref,
+  className,
+  contentClassName,
+  bodyClassName,
   title,
+  maxInlineSize = "35rem",
   onClose,
   children,
 }: Props): ReactNode {
@@ -35,16 +46,17 @@ export default function ModalComponent({
   return (
     <dialog
       ref={ref}
-      className={styles.dialog}
+      className={clsx(styles.modal, className)}
+      style={{ inlineSize: `min(${maxInlineSize}, 100%)` }}
       onClick={handleClick}
       onClose={onClose}
     >
-      <div className={styles.modal}>
+      <div className={clsx(styles.content, contentClassName)}>
         <header>
           <TypographyComponent variant="h6">{title}</TypographyComponent>
           <IconButtonComponent name="close-line" onClick={handleClose} />
         </header>
-        <div className={styles.content}>{children}</div>
+        <div className={clsx(styles.body, bodyClassName)}>{children}</div>
       </div>
     </dialog>
   );

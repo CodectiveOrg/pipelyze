@@ -1,9 +1,7 @@
-.dialog {
+.modal {
   background-color: var(--palette-common-white);
   color: var(--palette-grey-800);
   box-shadow: var(--shadows-dialog);
-
-  inline-size: min(37.5rem, 100%);
 
   margin: auto;
 
@@ -20,11 +18,13 @@
     backdrop-filter: blur(5px);
   }
 
-  .modal {
+  .content {
     display: grid;
     gap: 1.5rem;
 
     padding: 1.5rem;
+
+    border-radius: inherit;
 
     > header {
       display: flex;
