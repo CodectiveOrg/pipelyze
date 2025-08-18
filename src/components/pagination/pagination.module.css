@@ -1,0 +1,47 @@
+.pagination {
+  display: flex;
+  align-items: center;
+
+  margin: 2rem;
+
+  .rows-per-page {
+    display: flex;
+    align-items: center;
+
+    .menu {
+      margin-inline-start: 0.5rem;
+      margin-inline-end: 2rem;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    margin-inline-start: 1.25rem;
+    margin-inline-end: 0.5rem;
+
+    .action {
+      display: flex;
+      place-content: center;
+      align-items: center;
+
+      block-size: 2.125rem;
+      inline-size: 2.125rem;
+
+      border-radius: 999px;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--palette-action-hover);
+      }
+
+      &.disabled {
+        background-color: transparent;
+
+        cursor: auto;
+      }
+    }
+  }
+}
