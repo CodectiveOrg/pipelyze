@@ -1,31 +1,39 @@
-import fs from "node:fs/promises";
+import fs from "node:fs";
 import path from "node:path";
 
-import { GetFileResponseDto } from "@/dto/response/get-file.response.dto";
+import { NextRequest, NextResponse } from "next/server";
 
 import prisma from "@/lib/prisma";
 
-import { withTryCatch } from "@/utils/api.utils";
+type GetFileContext = { params: Promise<{ id: string }> };
 
-export const GET = withTryCatch(
-  async ({
-    params,
-  }: {
-    params: { id: string };
-  }): Promise<GetFileResponseDto> => {
-    const { id } = params;
+export const GET = async (
+  _: NextRequest,
+  { params }: GetFileContext,
+): Promise<NextResponse> => {
+  const { id } = await params;
 
-    const dataset = await prisma.dataset.findFirst({
-      where: { id: parseInt(id) },
-    });
+  const dataset = await prisma.dataset.findUnique({
+    where: { id: parseInt(id) },
+  });
 
-    const filePath = path.join(process.env.DATASETS_PATH!, dataset!.filename);
+  if (!dataset) {
+    return NextResponse.json({ error: "idk" });
+  }
 
-    const buffer = await fs.readFile(filePath);
+  const filePath = path.join(process.env.DATASETS_PATH!, dataset.filename);
 
-    return {
-      message: "File fetched successfully.",
-      result: { file: buffer },
-    };
-  },
-);
+  const filename = `${dataset.title}.xlsx`;
+
+  if (!fs.existsSync(filePath)) {
+    return NextResponse.json({ error: "not found" });
+  }
+
+  const fileBuffer = fs.readFileSync(filePath);
+
+  const headers = new Headers();
+  headers.set("Content-Type", "application/octet-stream");
+  headers.set("Content-Disposition", `attachment; filename="${filename}"`);
+
+  return new NextResponse(fileBuffer, { headers });
+};
