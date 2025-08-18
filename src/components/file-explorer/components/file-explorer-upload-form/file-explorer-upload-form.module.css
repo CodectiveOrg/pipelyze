@@ -1,0 +1,25 @@
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  inline-size: 30rem;
+
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 1rem;
+
+  border: 1px solid var(--palette-grey-600);
+  border-radius: var(--border-radius-1);
+
+  form {
+    display: grid;
+    row-gap: 0.75rem;
+
+    .button-actions {
+      display: flex;
+      justify-content: end;
+      gap: 0.5rem;
+    }
+  }
+}
