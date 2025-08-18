@@ -4,7 +4,6 @@ export type FileExplorerItemType = {
   id: number;
   title: string;
   size: number;
-  extension: FileExplorerFileExtension;
-  modifiedAt: Date;
-  isFavorite: boolean;
+  filename: FileExplorerFileExtension;
+  updatedAt: Date;
 };

@@ -6,16 +6,18 @@ import { FileExplorerItemType } from "@/components/file-explorer/type/file-explo
 
 import styles from "./file-explorer.module.css";
 
-type Props = {
-  items: FileExplorerItemType[];
-};
+export default async function FileExplorerComponent(): Promise<ReactNode> {
+  const res = await fetch(
+    "http://localhost:3000/api/dataset?page=1&pageSize=2",
+  );
+  const data = await res.json();
+  const dataset: FileExplorerItemType[] = await data.result.datasets;
 
-export default function FileExplorerComponent({ items }: Props): ReactNode {
   return (
     <div className={styles["file-explorer"]}>
       <div className={styles.table}>
         <FileExplorerHeaderComponent />
-        {items.map((item) => (
+        {dataset.map((item) => (
           <FileExplorerRowComponent key={item.id} item={item} />
         ))}
       </div>

@@ -23,15 +23,15 @@ export default function FileExplorerRowComponent({ item }: Props): ReactNode {
   return (
     <div className={clsx(styles["file-explorer-row"], "body2")}>
       <div className={clsx(styles.cell, styles.title)}>
-        <FileExplorerThumbnailComponent extension={item.extension} />
+        <FileExplorerThumbnailComponent filename={item.filename} />
         {item.title}
       </div>
       <div className={styles.cell}>{formatFileSize(item.size)}</div>
-      <div className={styles.cell}>{item.extension}</div>
+      <div className={styles.cell}>{item.title}</div>
       <div className={clsx(styles.cell, styles.datetime)}>
-        <div>{dateFormatter.format(item.modifiedAt)}</div>
+        <div>{dateFormatter.format(new Date(item.updatedAt))}</div>
         <TypographyComponent variant="caption" color="text-secondary">
-          {hourMinuteFormatter.format(item.modifiedAt)}
+          {hourMinuteFormatter.format(new Date(item.updatedAt))}
         </TypographyComponent>
       </div>
       <div className={styles.cell}>
