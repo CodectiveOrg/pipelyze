@@ -1,8 +1,12 @@
-import React, { SVGProps } from "react";
+import React, { ReactNode, SVGProps } from "react";
 
 import styles from "./upload.module.css";
 
-export default function UploadIllustration(props: SVGProps<SVGSVGElement>) {
+type Props = SVGProps<SVGSVGElement>;
+
+export default function UploadIllustration({
+  ...otherProps
+}: Props): ReactNode {
   return (
     <svg
       className={styles.upload}
@@ -10,7 +14,7 @@ export default function UploadIllustration(props: SVGProps<SVGSVGElement>) {
       aria-hidden="true"
       viewBox="0 0 480 360"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...otherProps}
     >
       <defs>
         <linearGradient
