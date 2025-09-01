@@ -1,39 +1,52 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
+
+import { GetFileResponseDto } from "@/dto/response/get-file.response.dto";
 
 import prisma from "@/lib/prisma";
 
+import { withTryCatch } from "@/utils/api.utils";
+
 type GetFileContext = { params: Promise<{ id: string }> };
 
-export const GET = async (
-  _: NextRequest,
-  { params }: GetFileContext,
-): Promise<NextResponse> => {
-  const { id } = await params;
+export const GET = withTryCatch(
+  async (
+    _: NextRequest,
+    { params }: GetFileContext,
+  ): Promise<GetFileResponseDto> => {
+    const { id } = await params;
 
-  const dataset = await prisma.dataset.findUnique({
-    where: { id: parseInt(id) },
-  });
+    const dataset = await prisma.dataset.findUnique({
+      where: { id: parseInt(id) },
+    });
 
-  if (!dataset) {
-    return NextResponse.json({ error: "idk" });
-  }
+    if (!dataset) {
+      return {
+        message: "File doesn't exist.",
+      };
+    }
 
-  const filePath = path.join(process.env.DATASETS_PATH!, dataset.filename);
+    const filePath = path.join(process.env.DATASETS_PATH!, dataset.filename);
 
-  const filename = `${dataset.title}.xlsx`;
+    const filename = `${dataset.title}.xlsx`;
 
-  if (!fs.existsSync(filePath)) {
-    return NextResponse.json({ error: "not found" });
-  }
+    if (!fs.existsSync(filePath)) {
+      return {
+        message: "Not found.",
+      };
+    }
 
-  const fileBuffer = fs.readFileSync(filePath);
+    const fileBuffer = fs.readFileSync(filePath);
 
-  const headers = new Headers();
-  headers.set("Content-Type", "application/octet-stream");
-  headers.set("Content-Disposition", `attachment; filename="${filename}"`);
+    const headers = new Headers();
+    headers.set("Content-Type", "application/octet-stream");
+    headers.set("Content-Disposition", `attachment; filename="${filename}"`);
 
-  return new NextResponse(fileBuffer, { headers });
-};
+    return {
+      message: "File is ready to download.",
+      result: { file: fileBuffer, headers },
+    };
+  },
+);
